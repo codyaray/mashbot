@@ -1,22 +1,25 @@
 \documentclass{article}
 
 \usepackage{titlesec}
+\usepackage{hyperref}
 
 \title{Launch Report - Cycle 1}
 \author{Team Mashbot!}
 
+\newcommand{\subsecformat}[1]{\LARGE\MakeLowercase{#1}}
+\newcommand{\secformat}[1]{\Huge\MakeLowercase{#1}}
+% \so spaces out letters
 \titleformat{\section}[block]
-{\normalfont\fillast}
-{\scshape section}
-{}
-{\Huge
- \titlerule[1pt]}
+{\normalfont\scshape\filcenter}
+{\thesection}
+{1em}
+{\secformat }
 
-\titleformat{\subsection}[display]
-{\normalfont\fillast}
-{\scshape section}
-{}
-{\LARGE}
+\titleformat{\subsection}[block]
+{\normalfont\scshape\filright}
+{\thesection}
+{1em}
+{\subsecformat }
 
 \begin{document}
 \maketitle
@@ -59,10 +62,28 @@ rates per link published, useful for tracking the success of a
 campaign.
 
 \subsection*{Feature Highlights}
+\begin{itemize}
+  \item Full featured scheduling utility to allow users to plan far in advance their tweets, blog posts, image and video uploads, and status updates.
+  \item Extensible core that allows plugins for additional service support to be written in the future.
+  \item Full copy editing and approval process to adhere to common business practices with regard to marketing workflow.
+  \item CRUD support for all user owned content (where allowed by APIs)
+  \item Insight dashboard that provides a view on what is being talked about in social media, especially with regard to the business user's domain.
+\end{itemize}
 
 \subsection*{Sponsor, Advisor or Proxy User}
 
+\textbf{Sponsor:} No outside funding \\*
+\textbf{Advisor:} Jeffry Popyack \\*
+\textbf{Proxy User:} \\*
+
 \subsection*{Risks and Issues}
+
+\begin{itemize}
+  \item Lack of understanding of the problem space: none of the developers are in marketing directly.
+  \item Underscoping the project causing not all goals to be met.
+  \item Dealing with the old-school style (waterfall style) development that is dictated by the Senior Design plan.
+\end{itemize}
+
 \subsection*{The Project Team}
 \paragraph{Team Name:} Team Mashbot!
 \paragraph{Team Members and Roles:} \hspace*{\fill} \\*
@@ -95,8 +116,10 @@ None identified at this point.
   \item To expose a core API for web services that will allow developers to add support for new content aggregation without altering the existing code base.
   \item To build a platform that will support application agnostic support for webservice APIs, allowing developers to work with concepts of content genres rather than dealing with each individual service's content individually.
 \end{itemize}
-
 \subsection*{Schedule}
+
+See the attached ProjectPlan.html
+
 \subsection*{Current Status}
 
 User Stories have been created, technology has been selected, planning is underway.
