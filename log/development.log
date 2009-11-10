@@ -1,0 +1,164 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (6.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091110015538)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "single_access_token" varchar(255) NOT NULL, "perishable_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "failed_login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_login_at" datetime, "last_login_at" datetime, "current_login_ip" varchar(255), "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091110015538')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-11-09 21:12:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+
+NoMethodError (undefined method `require_no_user' for #<UserSessionsController:0x2633038>):
+  
+
+Rendered rescues/_trace (39.7ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-11-09 21:13:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering user_sessions/new
+Completed in 124ms (View: 27, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-11-09 21:13:57) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"sites@codyaray.com", "remember_me"=>"0"}, "action"=>"create", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'sites@codyaray.com') LIMIT 1[0m
+Rendering user_sessions/new
+Completed in 255ms (View: 5, DB: 1) | 200 OK [http://0.0.0.0/user_session]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-09 21:14:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-09 21:14:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (12.7ms)
+Completed in 75ms (View: 56, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-09 21:14:27) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"sites@codyaray.com"}, "commit"=>"Register", "action"=>"create", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'sites@codyaray.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '2b973794548aa8153c2bbe0d756d3d1d8e52b5a6aa9f3b2b2fb64315781bd07d4f5ccd315ab09be01e90f9340955776ea0aa3efa66ff10102ce1bc290d8be888') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '3W2CiZ_9sPYgQOUN68it') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (0.8ms)
+Completed in 58ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-09 21:14:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"sites@codyaray.com"}, "commit"=>"Register", "action"=>"create", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'sites@codyaray.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '9b66cc31d1707a19c01ee3249abe76dd4d9a4f1c3588629367338f1f1cf54a0116726aefe795533f2375216b634addf9a6407735f0e3190c9efef3c388952556') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'l8U9mitnP1SfKr4bQhMi') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (3.1ms)
+Completed in 36ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-09 21:15:14) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"codyaray", "email"=>"sites@codyaray.com"}, "commit"=>"Register", "action"=>"create", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"users"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'sites@codyaray.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'codyaray') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Xhw_qTyVyi7h2l7dg4yc') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Create (1.3ms)[0m   [0;1mINSERT INTO "users" ("last_login_at", "last_request_at", "updated_at", "crypted_password", "single_access_token", "perishable_token", "current_login_ip", "password_salt", "current_login_at", "failed_login_count", "persistence_token", "login_count", "login", "email", "last_login_ip", "created_at") VALUES(NULL, '2009-11-10 02:15:14', '2009-11-10 02:15:14', 'f1f80d0f644ea1c1fb919a19b3eea7f3d58de66daa487db945d3a9778a581efa64123f3abb5e0ca71a6e26976d2e712a88b2bbd805f80396177a7ad8ca39bf33', 'Xhw_qTyVyi7h2l7dg4yc', '78yscVz5qVpWWxQmOyQE', '127.0.0.1', 'rhmSlQ0S7L25QEeqt41V', '2009-11-10 02:15:14', 0, '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62', 1, 'codyaray', 'sites@codyaray.com', NULL, '2009-11-10 02:15:14')[0m
+Redirected to http://0.0.0.0:3000/account
+Completed in 238ms (DB: 2) | 302 Found [http://0.0.0.0/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-09 21:15:14) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'f1MNuJPGkj7_rn0oA-Dn', "last_request_at" = '2009-11-10 02:15:14', "updated_at" = '2009-11-10 02:15:14' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 46ms (View: 19, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-09 21:15:36) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '-NkbljaxLw9EpoVei7rc', "last_request_at" = '2009-11-10 02:15:36', "updated_at" = '2009-11-10 02:15:36' WHERE "id" = 1[0m
+Rendering users/edit
+Rendered users/_form (0.9ms)
+Completed in 99ms (View: 68, DB: 1) | 200 OK [http://0.0.0.0/account/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-11-09 21:15:39) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"codyaray", "email"=>"sites@codyaray.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'YDbCa8Qt91fJxxuuPDcj', "last_request_at" = '2009-11-10 02:15:39', "updated_at" = '2009-11-10 02:15:39' WHERE "id" = 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8e398970df3063ccb1b3bf73dc05f9a1944451996d5e85e6f29cf43c1b0a31ce1c69815ddcf0f802103d66de881971f8c3e1649e07a43aad51a1646df5f7d0c5' AND "users".id <> 1) LIMIT 1[0m
+Rendering users/edit
+Rendered users/_form (0.9ms)
+Completed in 40ms (View: 4, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-11-09 21:15:48) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"codyaray", "email"=>"sites@codyaray.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bzy76elFN7foPvM6lB/yhr5CPNeHRHv0c12cRTQOwyw=", "controller"=>"users"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'D2iMMso6wsmcq7cURH4Q', "last_request_at" = '2009-11-10 02:15:48', "updated_at" = '2009-11-10 02:15:48' WHERE "id" = 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'y0mRtmUF6zn7u_b64G27', "updated_at" = '2009-11-10 02:15:48' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/account
+Completed in 38ms (DB: 2) | 302 Found [http://0.0.0.0/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-09 21:15:48) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'OQlBaFP7CYZYplxWSKDY', "last_request_at" = '2009-11-10 02:15:48', "updated_at" = '2009-11-10 02:15:48' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 28ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-11-09 21:16:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'e4jwez-heeKfxMaQ5ngx', "last_request_at" = '2009-11-10 02:16:15', "updated_at" = '2009-11-10 02:16:15' WHERE "id" = 1[0m
+Redirected to http://0.0.0.0:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 25ms (DB: 1) | 302 Found [http://0.0.0.0/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-09 21:16:19) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '65dd15b9a3d9a6728fe1be63bd88483a707574276d6e46c5b7a74d5f2219a89f707f37e7ccda2b508853183264510b6d707c12d6edf45056a236b492fdb97e62') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'mA5yStyXOyWw1W49dpiW', "last_request_at" = '2009-11-10 02:16:19', "updated_at" = '2009-11-10 02:16:19' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 27ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/account]
