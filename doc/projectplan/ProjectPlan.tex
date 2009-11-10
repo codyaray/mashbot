@@ -1,29 +1,130 @@
-\documentclass{report}
+\documentclass{article}
 
-\usepackage{graphicx}
-\usepackage[pdftex]{hyperref}
+\usepackage{titlesec}
+\usepackage{hyperref}
 
-\title{Project Plan}
-\author{Team Mashbot}
+\title{Launch Report - Cycle 1}
+\author{Team Mashbot!}
+
+\newcommand{\subsecformat}[1]{\LARGE\MakeLowercase{#1}}
+\newcommand{\secformat}[1]{\Huge\MakeLowercase{#1}}
+% \so spaces out letters
+\titleformat{\section}[block]
+{\normalfont\scshape\filcenter}
+{\thesection}
+{1em}
+{\secformat }
+
+\titleformat{\subsection}[block]
+{\normalfont\scshape\filright}
+{\thesection}
+{1em}
+{\subsecformat }
 
 \begin{document}
-	\chapter{Abstract}
-		A service that connects to a set of social APIs and provides a unified
-		interface to push and pull data, using a plugin style architecture so
-		that support for arbitrary services can be added without changing
-		existing code.  This would be a core on which applications could be
-		built.  For instance, the application we intend to build on top of
-		this core is a tool for small and medium sized businesses to manage
-		social networking campaigns. Features include scheduling publish dates
-		for pieces of content, coordinated across services, as well as
-		allowing multiple users to manage "official" accounts.  Metrics would
-		also be generated, including information on clickthrough/conversion
-		rates per link published, useful for tracking the success of a
-		campaign.
+\maketitle
+\thispagestyle{empty}
+\vfill
+\begin{tabbing}
+\noindent
+\textbf{Instructor:} \hspace{3em} \= Lee Leitner \\*[.5em]
+\textbf{Team Members:} \> Andrew Gall \\*
+\> G. Nick D'Andrea \\*
+\> Cody Ray \\*
+\> Vito Salerno \\*
+\> Josiah Kiehl \\*[.5em]
+\textbf{Cycle:} \> 1  \\*[.5em]
+\textbf{Date Submitted:} \> \today  \\
+\end{tabbing}
+\cleardoublepage
 
-	\chapter{Logo}
-		\includegraphics{logo.png}	
+\section*{Launch Report - Cycle 1}
 
-	\chapter{Project Plan}
-		\url{http://mashbot.net/projectplan.html}
+This report documents the initial launch of the project.  It includes the product and team names, and an overview description of the product.  It also includes a summary of issues related to the product and to the team, and basic elements of a plan for cycle 1.
+
+\section*{The Product}
+
+\paragraph*{Product Name:} Mashbot!
+
+\subsection*{Overview}
+
+A service that connects to a set of social APIs and provides a unified
+interface to push and pull data, using a plugin style architecture so
+that support for arbitrary services can be added without changing
+existing code.  This would be a core on which applications could be
+built.  For instance, the application we intend to build on top of
+this core is a tool for small and medium sized businesses to manage
+social networking campaigns. Features include scheduling publish dates
+for pieces of content, coordinated across services, as well as
+allowing multiple users to manage ``official'' accounts.  Metrics would
+also be generated, including information on clickthrough/conversion
+rates per link published, useful for tracking the success of a
+campaign.
+
+\subsection*{Feature Highlights}
+\begin{itemize}
+  \item Full featured scheduling utility to allow users to plan far in advance their tweets, blog posts, image and video uploads, and status updates.
+  \item Extensible core that allows plugins for additional service support to be written in the future.
+  \item Full copy editing and approval process to adhere to common business practices with regard to marketing workflow.
+  \item CRUD support for all user owned content (where allowed by APIs)
+  \item Insight dashboard that provides a view on what is being talked about in social media, especially with regard to the business user's domain.
+\end{itemize}
+
+\subsection*{Sponsor, Advisor or Proxy User}
+
+\textbf{Sponsor:} No outside funding \\*
+\textbf{Advisor:} Jeffry Popyack \\*
+\textbf{Proxy User:} \\*
+
+\subsection*{Risks and Issues}
+
+\begin{itemize}
+  \item Lack of understanding of the problem space: none of the developers are in marketing directly.
+  \item Underscoping the project causing not all goals to be met.
+  \item Dealing with the old-school style (waterfall style) development that is dictated by the Senior Design plan.
+\end{itemize}
+
+\subsection*{The Project Team}
+\paragraph{Team Name:} Team Mashbot!
+\paragraph{Team Members and Roles:} \hspace*{\fill} \\*
+\begin{tabular}{|l|l|l|l|}
+\hline
+Name & Major & Role & Comments \\ \hline
+Andrew Gall & Software Engineering & Design, Scope, Implement, Test & a.k.a Peaches \\ \hline
+G. Nick D'Andrea & Computer Science & \hspace*{\fill}''\hspace*{\fill} &  \\ \hline
+Cody Ray & Electrical Engineering & \hspace*{\fill}''\hspace*{\fill} &  \\ \hline
+Vito Salerno & Computer Science & \hspace*{\fill}''\hspace*{\fill} &  \\ \hline
+Josiah Kiehl & Software Engineering & \hspace*{\fill}''\hspace*{\fill} & \\ \hline
+\end{tabular}
+
+\paragraph{Team Communication}
+\begin{itemize}
+  \item Google Group (List Serv)
+  \item Github Wiki
+  \item gChat Instant Messaging
+\end{itemize}
+\paragraph{Team Issues}
+
+None identified at this point.
+
+\section*{Project Planning}
+
+\subsection*{Objectives}
+
+\begin{itemize}
+  \item To provide a tool that minimizes the time commitment for a small business to utilize free services on the internet for marketing and online persona purposes.
+  \item To expose a core API for web services that will allow developers to add support for new content aggregation without altering the existing code base.
+  \item To build a platform that will support application agnostic support for webservice APIs, allowing developers to work with concepts of content genres rather than dealing with each individual service's content individually.
+\end{itemize}
+\subsection*{Schedule}
+
+See the attached ProjectPlan.html
+
+\subsection*{Current Status}
+
+User Stories have been created, technology has been selected, planning is underway.
+
+
+
+
 \end{document}
