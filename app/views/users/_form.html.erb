@@ -1,3 +1,4 @@
+<% if @user.openid_identifier.blank? %>
 <%= form.label :login %><br />
 <%= form.text_field :login %><br />
 <br />
@@ -9,3 +10,9 @@
 <br />
 <%= form.label :password_confirmation %><br />
 <%= form.password_field :password_confirmation %><br />
+
+<h2>Or use OpenID</h2>
+<% end %>
+
+<%= form.label :openid_identifier, "OpenID URL" %><br />
+<%= form.text_field :openid_identifier %><br />
