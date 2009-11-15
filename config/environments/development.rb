@@ -15,3 +15,7 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+# displays footnotes in your application for easy debugging, such as 
+# sessions, request parameters, cookies, filter chain, routes, queries, etc.
+config.gem "rails-footnotes", :source => "http://gemcutter.org"
