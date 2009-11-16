@@ -113,6 +113,67 @@
 \section{Specific Requirements}
 	\subsection{External Interface Requirements}
 	\subsection{Functional Requirements}
+		\subsubsection{User Accounts}
+			\begin{itemize}
+				\item \bf{User Account Types and Permissions} The system categorizes users on the basis
+				of roles and privileges. Within these roles, the system also categorizes users based on
+			 	the roles that they have within individual products.	These are referred to as user 
+				account roles.
+				\begin{itemize}
+					\item Mashbot! Campaigns supports the following account roles:
+						\begin{enumerate}
+							\item Content Approver
+							\item Content Creator
+							\item Content Editor
+							\item Content Release Scheduler
+							\item Content Responder
+							\item Product Administrator
+							\item System Administrator
+						\end{enumerate}
+					\item A user may possess more than one role.
+					\item Roles reflect actions that can be performed by a user.
+					\item Roles can be assigned to a user account for individual products.
+					\item \bf{Content Approver} can approve for release content which has been
+					submitted for approval
+					\item \bf{Content Creators} may create new content or import existing
+					content into the system. They may also submit this content for approval.
+					\item \bf{Content Editor} may edit content which has already been posted to external
+					services.
+					\item \bf{Content Release Scheduler} may schedule or immediately initiate the release 
+					to external services of content which has already been submitted and approved.
+					\item \bf{Content Responder} may respond to responses which have been made to the posted 
+					content within the external services.
+				 	\item \bf{Product Administrator} is responsible for setting individual roles for a product.
+						\begin{itemize}
+							\item There must be at least one product administrator for each product.
+						\end{itemize}	
+					\item \bf{System Administrator} can perform any of the roles in the system for any product.
+					Additionally, they can set any system-wide settings which effect all products in the system.
+				\end{itemize}
+			\end{itemize}
+
+		\subsubsection{Products}
+			\begin{itemize}
+				\item \bf{Product Types} The system categorizes products based on the type of content they push.
+			 		These are referred to as product content types.
+				\begin{itemize}
+					\item Mashbot! Campaigns support the following product content types:
+						\begin{enumerate}
+							\item Blog
+							\item Pictures
+							\item Status
+							\item Video
+						\end{enumerate}
+					\item A product may possess more than one content type.
+					\item \bf{Blog} may be added, removed, edited, and replies may be collected and responded to. 
+					\item \bf{Pictures} may be added, removed, and replies may be collected and responded to.
+					\item \bf{Status} may be added, removed, edited, and replies may be collected and responded to. 
+					\item \bf{Video} may be added, removed, and replies may be collected and responded to.
+				\end{itemize}	
+			\end{itemize}
+		\subsubsection{Marketing Campaigns}
+		\subsubsection{External Service Accounts}
+
 	\subsection{Security Requirements}
 	\subsection{Design Constraints}
 	\subsection{Software System Attributes}
