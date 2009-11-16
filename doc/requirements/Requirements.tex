@@ -1,6 +1,16 @@
 \documentclass{article}
 \begin{document}
 
+\title{Software Requirements Specification for Mashbot} 
+\author{George D'Andrea \and \and Andrew Gall \and Josiah Kiehl \and
+  Cody Ray \and Vito Salerno}
+\date{\today}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\tableofcontents
+
 \section{Introduction}
 
 \subsection{Purpose}
@@ -10,20 +20,33 @@
 
 \section{Overall Description}
 	\subsection{Product Perspective}
-		For many startups and small businesses, marketing / customer service
-		and business / development efforts compete for scarce resources.
-		Furthermore, early stage startups often have small or non-existent
-		marketing budgets, especially in resource-hungry product-based
-		startups.  Although the plethora of widely available and affordable
-		communications technology (e.g., social media, VoIP, streaming video,
-			etc.) theoretically reduces both capital and operating
-		expenditures related to marketing, the quantity of such technologies
-		and services effectively creates an "opportunity overload" making the
-		process of maintaining a focused and effective marketing campaign more
-		difficult.  Furthermore, with the number of services, technologies,
-		and "specialists" arriving each day, its nearly impossible to keep up
-		with all the trends much less to fully take advantage of each or even
-		monitor them all adequately! As you can see, the widespread adoption of communications technology is a double-edged sword---there are many more avenues for marketing and customer service, but it is much more difficult to effectively apply reputation management strategies or adequate customer service through all channels. This project proposes to build a tool to increase the effectiveness and efficiency of marketing campaigns and customer service for small to medium businesses.  
+		For many startups and small businesses, marketing /
+                customer service and business / development efforts
+                compete for scarce resources.  Furthermore, early
+                stage startups often have small or non-existent
+                marketing budgets, especially in resource-hungry
+                product-based startups.  Although the plethora of
+                widely available and affordable communications
+                technology (e.g., social media, VoIP, streaming video,
+                etc.) theoretically reduces both capital and operating
+                expenditures related to marketing, the quantity of
+                such technologies and services effectively creates an
+                "opportunity overload" making the process of
+                maintaining a focused and effective marketing campaign
+                more difficult.  Furthermore, with the number of
+                services, technologies, and "specialists" arriving
+                each day, its nearly impossible to keep up with all
+                the trends much less to fully take advantage of each
+                or even monitor them all adequately! As you can see,
+                the widespread adoption of communications technology
+                is a double-edged sword---there are many more avenues
+                for marketing and customer service, but it is much
+                more difficult to effectively apply reputation
+                management strategies or adequate customer service
+                through all channels. This project proposes to build a
+                tool to increase the effectiveness and efficiency of
+                marketing campaigns and customer service for small to
+                medium businesses.
 		\subsubsection{System Interfaces}
 			Mashbot combines several components to provide the functionality
 			required.
@@ -65,6 +88,27 @@
         the basic capabilities of social media.
         
 	\subsection{Requirements Apportioning}
+        \begin{tabular}{|c|p{4in}|}
+          \hline
+          \textbf{Priority} & \textbf{Description} \\
+          \hline \hline
+          1 & Mashbot can not be released unless it satisfies these
+              requirements. \\
+          \hline
+          2 & Mashbot may be initially released without satisfying these
+              requirements. Having these requirements unfulfilled must
+              not create dangers to the system. They should be implemented in the next
+              minor release. \\
+          \hline
+          3 & These requirements are not expected to be fulfilled by
+              the initial release of Mashbot, but should be
+              implemented in the next major release. \\
+          \hline
+          4 & These requirements are outside the current scope of the
+              project, but are included to exhibit how our software
+              will improve in the future. \\
+          \hline
+        \end{tabular}
 
 \section{Specific Requirements}
 	\subsection{External Interface Requirements}
@@ -108,3 +152,5 @@ Campaigns
 
 \end{document}
 
+
+% LocalWords:  Mashbot
