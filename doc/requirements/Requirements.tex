@@ -13,13 +13,15 @@
 
 \section{Introduction}
 
-\subsection{Purpose}
-\subsection{Scope}
-\subsection{Glossary}
-\subsection{Overview}
+\subsection{Purpose} % JK
+This document is the general overview of the requirements for the Mashbot project.  The sections below are specifically ``what'' is to be done as opposed to ``how'' it is to be done.
+\subsection{Scope} % JK
+This document covers a high level overview of what features a successful project delivery will include.
+\subsection{Glossary} % Everyone
+\subsection{Overview} % CR
 
 \section{Overall Description}
-	\subsection{Product Perspective}
+     \subsection{Product Perspective}
 		For many startups and small businesses, marketing /
                 customer service and business / development efforts
                 compete for scarce resources.  Furthermore, early
@@ -47,33 +49,37 @@
                 tool to increase the effectiveness and efficiency of
                 marketing campaigns and customer service for small to
                 medium businesses.
-		\subsubsection{System Interfaces}
+		\subsubsection{System Interfaces} % VS
 			Mashbot combines several components to provide the functionality
 			required.
 			\begin{itemize}
-				\item[Authentication]
-				\item[Campaign Manager Web Interface]
-				\item[Core!]
-				\item[Database]
+				\item \textbf{Authentication}
+				\item \textbf{Campaign Manager Web Interface}
+				\item \textbf{Publishing and Aggregation
+                                  Platform}
+				\item \textbf{Database}
 			\end{itemize}
-		\subsubsection{User Interface}
-			The user interface consists of a web front end
-			with tabs to separate the various workflow areas. To
-			create content, the user is provided with a calendar
-			scheduling tool, and a content editor.  Additionally,
-			there is a monitoring dashboard which gives the user a
-			view on responses to the content in any given campaign.
-		\subsubsection{Hardware Interfaces}
+		\subsubsection{User Interface} % JK
+                The user interface consists of a web front end
+                with tabs to separate the various workflow areas. To
+                create content, the user is provided with a calendar
+                scheduling tool, and a content editor.  Additionally,
+                there is a monitoring dashboard which gives the user a
+                view on responses to the content in any given campaign.
+                Finally, there is an explore view that gives the user a
+                portal with which they can keep tabs on topics of 
+                interest in social media.
+		\subsubsection{Hardware Interfaces} % VS
                 It's a freaking web application.
-		\subsubsection{Software Interfaces}
+		\subsubsection{Software Interfaces} % VS
                 It's a freaking web application.
-		\subsubsection{Communications Interfaces}
+		\subsubsection{Communications Interfaces} % VS
                 It's a freaking web application.
-		\subsubsection{Memory Constraints}
+		\subsubsection{Memory Constraints} % VS
                 Server must not crash.
-		\subsubsection{Site Adaptation Requirements}
+		\subsubsection{Site Adaptation Requirements} % VS
                 TODO: Ask Popyack if needed.
-	\subsection{Product Functions}
+	\subsection{Product Functions} % AG
         Mashbot should be able to:
         \begin{enumerate}
           \item Schedule content for various services to be
@@ -83,11 +89,11 @@
           \item Maintain users and approvers of content
           \item Set up keyword alerts for ``watched'' services
         \end{enumerate}
-	\subsection{User Characteristics}
+	\subsection{User Characteristics} % AG
         The target user is a small to medium business employee who understands
         the basic capabilities of social media.
         
-	\subsection{Requirements Apportioning}
+	\subsection{Requirements Apportioning} % VS
         \begin{tabular}{|c|p{4in}|}
           \hline
           \textbf{Priority} & \textbf{Description} \\
@@ -113,9 +119,9 @@
 \section{Specific Requirements}
 	\subsection{External Interface Requirements}
 	\subsection{Functional Requirements}
-		\subsubsection{User Accounts}
+		\subsubsection{User Accounts} % AG
 			\begin{itemize}
-				\item \bf{User Account Types and Permissions} The system categorizes users on the basis
+				\item \textbf{User Account Types and Permissions} The system categorizes users on the basis
 				of roles and privileges. Within these roles, the system also categorizes users based on
 			 	the roles that they have within individual products.	These are referred to as user 
 				account roles.
@@ -133,28 +139,28 @@
 					\item A user may possess more than one role.
 					\item Roles reflect actions that can be performed by a user.
 					\item Roles can be assigned to a user account for individual products.
-					\item \bf{Content Approver} can approve for release content which has been
+					\item \textbf{Content Approver} can approve for release content which has been
 					submitted for approval
-					\item \bf{Content Creators} may create new content or import existing
+					\item \textbf{Content Creators} may create new content or import existing
 					content into the system. They may also submit this content for approval.
-					\item \bf{Content Editor} may edit content which has already been posted to external
+					\item \textbf{Content Editor} may edit content which has already been posted to external
 					services.
-					\item \bf{Content Release Scheduler} may schedule or immediately initiate the release 
+					\item \textbf{Content Release Scheduler} may schedule or immediately initiate the release 
 					to external services of content which has already been submitted and approved.
-					\item \bf{Content Responder} may respond to responses which have been made to the posted 
+					\item \textbf{Content Responder} may respond to responses which have been made to the posted 
 					content within the external services.
-				 	\item \bf{Product Administrator} is responsible for setting individual roles for a product.
+				 	\item \textbf{Product Administrator} is responsible for setting individual roles for a product.
 						\begin{itemize}
 							\item There must be at least one product administrator for each product.
 						\end{itemize}	
-					\item \bf{System Administrator} can perform any of the roles in the system for any product.
+					\item \textbf{System Administrator} can perform any of the roles in the system for any product.
 					Additionally, they can set any system-wide settings which effect all products in the system.
 				\end{itemize}
 			\end{itemize}
 
-		\subsubsection{Products}
+		\subsubsection{Products} % AG
 			\begin{itemize}
-				\item \bf{Product Types} The system categorizes products based on the type of content they push.
+				\item \textbf{Product Types} The system categorizes products based on the type of content they push.
 			 		These are referred to as product content types.
 				\begin{itemize}
 					\item Mashbot! Campaigns support the following product content types:
@@ -165,50 +171,52 @@
 							\item Video
 						\end{enumerate}
 					\item A product may possess more than one content type.
-					\item \bf{Blog} may be added, removed, edited, and replies may be collected and responded to. 
-					\item \bf{Pictures} may be added, removed, and replies may be collected and responded to.
-					\item \bf{Status} may be added, removed, edited, and replies may be collected and responded to. 
-					\item \bf{Video} may be added, removed, and replies may be collected and responded to.
+					\item \textbf{Blog} may be added, removed, edited, and replies may be collected and responded to. 
+					\item \textbf{Pictures} may be added, removed, and replies may be collected and responded to.
+					\item \textbf{Status} may be added, removed, edited, and replies may be collected and responded to. 
+					\item \textbf{Video} may be added, removed, and replies may be collected and responded to.
 				\end{itemize}	
 			\end{itemize}
-		\subsubsection{Marketing Campaigns}
-		\subsubsection{External Service Accounts}
+		\subsubsection{Marketing Campaigns} % JK
+                A campaign is a collection of content that is scheduled to be published by the company using mashbot.
+                Example: A series of tweets, blog posts and you tube videos need to be published for the release of a Product X.  These are all added to a Campaign.  The user may then use the Campaign's calendar to schedule these pieces of content for publishing 
+		\subsubsection{External Service Accounts} % JK
 
-	\subsection{Security Requirements}
-	\subsection{Design Constraints}
-	\subsection{Software System Attributes}
-	\subsection{User Interface}
+	\subsection{Security Requirements} % VS 
+	\subsection{Design Constraints} % CR
+	\subsection{Software System Attributes} % AG
+	\subsection{User Interface} % JK
 
-\section{Preliminary Analysis}
+\section{Preliminary Analysis} % JK
 
-\section{Use Cases}
+\section{Use Cases} % CR
 
-\section{IO}
+%% \section{IO}
 
-Inputs
-  CRUD
-  Types
-    Pictures
-    Status/Tweet
-    Blog
-    Video
+%% Inputs
+%%   CRUD
+%%   Types
+%%     Pictures
+%%     Status/Tweet
+%%     Blog
+%%     Video
 
-Users
-  Name
-  Email
-  Company
-  Permissions
-  Accounts
+%% Users
+%%   Name
+%%   Email
+%%   Company
+%%   Permissions
+%%   Accounts
     
-Account
-  What a company buys
-  Allows user/campaign creation
+%% Account
+%%   What a company buys
+%%   Allows user/campaign creation
   
-Campaigns
-  Name
-  Schedule
-  Content
-    Distribution Channels
+%% Campaigns
+%%   Name
+%%   Schedule
+%%   Content
+%%     Distribution Channels
 
 
 \end{document}
