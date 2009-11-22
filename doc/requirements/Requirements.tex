@@ -194,7 +194,27 @@ This document covers a high level overview of what features a successful project
 	\subsection{Design Constraints} % CR
 	\subsection{Software System Attributes} % AG
 	\subsection{User Interface} % JK
-        The user interface is to be clean and crisp. There is to be a tabbed navigation bar that unifies the sitewide navigation, as well as module specific navigation as needed.  
+        The user interface is to be clean and crisp. There is to be a tabbed navigation bar that unifies the sitewide navigation, as well as module specific navigation as needed.
+        Tabs:
+        \begin{itemize}
+        \item Dashboard
+        \item Create
+        \item Schedule
+        \item Explore
+        \end{itemize}
+        \subsubsection{Dashboard}
+        The dashboard consists of graphs and charts to give the user a quick view on how their campaigns are performing.
+        Metrics include:
+        \begin{itemize}
+        \item Clickthrough rate
+        \item Page Views
+        \item Number of Comments
+        \end{itemize}
+        Service plugins can define additional specialized metrics to track, as well, for instance ``retweets'' for Twitter.
+        \subsubsection{Create}
+        This view allows users to create campaigns and fill them with content.  This view is also used when users need to edit an existing campaign.
+        \paragraph{Add content}
+        A user can add content via the add content button near the top of the view.  This will prompt the user to select the content type, which is populated by the services the user currently has access to via credentials stored in the system. This will create a section in the main part of the view that allows the user to add individual elements of that content type, each individually scheduled.  Each row line item will allow the user to schedule, edit, or delete that content type.
 
 \section{Preliminary Analysis} % JK
 
