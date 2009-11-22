@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{graphics}
 \begin{document}
 
 \title{Software Requirements Specification for Mashbot} 
@@ -286,13 +287,20 @@ delivery will include.
         The calendar allows the user to manage when content goes live, and gives a visual representation of the actions taken on content.  It is clear when content goes live and when (if) it is deleted.  The user can page from month to month to schedule content to any day desired.
         \subsubsection{Explore}
         This view allows users to get a pulse on what information social media contains.  This includes the ability to set up monitored searches for services that support keyword search via api.  This also will aggregate data gathered from comments on content that has been published as part of a given campaign
-
         \paragraph{NICK: What other sort of data mining could we do here?}
-
+        TODO: Mockup for Explore, once we flesh out what this is supposed to be.
+        \clearpage
+        \includegraphics[width=\textwidth]{../mockups/dashboard.png}
+        \clearpage
+        \includegraphics[width=\textwidth]{../mockups/create.png}
+        \clearpage
+        \includegraphics[width=\textwidth]{../mockups/schedule.png}
+        \clearpage
 \section{Preliminary Analysis} % JK
 Mashbot is a data driven web application.  It aggregates data from various web services.  This figure shows the flow of data through the web application.
 There is a core that handles all requests for various data needed by the appluication.  Authentication information is retrieved from the database and used to request content from services.
-
+\includegraphics[width=\textwidth]{../mockups/dataflow.png}
+\clearpage
 \section{Use Cases} % CR
 
 %% \section{IO}
