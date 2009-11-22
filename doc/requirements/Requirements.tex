@@ -14,9 +14,12 @@
 \section{Introduction}
 
 \subsection{Purpose} % JK
-This document is the general overview of the requirements for the Mashbot project.  The sections below are specifically ``what'' is to be done as opposed to ``how'' it is to be done.
+This document is the general overview of the requirements for the Mashbot 
+project.  The sections below are specifically ``what'' is to be done as opposed 
+to ``how'' it is to be done.
 \subsection{Scope} % JK
-This document covers a high level overview of what features a successful project delivery will include.
+This document covers a high level overview of what features a successful project 
+delivery will include.
 \subsection{Glossary} % Everyone
 \subsection{Overview} % CR
 
@@ -133,50 +136,107 @@ This document covers a high level overview of what features a successful project
 							\item Content Editor
 							\item Content Release Scheduler
 							\item Content Responder
-							\item Product Administrator
+							\item Group Administrator
 							\item System Administrator
 						\end{enumerate}
 					\item A user may possess more than one role.
 					\item Roles reflect actions that can be performed by a user.
 					\item Roles can be assigned to a user account for individual products.
 					\item \textbf{Content Approver} can approve for release content which has been
-					submitted for approval
-					\item \textbf{Content Creators} may create new content or import existing
-					content into the system. They may also submit this content for approval.
+					submitted for approval \textbf{Priority 4}
+					\item \textbf{Content Creators} may create new content or 
+					import existing content into the system. They may also 
+					submit this content for approval. \textbf{Priority 4}
 					\item \textbf{Content Editor} may edit content which has already been posted to external
-					services.
-					\item \textbf{Content Release Scheduler} may schedule or immediately initiate the release 
-					to external services of content which has already been submitted and approved.
-					\item \textbf{Content Responder} may respond to responses which have been made to the posted 
-					content within the external services.
-				 	\item \textbf{Product Administrator} is responsible for setting individual roles for a product.
-						\begin{itemize}
-							\item There must be at least one product administrator for each product.
-						\end{itemize}	
+					services. \textbf{Priority 4} 
+					\item \textbf{Content Release Scheduler} may schedule or 
+					immediately initiate the release to external services of 
+					content which has already been submitted and 
+					approved.\textbf{Priority 4}  
+					\item \textbf{Content Responder} may respond to responses 
+					which have been made to the posted content within the 
+					external services.  \textbf{Priority 4} 
+					
+					\item \textbf{Worker} have permission to perform any 
+					of the subsidiary roles (Content Approver, Content Creator, 
+						Content Editor, Content Release Scheduler, and Content 
+						Responder) for a particular group.  \textbf{Priority 1}
+					
+					\item \textbf{Group Administrator} has all the same 
+					permissions as a product worker and can create new product
+					worker accounts in groups that it owns.\textbf{Priority 1}  
+					
+					\begin{itemize}
+						\item There must be at least one product administrator 
+						for each group. \textbf{Priority 1}
+					\end{itemize}
+
 					\item \textbf{System Administrator} can perform any of the roles in the system for any product.
-					Additionally, they can set any system-wide settings which effect all products in the system.
+					Additionally, they can create Group Administrator 
+				accounts.
 				\end{itemize}
+
+				\item \textbf{User Account Creation} - New user accounts can be 
+				created with the product.
+					\begin{itemize}
+						\item The system may contain any number of user 
+						accounts.
+						\item The system allows only anyone to create new 
+						Group Administrator accounts.
+						\item The system allows only a Group Administrator to 
+						create new Worker accounts with membership in 
+						its groups.
+						\item The system allows anyone to create a new Product 
+						Worker account with no group membership.
+						\item Certain pieces of information are required to 
+						create new account of any kind.
+						\item The following information is required for any new 
+						user account:
+							\begin{itemize}
+								\item Username
+								\item Password
+								\item Name
+								\item Email Address
+								\item Group Membership
+								\item User Account Type
+							\end{itemize}	
+				
+					\end{itemize}
+				\item \textbf{User Account Modification} The system allows users 
+				to modify their accounts once created. The system also allows 
+				Group Administrators to grant existing Workers 
+				\begin{itemize}
+					\item The system requires that a user have logged in the 
+					proper username and password before modifications can be 
+					made.
+					\item The following user account information is modifiable 
+					by all user types:
+						\begin{itemize}
+							\item Password
+							\item Email Address
+							\item Name
+						\end{itemize}
+
+					\item The following user account information is modifiable
+					by all Group Administrators for groups in which they are 
+						members and by the System Adminstrator for all groups:
+						\begin{itemize}
+							\item Group Membership
+						\end{itemize}
+
+					\item The following user account information is modifiable
+					by the System Administrator only:
+						\begin{itemize}
+							\item Username
+							\item User Account Type
+						\end{itemize}
+				\end{itemize}
+				
+				\item \textbf{User Account Deactivation} 
+						
+
 			\end{itemize}
 
-		\subsubsection{Products} % AG
-			\begin{itemize}
-				\item \textbf{Product Types} The system categorizes products based on the type of content they push.
-			 		These are referred to as product content types.
-				\begin{itemize}
-					\item Mashbot! Campaigns support the following product content types:
-						\begin{enumerate}
-							\item Blog
-							\item Pictures
-							\item Status
-							\item Video
-						\end{enumerate}
-					\item A product may possess more than one content type.
-					\item \textbf{Blog} may be added, removed, edited, and replies may be collected and responded to. 
-					\item \textbf{Pictures} may be added, removed, and replies may be collected and responded to.
-					\item \textbf{Status} may be added, removed, edited, and replies may be collected and responded to. 
-					\item \textbf{Video} may be added, removed, and replies may be collected and responded to.
-				\end{itemize}	
-			\end{itemize}
 		\subsubsection{Marketing Campaigns} % JK
                 A campaign is a collection of content that is scheduled to be published by the company using mashbot.
                 \begin{itemize}
@@ -187,7 +247,10 @@ This document covers a high level overview of what features a successful project
                 \end{itemize}
                 A campaign's schedule is a set of dates and times that a piece of content has some action taken upon in.  Any action can be scheduled: post, edit, delete.
                 
-                Example: A series of tweets, blog posts and you tube videos need to be published for the release of a Product X.  These are all added to a Campaign.  The user may then use the Campaign's calendar to schedule these pieces of content for publishing
+				Erexample: A series of tweets, blog posts and you tube videos 
+		need to be published for the release of a Product X.  These are all 
+		added to a Campaign.  The user may then use the Campaign's calendar to 
+		schedule these pieces of content for publishing
 		\subsubsection{External Service Accounts} % JK
                 An external service account is a set of credentials and/or an authentication token which allows Mashbot to connect to services.  The requirements for ESAs vary from service to service, where one service might provide token based authentication where another will provide only username/password.
 	\subsection{Security Requirements} % VS 
