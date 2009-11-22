@@ -303,7 +303,32 @@ delivery will include.
 		schedule these pieces of content for publishing
 		\subsubsection{External Service Accounts} % JK
                 An external service account is a set of credentials and/or an authentication token which allows Mashbot to connect to services.  The requirements for ESAs vary from service to service, where one service might provide token based authentication where another will provide only username/password.
-	\subsection{Security Requirements} % VS 
+	\subsection{Security Requirements} % VS
+        \begin{itemize}
+        \item The system encrypts data over a direct connection
+          between the web client and the server.  Priority 1
+        \item The system allows for the backup of the data system
+          to local or remote non-volatile storage systems.
+          Incremental backups should not create outages and full
+          backups do not interfere with user interaction for more than
+          10 minutes. Priority 1
+        \item The system is configurable to e-mail warnings about
+          multiple failed login attempts from the same user. These
+          warnings are sent to the System Administrator. Other
+          security risks of this type are the responsibility of the
+          System Administrator. Priority 3
+        \item The system allows only valid users to log into the
+          system. A valid user is one which has not been disabled or
+          deleted and exists on the system. Priority 1
+        \item To log onto the system, a user provides their valid
+          username and password. Priority 1
+        \item The system uses the configured authentication
+          module. The authentication method is configurable by the
+          System Administrator. Priority 1
+        \item The system allows the System Administrator to
+          configure a timeout after which a user is automatically
+          logged out of Mashbot. Priority 1
+        \end{itemize}
 	\subsection{Design Constraints} % CR
 	\subsection{Software System Attributes} % AG
 	\subsection{User Interface} % JK
