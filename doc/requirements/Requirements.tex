@@ -53,11 +53,23 @@ This document covers a high level overview of what features a successful project
 			Mashbot combines several components to provide the functionality
 			required.
 			\begin{itemize}
-				\item \textbf{Authentication}
-				\item \textbf{Campaign Manager Web Interface}
+				\item \textbf{Authentication} Mashbot
+                                  will allow the use of external
+                                  authentication modules for user
+                                  login. Mashbot will also provide an
+                                  internal authentication mechanism
+                                  in case an external module is
+                                  unavailable.
+				\item \textbf{Campaign Manager Web
+                                  Client} Mashbot has an interface for
+                                  a web client which processes user's
+                                  commands to interact with campaigns.
 				\item \textbf{Publishing and Aggregation
                                   Platform}
-				\item \textbf{Database}
+				\item \textbf{Database} Mashbot has an
+                                  interface to a database which allows
+                                  for the storage and retrieval of
+                                  data related to accounts and campaigns.
 			\end{itemize}
 		\subsubsection{User Interface} % JK
                 The user interface consists of a web front end
@@ -70,15 +82,53 @@ This document covers a high level overview of what features a successful project
                 portal with which they can keep tabs on topics of 
                 interest in social media.
 		\subsubsection{Hardware Interfaces} % VS
-                It's a freaking web application.
+                The Mashbot web client runs on any computer hardware meeting
+                the following criteria:
+                \begin{itemize}
+                  \item Capable of connecting to the Internet
+                  \item Capable of running a modern HTTP 1.1 web browser
+                  \item Includes a keyboard and a pointing device
+                  \item Includes writable volatile storage
+                \end{itemize}
+                The Mashbot server runs on any computer hardware meeting
+                the following criteria:
+                \begin{itemize}
+                \item Capable of connecting to the Internet as a server.
+                \item Capable of interfacing with modern database software.
+                \item Capable of running a modern suite of networking software.
+
 		\subsubsection{Software Interfaces} % VS
-                It's a freaking web application.
+                The Mashbot software integrates some external software
+                to provide functionality.
+                \begin{itemize}
+                \item \textbf{Authentication} Mashbot authenticates users
+                  against it's internal user database.
+                \item \textbf{Campaign Manager Web Client} Mashbot
+                  interfaces with the user’s web browser and expects
+                  that it is capable of HTTP 1.1 and HTML 4.0.
+                \item \textbf{Database} Mashbot software interfaces
+                  with an existing database software.
+                \item \textbf{Server} The Mashbot server software runs
+                  on an operating system that supports serving dynamic
+                  web pages using encryption and is capable of
+                  communicating with the Internet.
+                \end{itemize}
 		\subsubsection{Communications Interfaces} % VS
-                It's a freaking web application.
+                   Communication between the web client and the
+                   server software is facilitated by common network
+                   protocols. This allows compatibility with the
+                   majority of our user's machines.  Data will
+                   be encrypted using TLS and HTTP/1.1. The use of
+                   these protocols requires the ability for the
+                   systems to communicate using TCP/IP network stacks.
+                   The Mashbot system sends emails using SMTP.
+
 		\subsubsection{Memory Constraints} % VS
-                Server must not crash.
-		\subsubsection{Site Adaptation Requirements} % VS
-                TODO: Ask Popyack if needed.
+                The Mashbot server requires no greater than 1 gigabyte
+                of RAM memory. The web client requires no more than
+                the minimum memory a modern desktop computer commonly
+                has, approximately 256 megabytes of RAM.
+
 	\subsection{Product Functions} % AG
         Mashbot should be able to:
         \begin{enumerate}
