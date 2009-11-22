@@ -1,4 +1,5 @@
-\documentclass{article}
+\documentclass{report}
+\usepackage{graphicx}
 \begin{document}
 
 \title{Software Requirements Specification for Mashbot} 
@@ -56,11 +57,23 @@ delivery will include.
 			Mashbot combines several components to provide the functionality
 			required.
 			\begin{itemize}
-				\item \textbf{Authentication}
-				\item \textbf{Campaign Manager Web Interface}
+				\item \textbf{Authentication} Mashbot
+                                  will allow the use of external
+                                  authentication modules for user
+                                  login. Mashbot will also provide an
+                                  internal authentication mechanism
+                                  in case an external module is
+                                  unavailable.
+				\item \textbf{Campaign Manager Web
+                                  Client} Mashbot has an interface for
+                                  a web client which processes user's
+                                  commands to interact with campaigns.
 				\item \textbf{Publishing and Aggregation
                                   Platform}
-				\item \textbf{Database}
+				\item \textbf{Database} Mashbot has an
+                                  interface to a database which allows
+                                  for the storage and retrieval of
+                                  data related to accounts and campaigns.
 			\end{itemize}
 		\subsubsection{User Interface} % JK
                 The user interface consists of a web front end
@@ -73,15 +86,54 @@ delivery will include.
                 portal with which they can keep tabs on topics of 
                 interest in social media.
 		\subsubsection{Hardware Interfaces} % VS
-                It's a freaking web application.
+                The Mashbot web client runs on any computer hardware meeting
+                the following criteria:
+                \begin{itemize}
+                  \item Capable of connecting to the Internet
+                  \item Capable of running a modern HTTP 1.1 web browser
+                  \item Includes a keyboard and a pointing device
+                  \item Includes writable volatile storage
+                \end{itemize}
+                The Mashbot server runs on any computer hardware meeting
+                the following criteria:
+                \begin{itemize}
+                \item Capable of connecting to the Internet as a server.
+                \item Capable of interfacing with modern database software.
+                \item Capable of running a modern suite of networking software.
+				\end{itemize}
+
 		\subsubsection{Software Interfaces} % VS
-                It's a freaking web application.
+                The Mashbot software integrates some external software
+                to provide functionality.
+                \begin{itemize}
+                \item \textbf{Authentication} Mashbot authenticates users
+                  against it's internal user database.
+                \item \textbf{Campaign Manager Web Client} Mashbot
+                  interfaces with the user’s web browser and expects
+                  that it is capable of HTTP 1.1 and HTML 4.0.
+                \item \textbf{Database} Mashbot software interfaces
+                  with an existing database software.
+                \item \textbf{Server} The Mashbot server software runs
+                  on an operating system that supports serving dynamic
+                  web pages using encryption and is capable of
+                  communicating with the Internet.
+                \end{itemize}
 		\subsubsection{Communications Interfaces} % VS
-                It's a freaking web application.
+                   Communication between the web client and the
+                   server software is facilitated by common network
+                   protocols. This allows compatibility with the
+                   majority of our user's machines.  Data will
+                   be encrypted using TLS and HTTP/1.1. The use of
+                   these protocols requires the ability for the
+                   systems to communicate using TCP/IP network stacks.
+                   The Mashbot system sends emails using SMTP.
+
 		\subsubsection{Memory Constraints} % VS
-                Server must not crash.
-		\subsubsection{Site Adaptation Requirements} % VS
-                TODO: Ask Popyack if needed.
+                The Mashbot server requires no greater than 1 gigabyte
+                of RAM memory. The web client requires no more than
+                the minimum memory a modern desktop computer commonly
+                has, approximately 256 megabytes of RAM.
+
 	\subsection{Product Functions} % AG
         Mashbot should be able to:
         \begin{enumerate}
@@ -131,13 +183,15 @@ delivery will include.
 				\begin{itemize}
 					\item Mashbot! Campaigns supports the following account roles:
 						\begin{enumerate}
-							\item Content Approver
-							\item Content Creator
-							\item Content Editor
-							\item Content Release Scheduler
-							\item Content Responder
-							\item Group Administrator
-							\item System Administrator
+							\item Content Approver \textbf{Priority 4} 
+							\item Content Creator \textbf{Priority 4} 
+							\item Content Editor \textbf{Priority 4} 
+							
+							\item Content Release Schedulerr \textbf{Priority 4}  
+							\item Content Responder \textbf{Priority 4}
+						   	\item Worker \textbf{Priority 1}	
+							\item Group Administrator \textbf{Priority 1}   
+							\item System Administrator \textbf{Priority 1}  
 						\end{enumerate}
 					\item A user may possess more than one role.
 					\item Roles reflect actions that can be performed by a user.
@@ -232,32 +286,63 @@ delivery will include.
 						\end{itemize}
 				\end{itemize}
 				
-				\item \textbf{User Account Deactivation} 
-						
+				\item \textbf{User Account Deactivation} The system allows user 
+				accounts to be deactivated.
+					\begin{itemize}
+						\item The system denies user who have been deactivated 
+						from accessing the system.
+						\item If an account has any history associated with it, 
+						it can only be deactivated and not deleted.
+						\item If an account has no history associated with it, 
+						it can be deleted from the system.
+						\item A disable account can be undisabled by the System 
+						Administrator.
+						\item It is possible to disable all accounts except for 
+						the System Administrator account.
+					\end{itemize}					
 
+				\item \textbf{Username and Passwords}
+					\begin{itemize}
+						\item The system gives users the ability to reset their 
+						password.
+						\item The System Administrator can reset any and all 
+						passwords.
+						\item The system does not allow the System Administrator 
+						to change any user's password.
+					\end{itemize}
 			\end{itemize}
 
 		\subsubsection{Marketing Campaigns} % JK
-                A campaign is a collection of content that is scheduled to be published by the company using mashbot.
+				A campaign is a collection of content that is scheduled to be 
+				published by the company using mashbot.
                 \begin{itemize}
                   \item Name
                   \item Pieces of content
                   \item Schedule
                   \item User/Group Permissions
                 \end{itemize}
-                A campaign's schedule is a set of dates and times that a piece of content has some action taken upon in.  Any action can be scheduled: post, edit, delete.
+				A campaign's schedule is a set of dates and times that a piece 
+				of content has some action taken upon in.  Any action can be 
+				scheduled: post, edit, delete.
                 
 				Erexample: A series of tweets, blog posts and you tube videos 
 		need to be published for the release of a Product X.  These are all 
 		added to a Campaign.  The user may then use the Campaign's calendar to 
-		schedule these pieces of content for publishing
+		schedule these pieces of content for publishing.
 		\subsubsection{External Service Accounts} % JK
-                An external service account is a set of credentials and/or an authentication token which allows Mashbot to connect to services.  The requirements for ESAs vary from service to service, where one service might provide token based authentication where another will provide only username/password.
+                An external service account is a set of credentials and/or an 
+				authentication token which allows Mashbot to connect to 
+				services.  The requirements for ESAs vary from service to 
+				service, where one service might provide token based 
+				authentication where another will provide only 
+				username/password.
 	\subsection{Security Requirements} % VS 
 	\subsection{Design Constraints} % CR
 	\subsection{Software System Attributes} % AG
 	\subsection{User Interface} % JK
-        The user interface is to be clean and crisp. There is to be a tabbed navigation bar that unifies the sitewide navigation, as well as module specific navigation as needed.
+		The user interface is to be clean and crisp. There is to be a tabbed 
+		navigation bar that unifies the sitewide navigation, as well as module 
+		specific navigation as needed.
         Tabs:
         \begin{itemize}
         \item Dashboard
@@ -267,22 +352,77 @@ delivery will include.
         \end{itemize}
         \subsubsection{Dashboard}
         The dashboard consists of graphs and charts to give the user a quick view on how their campaigns are performing.
-        Metrics include:
+		Metrics include:
         \begin{itemize}
         \item Clickthrough rate
         \item Page Views
         \item Number of Comments
         \end{itemize}
         Service plugins can define additional specialized metrics to track, as well, for instance ``retweets'' for Twitter.
+        A panel is available to give more information on each metric as it is selected.
         \subsubsection{Create}
         This view allows users to create campaigns and fill them with content.  This view is also used when users need to edit an existing campaign.
         \paragraph{Add content}
         A user can add content via the add content button near the top of the view.  This will prompt the user to select the content type, which is populated by the services the user currently has access to via credentials stored in the system. This will create a section in the main part of the view that allows the user to add individual elements of that content type, each individually scheduled.  Each row line item will allow the user to schedule, edit, or delete that content type.
-
+        \subsubsection{Schedule}
+        \paragraph{Scheduling content}
+        Users can drag items from the left hand bucket of content to the calendar to schedule content.  The content will receive a default golive time of 12am on the day the content is dragged to.  If the user desires a different time, he may click the content in the schedule and assign the proper time.
+        \paragraph{Calendar}
+        The calendar allows the user to manage when content goes live, and gives a visual representation of the actions taken on content.  It is clear when content goes live and when (if) it is deleted.  The user can page from month to month to schedule content to any day desired.
+        \subsubsection{Explore}
+        This view allows users to get a pulse on what information social media contains.  This includes the ability to set up monitored searches for services that support keyword search via api.  This also will aggregate data gathered from comments on content that has been published as part of a given campaign
+        \paragraph{NICK: What other sort of data mining could we do here?}
+        TODO: Mockup for Explore, once we flesh out what this is supposed to be.
+        \clearpage
+        \includegraphics[width=7.5in]{../mockups/dashboard.png}
+        \clearpage
+        \includegraphics[width=7.5in]{../mockups/create.png}
+        \clearpage
+        \includegraphics[width=7.5in]{../mockups/schedule.png}
+        \clearpage
 \section{Preliminary Analysis} % JK
 Mashbot is a data driven web application.  It aggregates data from various web services.  This figure shows the flow of data through the web application.
-
+There is a core that handles all requests for various data needed by the appluication.  Authentication information is retrieved from the database and used to request content from services.
+\includegraphics[width=7.5in]{../mockups/dataflow.png}
 \section{Use Cases} % CR
+  \begin{enumerate}
+	\item A user should be able to register a new account
+	\item A user should be able to log in
+	\item A member should be able to log out
+	\item A member should have a profile
+	\item A member should be able to modify their profile
+	\item A user's email should be verified when registering a new account.
+	\item An admin should be able to modify accounts
+	\item An admin should be able to suspend accounts
+	\item An admin should be able to delete accounts
+	\item A member should be able to monitor trending topics regarding their campaign
+	\item A member should be able to monitor facebook groups related to campaigns
+	\item A member should be able to view @replies to tweets related to their campaigns
+	\item A member should be able to see responses to blog posts related to the campaign.
+	\item An admin should be able to perform user account actions in bulk
+	\item An admin should be able to see all campaigns
+	\item An admin should be able to delete any campaign
+	\item An admin should be able to edit all campaigns
+	\item Mashbot campaigns! campaigns should allow multiple users to collaborate on a campaign
+	\item Mashbot campaigns! should support multiple users
+	\item A member should be able to store authentication for supported services
+	\item A member should be able to add additional services to an existing campaign
+	\item A member should be able to delete individual campaign elements 
+	\item Members should have hierarchical permissions
+	\item A campaign should have workflow approval process
+	\item A member should be able to "unpublish" a campaign
+	\item A member should be able to delete a campaign
+	\item A member should be able to schedule events in bulk
+	\item A member should be able to schedule "live dates" for individual 
+	events.
+	\item A member should be able to delete existing content from supported services
+	\item A member should be able to see the content they have published in all supported services
+	\item A member should be able to push to Facebook in a campaign
+	\item A member should be able to post to a blog in a campaign
+	\item A member should be able to post to Twitter in a campaign
+	\item A member should be able to create a new campaign
+	\item A member should get notified when activity occurs in a campaign they're working on
+  \end{enumerate}
 
 %% \section{IO}
 
