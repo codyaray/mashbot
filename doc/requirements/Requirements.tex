@@ -211,13 +211,24 @@ This document covers a high level overview of what features a successful project
         \item Number of Comments
         \end{itemize}
         Service plugins can define additional specialized metrics to track, as well, for instance ``retweets'' for Twitter.
+        A panel is available to give more information on each metric as it is selected.
         \subsubsection{Create}
         This view allows users to create campaigns and fill them with content.  This view is also used when users need to edit an existing campaign.
         \paragraph{Add content}
         A user can add content via the add content button near the top of the view.  This will prompt the user to select the content type, which is populated by the services the user currently has access to via credentials stored in the system. This will create a section in the main part of the view that allows the user to add individual elements of that content type, each individually scheduled.  Each row line item will allow the user to schedule, edit, or delete that content type.
+        \subsubsection{Schedule}
+        \paragraph{Scheduling content}
+        Users can drag items from the left hand bucket of content to the calendar to schedule content.  The content will receive a default golive time of 12am on the day the content is dragged to.  If the user desires a different time, he may click the content in the schedule and assign the proper time.
+        \paragraph{Calendar}
+        The calendar allows the user to manage when content goes live, and gives a visual representation of the actions taken on content.  It is clear when content goes live and when (if) it is deleted.  The user can page from month to month to schedule content to any day desired.
+        \subsubsection{Explore}
+        This view allows users to get a pulse on what information social media contains.  This includes the ability to set up monitored searches for services that support keyword search via api.  This also will aggregate data gathered from comments on content that has been published as part of a given campaign
+
+        \paragraph{NICK: What other sort of data mining could we do here?}
 
 \section{Preliminary Analysis} % JK
 Mashbot is a data driven web application.  It aggregates data from various web services.  This figure shows the flow of data through the web application.
+There is a core that handles all requests for various data needed by the appluication.  Authentication information is retrieved from the database and used to request content from services.
 
 \section{Use Cases} % CR
 
