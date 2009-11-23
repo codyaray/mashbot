@@ -24,35 +24,56 @@ delivery will include.
 \subsection{Glossary} % Everyone
 \subsection{Overview} % CR
 
+For many startups and small businesses, marketing / customer service and business / 
+development efforts compete for scarce resources. Furthermore, early stage startups often 
+have small or non-existent marketing budgets, especially in resource-hungry product-based 
+startups. Although the plethora of widely available and affordable communications 
+technology (e.g., social media, VoIP, streaming video, etc.) theoretically reduces both 
+capital and operating expenditures related to marketing, the quantity of such technologies 
+and services effectively creates an "opportunity overload" making the process of 
+maintaining a focused and effective marketing campaign more difficult. Furthermore, with 
+the number of services, technologies, and "specialists" arriving each day, its nearly 
+impossible to keep up with all the trends much less to fully take advantage of each or even 
+monitor them all adequately. As you can see, the widespread adoption of communications 
+technology is a double-edged sword---there are many more avenues for marketing and 
+customer service, but it is much more difficult to effectively apply reputation management 
+strategies or adequate customer service through all channels. This project proposes to 
+build a tool to increase the effectiveness and efficiency of marketing campaigns and 
+customer service for small to medium businesses. 
+
 \section{Overall Description}
-     \subsection{Product Perspective}
-		For many startups and small businesses, marketing /
-                customer service and business / development efforts
-                compete for scarce resources.  Furthermore, early
-                stage startups often have small or non-existent
-                marketing budgets, especially in resource-hungry
-                product-based startups.  Although the plethora of
-                widely available and affordable communications
-                technology (e.g., social media, VoIP, streaming video,
-                etc.) theoretically reduces both capital and operating
-                expenditures related to marketing, the quantity of
-                such technologies and services effectively creates an
-                "opportunity overload" making the process of
-                maintaining a focused and effective marketing campaign
-                more difficult.  Furthermore, with the number of
-                services, technologies, and "specialists" arriving
-                each day, its nearly impossible to keep up with all
-                the trends much less to fully take advantage of each
-                or even monitor them all adequately! As you can see,
-                the widespread adoption of communications technology
-                is a double-edged sword---there are many more avenues
-                for marketing and customer service, but it is much
-                more difficult to effectively apply reputation
-                management strategies or adequate customer service
-                through all channels. This project proposes to build a
-                tool to increase the effectiveness and efficiency of
-                marketing campaigns and customer service for small to
-				medium businesses.
+     \subsection{Product Perspective} % CR
+
+We will initially focus on schedulable marketing campaigns utilizing social media; 
+however, we may expand to include customer service functionality or management of more 
+traditional campaigns such as direct mail, trade shows and other events, or user-created 
+campaign classes.  
+ 
+Our first objective is to develop and release a small open source platform to provide a 
+service agnostic facade API bundling common operations in widely used services, e.g., 
+Facebook, Flickr, Twitter, Wordpress, or YouTube. This platform should provide a plugin- 
+based architecture for abstracting myriad services behind a single facade, based upon 
+content type provided in common data models. This sub-project would not only be useful to 
+the open source community but would also devalue much of our competition whose prime 
+added value comes from providing such a service. Furthermore, it opens the opportunity 
+for the public to help maintain existing service plugins as well as contribute plugins for new 
+services. Finally, it leads us to include both a dual licensing revenue model and a niche 
+software development service-based  revenue model for custom extensions and 
+applications built upon this core, which is proven to be more sustainable over time.  
+ 
+The first application of this core platform will be the campaign manager referenced above. 
+While the exact feature set is to be determined during the design process, we expect the 
+features to include a portal to existing services where we can not only "push", or 
+broadcast, our message through existing service channels, but we can also "pull", or listen, 
+to our customers, fans, critics, and other audiences from these same channels. In the first 
+prototype, this is likely to only include messages which are directed to us in some way, 
+though in future iterations we would like to use services' search functionality and data 
+mining to provide more intelligence heuristics regarding the brands strength amongst 
+particular markets. Another feature that we predict that market research will deem 
+important is the ability to schedule, or queue, campaigns to occur at a certain time. Given 
+such a feature, one can prepare a press release far in advance of its distribution, or can 
+queue a number of updates to be spread evenly out over the next few days, etc. 
+
 		\subsubsection{System Interfaces} % VS
 			Mashbot combines several components to provide the functionality
 			required.
@@ -363,6 +384,13 @@ delivery will include.
           logged out of Mashbot. Priority 1
         \end{itemize}
 	\subsection{Design Constraints} % CR
+
+In today's technological world, new distribution and aggregation channels arrive continuously, other services fail, and existing services change their capabilities and interfaces. Therefore, the ability to add, remove, and modify services is crucial. % flexibility
+
+The scheduling feature is one of the first major improvements over existing multi-channel marketing tools; thus, it is necessary to provide the requested service within a reasonable time after that which was requested. For example, in a direct email marketing campaign, it is impossible to send several hundred or thousands of messages instantaneously at the requested time; however, messages must be queued and sent in batches within a reasonable amount of time. % common mailing list technique
+
+Viral marketing is a common goal of online social marketing. In order to accommodate such large-scale marketing techniques, there shall be no arbitrary constraints imposed upon number of services, users, messages, etc. except in the case for a future tiered pricing solution. % remember Facebook's 5000 friend limit?
+
 	\subsection{Software System Attributes} % AG
 	\subsection{User Interface} % JK
 		The user interface is to be clean and crisp. There is to be a tabbed 
