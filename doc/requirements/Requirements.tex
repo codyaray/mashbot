@@ -13,13 +13,13 @@
 
 \section*{Revision History}
 \begin{tabular}{|p{2in}|l|l|l|}
-          \hline
-          \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
-          \hline \hline
-          George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
-          Salerno & 24 November 2009 & Initial Version & 1.0 \\
-          \hline
-        \end{tabular}
+  \hline
+  \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
+  \hline \hline
+  George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
+  Salerno & 24 November 2009 & Initial Version & 1.0 \\
+  \hline
+\end{tabular}
 
 
 \tableofcontents
@@ -27,97 +27,122 @@
 \section{Introduction}
 
 \subsection{Purpose} % JK
-This document is the general overview of the requirements for the Mashbot 
-project.  The sections below are specifically ``what'' is to be done as opposed 
-to ``how'' it is to be done.
+This document is the general overview of the software requirements for
+the Mashbot project. These requirements are directly related to the
+functionality, performances, constraints, attributes, and interfaces
+of the system.
+
+Mashbot is a web service for managing a company's presence on social
+networks. One goal of Mashbot is to unify the interfaces of a
+multitude of social networks, allowing users to learn a standardized
+interface and more easily cope with the flood of new social network
+platforms. A second goal is to allow for a hands off approach to
+social network marketing by allowing the scheduling of campaign events
+to be distributed to social networks.
+ 
 \subsection{Scope} % JK
-This document covers a high level overview of what features a successful project 
-delivery will include.
+This document contains the criteria by which the initial Mashbot
+release will be judged. It is written for the developers, testers, and
+end-users of Mashbot.
 \subsection{Glossary} % Everyone
 \subsection{Overview} % CR
 
-For many startups and small businesses, marketing / customer service and business / 
-development efforts compete for scarce resources. Furthermore, early stage startups often 
-have small or non-existent marketing budgets, especially in resource-hungry product-based 
-startups. Although the plethora of widely available and affordable communications 
-technology (e.g., social media, VoIP, streaming video, etc.) theoretically reduces both 
-capital and operating expenditures related to marketing, the quantity of such technologies 
-and services effectively creates an "opportunity overload" making the process of 
-maintaining a focused and effective marketing campaign more difficult. Furthermore, with 
-the number of services, technologies, and "specialists" arriving each day, its nearly 
-impossible to keep up with all the trends much less to fully take advantage of each or even 
-monitor them all adequately. As you can see, the widespread adoption of communications 
-technology is a double-edged sword---there are many more avenues for marketing and 
-customer service, but it is much more difficult to effectively apply reputation management 
-strategies or adequate customer service through all channels. This project proposes to 
-build a tool to increase the effectiveness and efficiency of marketing campaigns and 
-customer service for small to medium businesses. 
+Marketing, customer service, business overhead and development efforts
+compete for resources in many startups and small
+businesses. Furthermore, early stage startups often have small or
+non-existent marketing budgets, especially in resource-hungry
+product-based startups. Although the plethora of widely available and
+affordable communications technology (e.g., social media, VoIP,
+streaming video, etc.) theoretically reduces both capital and
+operating expenditures related to marketing, the quantity of such
+technologies and services effectively creates an "opportunity
+overload" which makes the process of maintaining a focused and
+effective marketing campaign more difficult. Furthermore, with the
+number of services, technologies, and "specialists" arriving each day,
+it is nearly impossible to keep up with all the trends, much less
+fully take advantage of each one, or even monitor them all
+adequately. The widespread adoption of communications technology is a
+double-edged sword; there are many more avenues for marketing and
+customer service, but it is much more difficult to effectively apply
+reputation management strategies or adequate customer service through
+all channels. This project proposes to build a tool to increase the
+effectiveness and efficiency of marketing campaigns and customer
+service for small to medium businesses.
 
 \section{Overall Description}
      \subsection{Product Perspective} % CR
 
-We will initially focus on schedulable marketing campaigns utilizing social media; 
-however, we may expand to include customer service functionality or management of more 
-traditional campaigns such as direct mail, trade shows and other events, or user-created 
-campaign classes.  
+The initial focus will be on scheduled marketing campaigns utilizing
+social media. However, this may expand to include customer service
+functionality, management of more traditional campaigns such as
+direct mail, trade shows and other events, or user-created campaign
+classes.
  
-Our first objective is to develop and release a small open source platform to provide a 
-service agnostic facade API bundling common operations in widely used services, e.g., 
-Facebook, Flickr, Twitter, Wordpress, or YouTube. This platform should provide a plugin- 
-based architecture for abstracting myriad services behind a single facade, based upon 
-content type provided in common data models. This sub-project would not only be useful to 
-the open source community but would also devalue much of our competition whose prime 
-added value comes from providing such a service. Furthermore, it opens the opportunity 
-for the public to help maintain existing service plugins as well as contribute plugins for new 
-services. Finally, it leads us to include both a dual licensing revenue model and a niche 
-software development service-based  revenue model for custom extensions and 
-applications built upon this core, which is proven to be more sustainable over time.  
+The first objective is to develop and release a small open source
+platform to provide a service agnostic facade API bundling common
+operations in widely used services (e.g., Facebook, Flickr, Twitter,
+Wordpress, or YouTube). This platform will provide a plugin-based
+architecture for abstracting myriad services behind a single facade,
+based upon content types provided in common data models. This
+sub-project will not only be useful to the open source community but
+will also devalue much of the competition whose prime added value
+comes from providing such a service. Furthermore, it opens the
+opportunity for the public to help maintain existing service plugins
+as well as contribute plugins for new services. Finally, it leads to
+the inclusion of both a dual licensing revenue model and a niche
+software development service-based revenue model for custom extensions
+and applications built upon this core, which is proven to be more
+sustainable over time.
  
-The first application of this core platform will be the campaign manager referenced above. 
-While the exact feature set is to be determined during the design process, we expect the 
-features to include a portal to existing services where we can not only "push", or 
-broadcast, our message through existing service channels, but we can also "pull", or listen, 
-to our customers, fans, critics, and other audiences from these same channels. In the first 
-prototype, this is likely to only include messages which are directed to us in some way, 
-though in future iterations we would like to use services' search functionality and data 
-mining to provide more intelligence heuristics regarding the brands strength amongst 
-particular markets. Another feature that we predict that market research will deem 
-important is the ability to schedule, or queue, campaigns to occur at a certain time. Given 
-such a feature, one can prepare a press release far in advance of its distribution, or can 
-queue a number of updates to be spread evenly out over the next few days, etc. 
-
-		\subsubsection{System Interfaces} % VS
-			Mashbot combines several components to provide the functionality
-			required.
+The first application of this core platform will be the campaign
+manager referenced above.  While the exact feature set is to be
+determined during the design process, expected features include a
+portal to existing services where messages can be "pushed", or
+broadcast, through existing service channels. This portal will also
+allow for the collection of responses from customers, fans, critics,
+and other audiences from these same channels. Users will be able to
+view social networking messages directed at them, as well as perform
+data mining tasks on the social networks to provide more intelligent
+heuristics regarding brands' strength amongst particular markets. They
+will also be allowed to schedule campaign events at certain
+times. For example, users will be able to prepare a press release far in advance of
+its distribution, or queue a number of updates to be spread out over a
+certain time period.
+\subsubsection{System Interfaces} % VS
+  Mashbot combines several components to provide required functionality.
 			\begin{itemize}
 				\item \textbf{Authentication} Mashbot
                                   will allow the use of external
                                   authentication modules for user
                                   login. Mashbot will also provide an
-                                  internal authentication mechanism
-                                  in case an external module is
+                                  internal authentication mechanism in
+                                  case an external module is
                                   unavailable.
 				\item \textbf{Campaign Manager Web
                                   Client} Mashbot has an interface for
-                                  a web client which processes user's
+                                  a web client which processes user
                                   commands to interact with campaigns.
-				\item \textbf{Publishing and Aggregation
-                                  Platform}
+				\item \textbf{Publishing and
+                                  Aggregation Platform} Mashbot has an
+                                  interface for publishing content to
+                                  social networks, as well as for
+                                  aggregating social network data
 				\item \textbf{Database} Mashbot has an
                                   interface to a database which allows
                                   for the storage and retrieval of
-                                  data related to accounts and campaigns.
+                                  data related to accounts and
+                                  campaigns.
 			\end{itemize}
 		\subsubsection{User Interface} % JK
-                The user interface consists of a web front end
-                with tabs to separate the various workflow areas. To
-                create content, the user is provided with a calendar
+                The user interface consists of a web front end with
+                tabs to separate the various workflow areas. To create
+                content, the user is provided with a calendar
                 scheduling tool, and a content editor.  Additionally,
                 there is a monitoring dashboard which gives the user a
-                view on responses to the content in any given campaign.
-                Finally, there is an explore view that gives the user a
-                portal with which they can keep tabs on topics of 
-                interest in social media.
+                view on responses to the content in any given
+                campaign.  Finally, there is an explore view that
+                gives the user a portal with which they can keep tabs
+                on topics of interest in social media.
 		\subsubsection{Hardware Interfaces} % VS
                 The Mashbot web client runs on any computer hardware meeting
                 the following criteria:
@@ -146,6 +171,7 @@ queue a number of updates to be spread evenly out over the next few days, etc.
                   that it is capable of HTTP 1.1 and HTML 4.0.
                 \item \textbf{Database} Mashbot software interfaces
                   with an existing database software.
+                  \item \textbf{Publishing and Aggregation Platform}
                 \item \textbf{Server} The Mashbot server software runs
                   on an operating system that supports serving dynamic
                   web pages using encryption and is capable of
@@ -205,7 +231,7 @@ queue a number of updates to be spread evenly out over the next few days, etc.
         \end{tabular}
 
 \section{Specific Requirements}
-	\subsection{External Interface Requirements}
+	\subsection{External Interface Requirements} % DO THIS
 	\subsection{Functional Requirements}
 		\subsubsection{User Accounts} % AG
 			\begin{itemize}
