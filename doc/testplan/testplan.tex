@@ -1,6 +1,16 @@
 \documentclass{article}
 \usepackage{fullpage}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\newenvironment{testcase}
+{
+  \tabularx{\textwidth}{|p{1.5in}|X|}
+  \hline 
+  }{
+    \hline
+    \endtabularx
+}
+
 \begin{document}
 
 \title{Acceptance Test Plan for Mashbot} 
@@ -48,6 +58,7 @@ Requirements Specification for Mashbot.
     reporting test results and testing problems
   \item Section 6 - Describes the actual test cases in the Acceptance
     Test Plan
+\end{itemize}
 
 
 \subsection{References}
@@ -89,6 +100,9 @@ Requirements Specification for Mashbot.
 \subsubsection{Logging Out} % CR
 \subsubsection{Login Timeout} % CR
 \subsubsection{Campaign Creation} % JK
+\begin{testcase}
+  example & example. \\
+\end{testcase}
 \subsubsection{Campaign Modification} % JK
 \subsubsection{Add Campaign Content} % JK
 \subsubsection{Modify Campaign Content} % JK
