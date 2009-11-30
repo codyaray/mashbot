@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 \usepackage{fullpage}
 \usepackage{graphicx}
 \begin{document}
@@ -21,7 +21,7 @@
   \hline
 \end{tabular}
 
-
+\clearpage
 \tableofcontents
 \clearpage
 
@@ -224,161 +224,183 @@ the basic capabilities of social media.
 \section{Specific Requirements}
 \subsection{External Interface Requirements} % DO THIS
 \subsubsection{Email System}
-\begin{itemize}
-\item \textbf{Purpose} The external email system is to provide a
+\begin{description}
+\item[0100] \textbf{Purpose} The external email system is to provide a
   messaging service from Mashbot to the Mashbot
   users. \textbf{Priority 2}
-\item \textbf{Input} The input is generated automatically by the
+\item[0110] \textbf{Input} The input is generated automatically by the
   Mashbot system using settings configurable by the System
   Administrator. \textbf{Priority 2}
-\item \textbf{Output} The output is in the form of an e-mail to an
+\item[0120] \textbf{Output} The output is in the form of an e-mail to an
   e-mail account, but it does not return any sort of message to
   Mashbot. \textbf{Priority 2}
-\item \textbf{Data Format} The format uses SMTP protocol. The actual
+\item[0130] \textbf{Data Format} The format uses SMTP protocol. The actual
   messages are provided by Mashbot. \textbf{Priority 2}
-\end{itemize}
+\end{description}
 
 \subsection{Functional Requirements}
 \subsubsection{User Accounts} % AG
-\begin{itemize}
-\item \textbf{User Account Types and Permissions} The system
+\begin{description}
+\item[0140] \textbf{User Account Types and Permissions} The system
   categorizes users on the basis of roles and privileges. Within these
   roles, the system also categorizes users based on the roles that
   they have within individual products. These are referred to as user
   account roles.
-  \begin{itemize}
+
+  \begin{description}
   \item Mashbot Campaigns supports the following account roles:
-    \begin{enumerate}
-    \item Contributor \textbf{Priority 3}
-    \item Approver \textbf{Priority 3}
-    \item
-      Publisher \textbf{Priority 3}
-    \end{enumerate}
-  \item A user may possess more than one role. \textbf{Priority 3}
-  \item Roles reflect actions that can be performed by a
+    
+    \begin{description}
+      \item[0150] Contributor \textbf{Priority 3}
+      \item[0160] Approver \textbf{Priority 3}
+      \item[0170] Publisher \textbf{Priority 3}
+    \end{description}
+
+  \item[0180] A user may possess more than one role. \textbf{Priority 3}
+  \item[0190] Roles reflect actions that can be performed by a
     user. \textbf{Priority 3}
-  \item Roles can be assigned to a user account for individual
+  \item[0200] Roles can be assigned to a user account for individual
     products. \textbf{Priority 3}
-  \item \textbf{Contributors} may create new content, import
+  \item[0210] \textbf{Contributors} may create new content, import
     existing content into the system, edit content, and delete
     it. They may also submit these actions for approval. \textbf{Priority 3}
-  \item \textbf{Approvers} can approve actions performed by contributors \textbf{Priority 3}
-  \item \textbf{Publishers} may schedule or immediately initiate
-    actions put forth by contributors and those approved by approvers.  \textbf{Priority 4}
-    
-  \end{itemize}
+  \item[0220] \textbf{Approvers} can approve actions performed by
+    contributors \textbf{Priority 3}
+  \item[0230] \textbf{Publishers} may schedule or immediately initiate
+    actions put forth by contributors and those approved by approvers.
+    \textbf{Priority 4}
+  \end{description}
   
-\item \textbf{User Account Creation} - New user accounts can be
+  \item[0240] \textbf{User Account Creation} - New user accounts can be
   created. \textbf{Priority 1}
-  \begin{itemize}
-  \item The system may contain any number of user
+
+  \begin{description}
+  \item[0250] The system may contain any number of user
     accounts. \textbf{Priority 1}
-  \item Certain pieces of information are required to create new
+  \item[0260] Certain pieces of information are required to create new
     accounts. \textbf{Priority 1}
   \item The following information is required for any new user
     account:
-    \begin{itemize}
-    \item Username \textbf{Priority 1}
-    \item Password \textbf{Priority 1}
-    \item Name \textbf{Priority 1}
-    \item Email Address \textbf{Priority 1}
-    \item Group Membership \textbf{Priority 1}
-    \item User Account Type \textbf{Priority 1}
-    \end{itemize}	
-    
-  \end{itemize}
-\item \textbf{User Account Modification} The system allows users to
-  modify their accounts once created. \textbf{Priority 1} 
-  \begin{itemize}
-  \item The system requires that a user have logged in before
+
+    \begin{description}
+    \item[0270] Username \textbf{Priority 1}
+    \item[0280] Password \textbf{Priority 1}
+    \item[0290] Name \textbf{Priority 1}
+    \item[0300] Email Address \textbf{Priority 1}
+    \item[0310] Group Membership \textbf{Priority 1}
+    \item[0320] User Account Type \textbf{Priority 1}
+    \end{description}
+
+  \end{description}
+
+  \item[0330]\textbf{User Account Modification} The system allows users to
+    modify their accounts once created. \textbf{Priority 1} 
+
+    \begin{description}
+
+  \item[0340]The system requires that a user have logged in before
     modifications can be made. \textbf{Priority 1}
   \item The following user account information is modifiable by all
     user types:
-    \begin{itemize}
-    \item Password \textbf{Priority 1}
-    \item Email Address \textbf{Priority 1}
-    \item Name \textbf{Priority 1}
-    \end{itemize}
+
+    \begin{description}
+    \item[0350]Password \textbf{Priority 1}
+    \item[0360]Email Address \textbf{Priority 1}
+    \item[0370]Name \textbf{Priority 1}
+    \end{description}
+    \end{description}
+
     
-  \item \textbf{User Account Deactivation} The system allows user
-  accounts to be deactivated. \textbf{Priority 3}
-  \begin{itemize}
-  \item The system denies user who have been deactivated from
-    accessing the system. \textbf{Priority 3}
-  \item If an account has any history associated with it, it can only
-    be deactivated and not deleted. \textbf{Priority 3}
-  \item If an account has no history associated with it, it can be
-    deleted from the system. \textbf{Priority 3}
-  \item A disable account can be undisabled \textbf{Priority 3}
-  \item It is possible to disable all accounts except for the System
-    Administrator account. \textbf{Priority 4}
-  \end{itemize}					
+  \item[0380] \textbf{User Account Deactivation} The system allows user
+    accounts to be deactivated. \textbf{Priority 3}
+
+    \begin{description}
+
+    \item[0390] The system denies user who have been deactivated from
+      accessing the system. \textbf{Priority 3}
+    \item[0400] If an account has any history associated with it, it can only
+      be deactivated and not deleted. \textbf{Priority 3}
+    \item[0410] If an account has no history associated with it, it can be
+      deleted from the system. \textbf{Priority 3}
+    \item[0420] A disable account can be undisabled \textbf{Priority 3}
+    \item[0430] It is possible to disable all accounts except for the System
+      Administrator account. \textbf{Priority 4}
+    \end{description}
+
   
-\item \textbf{Username and Passwords}
-  \begin{itemize}
-  \item The system gives users the ability to reset their password. \textbf{Priority 2}
-  \item Individual passwords can be reset. \textbf{Priority 2}
-  \item The system only allows users to change their own passwords. \textbf{Priority 2}
-  \end{itemize}
-\end{itemize}
+\item[0440] \textbf{Username and Passwords}
 
-\end{itemize}
+  \begin{description}
+
+  \item[0450] The system gives users the ability to reset their password. \textbf{Priority 2}
+  \item[0460] Individual passwords can be reset. \textbf{Priority 2}
+  \item[0470] The system only allows users to change their own
+  passwords. \textbf{Priority 2}
+
+  \end{description}
+
+\end{description}
 \subsubsection{Marketing Campaigns} % JK
-\begin{itemize}
+\begin{description}
 
-\item A campaign has the following components:
-\subitem Name \textbf{Priority 1}
-\subitem Pieces of content \textbf{Priority 1}
-\subitem Schedule \textbf{Priority 1}
-\subitem User/Group Permissions \textbf{Priority 2}
+\item[0480] A campaign has the following components:
 
-\item A schedule is a mapping of times to publishing actions. It may
+\begin{description}
+\item[0490] Name \textbf{Priority 1}
+\item[0500] Pieces of content \textbf{Priority 1}
+\item[0510] Schedule \textbf{Priority 1}
+\item[0520] User/Group Permissions \textbf{Priority 2}
+\end{description}
+
+\item[0530] A schedule is a mapping of times to publishing actions. It may
   contain any actions a publisher can perform, and these actions are
   performed at the associated time. \textbf{Priority 1}
 
-\item A piece of content may take the following forms:
-\subitem Text \textbf{Priority 1}
-\subitem Image \textbf{Priority 1}
-\subitem Audio \textbf{Priority 3}
-\subitem Video \textbf{Priority 3}
-\end{itemize}
+\item[0540] A piece of content may take the following forms:
+\begin{description}
+\item[0550] Text \textbf{Priority 1}
+\item[0560] Image \textbf{Priority 1}
+\item[0570] Audio \textbf{Priority 3}
+\item[0580] Video \textbf{Priority 3}
+\end{description}
+\end{description}
 
 \subsubsection{External Service Accounts} % JK
 
-\begin{itemize}
-\item Mashbot will allow for the association of Mashbot accounts with
+\begin{description}
+\item[0590] Mashbot will allow for the association of Mashbot accounts with
   external service accounts.
 
-\item Mashbot will provide an interface for authenticating a user
+\item[0600] Mashbot will provide an interface for authenticating a user
   account to an external service account \textbf{Priority 1}
-\item Mashbot will provide a standardized method of interacting with
+\item[0610] Mashbot will provide a standardized method of interacting with
   external service accounts \textbf{Priority 1}
-\end{itemize}
+\end{description}
 
 \subsection{Security Requirements} % VS
-\begin{itemize}
-\item The system encrypts data over a direct connection between the
+\begin{description}
+\item[0620] The system encrypts data over a direct connection between the
   web client and the server.  Priority 1
-\item The system allows for the backup of the data system to local or
+\item[0630] The system allows for the backup of the data system to local or
   remote non-volatile storage systems.  Incremental backups should not
   create outages and full backups do not interfere with user
   interaction for more than 10 minutes. Priority 1
-\item The system is configurable to e-mail warnings about multiple
+\item[0640] The system is configurable to e-mail warnings about multiple
   failed login attempts from the same user. These warnings are sent to
   the System Administrator. Other security risks of this type are the
   responsibility of the System Administrator. Priority 3
-\item The system allows only valid users to log into the system. A
+\item[0650] The system allows only valid users to log into the system. A
   valid user is one which has not been disabled or deleted and exists
   on the system. Priority 1
-\item To log onto the system, a user provides their valid username and
+\item[0660] To log onto the system, a user provides their valid username and
   password. Priority 1
-\item The system uses the configured authentication module. The
+\item[0670] The system uses the configured authentication module. The
   authentication method is configurable by the System
   Administrator. Priority 1
-\item The system allows the System Administrator to configure a
+\item[0680] The system allows the System Administrator to configure a
   timeout after which a user is automatically logged out of
   Mashbot. Priority 1
-\end{itemize}
+\end{description}
 
 \section{User Interface} % JK
 The user interface will consist of a tabbed navigation bar that
