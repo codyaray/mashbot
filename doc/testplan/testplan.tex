@@ -42,7 +42,7 @@
 \tableofcontents
 \clearpage
 
-\section{Introduction} % VS
+\section{Introduction} 
 
 \subsection{Background}
 
@@ -89,7 +89,7 @@ Software Requirements Specification for Mashbot
   system’s compliance with its specified requirements
 \end{itemize}
 
-\section{Test Approach and Restraints} % VS
+\section{Test Approach and Restraints} 
 
 \subsection{Introduction}
 
@@ -115,7 +115,7 @@ all appropriate Unit Tests, Integration Tests and System Tests were
 successfully performed on Mashbot prior to the Acceptance Tests
 and their results were reported and presented to the client.
 
-\section{Test Assumptions and Exclusions} % ND
+\section{Test Assumptions and Exclusions} 
 
 \subsection{Introduction}
 
@@ -144,7 +144,7 @@ the Software Requirements Specification
 \item Quality of code
 \end{itemize}
 
-\section{Entry and Exit Criteria} % AG
+\section{Entry and Exit Criteria} 
 
 
 \subsection{Introduction}
@@ -190,7 +190,7 @@ the Software Requirements Specification
 	\end{itemize}
 	
 
-\section{Testing Participants} % ND
+\section{Testing Participants} 
 
 \subsection{Introduction}
 
@@ -223,7 +223,7 @@ submit to the Administrative Lead.
 
 \section{Testing Project Test Cases}
 
-\subsection{Introduction} % AG
+\subsection{Introduction} 
 	The test cases are divided into sections covering parts of the functionality and use cases in the Software Requirements Specification. Each test case has the following format:
 	\begin{itemize}
 	  \item Name - The name of the test case
@@ -233,7 +233,7 @@ submit to the Administrative Lead.
 	\end{itemize}
 
 \subsection{Test Cases}
-\subsubsection{User Account Creation} % CR form validation 
+\subsubsection{User Account Creation}  form validation 
 
 \begin{testcase}
   Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
@@ -241,7 +241,7 @@ submit to the Administrative Lead.
   Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
-\subsubsection{User Account Modification} % CR
+\subsubsection{User Account Modification} 
 
 \begin{testcase}
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
@@ -249,7 +249,7 @@ submit to the Administrative Lead.
   Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
-\subsubsection{Logging In} % CR
+\subsubsection{Logging In} 
 
 \begin{testcase}
   Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
@@ -257,7 +257,7 @@ submit to the Administrative Lead.
   Postconditions & The tester is logged in to the system if the verification is successful. \newline or \newline The tester is not logged in to the system if the verification is not successful. \\ \hline
 \end{testcase}
 
-\subsubsection{Logging Out} % CR
+\subsubsection{Logging Out} 
 
 \begin{testcase}
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
@@ -265,7 +265,7 @@ submit to the Administrative Lead.
   Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
 \end{testcase}
 
-\subsubsection{Login Timeout} % CR
+\subsubsection{Login Timeout} 
 
 \begin{testcase}
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
@@ -273,7 +273,7 @@ submit to the Administrative Lead.
   Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
 \end{testcase}
 
-\subsubsection{Campaign Creation} % JK
+\subsubsection{Campaign Creation} 
 \begin{testcase}
   Preconditions  & User is logged into the Mashbot web application. \\ \hline
   Action         & User selects ``Create'' tab.  \\ \hline
@@ -281,7 +281,7 @@ submit to the Administrative Lead.
   Action         & User clicks submit button. \\ \hline
   Postconditions & New campaign is created. \\ \hline
 \end{testcase}
-\subsubsection{Campaign Modification} % JK
+\subsubsection{Campaign Modification} 
 \begin{testcase}
   Precondition  & User is logged into the Mashbot web application \\ \hline
   Precondition  & At least one campaign has been created. \\ \hline  
@@ -293,7 +293,7 @@ submit to the Administrative Lead.
   Postcondition & Campaign is updated with changed fields. \\ \hline
   Postcondition & User is taken to view list of all campaigns \\ \hline
 \end{testcase}
-\subsubsection{Add Campaign Content} % JK
+\subsubsection{Add Campaign Content} 
 \begin{testcase}
   Precondition  & User is logged into the Mashbot web application  \\ \hline  
   Precondition  & User is viewing list of campaigns.   \\ \hline  
@@ -307,7 +307,7 @@ submit to the Administrative Lead.
   Postcondition & Content is added to the campaign. \\ \hline
   Postcondition & User is taken to the ``Add Content'' view. \\ \hline
 \end{testcase}
-\subsubsection{Modify Campaign Content} % JK
+\subsubsection{Modify Campaign Content} 
 \begin{testcase}
   Precondition  & User is logged into the Mashbot web application. \\ \hline
   Precondition  & User is viewing a campaign. \\ \hline
@@ -318,7 +318,7 @@ submit to the Administrative Lead.
   Postcondition & User is directed back to the Campaign view. \\ \hline
   Postcondition & Content is saved. \\ \hline
 \end{testcase}
-\subsubsection{Content Scheduler} % JK
+\subsubsection{Content Scheduler} 
 \subsubsubsection{Schedule Content}
 
 \begin{testcase}
@@ -354,13 +354,13 @@ submit to the Administrative Lead.
   Action        & User drags content from one date to another. \\ \hline
   Postcondition & Content's date is changed to date on which the content is dropped. \\ \hline
 \end{testcase}
-\subsubsection{Content Publisher} % JK
+\subsubsection{Content Publisher} 
 \begin{testcase}
   Precondition  & Content is scheduled to be published. \\ \hline
   Action        & Scheduled time of publishing occurs. \\ \hline
   Postcondition & Content is published to the service it was scheduled to be published to, and at the time it was scheduled for. \\ \hline
 \end{testcase}
-\subsubsection{Adding External Service Account} % JK
+\subsubsection{Adding External Service Account} 
 \begin{testcase}
   Precondition  & User is logged in and viewing the External Service Account control panel. \\ \hline
   Action        & User clicks ``Add Account''. \\ \hline
