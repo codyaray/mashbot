@@ -4,11 +4,18 @@
 \usepackage{tabularx}
 \newenvironment{testcase}
 {
+  \noindent
   \tabularx{\textwidth}{|p{1.5in}|X|}
   \hline 
   }{
     
     \endtabularx
+}
+\newcommand{\subsubsubsection}[1]{
+  \vspace{.5em}
+  \noindent
+  \textbf{#1}
+  \vspace{.25em}
 }
 \begin{document}
 
@@ -101,7 +108,9 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
   Actions              & The tester enters a username, password, and relevant information in the appropriate fields and submits for registration. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \\                             & or \\                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \\
+                             & or \\
+                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{User Account Modification} % CR
@@ -109,7 +118,9 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
   Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \\                             & or \\                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \\
+                             & or \\
+                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{Logging In} % CR
@@ -117,7 +128,9 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
   Actions              & The tester enters his username and password in the appropriate fields and submits for verification. \\ \hline
-  Postconditions & The tester is logged in to the system if the verification is successful. \\                             & or \\                             & The tester is not logged in to the system if the verification is not successful. \\ \hline
+  Postconditions & The tester is logged in to the system if the verification is successful. \\
+                             & or \\
+                             & The tester is not logged in to the system if the verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{Logging Out} % CR
@@ -125,26 +138,101 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
   Actions              & The tester clicks the logout button. \\ \hline
-  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline\end{testcase}
+  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
+\end{testcase}
 
 \subsubsection{Login Timeout} % CR
 
 \begin{testcase}
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
   Actions              & The tester does not take any action for a predefined amount of time. \\ \hline
-  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline\end{testcase}
+  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
+\end{testcase}
 
 \subsubsection{Campaign Creation} % JK
 \begin{testcase}
-  Preconditions  & Stuff. \\ \hline
-  Actions        & ...    \\ \hline
-  Postconditions & Stuff. \\ \hline
+  Preconditions  & User is logged into the Mashbot web application. \\ \hline
+  Action         & User selects ``Create'' tab.  \\ \hline
+  Action         & User fills out all fields presented on the ``Create'' view. \\ \hline
+  Action         & User clicks submit button. \\ \hline
+  Postconditions & New campaign is created. \\ \hline
 \end{testcase}
 \subsubsection{Campaign Modification} % JK
+\begin{testcase}
+  Precondition  & User is logged into the Mashbot web application \\ \hline
+  Precondition  & At least one campaign has been created. \\ \hline  
+  Precondition  & User is viewing the list of all campaigns.  \\ \hline  
+  Action        & User clicks to edit the campaign.  \\ \hline  
+  Reaction      & User is redirected to the ``Edit'' view for a campaign.  \\ \hline
+  Action        & User changes fields.  \\ \hline  
+  Action        & User presses ``Save'' button.  \\ \hline  
+  Postcondition & Campaign is updated with changed fields. \\ \hline
+  Postcondition & User is taken to view list of all campaigns \\ \hline
+\end{testcase}
 \subsubsection{Add Campaign Content} % JK
+\begin{testcase}
+  Precondition  & User is logged into the Mashbot web application  \\ \hline  
+  Precondition  & User is viewing list of campaigns.   \\ \hline  
+  Action        & User selects a campaign to which to add content. \\ \hline  
+  Reaction      & User is taken to ``Add Content'' view. \\ \hline
+  Action        & User clicks ``Add New Content'' button. \\ \hline
+  Reaction      & A view to select content type appears. \\ \hline
+  Action        & User selects content type. \\ \hline
+  Reaction      & User is taken to page to edit content for given content type. \\ \hline
+  Action        & User completes content. \\ \hline
+  Postcondition & Content is added to the campaign. \\ \hline
+  Postcondition & User is taken to the ``Add Content'' view. \\ \hline
+\end{testcase}
 \subsubsection{Modify Campaign Content} % JK
+\begin{testcase}
+  Precondition  & User is logged into the Mashbot web application. \\ \hline
+  Precondition  & User is viewing a campaign. \\ \hline
+  Action        & User clicks on a piece of content to edit. \\ \hline
+  Reaction      & User is given the ``Edit Content'' view. \\ \hline
+  Action        & User completes changes. \\ \hline
+  Action        & User clicks the save button. \\ \hline
+  Postcondition & User is directed back to the Campaign view. \\ \hline
+  Postcondition & Content is saved. \\ \hline
+\end{testcase}
 \subsubsection{Content Scheduler} % JK
+\subsubsubsection{Schedule Content}
+
+\begin{testcase}
+  Precondition  & User is logged in to the Mashbot web application. \\ \hline
+  Precondition  & User is on the ``Schedule'' view. \\ \hline
+  Action        & User clicks and drags a piece of content from the Content Bucket to the calendar. \\ \hline
+  Postcondition & Content is scheduled for the date the date at which the user dropped the content. \\ \hline
+  Postcondition & A view is given to add the time for the date for which the content is scheduled. \\ \hline
+\end{testcase}
+\subsubsubsection{Unschedule Content}
+
+\begin{testcase}
+  Precondition  & User is logged in to the Mashbot web application. \\ \hline
+  Precondition  & User is on the ``Schedule'' view. \\ \hline
+  Precondition  & At least one piece of content is already scheduled. \\ \hline
+  Action        & User clicks and drags scheduled content from view to Content Bucket. \\ \hline
+  Postcondition & Content is removed from the calendar and is unscheduled. \\ \hline
+\end{testcase}
+\subsubsubsection{Edit Scheduled Time}
+
+\begin{testcase}
+  Precondition  & User is logged in to the Mashbot web application. \\ \hline
+  Precondition  & User is on the ``Schedule'' view. \\ \hline
+  Action        & User clicks a piece of content on the Calendar. \\ \hline
+  Postcondition & User is given the ``Edit Scheduled Time'' view. \\ \hline
+\end{testcase}
+\subsubsubsection{Edit Scheduled Date}
+
+\begin{testcase}
+  Precondition  & User is logged in to the Mashbot web application. \\ \hline
+  Precondition  & User is on the ``Schedule'' view. \\ \hline
+  Precondition  & At least one piece of content is already scheduled. \\ \hline
+  Action        & User drags content from one date to another. \\ \hline
+  Postcondition & Content's date is changed to date on which the content is dropped. \\ \hline
+\end{testcase}
 \subsubsection{Content Publisher} % JK
+\begin{testcase}
+\end{testcase}
 \subsubsection{Adding External Service Account} % JK
 
 \end{document}
