@@ -14,8 +14,8 @@
 \newcommand{\subsubsubsection}[1]{
   \vspace{.5em}
   \noindent
-  \textbf{#1}
-  \vspace{.25em}
+  \textbf{#1} \\*[-.25em]
+  \nopagebreak
 }
 \begin{document}
 
@@ -108,9 +108,7 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
   Actions              & The tester enters a username, password, and relevant information in the appropriate fields and submits for registration. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \\
-                             & or \\
-                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{User Account Modification} % CR
@@ -118,9 +116,7 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
   Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \\
-                             & or \\
-                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{Logging In} % CR
@@ -128,9 +124,7 @@ Requirements Specification for Mashbot.
 \begin{testcase}
   Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
   Actions              & The tester enters his username and password in the appropriate fields and submits for verification. \\ \hline
-  Postconditions & The tester is logged in to the system if the verification is successful. \\
-                             & or \\
-                             & The tester is not logged in to the system if the verification is not successful. \\ \hline
+  Postconditions & The tester is logged in to the system if the verification is successful. \newline or \newline The tester is not logged in to the system if the verification is not successful. \\ \hline
 \end{testcase}
 
 \subsubsection{Logging Out} % CR
@@ -232,9 +226,19 @@ Requirements Specification for Mashbot.
 \end{testcase}
 \subsubsection{Content Publisher} % JK
 \begin{testcase}
+  Precondition  & Content is scheduled to be published. \\ \hline
+  Action        & Scheduled time of publishing occurs. \\ \hline
+  Postcondition & Content is published to the service it was scheduled to be published to, and at the time it was scheduled for. \\ \hline
 \end{testcase}
 \subsubsection{Adding External Service Account} % JK
-
+\begin{testcase}
+  Precondition  & User is logged in and viewing the External Service Account control panel. \\ \hline
+  Action        & User clicks ``Add Account''. \\ \hline
+  Reaction      & User is given fields to authenticate the account. \newline or \newline User is redirected to an authentication page on the external service itself. \\ \hline
+  Action        & User fills in account credentials in provided fields. \newline or \newline User affirms authentication on authentication page. \\ \hline
+  Postcondition & User is approved to use the account. \\ \hline
+  Postcondition & Authentication credentials are stored for future use. \\ \hline
+\end{testcase}
 \end{document}
 
 
