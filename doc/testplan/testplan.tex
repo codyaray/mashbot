@@ -97,10 +97,43 @@ Requirements Specification for Mashbot.
 \subsection{Introduction} % AG
 \subsection{Test Cases}
 \subsubsection{User Account Creation} % CR form validation 
+
+\begin{testcase}
+  Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
+  Actions              & The tester enters a username, password, and relevant information in the appropriate fields and submits for registration. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \\                             & or \\                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+\end{testcase}
+
 \subsubsection{User Account Modification} % CR
+
+\begin{testcase}
+  Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
+  Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
+  Postconditions & The tester is registered in the system if all field verifications are successful. \\                             & or \\                             & The tester is not registered in the system if any field verification is not successful. \\ \hline
+\end{testcase}
+
 \subsubsection{Logging In} % CR
+
+\begin{testcase}
+  Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
+  Actions              & The tester enters his username and password in the appropriate fields and submits for verification. \\ \hline
+  Postconditions & The tester is logged in to the system if the verification is successful. \\                             & or \\                             & The tester is not logged in to the system if the verification is not successful. \\ \hline
+\end{testcase}
+
 \subsubsection{Logging Out} % CR
+
+\begin{testcase}
+  Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
+  Actions              & The tester clicks the logout button. \\ \hline
+  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline\end{testcase}
+
 \subsubsection{Login Timeout} % CR
+
+\begin{testcase}
+  Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
+  Actions              & The tester does not take any action for a predefined amount of time. \\ \hline
+  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline\end{testcase}
+
 \subsubsection{Campaign Creation} % JK
 \begin{testcase}
   Preconditions & Stuff. \\ \hline
