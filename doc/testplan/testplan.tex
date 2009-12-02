@@ -46,11 +46,11 @@
 
 \subsection{Background}
 
-This document describes the battery of tests the Mashbot product will
-be required to pass in order to be considered successful. Mashbot is a
-tool for managing advertising campaigns and collecting data from
-social networks. It is described in detail in the Software
-Requirements Specification for Mashbot.
+This document describes the battery of tests Mashbot will be required
+to pass in order to be considered successful. Mashbot is a tool for
+managing advertising campaigns and collecting data from social
+networks. It is described in detail in the Software Requirements
+Specification for Mashbot.
 
 \subsection{Structure of Document}
 \begin{itemize}
@@ -74,19 +74,19 @@ Software Requirements Specification for Mashbot
 \subsection{Glossary}
 
 \begin{itemize}
-\item Test Team Leader - The person in charge of all the testers.
-\item Project Leader - The person in charge of the whole project.
-\item Client’s Representatives - Client’s Representatives are people who overlook the Acceptance Test Plan
-  execution on behalf of the customers
+\item Test Team Leader - The person in charge of testing.
+\item Project Leader - The person in charge of the project.
 \item Software Requirements Specification - A Software Requirements Specification is a document which
-  describes the behaviour of a system.
+  describes the behavior of a system.
 \item Functional Requirements - Functional Requirements define the internal workings of the software.
-\item Unit Tests - A procedure in the software to validate that individual modules and other units of source
-  code are working properly
-\item Integration Test - Integration Test is a test phase which is employed after the Unit Tests are validated
-  and tests how all the different modules of a software system fit and work together with each other.
-\item System Test - System Test is conducted after Integration Test has been conducted to evaluate the
-  system’s compliance with its specified requirements
+\item Unit Tests - Unit Testing is a testing phase which validates
+  that individual modules and other units of source code are working
+  properly.
+\item Integration Tests - Integration Testing is the phase following
+  Unit Testing and tests the connections between units.
+\item System Tests - System Tests are conducted after Integration
+  Testing to evaluate the system’s compliance with its specified
+  requirements.
 \end{itemize}
 
 \section{Test Approach and Restraints} % VS
@@ -94,12 +94,11 @@ Software Requirements Specification for Mashbot
 \subsection{Introduction}
 
 This section describes the overall approach, techniques and
-testing tools to be used in Acceptance Test Plan for
-the Mashbot and any constraints that may apply.
+testing tools to be used in Acceptance Test Plan for Mashbot and any constraints that may apply.
 
 \subsection{Test Objectives}
 
-The Acceptance Test Plan process will examine Mashbot and verify
+The Acceptance Test Plan will examine Mashbot and verify
 whether it fulfills the requirements set forth in the Software
 Requirements Specification.
 
@@ -107,21 +106,19 @@ Requirements Specification.
 \subsection{Test Structure}
 
 The Acceptance Test Plan will consist of a subset of test cases and
-methods, previously used in the Unit Tests, Integration Test and
-System Test for Mashbot. The test cases will be carefully selected to
+methods, previously used in the Unit Tests, Integration Tests and
+System Tests for Mashbot. The test cases will be carefully selected to
 allow for the verification of the functional requirements of Mashbot
 as listed in the Software Requirements Document. It is essential that
 all appropriate Unit Tests, Integration Tests and System Tests were
-successfully performed on Mashbot prior to the Acceptance Tests
-and their results were reported and presented to the client.
+successfully performed prior to the Acceptance Tests.
 
 \section{Test Assumptions and Exclusions} % ND
 
 \subsection{Introduction}
 
-This section describes details about what aspects of Mashbot will actually be
-covered within the scope of this Acceptance Test Plan document and what will
-not be covered.
+This section describes details about which aspects of Mashbot are
+within the scope of this Acceptance Test Plan and which are not.
 
 \subsection{Assumptions}
 
@@ -150,7 +147,7 @@ the Software Requirements Specification
 \subsection{Introduction}
 	This section specifies criteria that must be met in order for the Acceptance 
 	Test Plan to be executed. Additionally, it specifies the criteria that must 
-	be met for success and failure of that acceptance test plan.
+	be met for success and failure of the Acceptance Test Plan.
 \subsection{Entry Criteria}
 	The Acceptance Test Plan can be executed when these preconditions are met:
 	\begin{itemize}
@@ -164,12 +161,10 @@ the Software Requirements Specification
 		requirements as stated in our Software Requirements Specification.
 		\item Copies of the latest versions of both the Software Requirements 
 		Specification and other user-related documentation has been received.
-		\item The latest released version of Mashbot has been appropriately 
-		resourced.
-		\item Consent of the following people to begin the acceptance test plan 
+		\item The latest released version of Mashbot has been received.
+		\item Consent of the following people to begin the Acceptance Test Plan 
 		has been given:
 			\begin{itemize}
-				\item Client
 				\item Project Leader
 				\item Test Team Leader
 			\end{itemize}
@@ -177,14 +172,14 @@ the Software Requirements Specification
 \subsection{Exit Criteria}
 	A run of the Acceptance Test Plan has several possible outcomes:
 	\begin{itemize}
-		\item Success: All \textbf{Priority 1} requirements wer tested and 
+		\item Success: All \textbf{Priority 1} requirements were tested and 
 		performed as required.
 		\item Failure:
 			\begin{itemize}
 				\item At least one of our \textbf{Priority 1} requirement 
 				deviated from expected behavior.
 				\item The Acceptance Test Plan was rescheduled on approval from 
-				the Client and Test Team Leader.
+				the Test Team Leader.
 			\end{itemize}
 		
 	\end{itemize}
@@ -194,8 +189,8 @@ the Software Requirements Specification
 
 \subsection{Introduction}
 
-This section escribes the roles and responsibilities of people involved in the
-Acceptance Test Plan process, as well as how to report results.
+This section describes the roles and responsibilities of people involved in the
+Acceptance Test Plan, as well as how to report results.
 
 \subsection{Roles and Responsibilities}
 
@@ -237,7 +232,7 @@ submit to the Administrative Lead.
 
 \begin{testcase}
   Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
-  Actions              & The tester enters a username, password, and relevant information in the appropriate fields and submits for registration. \\ \hline
+  Actions              & The tester enters a username, password, and other relevant information in the appropriate fields and submits for registration. \\ \hline
   Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
 \end{testcase}
 
