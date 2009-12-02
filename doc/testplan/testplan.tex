@@ -146,9 +146,49 @@ the Software Requirements Specification
 
 \section{Entry and Exit Criteria} % AG
 
+
 \subsection{Introduction}
+	This section specifies criteria that must be met in order for the Acceptance 
+	Test Plan to be executed. Additionally, it specifies the criteria that must 
+	be met for success and failure of that acceptance test plan.
 \subsection{Entry Criteria}
+	The Acceptance Test Plan can be executed when these preconditions are met:
+	\begin{itemize}
+		\item Mashbot has successfully passed testing including:
+			\begin{itemize}
+				\item Integration Testing
+				\item Systems Testing
+				\item Unit Testing
+			\end{itemize}
+		\item A testing environment has been setup which reflects the system 
+		requirements as stated in our Software Requirements Specification.
+		\item Copies of the latest versions of both the Software Requirements 
+		Specification and other user-related documentation has been received.
+		\item The latest released version of Mashbot has been appropriately 
+		resourced.
+		\item Consent of the following people to begin the acceptance test plan 
+		has been given:
+			\begin{itemize}
+				\item Client
+				\item Project Leader
+				\item Test Team Leader
+			\end{itemize}
+	\end{itemize}
 \subsection{Exit Criteria}
+	A run of the Acceptance Test Plan has several possible outcomes:
+	\begin{itemize}
+		\item Success: All \textbf{Priority 1} requirements wer tested and 
+		performed as required.
+		\item Failure:
+			\begin{itemize}
+				\item At least one of our \textbf{Priority 1} requirement 
+				deviated from expected behavior.
+				\item The Acceptance Test Plan was rescheduled on approval from 
+				the Client and Test Team Leader.
+			\end{itemize}
+		
+	\end{itemize}
+	
 
 \section{Testing Participants} % ND
 
@@ -184,6 +224,14 @@ submit to the Administrative Lead.
 \section{Testing Project Test Cases}
 
 \subsection{Introduction} % AG
+	The test cases are divided into sections covering parts of the functionality and use cases in the Software Requirements Specification. Each test case has the following format:
+	\begin{itemize}
+	  \item Name - The name of the test case
+	  \item Preconditions - Conditions needed to initiate the test case
+	  \item Actions - The actions expected from a tester
+	  \item Post conditions - The expected outcome of the test case
+	\end{itemize}
+
 \subsection{Test Cases}
 \subsubsection{User Account Creation} % CR form validation 
 
