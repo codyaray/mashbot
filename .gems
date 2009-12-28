@@ -1,5 +1,5 @@
 authlogic
-authlogic_openid
-openid
+authlogic-oid
+ruby-openid
 oauth
-authlogic_oauth
+authlogic-oauth
