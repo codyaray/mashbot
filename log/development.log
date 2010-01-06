@@ -6285,3 +6285,11 @@ Rendering template within layouts/application
 Rendering schedule/index
 DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
 Completed in 26ms (View: 16, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 13:29:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/schedule]
