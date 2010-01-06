@@ -5409,3 +5409,199 @@ Footnotes #<Footnotes::Notes::ControllerNote:0x7fdf468f5cc8>Note Exception: File
 /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
 script/server:3
 Completed in 137ms (View: 17, DB: 1) | 404 Not Found [http://localhost/stylesheets/schedule.css]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:15:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:15:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:17:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:17:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:18:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:20:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:20:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:21:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:33:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ComatoseController#show (for 127.0.0.1 at 2010-01-06 12:33:54) [GET]
+  Parameters: {"use_cache"=>"true", "layout"=>"comatose_content.html.erb", "cache_path"=>nil, "root"=>"/", "page"=>["javascripts", "jquery.js"], "index"=>""}
+  [4;36;1mComatosePage Load (0.5ms)[0m   [0;1mSELECT * FROM "comatose_pages" WHERE (full_path = 'javascripts/jquery') LIMIT 1[0m
+  [4;35;1mComatosePage Load (0.1ms)[0m   [0mSELECT * FROM "comatose_pages" WHERE (full_path = '404') LIMIT 1[0m
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Footnotes #<Footnotes::Notes::ControllerNote:0x7fdf46b1f648>Note Exception: File not found
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/controller_note.rb:33:in `controller_filename'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/controller_note.rb:15:in `link'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:305:in `link_helper'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:252:in `links'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:64:in `each_with_rescue'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:62:in `each'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:62:in `each_with_rescue'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:335:in `each_with_rescue'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:250:in `links'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:190:in `insert_footnotes'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:128:in `add_footnotes_without_validation!'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:104:in `add_footnotes!'
+/usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/footnotes.rb:39:in `after'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/callbacks.rb:185:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/callbacks.rb:185:in `evaluate_method'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/callbacks.rb:166:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:662:in `run_after_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:619:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `sass_old_process'
+/home/josiah/.gem/ruby/1.8/gems/haml-2.2.13/lib/sass/plugin/rails.rb:19:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+Completed in 10ms (View: 1, DB: 1) | 404 Not Found [http://localhost/javascripts/jquery.js]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:34:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:34:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 66ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:34:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:35:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
+
+
+Processing ScheduleController#index (for 127.0.0.1 at 2010-01-06 12:35:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"schedule"}
+Rendering template within layouts/application
+Rendering schedule/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#data has been deprecated. Please use #to_hash instead.. (called from initialize at /usr/lib/ruby/gems/1.8/gems/rails-footnotes-3.6.5/lib/rails-footnotes/notes/session_note.rb:7)
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/schedule]
