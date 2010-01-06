@@ -1,8 +1,45 @@
 - content_for :stylesheets do
   =stylesheet_link_tag "schedule"
   =stylesheet_link_tag "fullcalendar"
+
 - content_for :javascripts do
   =javascript_include_tag "schedule"
   =javascript_include_tag "fullcalendar.min"
+  =javascript_include_tag "jquery-ui.min"
+
+
 #bucket
+  #accordion
+    %h3
+      %a{ :href => "#" }
+        (a)Blog Posts
+    %div
+      .schedule-unit
+        Unit One
+      .schedule-unit
+        Unit Two
+      .schedule-unit
+        Unit Three
+    %h3
+      %a{ :href => "#" }
+        (a)Tweets
+    %div
+      .schedule-unit
+        Unit One
+      .schedule-unit
+        Unit Two
+      .schedule-unit
+        Unit Three
+    %h3
+      %a{ :href => "#" }
+        (a)Other Content Type
+    %div
+      .schedule-unit
+        Unit One
+      .schedule-unit
+        Unit Two
+      .schedule-unit
+        Unit Three
+      
+
 #schedule
