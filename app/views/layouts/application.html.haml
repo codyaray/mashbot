@@ -1,0 +1,34 @@
+!!! XML
+!!! Strict
+%html
+  %head
+    %title
+      =yield :title
+    =javascript_include_tag "jquery.min"
+    =yield :javascripts
+    =stylesheet_link_tag "application"
+    =yield :stylesheets
+  %body
+    #header
+      #administrative-links
+        %ul
+          %li
+            (a)User Name
+          %li
+            %a{:href => "settings"}
+              Settings
+          %li{:style => "border: none"}
+            %a{:href => "logout"}
+              Sign Out
+      .title
+        (a)Company Mashbot
+      #navigation-links
+        %ul
+          %li Dashboard
+          %li Create
+          %li Schedule
+          %li Explore
+    #content
+      =yield
+    #footer
+      

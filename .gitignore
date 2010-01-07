@@ -1,0 +1,12 @@
+*.log
+*.dvi
+*.toc
+*.aux
+doc/requirements/auto
+doc/testplan/auto
+tmp
+.#*
+#*
+*#
+#*#
+*~
