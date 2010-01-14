@@ -6,7 +6,7 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key         => '_mashbot_session',
-  :secret      => 'd54354be2db0f6ff997189155917bda03917110d37d940e8178c65060b4183e55eb54a8c4d647c698d4b2f434e673b55ddf9f268e9ab10cd6afe1402a17d3a5f'
+  :secret      => '784d4b6b5815e670f6cb987fc02c55dcbcab24bea8ea1c15fe9c33cdc9877d8ab9aefceade7aebc87aaa5769841a6d65b3bc172329fbfa4d924940a077bcf979'
 }
 
 # Use the database for sessions instead of the cookie-based default,
