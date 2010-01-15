@@ -1,5 +1,4 @@
 class CampaignsController < ApplicationController
-
   # GET /campaigns
   # GET /campaigns.xml
   def index

@@ -9,14 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100114153151) do
+ActiveRecord::Schema.define(:version => 20100115040818) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
-    t.date     "start_date"
-    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "start_date"
+    t.string   "end_date"
   end
 
   create_table "comatose_page_versions", :force => true do |t|

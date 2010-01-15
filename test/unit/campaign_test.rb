@@ -7,15 +7,16 @@ class CampaignTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: campaigns
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  title      :string(255)
-#  start_date :date
-#  end_date   :date
 #  created_at :datetime
 #  updated_at :datetime
+#  start_date :string(255)
+#  end_date   :string(255)
 #
 

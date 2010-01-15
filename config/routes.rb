@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :campaigns
+
 
   map.resource :user_session
   map.root :controller => "dashboard"
