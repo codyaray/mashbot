@@ -1,0 +1,7 @@
+%h1 Create a campaign
+
+- form_for @campaign do |f|
+  = f.error_messages
+  = f.label :title, 'Title'
+  = f.text_field :title
+  = submit_tag 'Create!'

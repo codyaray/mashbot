@@ -10,3 +10,7 @@ tmp
 *#
 #*#
 *~
+capybara*.html
+db/*.sqlite3
+config/database.yml
+rerun.txt
