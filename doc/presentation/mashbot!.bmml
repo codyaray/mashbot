@@ -1,0 +1,10 @@
+<mockup version="1.0" skin="sketch" measuredW="805" measuredH="188" mockupW="317" mockupH="107">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="478" y="71" w="-1" h="-1" measuredW="317" measuredH="107" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mashbot%21</text>
+        <size>72</size>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

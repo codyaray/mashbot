@@ -1,0 +1,16 @@
+<mockup version="1.0" skin="sketch" measuredW="831" measuredH="381" mockupW="253" mockupH="135">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="568" y="308" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="693" y="236" w="-1" h="-1" measuredW="128" measuredH="135" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./factory-icon.gif</src>
+        <href>p2%26bm%3Bp2.bmml%26bm%3Bp2.bmml%26bm%3Bp2.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22125%2C0%2C253%2C135%22%20href%3D%22p2.bmml%22%20alt%3D%22p2%22%20id%3D%223%22/%3E</map>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
