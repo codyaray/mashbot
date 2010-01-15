@@ -10,36 +10,13 @@
 
 #bucket
   #accordion
-    %h3.blog
+    %h3.title
       %a{ :href => "#" }
-        (a)Blog Posts
+        Campaigns
     %div
-      .schedule-unit.unit1
-        Unit One
-      .schedule-unit.unit2
-        Unit Two
-      .schedule-unit.unit3
-        Unit Three
-    %h3.twitter
-      %a{ :href => "#" }
-        (a)Tweets
-    %div
-      .schedule-unit.unit4
-        Unit One
-      .schedule-unit.unit5
-        Unit Two
-      .schedule-unit.unit6
-        Unit Three
-    %h3.other
-      %a{ :href => "#" }
-        (a)Other Content Type
-    %div
-      .schedule-unit.unit7
-        Unit One
-      .schedule-unit.unit8
-        Unit Two
-      .schedule-unit.unit9
-        Unit Three
+      - @campaigns.each do |campaign|
+        .schedule-unit.unit1
+          =campaign.title
 
 #schedule
 

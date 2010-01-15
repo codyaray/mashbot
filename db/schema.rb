@@ -9,13 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091115151653) do
+ActiveRecord::Schema.define(:version => 20100114153151) do
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "title"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comatose_page_versions", :force => true do |t|
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path",                      :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -29,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20091115151653) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path",                 :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
