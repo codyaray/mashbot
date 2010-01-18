@@ -1,0 +1,21 @@
+#bucket {
+  display: table-cell;
+  width: 300px;
+  vertical-align: top;
+  padding-top: 45px; }
+
+#schedule {
+  display: table-cell;
+  width: 600px;
+  vertical-align: top; }
+
+.ui-accordion-header {
+  background: #ccf;
+  padding: 5px;
+  margin: 0px 5px;
+  border: 1px solid #000;
+  cursor: pointer; }
+
+.ui-accordion-content {
+  bacground: #eef;
+  padding: 5px 10px; }

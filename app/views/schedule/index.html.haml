@@ -1,0 +1,24 @@
+- content_for :stylesheets do
+  =stylesheet_link_tag "schedule"
+  =stylesheet_link_tag "fullcalendar"
+
+- content_for :javascripts do
+  =javascript_include_tag "schedule"
+  =javascript_include_tag "fullcalendar.min"
+  =javascript_include_tag "jquery-ui.custom.min"
+  =javascript_tag "$(document).ready(function(){init_schedule();});"
+
+#bucket
+  #accordion
+    %h3.title
+      %a{ :href => "#" }
+        Campaigns
+    %div
+      - @campaigns.each do |campaign|
+        .schedule-unit.unit1
+          =campaign.title
+
+#schedule
+
+
+  

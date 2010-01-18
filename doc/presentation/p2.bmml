@@ -1,0 +1,28 @@
+<mockup version="1.0" skin="sketch" measuredW="831" measuredH="381" mockupW="253" mockupH="135">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="568" y="308" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="693" y="236" w="-1" h="-1" measuredW="128" measuredH="135" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./factory-icon.gif</src>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Arrow" x="646" y="278" w="70" h="39" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+        <leftArrow>false</leftArrow>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Arrow" x="596" y="278" w="56" h="26" measuredW="150" measuredH="100" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+        <direction>bottom</direction>
+        <rightArrow>false</rightArrow>
+        <leftArrow>false</leftArrow>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

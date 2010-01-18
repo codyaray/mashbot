@@ -1,0 +1,16 @@
+
+%p
+  %b
+    Title:
+  = h @campaign.title
+%p
+  %b
+    Start date:
+  = h @campaign.start_date
+%p
+  %b
+    End date:
+  = h @campaign.end_date
+= link_to 'Edit', edit_campaign_path(@campaign)
+|
+= link_to 'Back', campaigns_path
