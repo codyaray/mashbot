@@ -5,20 +5,5 @@
   = stylesheet_link_tag 'jquery-ui.custom'
 %h1 Create a campaign
 
-- form_for(@campaign) do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
-  %p
-    = f.label :start_date
-    %br
-    = f.text_field :start_date
-  %p
-    = f.label :end_date
-    %br
-    = f.text_field :end_date
-  %p
-    = f.submit 'Create!'
+= render :partial => 'form.html.haml', :locals => { :submit_text => 'Create!' }
 = link_to 'Back', campaigns_path
