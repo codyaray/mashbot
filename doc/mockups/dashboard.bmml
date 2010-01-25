@@ -20,12 +20,12 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="27" measuredW="348" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="28" measuredW="405" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Dashboard%2C%20Create%2C%20Schedule%2C%20Explore</text>
+        <text>Dashboard%2C%20Create%2C%20Manage%2C%20Schedule%2C%20Explore</text>
+        <hrefs>%2Ccreate%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2C</hrefs>
         <selectedIndex>0</selectedIndex>
-        <hrefs>%2Ccreate%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cview%26bm%3Bview.bmml%26bm%3Bview.bmml%26bm%3Bview.bmml%2C</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22280%2C152%2C333%2C181%22%20href%3D%22create.bmml%22%20alt%3D%22create%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22333%2C152%2C400%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22400%2C152%2C458%2C181%22%20href%3D%22view.bmml%22%20alt%3D%22view%22%20id%3D%222_2%22/%3E%0A</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22280%2C152%2C333%2C181%22%20href%3D%22create.bmml%22%20alt%3D%22create%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22333%2C152%2C390%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22390%2C152%2C457%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_2%22/%3E%0A</map>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="143" y="204" w="1016" h="-1" measuredW="100" measuredH="5" zOrder="2" locked="false" isInGroup="-1"/>

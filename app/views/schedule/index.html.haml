@@ -5,41 +5,18 @@
 - content_for :javascripts do
   =javascript_include_tag "schedule"
   =javascript_include_tag "fullcalendar.min"
-  =javascript_include_tag "jquery-ui.min"
+  =javascript_include_tag "jquery-ui.custom.min"
   =javascript_tag "$(document).ready(function(){init_schedule();});"
 
 #bucket
   #accordion
-    %h3
+    %h3.title
       %a{ :href => "#" }
-        (a)Blog Posts
+        Campaigns
     %div
-      .schedule-unit
-        Unit One
-      .schedule-unit
-        Unit Two
-      .schedule-unit
-        Unit Three
-    %h3
-      %a{ :href => "#" }
-        (a)Tweets
-    %div
-      .schedule-unit
-        Unit One
-      .schedule-unit
-        Unit Two
-      .schedule-unit
-        Unit Three
-    %h3
-      %a{ :href => "#" }
-        (a)Other Content Type
-    %div
-      .schedule-unit
-        Unit One
-      .schedule-unit
-        Unit Two
-      .schedule-unit
-        Unit Three
+      - @campaigns.each do |campaign|
+        .schedule-unit.unit1
+          =campaign.title
 
 #schedule
 

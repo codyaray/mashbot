@@ -1,0 +1,64 @@
+<mockup version="1.0" skin="sketch" measuredW="875" measuredH="498" mockupW="200" mockupH="252">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="769" y="315" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="693" y="236" w="-1" h="-1" measuredW="128" measuredH="135" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./factory-icon.gif</src>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="665" y="422" w="44" h="26" measuredW="744" measuredH="436" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Image" x="727" y="428" w="44" h="26" measuredW="744" measuredH="436" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Image" x="793" y="436" w="44" h="26" measuredW="744" measuredH="436" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Icon" x="745" y="375" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Icon" x="769" y="386" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Icon" x="779" y="362" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="803" y="375" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Image" x="693" y="448" w="44" h="26" measuredW="744" measuredH="436" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Image" x="755" y="454" w="44" h="26" measuredW="744" measuredH="436" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Image" x="821" y="462" w="44" h="26" measuredW="744" measuredH="436" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./bike.png</src>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

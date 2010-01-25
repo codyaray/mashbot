@@ -4,6 +4,7 @@
   %head
     %title
       =yield :title
+    =javascript_include_tag "application"
     =javascript_include_tag "jquery.min"
     =yield :javascripts
     =stylesheet_link_tag "application"
@@ -28,10 +29,10 @@
             %a{:href => "/dashboard"}
               Dashboard
           %li 
-            %a{:href => "/create"}
+            %a{:href => "/campaign/new"}
               Create
           %li
-            %a{:href => "/manage"}
+            %a{:href => "/campaigns/"}
               Manage
           %li  
             %a{:href => "/schedule"}

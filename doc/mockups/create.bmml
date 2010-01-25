@@ -5,12 +5,12 @@
         <text>Mashbot%21%0Ahttp%3A//mashbot.net</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="27" measuredW="348" measuredH="100" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="27" measuredW="405" measuredH="100" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Dashboard%2C%20Create%2C%20Schedule%2C%20Explore</text>
-        <selectedIndex>1</selectedIndex>
+        <text>Dashboard%2C%20Create%2C%20Manage%2C%20Schedule%2C%20Explore</text>
         <hrefs>dashboard%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%2C%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cview%26bm%3Bview.bmml%26bm%3Bview.bmml%26bm%3Bview.bmml%2C</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22101%2C152%2C176%2C181%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22230%2C152%2C297%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C152%2C355%2C181%22%20href%3D%22view.bmml%22%20alt%3D%22view%22%20id%3D%222_2%22/%3E%0A</map>
+        <selectedIndex>1</selectedIndex>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22101%2C152%2C176%2C181%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22230%2C152%2C287%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22287%2C152%2C354%2C181%22%20href%3D%22view.bmml%22%20alt%3D%22view%22%20id%3D%222_2%22/%3E%0A</map>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="143" y="204" w="1016" h="-1" measuredW="100" measuredH="5" zOrder="2" locked="false" isInGroup="-1"/>
@@ -19,7 +19,7 @@
         <text>Thecompany%27s%20Mashbot%21</text>
       </controlProperties>
     </control>
-    <control controlID="71" controlTypeID="com.balsamiq.mockups::DataGrid" x="230" y="405" w="868" h="96" measuredW="404" measuredH="98" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::DataGrid" x="230" y="405" w="868" h="96" measuredW="403" measuredH="98" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%5B%5D%2CService%2C%20Title%2C%20Schedule%2C%20Created%20By%0A%5B%5D%2C%20Picasa%5CrFlickr%2C%20%5BPuppy%20Pictures%5D%2C%20%2C%20Josiah%20Kiehl%0A%5B%5D%2C%20TwitPic%2C%20%5BOne%20Puppy%20Picture%5D%2C%20%2CAndrew%20Gall</text>
         <borderStyle>none</borderStyle>
@@ -89,7 +89,7 @@
         <color>15790322</color>
       </controlProperties>
     </control>
-    <control controlID="88" controlTypeID="com.balsamiq.mockups::DataGrid" x="230" y="669" w="868" h="55" measuredW="552" measuredH="58" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::DataGrid" x="230" y="669" w="868" h="55" measuredW="551" measuredH="58" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%5B%5D%2CService%2C%20Title%2C%20Schedule%2C%20Created%20By%0A%5B%5D%2C%20Tumblr%2C%20%5BCome%20Check%20Out%20Our%20New%20Puppy%20Products%21%5D%2C%20%2C%20Josiah%20Kiehl</text>
         <borderStyle>none</borderStyle>

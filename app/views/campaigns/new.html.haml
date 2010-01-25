@@ -1,0 +1,9 @@
+- content_for :javascripts do
+  = javascript_include_tag 'jquery-ui.custom.min'
+  = javascript_include_tag 'campaigns'
+- content_for :stylesheets do
+  = stylesheet_link_tag 'jquery-ui.custom'
+%h1 Create a campaign
+
+= render :partial => 'form.html.haml', :locals => { :submit_text => 'Create!' }
+= link_to 'Back', campaigns_path

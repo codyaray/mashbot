@@ -1,0 +1,9 @@
+<mockup version="1.0" skin="sketch" measuredW="602" measuredH="342" mockupW="24" mockupH="24">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="568" y="308" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmoticonIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

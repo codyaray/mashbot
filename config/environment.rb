@@ -22,6 +22,13 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
   config.gem "ruby-openid", :lib => "openid"
+ 
+  ## Note! This is just commented out for freaking Heroku.  Uncomment these then run your rake task, then, before pushing to heroku, recomment these. Blahhh. --Josiah
+  # config.gem "rspec", :lib => "spec"
+  # config.gem "rspec-rails", :lib => "spec/rails"
+  # config.gem "cucumber"
+  # config.gem "cucumber-rails", :lib => "spec/rails"
+  # config.gem "capybara"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
