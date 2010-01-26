@@ -8,9 +8,9 @@
     <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="28" measuredW="407" measuredH="100" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Dashboard%2C%20Create%2C%20Manage%2C%20Schedule%2C%20Explore</text>
-        <hrefs>%2Ccreate%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2C</hrefs>
         <selectedIndex>2</selectedIndex>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22176%2C152%2C229%2C181%22%20href%3D%22create.bmml%22%20alt%3D%22create%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22229%2C152%2C289%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22289%2C152%2C356%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_2%22/%3E%0A</map>
+        <hrefs>dashboard%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%2Ccreate%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%2Cmanage%26bm%3Bmanage.bmml%26bm%3Bmanage.bmml%26bm%3Bmanage.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cexplore-twitter%26bm%3Bexplore-twitter.bmml%26bm%3Bexplore-twitter.bmml%26bm%3Bexplore-twitter.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22101%2C152%2C176%2C181%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22176%2C152%2C229%2C181%22%20href%3D%22create.bmml%22%20alt%3D%22create%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22229%2C152%2C289%2C181%22%20href%3D%22manage.bmml%22%20alt%3D%22manage%22%20id%3D%222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22289%2C152%2C356%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22356%2C152%2C414%2C181%22%20href%3D%22explore.bmml%22%20alt%3D%22explore%22%20id%3D%222_4%22/%3E%0A</map>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="143" y="204" w="1016" h="-1" measuredW="100" measuredH="5" zOrder="1" locked="false" isInGroup="-1"/>

@@ -25,9 +25,6 @@ function add_draggable_to_unscheduled_units(){
 						 $('#schedule').fullCalendar('renderEvent', json, true);
 					       });
 				    }
-				    // for (i in ui['helper']) {
-				    //   $('body').append(i + ': ' + ui['helper'][i] + '<br />');
-				    // }
 				  }
 				});
 
