@@ -1,7 +1,5 @@
 \documentclass{beamer}
-\usetheme[height=7mm]{Rochester}
-\usepackage{tikz}
-
+\usepackage{textcomp}
 \begin{document}
 	\title{Mashbot}
 	\author{Andrew Gall, Vito Salerno, Josiah Kiehl, G. Nicholas D'Andrea, and Cody Ray}
@@ -12,6 +10,33 @@
 	\frame{\frametitle{Table of Contents} \tableofcontents}
 
 	\section{Rationale}
+		
+		\subsection{Why it is needed?}
+                  \frame{Why Mashbot?}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p1.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p2.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=3cm]{pngs/p3.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=2cm]{pngs/p5.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p6.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=2cm]{pngs/p7.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p8.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p9.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p10.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p11.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p12.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p13.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p14.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p15.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p16.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p17.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p18.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p19.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p20.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p21.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p22.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p23.png}\end{figure}}
+		  \frame{\begin{figure}\includegraphics[width=5cm]{pngs/p24.png}\end{figure}}
+                  
 		\subsection{Who needs the system we are building?}
 			\frame{\frametitle{Target Customers}
 				\begin{itemize}
@@ -20,33 +45,9 @@
 					\item Authors
 				\end{itemize}	
 			}
-		
-		\subsection{Why it is needed?}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p1.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p2.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p3.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p5.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p6.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p7.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p8.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p9.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p10.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p11.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p12.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p13.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p14.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p15.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p16.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p17.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p18.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p19.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p20.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p21.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p22.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p23.png}\end{figure}}
-		  \frame{\begin{figure}\includegraphics[width=10cm]{pngs/p24.png}\end{figure}}
-
-		\subsection{Similar Products}
+                  \section{Similar Products}
+                  
+                     \frame{Haven't other people solved this problem?}
 			\frame{\frametitle{Salesforce.com}
                           \begin{itemize}
                             \item Pros
@@ -93,4 +94,40 @@
                             \end{itemize}
                           \end{itemize}
 	                }
+                        \section{Design}
+                        \frame{\frametitle{How Mashbot works}
+                          \begin{itemize}
+                            \item Webservice
+                            \item Two-tiered architecture
+                              \begin{itemize}
+                                \item Campaign Manager
+                                \item Publishing/Aggregation Platform
+                                \item \emph{This decoupling provides stability 
+                                  and flexibility}
+                              \end{itemize}
+                            \end{itemize}
+
+                        }
+                        \frame{\frametitle{Campaign Manager}
+                          \begin{itemize}
+                            \item Interacts with social networking sites in a 
+                              unified way
+                            \item Schedules multi-part campaigns and monitors them
+                            \item Quick, intuitive interface
+                          \end{itemize}
+                        }
+                        \frame{\frametitle{Publishing/Aggregation Platform}
+                          \begin{itemize}
+                            \item Plugin oriented
+                            \item Push/pull query architecture 
+                            \item Allows complex data requests across
+different services
+                          \end{itemize}
+                        }
+                        \frame{\huge{\centering{What's it going to look like?}}}
+                        \subsection{Current Status}
+                        \frame{Anything done yet?}
+                        \frame{\huge{\centering{Prototype!}}}
+                        \frame{\centering{\Large{Questions}\LARGE{\textinterrobang}}}
+                        
 \end{document}
