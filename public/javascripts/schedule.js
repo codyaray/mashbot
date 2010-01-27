@@ -12,15 +12,15 @@ function add_draggable_to_unscheduled_units(){
 				    var unit_id = undefined;
 				    for (var i = 0; i < classes.length; i++) {
 				      klass = classes[i];
-				      if (/unit\d+/.test(klass)){
-					unit_id = klass.replace('unit', '');
+				      if (/unit-\d+/.test(klass)){
+					unit_id = klass.replace('unit-', '');
 					break;
 				      }
 				    }
 				    if (unit_id != undefined) {
 				      // TODO: Make spinner to indicate
 				      // event info is loading
-				      $.getJSON('/exampleEvent', { id: unit_id },
+				      $.getJSON('/campaigns/' + unit_id + '.json', {},
 					       function(json){
 						 $('#schedule').fullCalendar('renderEvent', json, true);
 					       });
@@ -53,6 +53,18 @@ function CalEvent(config) {
   this.className = undefined;
   this.editable = undefined;
   this.source = undefined;
+  this.init_json = function(json) {
+    this.id = json.campaign.id;
+    this.title = json.campaign.title;
+    this.allDay = json.campaign.allDay;
+    this.date = json.campaign.date;
+    this.start = json.campaign.start;
+    this.end = json.campaign.end;
+    this.url = json.campaign.url;
+    this.className = json.campaign.className;
+    this.editable = json.campaign.editable;
+    this.source = json.campaign.source;
+  };
   this.init = function(config) {
     this.id = config.id;
     this.title = config.title;
