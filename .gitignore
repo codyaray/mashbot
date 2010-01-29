@@ -2,9 +2,13 @@
 *.dvi
 *.toc
 *.aux
-doc/requirements/auto
-doc/testplan/auto
+
 doc/presentation/auto/
+doc/requirements/auto/
+doc/testplan/auto/
+doc/design/auto/
+
+*/auto/
 tmp
 .#*
 #*

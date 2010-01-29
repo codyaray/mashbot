@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shadows} % for pgf-umlsd
+\usepackage[underline=true,rounded corners=false]{pgf-umlsd}
+
+\begin{document}
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newinst{browser}{:Browser}
+    \newinst{controller}{:Controller}
+    \newinst{model}{:Model}
+
+    \begin{call}{browser}{HTTP Request}{controller}{}
+    \end{call}
+  \end{sequencediagram}
+\end{figure}
+
+\end{document}
