@@ -1,21 +1,147 @@
-\documentclass{article}
+% Demonstration of pgf-umlsd.sty, a convenient set of macros for drawing
+% UML sequence diagrams. Written by Xu Yuan <xuyuan.cn@gmail.com> from
+% Southeast University, China.
+% This file is part of pgf-umlsd
+% you may get it at
+% http://code.google.com/p/pgf-umlsd/
 
+\documentclass{article}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shadows} % for pgf-umlsd
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
 
-\begin{document}
+\newcommand{\CRUDcreate}[2]{
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:#1 Controller}
+    \newinst{model}{:#1 Model}
+    \newinst{data}{:MySQL}
+    
+    \begin{call}{browser}{GET '#2s/new'}{controller}{}
+      \begin{call}{controller}{new()}{model}{}
+      \end{call}
+    \end{call}
+    \begin{call}{browser}{POST '#2s/new'}{controller}{}
+      \begin{call}{controller}{save()}{model}{}
+        \begin{callself}{model}{validate()}{}
+        \end{callself}
+        \begin{call}{model}{INSERT}{data}{}
+        \end{call}             
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+  \caption{Create #1}
+\end{figure}
+  
+}
+\newcommand{\CRUDshow}[2]{
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:#1 Controller}
+    \newinst{model}{:#1 Model}
+    \newinst{data}{:MySQL}
+    
+    \begin{call}{browser}{GET '#2s/:id'}{controller}{}
+      \begin{call}{controller}{find(:id)}{model}{}
+        \begin{call}{model}{SELECT}{data}{}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+  \caption{Show a #1}
+\end{figure} 
+ 
+}
+\newcommand{\CRUDlist}[2]{
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-    \newinst{browser}{:Browser}
-    \newinst{controller}{:Controller}
-    \newinst{model}{:Model}
-
-    \begin{call}{browser}{HTTP Request}{controller}{}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:#1 Controller}
+    \newinst{model}{:#1 Model}
+    \newinst{data}{:MySQL}
+    
+    \begin{call}{browser}{GET '#2s'}{controller}{}
+      \begin{call}{controller}{find(:all)}{model}{}
+        \begin{call}{model}{SELECT}{data}{}
+        \end{call}
+      \end{call}
     \end{call}
   \end{sequencediagram}
+  \caption{List #1s}
 \end{figure}
+  
+}
+\newcommand{\CRUDupdate}[3]{
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:#1 Controller}
+    \newinst{model}{:#1 Model}
+    \newinst{data}{:MySQL}
+    
+    \begin{call}{browser}{GET '#2s/:id'}{controller}{}
+      \begin{call}{controller}{find(:id)}{model}{}
+        \begin{call}{model}{SELECT}{data}{}
+        \end{call}
+      \end{call}
+    \end{call}
+    \begin{call}{browser}{PUT '#2s/:id'}{controller}{}
+     \begin{call}{controller}{find(:id)}{model}{}
+        \begin{call}{model}{SELECT}{data}{}
+        \end{call}
+     \end{call}
+     \begin{call}{controller}{update\_attributes(:#2)}{model}{} 
+        \begin{callself}{model}{validate()}{}
+        \end{callself}
+        \begin{call}{model}{UPDATE}{data}{}
+        \end{call}        
+     \end{call}
+    \end{call}
+  \end{sequencediagram}
+  \caption{#3}
+\end{figure}  
+}
+\newcommand{\CRUDdelete}[2]{
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:#1 Controller}
+    \newinst{model}{:#1 Model}
+    \newinst{data}{:MySQL}
+    
+    \begin{call}{browser}{DELETE '#2s/:id'}{controller}{}
+      \begin{call}{controller}{find(:id)}{model}{}
+        \begin{call}{model}{SELECT}{data}{}
+        \end{call}
+      \end{call}
+      \begin{call}{controller}{destroy()}{model}{}
+        \begin{call}{model}{DELETE}{data}{}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+  \caption{Delete #1}
+\end{figure}  
+}
+\newcommand{\CRUD}[2]{
+\CRUDcreate{#1}{#2}
+\CRUDshow{#1}{#2}
+\CRUDlist{#1}{#2}
+\CRUDupdate{#1}{#2}{Update a #1}
+\CRUDdelete{#1}{#2}
+
+}
+\begin{document}
+\CRUD{Campaign}{campaign}
+\CRUD{Content Unit}{content\_unit}
+\CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
 
 \end{document}
