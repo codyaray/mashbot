@@ -144,4 +144,45 @@
 \CRUD{Content Unit}{content\_unit}
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
 
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{cron}{:Cron}
+    \newinst{scheduler}{:Scheduler}
+    \newinst{worker}{:Worker}
+    \newinst{data}{:Database}
+    \begin{call}{cron}{cron trigger}{scheduler}{}
+      \begin{callself}{scheduler}{anything\_to\_do?()}{}
+        \begin{call}{scheduler}{SELECT}{data}{}
+        \end{call}
+      \end{callself}
+      \begin{call}{scheduler}{perform()}{worker}{}
+      \end{call}
+    \end{call}
+    \end{sequencediagram}
+  \caption{Perform a scheduled action}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{manager}{:Campaign Manager}
+    \newinst{daemon}{:Delayed Job Daemon}
+    \newinst{mailer}{:Mailer Worker}
+    \newinst{mail}{:SMTP Server}
+    \begin{call}{manager}{send\_later()}{daemon}{}
+    \end{call}
+    \begin{callself}{daemon}{act()}{}
+        \begin{call}{daemon}{perform}{mailer}{}
+          \begin{call}{mailer}{sendmail()}{mail}{}
+          \end{call}
+        \end{call}
+    \end{callself}
+  \end{sequencediagram}
+  \caption{Send email (Requirements 3.1.1)}
+\end{figure}
+
+
 \end{document}
