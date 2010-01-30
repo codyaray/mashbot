@@ -27,19 +27,26 @@
 
 \section{Introduction}
 \subsection{Purpose}
+This document serves to expand upon the requirement into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
 \subsection{Scope}
+This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
 \subsection{Definitions, Acronyms,   and Abbreviations}
+\begin{itemize}
+\item MVC | Model View Controller
+\end{itemize}
 \subsection{Context Diagram}
 \section{Architecture}
 \subsection{Overview}
+Generally, Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Presentation and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, extensibility and accessibility.
 \subsection{Four-Tier Architecture}
 \begin{itemize}
-\item Model
-\item View
-\item Controller
+\item Data Layer / Model
+\item Presentation Layer / View
+\item Business Layer / Controller
 \item Publishing and Aggregation Platform
 \end{itemize}
 \subsection{Service-Oriented Architecture}
+Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Presentation and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
 \subsection{Survey of Technologies Used}
 \subsubsection{Campaign Manager}
 \begin{itemize}
@@ -64,15 +71,17 @@
 \end{itemize}
 \subsubsection{Publishing and Aggregation Platform}
 \begin{itemize}
-\item todo: Put tech stuff here.
+\item TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO: Put tech stuff here.
 \end{itemize}
 \subsection{Presentation Layer Components}
 \subsubsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
 \begin{itemize}
-\item Create | This is where users can create new campaigns
-\item List | This is where users can view, update or delete existing campaigns.
-\item Show | This view is what is shown when the user wants to view an existing campaign via the Show view.  This is also where the Content pieces will be listed.
+\item Create | This is where users can create new campaigns.
+\item List | This is where users can view, update or delete existing campaigns. \\*
+  \includegraphics[width=\textwidth]{../mockups/manage.png}
+\item Show | This view is what is shown when the user wants to view an existing campaign via the Show view.  This is also where the Content pieces will be listed. \\*
+  \includegraphics[width=\textwidth]{../mockups/create.png}
 \item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Campaign.
 \end{itemize}
 \subsubsection{Content Views}
@@ -84,11 +93,14 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \end{itemize}
 \subsubsection{Scheduling Views}
 \begin{itemize}
-  \item Primary Scheduling View |  consists of a list of Campaigns available to be scheduled (ie: they do not have existing start/stop dates) as well as already scheduled Campaigns placed properly on the calendar.
-  \item Content Scheduling View | similar to the Primary Scheduling View, however the items available to be scheduled here are the individual content pieces of the Campaign.  This is accessed via selecting the Campaign from the calendar, or via the List Campaign or Show Campaign views.
+  \item Primary Scheduling View |  consists of a list of Campaigns available to be scheduled (ie: they do not have existing start/stop dates) as well as already scheduled Campaigns placed properly on the calendar. \\*
+  \includegraphics[width=\textwidth]{../mockups/schedule.png}
+  \item Content Scheduling View | similar to the Primary Scheduling View, however the items available to be scheduled here are the individual content pieces of the Campaign.  This is accessed via selecting the Campaign from the calendar, or via the List Campaign or Show Campaign views. \\*
+  \includegraphics[width=\textwidth]{../mockups/schedule-content.png}
 \end{itemize}
 \subsubsection{Explore View}
- Here the user will have several available ``Insight Views.''  These are dependent on which plugins exist in the Publishing and Aggregation Platform, however there will be some provided by the Campaign Manager alone.  These will provide charts that are layerable, such that multiple charts can be seen on the same graph.
+ Here the user will have several available ``Insight Views.''  These are dependent on which plugins exist in the Publishing and Aggregation Platform, however there will be some provided by the Campaign Manager alone.  These will provide charts that are layerable, such that multiple charts can be seen on the same graph. \\*
+  \includegraphics[width=\textwidth]{../mockups/explore-twitter.png}
 \begin{itemize}
 \item Plugin Independent
   \begin{itemize}
