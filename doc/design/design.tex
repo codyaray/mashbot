@@ -475,8 +475,61 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 \end{figure}
 
 \chapter{Publishing and Aggregation Platform}
-
+	
 	\section{API Design}
+		\subsection{Request}
+			A request to our API will have the following fields:
+			\begin{itemize}
+				\item OAuth Information
+					\begin{itemize}
+						\item Realm - A Protection Realm
+						\item Consumer Key - A key for identifying the customer
+						
+						\item Access Token - A token generated using the parameters and the 
+						Consumer Secret
+						\item Nonce - A randomly generated string given to all requests sent 
+						with the same timestamp.
+						
+						\item Timestamp - The number of seconds since January 1st, 1970.
+						\item Signature Method - The signature method that the user used to 
+						sign the request
+						\item Version - Version of OAuth that you are using.
+					\end{itemize}
+				\item Content Type - A string containing the content type as detailed 
+				below.
+				\item Operation - A string containing the operation as detailed below.
+				\item Content - The content to be passed to the appropriate Content 
+				Processors.
+				\item Metadata - A map of key-value pairs used to hold metadata  for the 
+				content.
+				\item Third Party Authentication Data - The third party authentication 
+				data for sending third party requests. It will contain a tree whose 
+				hierarchy will contain the following levels.
+					\begin{enumerate}
+						\item Service Name
+						\item User Name
+						\item Authentication - Contains either the authentication token for 
+						this user or a password
+					\end{enumerate}
+			\end{itemize}
+		\subsection{Content Types}
+
+			\subsubsection{Blog}
+
+			\subsubsection{Picture}
+
+			\subsubsection{Status}
+
+			\subsubsection{Video}
+		\subsection{Operation}
+
+			\subsubsection{Delete}
+				
+			\subsubsection{Edit}
+			
+			\subsubsection{Pull}	
+			
+			\subsubsection{Push}	
 
 	\section{Server Design}
 
