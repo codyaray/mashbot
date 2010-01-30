@@ -27,69 +27,128 @@
 
 \section{Introduction}
 \subsection{Purpose}
+This document serves to expand upon the requirement into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
 \subsection{Scope}
+This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
 \subsection{Definitions, Acronyms,   and Abbreviations}
+\begin{itemize}
+\item MVC | Model View Controller
+\end{itemize}
 \subsection{Context Diagram}
 \section{Architecture}
 \subsection{Overview}
-\subsection{Three-Tier Architecture}
+Generally, Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Presentation and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, extensibility and accessibility.
+\subsection{Four-Tier Architecture}
+\begin{itemize}
+\item Data Layer / Model
+\item Presentation Layer / View
+\item Business Layer / Controller
+\item Publishing and Aggregation Platform
+\end{itemize}
 \subsection{Service-Oriented Architecture}
+Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Presentation and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
 \subsection{Survey of Technologies Used}
-\subsubsection{Data Layer}
-\subsubsection{Business Layer}
-\subsubsection{Presentation Layer}
+\subsubsection{Campaign Manager}
+\begin{itemize}
+\item Presentation Layer
+  \begin{itemize}
+  \item HAML | HTML replacement markup language, for building web layout structure.
+  \item SASS | CSS replacement stylesheets, for applying visual styles to the layout built in HAML.
+  \item jQuery | JavaScript library which provides cross-browser compatibility as well as streamlined Ajax request handling.
+  \item Google Chart API | Public service provided by Google which generates many different kinds of charts and graphs.
+  \end{itemize}
+\item Business Layer
+  \begin{itemize}
+  \item Ruby | Dynamic programming language.
+  \item Rails | Web application framework written in Ruby which provides a concise Model-View-Controller architecture.
+  \item Heroku | Rails engine which provides enhanced production deployment via Rails compilation, a fast readonly filesystem, and horizontal scaling.
+  \end{itemize}
+\item Data Layer
+  \begin{itemize}
+  \item ActiveRecord | Component of Rails which provides the Active Record pattern of data access, creating data model objects and relationships for interacting with resources in a database.
+  \item MySQL | Fast and free relational database which plugs into Rails without effort.
+  \end{itemize}
+\end{itemize}
+\subsubsection{Publishing and Aggregation Platform}
+\begin{itemize}
+\item TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO: Put tech stuff here.
+\end{itemize}
 \subsection{Presentation Layer Components}
-\subsubsection{Financial Account Servlet}
-\subsubsection{Login Servlet}
-\subsubsection{Notification Servlet}
-\subsubsection{Report Servlet}
-\subsubsection{Search Servlet}
-\subsubsection{Summary Servlet}
-\subsubsection{Transaction Servlet}
-\subsubsection{Transaction History Servlet   }
-\subsubsection{User Account Servlet}
-\subsubsection{View Account Servlet}
+\subsubsection{Campaign Views}
+Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
+\begin{itemize}
+\item Create | This is where users can create new campaigns.
+\item List | This is where users can view, update or delete existing campaigns. \\*
+  \includegraphics[width=\textwidth]{../mockups/manage.png}
+\item Show | This view is what is shown when the user wants to view an existing campaign via the Show view.  This is also where the Content pieces will be listed. \\*
+  \includegraphics[width=\textwidth]{../mockups/create.png}
+\item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Campaign.
+\end{itemize}
+\subsubsection{Content Views}
+Content pieces are included inside Campaigns.  These views are accessible via the Show view of a Campaign for the corresponding Campaign id.
+\begin{itemize}
+\item Create | When on the Show view of a given campaign, the user can enter the Create view for Content.
+\item Show | This is how the user previews the Content they have created.
+\item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Content.
+\end{itemize}
+\subsubsection{Scheduling Views}
+\begin{itemize}
+  \item Primary Scheduling View |  consists of a list of Campaigns available to be scheduled (ie: they do not have existing start/stop dates) as well as already scheduled Campaigns placed properly on the calendar. \\*
+  \includegraphics[width=\textwidth]{../mockups/schedule.png}
+  \item Content Scheduling View | similar to the Primary Scheduling View, however the items available to be scheduled here are the individual content pieces of the Campaign.  This is accessed via selecting the Campaign from the calendar, or via the List Campaign or Show Campaign views. \\*
+  \includegraphics[width=\textwidth]{../mockups/schedule-content.png}
+\end{itemize}
+\subsubsection{Explore View}
+ Here the user will have several available ``Insight Views.''  These are dependent on which plugins exist in the Publishing and Aggregation Platform, however there will be some provided by the Campaign Manager alone.  These will provide charts that are layerable, such that multiple charts can be seen on the same graph. \\*
+  \includegraphics[width=\textwidth]{../mockups/explore-twitter.png}
+\begin{itemize}
+\item Plugin Independent
+  \begin{itemize}
+  \item Clickthrough tracking | Any time a link is generated via Mashbot, it is given a special redirecting URL that will allow Mashbot to track how many times the link has been clicked.
+  \item Rate of publishing | How often does the user tweet/blog/etc. This will most likely be used to correlate frequency with user engagement.
+  \end{itemize}
+\item Plugin Dependent
+  \begin{itemize}
+  \item Facebook Fan tracking | A line chart of how many fans the user's fan page has.
+  \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
+  \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
+  \end{itemize}
+\end{itemize}
+
 \subsection{Business Layer Components}
-\subsubsection{Attach File Service}
-\subsubsection{Login Service}
-\subsubsection{Logout Service}
-\subsubsection{Report Service}
-\subsubsection{Revert Service}
-\subsubsection{Session Service}
-\subsubsection{Trend Service}
+\subsection{Session and Authentication}
+\subsubsection{Log In}
+\subsubsection{Log Out}
+\subsubsection{OAuth}
+\subsubsection{Openid}
+\subsubsection{Session Handling}
 \subsection{Data Layer Components}
-\subsubsection{Financial Account Service}
-\subsubsection{Notification Service}
-\subsubsection{Transaction Service}
-\subsubsection{User Account Service}
 \subsection{External Components}
-\subsubsection{Authentication Service}
-\subsubsection{Email Service}
-\subsubsection{Login Data Source}
-\subsubsection{SMS Service}
+\subsubsection{Publishing and Aggregation Targets}
+\begin{itemize}
+\item Twitter
+\item Tumblr
+\item Wordpress
+\item TODO: etc.
+\end{itemize}
+\subsubsection{Email/SMTP Service}
 \section{Design Features}
-\subsection{Login}
+\subsection{Log In}
 \subsection{External Authentication}
 \subsection{User Account Creation}
 \subsection{User Account Modification}
 \subsection{User Account Deactivation}
-\subsection{Financial Account Creation}
-\subsection{Financial Account Modification}
-\subsection{Financial Account Deactivation}
-\subsection{Temporary Deactivation of Financial Account}
-\subsection{Transaction Creation}
-\subsection{Transaction Modification}
-\subsection{Transaction Deactivation}
-\subsection{Revert Transaction}
-\subsection{Recover Deactivated Transaction}
-\subsection{Comment on Transaction}
-\subsection{Create Label}
-\subsection{View Account Summary}
-\subsection{View Financial Transactions}
-\subsection{Sort Financial Transactions}
-\subsection{Search Transactions}
-\subsection{Generate Report}
-\subsection{Configure Account Balance Trigger}
+\subsection{Create Campaign}
+\subsection{View Campaign}
+\subsection{Update Campaign}
+\subsection{Delete Campaign}
+\subsection{Schedule Campaign}
+\subsection{Create Content}
+\subsection{View Content}
+\subsection{Update Content}
+\subsection{Delete Content}
+\subsection{Schedule Content}
+\subsection{View Metrics and Statistics via Explore Panel}
 \subsection{Lost User Name}
 \subsection{Lost Password}
 \subsection{Lost Password}

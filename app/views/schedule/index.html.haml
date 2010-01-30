@@ -15,7 +15,7 @@
         Campaigns
     %div
       - @campaigns.each do |campaign|
-        .schedule-unit.unit1
+        %div{:class => "schedule-unit unit-#{campaign.id}"}
           =campaign.title
 
 #schedule

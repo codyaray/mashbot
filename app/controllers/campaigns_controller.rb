@@ -18,6 +18,7 @@ class CampaignsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @campaign }
+      format.json { render :json => @campaign }
     end
   end
 
@@ -70,7 +71,8 @@ class CampaignsController < ApplicationController
       end
     end
   end
-
+  
+  
   # DELETE /campaigns/1
   # DELETE /campaigns/1.xml
   def destroy

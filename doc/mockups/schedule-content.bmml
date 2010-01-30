@@ -14,9 +14,9 @@
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="143" y="204" w="1016" h="-1" measuredW="100" measuredH="5" zOrder="1" locked="false" isInGroup="-1"/>
-    <control controlID="100" controlTypeID="com.balsamiq.mockups::Link" x="176" y="296" w="-1" h="-1" measuredW="97" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::Link" x="182" y="296" w="-1" h="-1" measuredW="93" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Puppies%20Galore%21</text>
+        <text>One%20Puppy%20Pic</text>
       </controlProperties>
     </control>
     <control controlID="101" controlTypeID="com.balsamiq.mockups::Image" x="336" y="238" w="760" h="593" measuredW="659" measuredH="514" zOrder="9" locked="false" isInGroup="-1">
@@ -35,14 +35,39 @@
         <text>Campaign%20of%20Awesome</text>
       </controlProperties>
     </control>
-    <control controlID="98" controlTypeID="com.balsamiq.mockups::Accordion" x="172" y="238" w="-1" h="-1" measuredW="150" measuredH="116" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::Canvas" x="562" y="393" w="92" h="19" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Campaigns</text>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <borderStyle>none</borderStyle>
       </controlProperties>
     </control>
-    <control controlID="99" controlTypeID="com.balsamiq.mockups::Link" x="176" y="276" w="-1" h="-1" measuredW="139" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::Label" x="568" y="394" w="47" h="18" measuredW="194" measuredH="18" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Campaign%20of%20Awesome</text>
+        <text>Blog%20Post%20-%20Come%20See%20Our%20New%20Puppy%20Products</text>
+        <size>8</size>
+      </controlProperties>
+    </control>
+    <control controlID="98" controlTypeID="com.balsamiq.mockups::Accordion" x="172" y="238" w="-1" h="-1" measuredW="150" measuredH="192" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pictures%0AStatus%0ABlog%20Posts</text>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Link" x="182" y="276" w="-1" h="-1" measuredW="96" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Puppy%20Pictures</text>
+      </controlProperties>
+    </control>
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::Canvas" x="670" y="409" w="93" h="19" measuredW="100" measuredH="70" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>6750207</color>
+      </controlProperties>
+    </control>
+    <control controlID="109" controlTypeID="com.balsamiq.mockups::Label" x="676" y="410" w="80" h="18" measuredW="63" measuredH="18" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Puppy%20Pictures</text>
+        <size>8</size>
       </controlProperties>
     </control>
     <control controlID="102" controlTypeID="com.balsamiq.mockups::Canvas" x="447" y="370" w="533" h="72" measuredW="100" measuredH="70" zOrder="10" locked="false" isInGroup="-1">
@@ -51,14 +76,45 @@
         <color>16744448</color>
       </controlProperties>
     </control>
-    <control controlID="112" controlTypeID="com.balsamiq.mockups::Arrow" x="296" y="302" w="176" h="83" measuredW="150" measuredH="100" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="111" controlTypeID="com.balsamiq.mockups::Label" x="568" y="410" w="80" h="18" measuredW="88" measuredH="18" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tweet%20About%20Puppies</text>
+        <size>8</size>
+      </controlProperties>
+    </control>
+    <control controlID="112" controlTypeID="com.balsamiq.mockups::Arrow" x="296" y="302" w="176" h="83" measuredW="150" measuredH="100" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Drag%20and%20Drop</text>
       </controlProperties>
     </control>
-    <control controlID="115" controlTypeID="com.balsamiq.mockups::StickyNote" x="577" y="468" w="264" h="122" measuredW="109" measuredH="123" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="106" controlTypeID="com.balsamiq.mockups::Canvas" x="452" y="409" w="93" h="19" measuredW="100" measuredH="70" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Campaigns%20can%20be%20dragged%20around%20the%20page%2C%20each%20drop%20setting%20the%20new%20date%20in%20the%20database.</text>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>6750207</color>
+      </controlProperties>
+    </control>
+    <control controlID="107" controlTypeID="com.balsamiq.mockups::Label" x="458" y="410" w="80" h="18" measuredW="60" measuredH="18" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>One%20Puppy%20Pic</text>
+        <size>8</size>
+      </controlProperties>
+    </control>
+    <control controlID="110" controlTypeID="com.balsamiq.mockups::Canvas" x="562" y="409" w="93" h="19" measuredW="100" measuredH="70" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>6711039</color>
+      </controlProperties>
+    </control>
+    <control controlID="114" controlTypeID="com.balsamiq.mockups::StickyNote" x="192" y="427" w="109" h="67" measuredW="109" measuredH="123" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Accordian</text>
+      </controlProperties>
+    </control>
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::StickyNote" x="577" y="468" w="264" h="122" measuredW="109" measuredH="123" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Content%20Items%20can%20be%20dragged%20around%20the%20page%2C%20each%20drop%20setting%20the%20new%20date%20in%20the%20database.</text>
       </controlProperties>
     </control>
     <control controlID="62" controlTypeID="com.balsamiq.mockups::LinkBar" x="893" y="106" w="-1" h="-1" measuredW="169" measuredH="25" zOrder="3" locked="false" isInGroup="-1">

@@ -2,8 +2,13 @@
 *.dvi
 *.toc
 *.aux
-doc/requirements/auto
-doc/testplan/auto
+
+doc/presentation/auto/
+doc/requirements/auto/
+doc/testplan/auto/
+doc/design/auto/
+
+*/auto/
 tmp
 .#*
 #*
@@ -14,3 +19,6 @@ capybara*.html
 db/*.sqlite3
 config/database.yml
 rerun.txt
+*.nav
+*.out
+*.snm
