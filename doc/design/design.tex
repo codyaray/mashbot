@@ -257,6 +257,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \item Plugin Dependent
   \begin{itemize}
   \item Facebook Fan tracking | A line chart of how many fans the user's fan page has.
+    \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
   \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
   \end{itemize}
@@ -472,7 +473,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \end{sequencediagram}
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
-\chapter{Database Design}
 
 \chapter{Publishing and Aggregation Platform}
 
@@ -484,13 +484,22 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 		\subsection{Content-Type Plugins}
 		\subsection{Service Plugins}
 
-\chapter{Summary}
-\section{Advantages of Design}
-\section{Disadvantages of Design}
-\section{Design Rationale}
-\chapter{A Requirements Traceability Matrix}
-\section{Traceability by Requirement Numbers}
-\section{Traceability by Design Component}
+\chapter{Database Design}
+\section{Summary}
+\subsection{Advantages of Design}
+\begin{itemize}
+\item Decoupled Publishing Platform
+  \begin{itemize}
+  \item Allows publishing capabilities to be extended without change to the Campaign Manager.
+  \item Provides asychronous publishing so HTTP requests do not time out when pushing a large amount of content.
+  \item Allows scheduled items to get fired off, even if the Campaign Manager is not fully running.
+  \end{itemize}
+\end{itemize}
+\subsection{Disadvantages of Design}
+\subsection{Design Rationale}
+\section{A Requirements Traceability Matrix}
+\subsection{Traceability by Requirement Numbers}
+\subsection{Traceability by Design Component}
 
 \end{document}
 
