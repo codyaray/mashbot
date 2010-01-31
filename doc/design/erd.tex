@@ -1,0 +1,44 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{tikz-er2} 
+
+\title{Brief Article}
+\author{The Author}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\tikzstyle{every relationship} = [fill=red!20] 
+\tikzstyle{every edge} = [link] 
+\begin{tikzpicture}[node distance=8em]
+	\node[entity] (account) {Account}; 
+	\node[relationship] (authenticates) [right of=account] {Authenticates} edge (account);
+	\node[relationship] (has) [below  of=authenticates] {Has} edge (account);
+	\node[entity, node distance=10em] (user) [right of=has] {User} edge (has);
+	\node[entity] (service) [right of=authenticates] {Service} edge (authenticates);
+	\node[entity] (campaign) [above of=account] {Campaign} edge [->] (account);
+	\node[relationship] (publishes) [right of=campaign] {Publishes} edge (campaign);
+	\node[entity] (content) [right of=publishes] {Content} edge (publishes);
+	\node[entity, node distance=10em] (openid_ident) [below of=user] {OpenID Identifier} edge [->] (user);
+	\node[entity, node distance=10em] (openid_assoc) [left of=openid_ident] {OpenID Association};
+	\node[entity, node distance=9.5em] (openid_nonce) [left of=openid_assoc] {OpenID Nonce};
+	\node[rectangle, draw=gray, fit=(openid_ident) (openid_assoc) (openid_nonce), inner sep=1em] {};
+	\node[entity, node distance=10em] (client_application) [left of=account] {Client Application} edge (account);
+	\node[entity] (oauth_provider_token) [above of=client_application] {OAuth Provider Token} edge [->] (client_application) edge [->] (account);
+	\node[entity] (oauth_nonce) [above of=oauth_provider_token] {OAuth Nonce};
+	\node[rectangle, draw=gray, fit=(client_application) (oauth_provider_token) (oauth_nonce), inner sep=1em] {};
+	\node[entity] (oauth_consumer_token) [below of=client_application] {OAuth Consumer Token} edge (account);
+	\node[rectangle, draw=gray, fit=(oauth_consumer_token), inner sep=1em] {};
+\end{tikzpicture} 
+
+\end{document} 
