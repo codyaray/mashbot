@@ -1,0 +1,5 @@
+
+all:
+
+uml:
+	mpost *.mp
