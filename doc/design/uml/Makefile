@@ -1,8 +1,13 @@
 
 all: uml
 
-uml:
-	mpost *.mp
+Handlers:
+	mpost object_model.mp
+
+ObjectModel:
+	mpost Handlers.mp
+
+uml: Handlers ObjectModel
 
 clean:
 	rm -f *.1
