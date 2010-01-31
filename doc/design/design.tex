@@ -7,6 +7,9 @@
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
 \usepackage{tikz-er2} 
 
+\usepackage{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+
 \newcommand{\CRUDcreate}[2]{
 \begin{figure}
   \centering
@@ -594,7 +597,8 @@ service. (But the numbering here is arbitrary)
 				\item Operation - A string containing the operation as detailed 
 				  below.
 				\item Content - The content to be passed to the appropriate
-				  Content Processors.
+					Content Processors. This contains all the information encompassed by 
+					our Object Model.
 				\item Third Party Authentication Data - The third party
 				  authentication data for sending third party requests. It will
 				  contain a tree whose hierarchy will contain the following
@@ -617,6 +621,16 @@ service. (But the numbering here is arbitrary)
 			\subsubsection{Push}	
 
 	\section{Server Design}
+		\subsection{Architecture}
+			
+
+		\subsection{Handlers}
+			\subsubsection{Handler}
+			\subsubsection{ChainableHandler}
+			\subsubsection{AuthenticationHandler}
+			\subsubsection{DeserializationHandler}
+			\subsubsection{RequiredDataVerificationHandler}
+			\subsubsection{ContentProcessingHandler}
 
 	\section{Plugin Design}
 		\subsection{Content-Type Plugins}
