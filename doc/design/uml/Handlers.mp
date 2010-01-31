@@ -6,11 +6,22 @@ beginfig(1);
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
 			"+postRequest(in:Request,out:Response,context:RequestContext)");
 
-	AbstractClass.ChainableHandler("ChainableHandler")
-			()
-			();
-
 	drawObject(Handler);
-	drawObject(ChainableHandler);
+
 endfig;
+
+beginfig(2);
+	Class.ChainableHandler("ChainableHandler")
+			()
+			("+enact(in:Request,out:Response,context:RequestContext)",
+			"+preRequest(in:Request,out:Response,context:RequestContext)",
+			"+postRequest(in:Request,out:Response,context:RequestContext)");
+	drawObject(ChainableHandler);
+
+endfig;
+
+beginfig(3);
+
+endfig;
+
 end;
