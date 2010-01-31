@@ -1,10 +1,10 @@
 
 all: uml
 
-Handlers:
+ObjectModel:
 	mpost object_model.mp
 
-ObjectModel:
+Handlers:
 	mpost Handlers.mp
 
 uml: Handlers ObjectModel
