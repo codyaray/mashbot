@@ -1,7 +1,6 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage{fullpage}
 \usepackage{graphicx}
-
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,shadows} % for pgf-umlsd
@@ -140,17 +139,20 @@
 
 
 
-\begin{document}
-
 \title{Software Design Description for Mashbot} 
+
 \author{George D'Andrea \and Andrew Gall \and Josiah Kiehl \and
   Cody Ray \and Vito Salerno}
 \date{\today}
+
+\begin{document}
+
 \begin{titlepage}
 \maketitle
 \end{titlepage}
 
-\section*{Revision History}
+
+\chapter*{Revision History}
 \begin{tabular}{|p{2in}|l|l|l|}
   \hline
   \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
@@ -164,12 +166,12 @@
 \tableofcontents
 \clearpage
 
-\section{Introduction}
-\subsection{Purpose}
+\chapter{Introduction}
+\section{Purpose}
 This document serves to expand upon the requirement into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
-\subsection{Scope}
+\section{Scope}
 This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
-\subsection{Definitions, Acronyms,   and Abbreviations}
+\section{Definitions, Acronyms,   and Abbreviations}
 \begin{itemize}
 \item MVC | Model View Controller
 \item SASS | Syntactically Awesome Style Sheets
@@ -178,21 +180,21 @@ This covers the general architecture of Mashbot, as well as the design decisions
 \item CSS | Cascading Style Sheets
 \item API | Application Programmming Interface
 \end{itemize}
-\subsection{Context Diagram}
-\section{Architecture}
-\subsection{Overview}
+\section{Context Diagram}
+\chapter{Architecture}
+\section{Overview}
 Generally, Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Presentation and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, extensibility and accessibility.
-\subsection{Four-Tier Architecture}
+\section{Four-Tier Architecture}
 \begin{itemize}
 \item Data Layer / Model
 \item Presentation Layer / View
 \item Business Layer / Controller
 \item Publishing and Aggregation Platform
 \end{itemize}
-\subsection{Service-Oriented Architecture}
+\section{Service-Oriented Architecture}
 Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Presentation and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
-\subsection{Survey of Technologies Used}
-\subsubsection{Campaign Manager}
+\section{Survey of Technologies Used}
+\subsection{Campaign Manager}
 \begin{itemize}
 \item Presentation Layer
   \begin{itemize}
@@ -213,12 +215,12 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
   \item MySQL | Fast and free relational database which plugs into Rails without effort.
   \end{itemize}
 \end{itemize}
-\subsubsection{Publishing and Aggregation Platform}
+\subsection{Publishing and Aggregation Platform}
 \begin{itemize}
 \item TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO: Put tech stuff here.
 \end{itemize}
-\subsection{Presentation Layer Components}
-\subsubsection{Campaign Views}
+\section{Presentation Layer Components}
+\subsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
 \begin{itemize}
 \item Create | This is where users can create new campaigns.
@@ -229,21 +231,21 @@ Campaigns are accessed via the Create and Manage tabs on the primary navigation 
   \includegraphics[width=\textwidth]{../mockups/manage-addcontent.png}
 \item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Campaign.
 \end{itemize}
-\subsubsection{Content Views}
+\subsection{Content Views}
 Content pieces are included inside Campaigns.  These views are accessible via the Show view of a Campaign for the corresponding Campaign id.
 \begin{itemize}
 \item Create | When on the Show view of a given campaign, the user can enter the Create view for Content.
 \item Show | This is how the user previews the Content they have created.
 \item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Content.
 \end{itemize}
-\subsubsection{Scheduling Views}
+\subsection{Scheduling Views}
 \begin{itemize}
   \item Primary Scheduling View |  consists of a list of Campaigns available to be scheduled (ie: they do not have existing start/stop dates) as well as already scheduled Campaigns placed properly on the calendar. \\*
   \includegraphics[width=\textwidth]{../mockups/schedule.png}
   \item Content Scheduling View | similar to the Primary Scheduling View, however the items available to be scheduled here are the individual content pieces of the Campaign.  This is accessed via selecting the Campaign from the calendar, or via the List Campaign or Show Campaign views. \\*
   \includegraphics[width=\textwidth]{../mockups/schedule-content.png}
 \end{itemize}
-\subsubsection{Explore View}
+\subsection{Explore View}
  Here the user will have several available ``Insight Views.''  These are dependent on which plugins exist in the Publishing and Aggregation Platform, however there will be some provided by the Campaign Manager alone.  These will provide charts that are layerable, such that multiple charts can be seen on the same graph. \\*
   \includegraphics[width=\textwidth]{../mockups/explore-twitter.png}
 \begin{itemize}
@@ -261,9 +263,9 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{itemize}
 \end{itemize}
 
-\subsection{Business Layer Components}
-\subsection{Session and Authentication}
-\subsubsection{Log In}
+\section{Business Layer Components}
+\section{Session and Authentication}
+\subsection{Log In}
 
 \begin{figure}
   \centering
@@ -281,7 +283,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{Log in to authenticate the user.}
 \end{figure}
-\subsubsection{Log Out}
+\subsection{Log Out}
 \begin{figure}
   \centering
   \begin{sequencediagram}
@@ -298,19 +300,19 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{End authenticated session by logging out.}
 \end{figure}
-\subsubsection{OAuth}
-\subsubsection{Openid}
-\subsubsection{Session Handling}
-\subsection{Data Layer Components}
-\subsection{External Components}
-\subsubsection{Publishing and Aggregation Targets}
+\subsection{OAuth}
+\subsection{Openid}
+\subsection{Session Handling}
+\section{Data Layer Components}
+\section{External Components}
+\subsection{Publishing and Aggregation Targets}
 \begin{itemize}
 \item Twitter
 \item Tumblr
 \item Wordpress
 \item TODO: etc.
 \end{itemize}
-\subsubsection{Email/SMTP Service}
+\subsection{Email/SMTP Service}
 
 \begin{figure}
   \centering
@@ -331,8 +333,8 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \caption{Send email (Requirements 3.1.1)}
 \end{figure}
 
-\section{Design Features}
-\subsection{External Authentication via Openid}
+\chapter{Design Features}
+\section{External Authentication via Openid}
 
 \begin{figure}
   \centering
@@ -370,47 +372,47 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
-\subsection{Create User Account}
+\section{Create User Account}
 This is a basic CRUD operation: Create User Account. \\*
 \CRUDcreate{User Accout}{user}
-\subsection{Update User Account}
+\section{Update User Account}
 This is a basic CRUD operation: Update User Account. \\*
 \CRUDupdate{User Account}{user}{Update a User Account}
-\subsection{Delete User Account}
+\section{Delete User Account}
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
-\subsection{Create Campaign}
+\section{Create Campaign}
 This is a basic CRUD operation: Create Campaign. \\*
 \CRUDcreate{Campaign}{campaign}
-\subsection{View Campaign}
+\section{View Campaign}
 This is a basic CRUD operation: View Campaign. \\*
 \CRUDlist{Campaign}{campaign}
 This is a Read operation, similar to the above, but for one Campaign. \\*
 \CRUDshow{Campaign}{campaign}
-\subsection{Update Campaign}
+\section{Update Campaign}
 This is a basic CRUD operation: Update Campaign. \\*
 \CRUDupdate{Campaign}{campaign}{Update a Campaign}
-\subsection{Delete Campaign}
+\section{Delete Campaign}
 This is a basic CRUD operation: Delete Campaign. \\*
 \CRUDdelete{Campaign}{campaign}
-\subsection{Schedule Campaign}
+\section{Schedule Campaign}
 This is a basic CRUD operation: Schedule Campaign. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
-\subsection{Create Content}
+\section{Create Content}
 This is a basic CRUD operation: Create Content. \\*
 \CRUDcreate{Content Unit}{content\_unit}
-\subsection{View Content\_Unit}
+\section{View Content\_Unit}
 This is a basic CRUD operation: View Content\_Unit. \\*
 \CRUDlist{Content Unit}{content\_unit}
 This is a Read operation, similar to the above, but for one Content Unit.  \\*
 \CRUDshow{Content Unit}{content\_unit}
-\subsection{Update Content\_Unit}
+\section{Update Content\_Unit}
 This is a basic CRUD operation: Update Content\_Unit. \\*
 \CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
-\subsection{Delete Content\_Unit}
+\section{Delete Content\_Unit}
 This is a basic CRUD operation: Delete Content\_Unit. \\*
 \CRUDdelete{Content Unit}{content\_unit}
-\subsection{Schedule Content\_Unit}
+\section{Schedule Content\_Unit}
 In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
 
@@ -430,11 +432,11 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
       \begin{call}{scheduler}{perform()}{worker}{}
       \end{call}
     \end{call}
-    \end{sequencediagram}
+		\end{sequencediagram}
   \caption{Perform a scheduled action}
 \end{figure}
-\subsection{View Metrics and Statistics via Explore Panel}
-\subsection{Lost User Name}
+\section{View Metrics and Statistics via Explore Panel}
+\section{Lost User Name}
 \begin{figure}
   \centering
   \begin{sequencediagram}
@@ -451,7 +453,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \end{sequencediagram}
   \caption{Retrieving a lost username by email id.}
 \end{figure}
-\subsection{Lost Password}
+\section{Lost Password}
 \begin{figure}
   \centering
   \begin{sequencediagram}
@@ -471,7 +473,71 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \end{sequencediagram}
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
-\section{Database Design}
+
+\chapter{Publishing and Aggregation Platform}
+	
+	\section{API Design}
+		\subsection{Request}
+			A request to our API will have the following fields:
+			\begin{itemize}
+				\item OAuth Information
+					\begin{itemize}
+						\item Realm - A Protection Realm
+						\item Consumer Key - A key for identifying the customer
+						
+						\item Access Token - A token generated using the parameters and the 
+						Consumer Secret
+						\item Nonce - A randomly generated string given to all requests sent 
+						with the same timestamp.
+						
+						\item Timestamp - The number of seconds since January 1st, 1970.
+						\item Signature Method - The signature method that the user used to 
+						sign the request
+						\item Version - Version of OAuth that you are using.
+					\end{itemize}
+				\item Content Type - A string containing the content type as detailed 
+				below.
+				\item Operation - A string containing the operation as detailed below.
+				\item Content - The content to be passed to the appropriate Content 
+				Processors.
+				\item Metadata - A map of key-value pairs used to hold metadata  for the 
+				content.
+				\item Third Party Authentication Data - The third party authentication 
+				data for sending third party requests. It will contain a tree whose 
+				hierarchy will contain the following levels.
+					\begin{enumerate}
+						\item Service Name
+						\item User Name
+						\item Authentication - Contains either the authentication token for 
+						this user or a password
+					\end{enumerate}
+			\end{itemize}
+		\subsection{Content Types}
+
+			\subsubsection{Blog}
+
+			\subsubsection{Picture}
+
+			\subsubsection{Status}
+
+			\subsubsection{Video}
+		\subsection{Operation}
+
+			\subsubsection{Delete}
+				
+			\subsubsection{Edit}
+			
+			\subsubsection{Pull}	
+			
+			\subsubsection{Push}	
+
+	\section{Server Design}
+
+	\section{Plugin Design}
+		\subsection{Content-Type Plugins}
+		\subsection{Service Plugins}
+
+\chapter{Database Design}
 \section{Summary}
 \subsection{Advantages of Design}
 \begin{itemize}
