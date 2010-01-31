@@ -1,6 +1,14 @@
 \documentclass{report}
 \usepackage{fullpage}
-\usepackage{graphicx}
+\usepackage{paralist}
+% The following is needed in order to make the code compatible
+% with both latex/dvips and pdflatex.
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,shadows} % for pgf-umlsd
@@ -488,9 +496,10 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			different services.
 
 			Each object has a type and comprises two collections of entities:
-			(1) a set of service associations, and (2) data in the form of a 
-			collection of objects.  An object can also be considered 
-			``primitive,'' meaning it has a particular value assigned to it.
+			(1) a set of service associations, and (2) a list of properties in 
+			the form of a collection of objects.  An object can also be 
+			considered ``primitive,'' meaning it has a particular value 
+			assigned to it.
 
 			Semantically, speaking, an object is anything that can be 
 			manipulated by people and computers in a web context.  Examples of 
@@ -503,15 +512,15 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			\begin{itemize}
 			\item Type
 			\item Service Associations
-			\item Data
+			\item Properties
 			\item \emph{(Optionally)} Primitive value
 			\end{itemize}
 
-		\subsection{Type}
+		\subsubsection{Type}
 			An object has type associated with it. Type is service agnostic:
 			multiple services may support handling the same type of object,
 			and services may support handling multiple object types.
-		\subsection{Service Associations}
+		\subsubsection{Service Associations}
 			Each object may be associated with one or more services.
 			Semantically speaking, this reflects the idea that an object, as 
 			manipulated by Mashbot, exists in parallel with an object stored in 
@@ -526,22 +535,22 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			look for an object, that is, which plugins to use to index and pull 
 			a given object.
 
-			\subsubsection{Adding/removing associations}
-				Adding an assocation is ``pushing'' an object to that service.  
-				Removing an association is ``deleting'' an object from that
-				service.  
-				
-				These operations are defined by plugins in terms of both
-				\emph{behavior} and \emph{requirements}. Requirements may be
-				complex and hierarchical, specifying recursive requirements for 
-				values and sub-objects within a given object. Put another way,
-				a service may require that before an object is associated with 
-				that service, it must contain certain sub-objects, some of which
-				have a certain class of values or certain associations.
+			\textbf{Adding/removing an association}:
+			Adding an assocation is ``pushing'' an object to that service.  
+			Removing an association is ``deleting'' an object from that
+			service.  
 			
-		\subsection{Data}
-			Data is an unordered collection of child objects belonging to the 
-			object in question.
+			These operations are defined by plugins in terms of both
+			\emph{behavior} and \emph{requirements}. Requirements may be
+			complex and hierarchical, specifying recursive requirements for 
+			values and sub-objects within a given object. Put another way,
+			a service may require that before an object is associated with 
+			that service, it must contain certain sub-objects, some of which
+			have a certain class of values or certain associations.
+			
+		\subsubsection{Properties}
+			Properties represent an unordered collection of child objects 
+			belonging to the object in question.
 
 			Child objects are not mandated to be of a unique type or value, and 
 			thus cannot be addressed by type or value. Instead, objects can be 
@@ -562,7 +571,7 @@ service. (But the numbering here is arbitrary)
 			object for name, and both objects would be associated with both 
 			services.
 
-		\subsection{Primitive value} 
+		\subsubsection{Primitive value} 
 
 			A primitive value is a value with which the object can be 
 			interchanged with without losing or gaining semantic information.
@@ -571,6 +580,9 @@ service. (But the numbering here is arbitrary)
 			have primitive values. An ID could have a primitive value 
 			\emph{1000}, and a name could have a primitive value \emph{Bob's 
 			  Photo}.
+		\subsection{Class Diagram}
+			\includegraphics{object_model.1}
+
 
 	
 	\section{API Design}
