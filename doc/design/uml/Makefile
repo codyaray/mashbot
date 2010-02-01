@@ -2,12 +2,15 @@
 all: uml
 
 Handlers:
-	mpost object_model.mp
-
-ObjectModel:
 	mpost Handlers.mp
 
-uml: Handlers ObjectModel
+ObjectModel:
+	mpost object_model.mp
+
+RequestResponse:
+	mpost RequestResponse.mp
+
+uml: Handlers ObjectModel RequestResponse
 
 clean:
 	rm -f *.1
@@ -17,4 +20,5 @@ clean:
 	rm -f *.log
 
 pdf:
-	mptopdf *.mp
+	mptopdf RequestResponse.mp
+	mptopdf Handlers.mp
