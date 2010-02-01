@@ -235,7 +235,7 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \subsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
 \begin{itemize}
-\item Create | This is where users can create new campaigns.
+\item Create | This is where users can create new campaigns.\\*
   \includegraphics[width=\textwidth]{../mockups/create.png}
 \item List | This is where users can view, update or delete existing campaigns. \\*
   \includegraphics[width=\textwidth]{../mockups/manage.png}
@@ -268,7 +268,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{itemize}
 \item Plugin Dependent
   \begin{itemize}
-  \item Facebook Fan tracking | A line chart of how many fans the user's fan page has.
+  \item Facebook Fan tracking | A line chart of how many fans the user's fan page has. \\*
     \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
   \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
@@ -313,6 +313,9 @@ For password-based authentication, the password will be processed through a one-
   \caption{Log in to authenticate the user.}
 \end{figure}
 \subsection{Log Out}
+
+During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
+
 \begin{figure}
   \centering
   \begin{sequencediagram}
@@ -329,11 +332,15 @@ For password-based authentication, the password will be processed through a one-
   \end{sequencediagram}
   \caption{End authenticated session by logging out.}
 \end{figure}
+
 \subsection{OAuth}
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
 \subsection{Openid}
+
+OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
 \subsection{Session Handling}
 \section{Data Layer Components}
 \section{External Components}
