@@ -1,13 +1,13 @@
 
 all: uml
 
-ObjectModel:
+uml: object_model.? Handlers.?
+
+object_model.? : object_model.mp
 	mpost object_model.mp
 
-Handlers:
+Handlers.? : Handlers.mp
 	mpost Handlers.mp
-
-uml: Handlers ObjectModel
 
 clean:
 	rm -f *.1
@@ -18,3 +18,5 @@ clean:
 
 pdf:
 	mptopdf *.mp
+
+.PHONY: all uml clean
