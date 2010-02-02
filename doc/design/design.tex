@@ -1,4 +1,5 @@
 \documentclass{report}
+\usepackage{afterpage}
 \usepackage{fullpage}
 \usepackage{paralist}
 % The following is needed in order to make the code compatible
@@ -18,8 +19,31 @@
 \usepackage{graphicx}
 \DeclareGraphicsRule{*}{mps}{*}{}
 
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+    \setcounter{topnumber}{2}
+    \setcounter{bottomnumber}{2}
+    \setcounter{totalnumber}{4}     % 2 may work better
+    \setcounter{dbltopnumber}{2}    % for 2-column pages
+    \renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+    \renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+    %   Parameters for FLOAT pages (not text pages):
+    \renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+    \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+	% remember to use [htp] or [htpb] for placement
+
+
+
+
 \newcommand{\CRUDcreate}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -45,7 +69,7 @@
   
 }
 \newcommand{\CRUDshow}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -66,7 +90,7 @@
 }
 \newcommand{\CRUDlist}[2]{
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -86,7 +110,7 @@
   
 }
 \newcommand{\CRUDupdate}[3]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -117,7 +141,7 @@
 \end{figure}  
 }
 \newcommand{\CRUDdelete}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -296,7 +320,7 @@ Additionally, all cryptographic routines will be provided by external, third-par
 
 For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -316,7 +340,7 @@ For password-based authentication, the password will be processed through a one-
 
 During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -353,7 +377,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \end{itemize}
 \subsection{Email/SMTP Service}
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{manager}{:Campaign Manager}
@@ -375,7 +399,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \chapter{Design Features}
 \section{External Authentication via Openid}
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -392,7 +416,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \end{sequencediagram}
   \caption{Authentication via OAuth with stored token.}
 \end{figure}
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -420,6 +444,7 @@ This is a basic CRUD operation: Update User Account. \\*
 \section{Delete User Account}
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
+\clearpage
 \section{Create Campaign}
 This is a basic CRUD operation: Create Campaign. \\*
 \CRUDcreate{Campaign}{campaign}
@@ -437,26 +462,28 @@ This is a basic CRUD operation: Delete Campaign. \\*
 \section{Schedule Campaign}
 This is a basic CRUD operation: Schedule Campaign. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
-\section{Create Content}
+\clearpage
+\section{Create Content Unit}
 This is a basic CRUD operation: Create Content. \\*
 \CRUDcreate{Content Unit}{content\_unit}
-\section{View Content\_Unit}
+\section{View Content Unit}
 This is a basic CRUD operation: View Content\_Unit. \\*
 \CRUDlist{Content Unit}{content\_unit}
 This is a Read operation, similar to the above, but for one Content Unit.  \\*
 \CRUDshow{Content Unit}{content\_unit}
-\section{Update Content\_Unit}
+\section{Update Content Unit}
 This is a basic CRUD operation: Update Content\_Unit. \\*
 \CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
-\section{Delete Content\_Unit}
+\section{Delete Content Unit}
 This is a basic CRUD operation: Delete Content\_Unit. \\*
 \CRUDdelete{Content Unit}{content\_unit}
-\section{Schedule Content\_Unit}
+\clearpage
+\section{Schedule Content Unit}
 In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
 
 After content is scheduled, it can be picked up by the Scheduler, triggered via Cron.  Every 30 minutes, Cron will run the Scheduler, which will look in the database for active Campaigns.  Within those active campaigns, each piece of content will be checked to see if the go-live time is now or past.  If it's now or past, the scheduler calls the Publishing and Aggregation Platform with the content needed for a push to the given External Service.
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{cron}{:Cron}
@@ -474,9 +501,10 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 		\end{sequencediagram}
   \caption{Perform a scheduled action}
 \end{figure}
+\clearpage
 \section{View Metrics and Statistics via Explore Panel}
 \section{Lost User Name}
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -493,7 +521,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost username by email id.}
 \end{figure}
 \section{Lost Password}
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -512,7 +540,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \end{sequencediagram}
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
-
+\clearpage
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -664,7 +692,7 @@ service. (But the numbering here is arbitrary)
 			
 
 		\subsection{Handlers}
-                        \begin{figure}
+                        \begin{figure}[hbtp]
                           \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
