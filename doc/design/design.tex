@@ -234,7 +234,7 @@
 
 \chapter{Introduction}
 \section{Purpose}
-This document serves to expand upon the requirement into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
+This document serves to expand upon the requirements document into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
 \section{Scope}
 This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
 \section{Definitions, Acronyms,   and Abbreviations}
@@ -245,20 +245,25 @@ This covers the general architecture of Mashbot, as well as the design decisions
 \item XHTML | Extensible Hypertext Markup Language
 \item CSS | Cascading Style Sheets
 \item API | Application Programmming Interface
+\item CRUD | Create Read Update Delete
 \end{itemize}
 \section{Context Diagram}
 \chapter{Architecture}
 \section{Overview}
-Generally, Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Presentation and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, extensibility and accessibility.
-\section{Four-Tier Architecture}
+Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Publishing and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, flexibility and extensibility.
+\section{Architecture}
+\begin{itemize}
+\item Campaign Manager
 \begin{itemize}
 \item Data Layer / Model
 \item Presentation Layer / View
 \item Business Layer / Controller
+\end{itemize}
+\item Campaign Workers
 \item Publishing and Aggregation Platform
 \end{itemize}
 \section{Service-Oriented Architecture}
-Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Presentation and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
+Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Publishing and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
 \section{Survey of Technologies Used}
 \subsection{Campaign Manager}
 \begin{itemize}
@@ -288,6 +293,7 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \section{Presentation Layer Components}
 \subsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
+\newpage
 \begin{itemize}
 \item Create | This is where users can create new campaigns.\\*
   \includegraphics[width=\textwidth]{../mockups/create.png}
@@ -332,11 +338,9 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \section{Business Layer Components}
 \subsection{Session and Authentication}
 
-Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
-
 At the user layer, the authentication engine will use a secure password / token based system. In addition to the default username/password option, Mashbot will also support login through OpenID, Facebook Connect, and Twitter/OAuth.
 
-The mashbot authentication system will provide three different kinds of security tokens that tasks may need, rather than providing users with a token for each task (reset passwords, etc.). The tokens are the ``keys'' to do the following:
+The Mashbot authentication system will provide three different kinds of security tokens that tasks may need, rather than providing users with a token for each task (reset passwords, etc.). The tokens are the ``keys'' to do the following:
 \begin{itemize}
 \item Persistence token: Used internally, it is stored in your cookies and sessions to persist the user. This is much more secure than plainly storing the user’s id.
 \item Single access token: Use this for a private feed or API access. For example,\\
@@ -393,9 +397,13 @@ During the logout process, the session is destroyed. Both the session cookies an
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
-\subsection{Openid}
+\subsubsection{OpenID}
 
 OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
+\subsubsection{Session Handling}
+
+Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
 
 \subsection{Session Handling}
 \section{Data Layer Components}
@@ -410,7 +418,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \item YouTube
 \end{itemize}
 \subsection{Email/SMTP Service}
-
+Email will be used to notify users of reset lost usernames and lost passwords.
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
@@ -430,7 +438,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \caption{Send email (Requirements 3.1.1)}
 \end{figure}
 
-\section{External Authentication via Openid}
+\section{External Authentication via OpenID}
 
 
 
@@ -471,11 +479,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
-\subsubsection{Openid}
 
-OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
-
-\subsubsection{Session Handling}
 
 \section{User Accounts}
 \subsection{Create User Account}
@@ -761,7 +765,7 @@ service. (But the numbering here is arbitrary)
 			The operation is the type of action which you wish to perform on our 
 			service. This partly defines what type of information is required in the 
 			request. However, these fields are not inherent and in fact, the 
-			information that is required in any request is defined by any plug-in 
+			information that is required in any request is defined by any plugin 
 			which supports a given content type. The operation space is completely 
 			unlimited and the four operations below are planned to be the main 
 			operations supported by the Mashbot project. 
@@ -793,7 +797,7 @@ service. (But the numbering here is arbitrary)
                         The content type determines what type of content we are performing an operation
                         on. Like operations, they partly define what information is required for a
                         request. Also like operations, the ones mentioned below are not the only ones
-                        Mashbot will support. Any service plug-in can define a new content type and
+                        Mashbot will support. Any service plugin can define a new content type and
                         determine what fields are required for a successful post. We will also allow for
                         different ways of specifying the content. For example, a user may upload an image
                         and use that to post a picture. However, if a service supports it the user can
@@ -807,7 +811,7 @@ service. (But the numbering here is arbitrary)
 
 			\subsubsection{Picture}	
                                 A picture post's required components are expected to change a little
-                                depending on the service to which it is posted. We expect most plug-ins
+                                depending on the service to which it is posted. We expect most plugins
                                 to require (or at least support) the actual image, a title, description,
                                 and album to which the image should be posted.
 
@@ -832,7 +836,7 @@ service. (But the numbering here is arbitrary)
 
 		\subsection{Handlers}
                         \begin{figure}[hbtp]
-													\centering
+                          \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
@@ -890,7 +894,7 @@ service. (But the numbering here is arbitrary)
 				\includegraphics{uml/Handlers.4}
 			
 			\subsubsection{RequiredDataVerificationHandler}
-			This handler queries the plug-ins which handle the operation and content 
+			This handler queries the plugins which handle the operation and content 
 			type which has been specified by the request with the fields that are 
 			present to make sure that all requisite data for that request is present.  
 			If all required data for any one service is not present, the request fails 
@@ -899,10 +903,10 @@ service. (But the numbering here is arbitrary)
 			\includegraphics{uml/Handlers.5}
 				
 			\subsubsection{ContentProcessingHandler}
-			This handler loops through and calls the plug-ins which correspond to
+			This handler loops through and calls the plugins which correspond to
 			the operation, the content type, and the services which have been 
 			specified in the request passing them the content blob of the request. The 
-			plug-in will return the blob. All plug-ins must conform to the 
+			plugin will return the blob. All plugins must conform to the 
 			ContentProcessor Interface.
 			
 			\includegraphics{uml/Handlers.6}
