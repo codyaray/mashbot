@@ -330,7 +330,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \begin{itemize}
   \item Facebook Fan tracking | A line chart of how many fans the user's fan page has. \\*
     \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
-  \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
+  \item Twitter Follower tracking | A line chart of the number of twitter followers the user's Twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
   \end{itemize}
 \end{itemize}
@@ -418,7 +418,7 @@ Mashbot uses a cookie-based session store and avoids storing confidential inform
 \item YouTube
 \end{itemize}
 \subsection{Email/SMTP Service}
-Email will be used to notify users of reset lost usernames and lost passwords.
+Email will be used to notify users of reset lost usernames and passwords.
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
@@ -595,36 +595,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
 \clearpage
-\section{Data Layer Components}
-\section{External Components}
-\subsection{Publishing and Aggregation Targets}
-\begin{itemize}
-\item Twitter
-\item Tumblr
-\item Wordpress
-\item TODO: etc.
-\end{itemize}
-\subsection{Email/SMTP Service}
-
-\begin{figure}[hbtp]
-  \centering
-  \begin{sequencediagram}
-    \newthread{manager}{:Campaign Manager}
-    \newinst{daemon}{:Delayed Job Daemon}
-    \newinst{mailer}{:Mailer Worker}
-    \newinst{mail}{:SMTP Server}
-    \begin{call}{manager}{send\_later()}{daemon}{}
-    \end{call}
-    \begin{callself}{daemon}{act()}{}
-        \begin{call}{daemon}{perform}{mailer}{}
-          \begin{call}{mailer}{sendmail()}{mail}{}
-          \end{call}
-        \end{call}
-    \end{callself}
-  \end{sequencediagram}
-  \caption{Send email (Requirements 3.1.1)}
-\end{figure}
-
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -643,7 +613,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			considered ``primitive,'' meaning it has a particular value 
 			assigned to it.
 
-			Semantically, speaking, an object is anything that can be 
+			Semantically speaking, an object is anything that can be 
 			manipulated by people and computers in a web context.  Examples of 
 			objects are pictures, blog posts, status updates, IDs, people, et 
 			al.  Not all of these are supported by Mashbot initially, but could 
