@@ -657,11 +657,36 @@ service. (But the numbering here is arbitrary)
                         \end{figure}
 
 			\subsubsection{Handler}
+				This is an interface which describes what methods must be provided in 
+				order for a class to be considered a handler. A Handler is a class which 
+				can take in a request, perform some preprocessing, perform the actual 
+				operations, and then performing post processing before returning have 
+				made any necessary changes to the response.
+				
 				\includegraphics{uml/Handlers.1}
 			\subsubsection{ChainableHandler}
+				A chainable handler is one which can be placed in a sequence of handlers 
+				with the knowledge of who is next in line. This means that it will 
+				perform preprocessing and postprocessing, before and after calling the 
+				next handler in the chain respectively.
+				
+				\includegraphics{uml/Handlers.2}
 			\subsubsection{AuthenticationHandler}
-			\subsubsection{DeserializationHandler}
+				The authentication handler will take the authentication information from 
+				the Request object and after having performed authentication of the user 
+				will insert the unique user identifier into the Context object passed up 
+				the Handler chain.
+			\subsubsection{SerializationHandler}
+				The deserialization handler extracts the raw data from the Content field 
+				and creates a new Content object from that containing all the data. The 
+				information contained in this is encompassed by object model. See the 
+				section on that for more information. It then places this Content in the 
+				application context on its way in. On the way out, it will take the 
+				Content object from the Context. Then, it will reserialize it and place 
+				it in the Response.
+			
 			\subsubsection{RequiredDataVerificationHandler}
+				
 			\subsubsection{ContentProcessingHandler}
 
 	\section{Plugin Design}
