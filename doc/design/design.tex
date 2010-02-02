@@ -787,11 +787,16 @@ service. (But the numbering here is arbitrary)
 			\subsubsection{Video}	
 
 	\section{Server Design}
+		\subsection{Platform}
+			We plan to build this server on an existing web service framework. This 
+			means that everything up until the point where execution and the incoming 
+			request is passed to the handler chain when a request is made. Most 
+			configuration will be carried in XML.
+		
 		\subsection{Architecture}
-			
-
-		\subsection{Handlers}
-                        \begin{figure}[hbtp]
+			The internal architecture follows the handler chain pattern. The 
+			HandlerChain class holds a linked list of handlers. As demonstrated below:
+												\begin{figure}[hbtp]
                           \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
@@ -810,6 +815,14 @@ service. (But the numbering here is arbitrary)
                           \caption{Part of a Handler Chain}
                         \end{figure}
 
+		\subsection{HandlerChain}
+			This class embodies the link list that is the Handler. It will the pass 
+			the request information to the first Handler and then that handler will 
+			call each subsequent handler in the chain. This class will also handler 
+			initializing the 
+	
+			\includegraphics{uml/HandlerChain.2}
+		\subsection{Handlers}
 			\subsubsection{Handler}
 				This is an interface which describes what methods must be provided in 
 				order for a class to be considered a handler. A Handler is a class which 
@@ -868,7 +881,6 @@ service. (But the numbering here is arbitrary)
 			
 
 	\section{Plugin Design}
-		\subsection{Content-Type Plugins}
 		\subsection{Service Plugins}
 
 \chapter{Database Design}
