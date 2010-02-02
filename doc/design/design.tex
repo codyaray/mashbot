@@ -328,7 +328,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \end{itemize}
 
 \section{Business Layer Components}
-\section{Session and Authentication}
+\subsection{Session and Authentication}
 
 Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
 
@@ -344,7 +344,7 @@ The mashbot authentication system will provide three different kinds of security
 
 Additionally, all cryptographic routines will be provided by external, third-party verified modules to ensure that their implementation is correct and secure. The authentication framework itself will be largely provided by a widely-used open source Ruby library known as authlogic.
 
-\subsection{Log In}
+\subsubsection{Log In}
 
 For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
 
@@ -366,7 +366,7 @@ For password-based authentication, the password will be processed through a one-
   \caption{Log in to authenticate the user.}
 \end{figure}
 
-\subsection{Log Out}
+\subsubsection{Log Out}
 
 During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
 
@@ -387,15 +387,15 @@ During the logout process, the session is destroyed. Both the session cookies an
   \caption{End authenticated session by logging out.}
 \end{figure}
 
-\subsection{OAuth}
+\subsubsection{OAuth}
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
-\subsection{Openid}
+\subsubsection{Openid}
 
 OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
 
-\subsection{Session Handling}
+\subsubsection{Session Handling}
 \section{Data Layer Components}
 \section{External Components}
 \subsection{Publishing and Aggregation Targets}
