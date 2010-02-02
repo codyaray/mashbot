@@ -1,6 +1,8 @@
 
+all: produce
+
 uml:
-	make -C uml
+	make -C uml/ all
 
 all: uml design.pdf
 
