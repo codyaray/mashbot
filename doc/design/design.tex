@@ -391,46 +391,6 @@ During the logout process, the session is destroyed. Both the session cookies an
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
-\subsubsection{Openid}
-
-OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
-
-\subsubsection{Session Handling}
-\section{Data Layer Components}
-\section{External Components}
-\subsection{Publishing and Aggregation Targets}
-\begin{itemize}
-\item Twitter
-\item Tumblr
-\item Wordpress
-\item TODO: etc.
-\end{itemize}
-\subsection{Email/SMTP Service}
-
-\begin{figure}[hbtp]
-  \centering
-  \begin{sequencediagram}
-    \newthread{manager}{:Campaign Manager}
-    \newinst{daemon}{:Delayed Job Daemon}
-    \newinst{mailer}{:Mailer Worker}
-    \newinst{mail}{:SMTP Server}
-    \begin{call}{manager}{send\_later()}{daemon}{}
-    \end{call}
-    \begin{callself}{daemon}{act()}{}
-        \begin{call}{daemon}{perform}{mailer}{}
-          \begin{call}{mailer}{sendmail()}{mail}{}
-          \end{call}
-        \end{call}
-    \end{callself}
-  \end{sequencediagram}
-  \caption{Send email (Requirements 3.1.1)}
-\end{figure}
-
-\chapter{Design Features}
-\section{External Authentication via Openid}
-
-
-
 \MVCSlice{OAuth}
 \begin{figure}[hbtp]
   \centering
@@ -468,6 +428,12 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
+\subsubsection{Openid}
+
+OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
+\subsubsection{Session Handling}
+
 \section{Create User Account}
 This is a basic CRUD operation: Create User Account. \\*
 \CRUDcreate{User Accout}{user}
@@ -579,6 +545,36 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
 \clearpage
+\section{Data Layer Components}
+\section{External Components}
+\subsection{Publishing and Aggregation Targets}
+\begin{itemize}
+\item Twitter
+\item Tumblr
+\item Wordpress
+\item TODO: etc.
+\end{itemize}
+\subsection{Email/SMTP Service}
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{sequencediagram}
+    \newthread{manager}{:Campaign Manager}
+    \newinst{daemon}{:Delayed Job Daemon}
+    \newinst{mailer}{:Mailer Worker}
+    \newinst{mail}{:SMTP Server}
+    \begin{call}{manager}{send\_later()}{daemon}{}
+    \end{call}
+    \begin{callself}{daemon}{act()}{}
+        \begin{call}{daemon}{perform}{mailer}{}
+          \begin{call}{mailer}{sendmail()}{mail}{}
+          \end{call}
+        \end{call}
+    \end{callself}
+  \end{sequencediagram}
+  \caption{Send email (Requirements 3.1.1)}
+\end{figure}
+
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
