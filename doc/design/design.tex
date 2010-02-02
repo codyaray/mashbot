@@ -786,13 +786,34 @@ service. (But the numbering here is arbitrary)
                                 returned.
 
 		\subsection{Content Types}
-			\subsubsection{Blog}
-			
+                        The content type determines what type of content we are performing an operation
+                        on. Like operations, they partly define what information is required for a
+                        request. Also like operations, the ones mentioned below are not the only ones
+                        Mashbot will support. Any service plug-in can define a new content type and
+                        determine what fields are required for a successful post. We will also allow for
+                        different ways of specifying the content. For example, a user may upload an image
+                        and use that to post a picture. However, if a service supports it the user can
+                        submit a URL pointing to a photo instead. The four main types of content we expect
+                        to deal with are the following.
+
+			\subsubsection{Blog Post}
+			        A blog post will generally have two components, a title, and a body. Both
+                                of these will be text fields, but the assumption is that users can embed
+                                HTML if they would like more content rich posts.
+
 			\subsubsection{Picture}	
+                                A picture post's required components are expected to change a little
+                                depending on the service to which it is posted. We expect most plug-ins
+                                to require (or at least support) the actual image, a title, description,
+                                and album to which the image should be posted.
 
 			\subsubsection{Status}
+                                A status is expected to be the simplest type of content. It only requires
+                                a single text field, which is the status.
 
-			\subsubsection{Video}	
+			\subsubsection{Video}
+                                Video should have the same required fields as a picture, exchanging the
+                                image for a video. A service may also require one or more preview image(s).
 
 	\section{Server Design}
 		\subsection{Architecture}
