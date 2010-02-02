@@ -354,7 +354,7 @@ For password-based authentication, the password will be processed through a one-
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{Authenticate()}{model}{}
@@ -375,7 +375,7 @@ During the logout process, the session is destroyed. Both the session cookies an
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{log\_out}{model}{}
@@ -764,8 +764,7 @@ service. (But the numbering here is arbitrary)
 \chapter{Database Design}
 \section{Summary}
 
-An entity-relationship diagram depicting the data model is shown below.\\
-
+An entity-relationship diagram depicting the data model is shown below, which uses the E-R notation described in the book Database System Concepts, by Silberchatz et al. 
 % Should either remove some authn detail, or add some domain (campaign publishing) detail.
 
 \tikzstyle{every relationship} = [fill=red!20] 
