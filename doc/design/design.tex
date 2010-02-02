@@ -761,6 +761,12 @@ service. (But the numbering here is arbitrary)
 			which supports a given content type. The operation space is completely 
 			unlimited and the four operations below are planned to be the main 
 			operations supported by the Mashbot project. 
+                        
+                        \subsubsection{Push}
+                                In this operation, the user will provide all the necessary information
+                                for a piece of content to be posted to the services specified. 
+                                Assuming success, they will be returned identifying information for
+                                the content on each service.
 			
 			\subsubsection{Delete}
 				In this operation, the user will provide identifying information for 
@@ -773,9 +779,11 @@ service. (But the numbering here is arbitrary)
 				has been provided.
 			
 			\subsubsection{Pull}
-					
-			
-			\subsubsection{Push}
+			        In this operation, the user will provide identifying information for a
+                                previously posted piece of content which will be retrieved from the
+                                specified services. In the case that the specified content is not
+                                identical between the services, each unique piece of content will be
+                                returned.
 
 		\subsection{Content Types}
 			\subsubsection{Blog}
@@ -788,14 +796,12 @@ service. (But the numbering here is arbitrary)
 
 	\section{Server Design}
 		\subsection{Architecture}
-			
 
 		\subsection{Handlers}
                         \begin{figure}[hbtp]
                           \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
-                            % \newinst{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
                             \newinst{nextHandler}{:Next Handler}
                             \begin{call}{previousHandler}{enact()}{currentHandler}{}
