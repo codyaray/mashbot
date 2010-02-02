@@ -1,6 +1,8 @@
 \documentclass{report}
+\usepackage{afterpage}
 \usepackage{fullpage}
 \usepackage{paralist}
+
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
 \ifx\pdftexversion\undefined
@@ -15,11 +17,61 @@
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
 \usepackage{tikz-er2} 
 
-\usepackage{graphicx}
-\DeclareGraphicsRule{*}{mps}{*}{}
+\newcommand{\MVCSlice}[1]{
+\begin{figure}
+\centering
+\begin{tikzpicture}[shape aspect=.5, node distance=3cm, scale=0.5] 
+%  \tikzset{every node/.style={draw}} 
+  \tikzstyle{database} = [cylinder,shape aspect=.5, shape border rotate=90, minimum width=6cm, minimum height=1.5cm, draw] 
+  \tikzstyle{layer} = [rectangle, minimum width=7cm, minimum height=2cm, draw]
+  \tikzstyle{user} = [rectangle, minimum width=7cm, minimum height=1cm, draw]
+  \tikzstyle{layer_annotation} = [rotate=90, node distance=3.75cm]
+  \tikzstyle{line} = [<->, thick, shorten >=3pt, shorten <=3pt]
+  \tikzstyle{mvc} = [rectangle, minimum width=2cm, minimum height=1cm, draw]
+  \tikzstyle{mvc_left} = [mvc, anchor=east]
+  \tikzstyle{mvc_right} = [mvc, anchor=west]
+  \node [user] (user) {User};
+  \node [layer, below of=user] (presentation_layer) {} node [layer_annotation,above of=presentation_layer] {Presentation Layer};
+  \draw [line] (user) -- (presentation_layer);
+  \node [layer, below of=presentation_layer] (business_layer) {} node [layer_annotation,above of=business_layer] {Business Layer};
+  \node [layer, below of=business_layer] (data_layer) {} node [layer_annotation,above of=data_layer] {Data Layer};
+  \node [database, below of=data_layer] (database) {DB};
+  \draw (presentation_layer) node [mvc_left] (view) {#1 View};
+  \draw (business_layer) node [mvc_right] (controller) {#1 Ctrlr};
+  \draw (data_layer) node [mvc_left] (model) {#1 Model};
+  \draw [line] (view) -- (model);
+  \draw [line] (view) -- (controller);
+  \draw [line] (controller) -- (model);
+  \draw [line] (model) -- (database);
+\end{tikzpicture}
+\end{figure}
+}
+
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+    \setcounter{topnumber}{2}
+    \setcounter{bottomnumber}{2}
+    \setcounter{totalnumber}{4}     % 2 may work better
+    \setcounter{dbltopnumber}{2}    % for 2-column pages
+    \renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+    \renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+    %   Parameters for FLOAT pages (not text pages):
+    \renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+    \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+	% remember to use [htp] or [htpb] for placement
+
+
+
 
 \newcommand{\CRUDcreate}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -45,7 +97,7 @@
   
 }
 \newcommand{\CRUDshow}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -66,7 +118,7 @@
 }
 \newcommand{\CRUDlist}[2]{
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -86,7 +138,7 @@
   
 }
 \newcommand{\CRUDupdate}[3]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -117,7 +169,7 @@
 \end{figure}  
 }
 \newcommand{\CRUDdelete}[2]{
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -235,7 +287,7 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \subsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
 \begin{itemize}
-\item Create | This is where users can create new campaigns.
+\item Create | This is where users can create new campaigns.\\*
   \includegraphics[width=\textwidth]{../mockups/create.png}
 \item List | This is where users can view, update or delete existing campaigns. \\*
   \includegraphics[width=\textwidth]{../mockups/manage.png}
@@ -268,7 +320,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{itemize}
 \item Plugin Dependent
   \begin{itemize}
-  \item Facebook Fan tracking | A line chart of how many fans the user's fan page has.
+  \item Facebook Fan tracking | A line chart of how many fans the user's fan page has. \\*
     \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
   \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
@@ -277,9 +329,27 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 
 \section{Business Layer Components}
 \section{Session and Authentication}
+
+Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
+
+At the user layer, the authentication engine will use a secure password / token based system. In addition to the default username/password option, Mashbot will also support login through OpenID, Facebook Connect, and Twitter/OAuth.
+
+The mashbot authentication system will provide three different kinds of security tokens that tasks may need, rather than providing users with a token for each task (reset passwords, etc.). The tokens are the ``keys'' to do the following:
+\begin{itemize}
+\item Persistence token: Used internally, it is stored in your cookies and sessions to persist the user. This is much more secure than plainly storing the userÕs id.
+\item Single access token: Use this for a private feed or API access. For example,\\
+          \texttt{www.example.com?user\_credentials=[single access token]} grants access but does NOT persist.
+\item Perishable token: Great for authenticating users to reset passwords, confirm their account, etc.
+\end{itemize}
+
+Additionally, all cryptographic routines will be provided by external, third-party verified modules to ensure that their implementation is correct and secure. The authentication framework itself will be largely provided by a widely-used open source Ruby library known as authlogic.
+
 \subsection{Log In}
 
-\begin{figure}
+For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
+
+\MVCSlice{User Session}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -295,8 +365,12 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{Log in to authenticate the user.}
 \end{figure}
+
 \subsection{Log Out}
-\begin{figure}
+
+During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
+
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -312,8 +386,15 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{End authenticated session by logging out.}
 \end{figure}
+
 \subsection{OAuth}
+
+At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
+
 \subsection{Openid}
+
+OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
 \subsection{Session Handling}
 \section{Data Layer Components}
 \section{External Components}
@@ -326,7 +407,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \end{itemize}
 \subsection{Email/SMTP Service}
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{manager}{:Campaign Manager}
@@ -348,7 +429,10 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \chapter{Design Features}
 \section{External Authentication via Openid}
 
-\begin{figure}
+
+
+\MVCSlice{OAuth}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -365,7 +449,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \end{sequencediagram}
   \caption{Authentication via OAuth with stored token.}
 \end{figure}
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -393,6 +477,8 @@ This is a basic CRUD operation: Update User Account. \\*
 \section{Delete User Account}
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
+\clearpage
+\MVCSlice{Campaign}
 \section{Create Campaign}
 This is a basic CRUD operation: Create Campaign. \\*
 \CRUDcreate{Campaign}{campaign}
@@ -409,27 +495,32 @@ This is a basic CRUD operation: Delete Campaign. \\*
 \CRUDdelete{Campaign}{campaign}
 \section{Schedule Campaign}
 This is a basic CRUD operation: Schedule Campaign. \\*
+
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
-\section{Create Content}
+\clearpage
+\section{Create Content Unit}
+
+\MVCSlice{Content Unit}
 This is a basic CRUD operation: Create Content. \\*
 \CRUDcreate{Content Unit}{content\_unit}
-\section{View Content\_Unit}
+\section{View Content Unit}
 This is a basic CRUD operation: View Content\_Unit. \\*
 \CRUDlist{Content Unit}{content\_unit}
 This is a Read operation, similar to the above, but for one Content Unit.  \\*
 \CRUDshow{Content Unit}{content\_unit}
-\section{Update Content\_Unit}
+\section{Update Content Unit}
 This is a basic CRUD operation: Update Content\_Unit. \\*
 \CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
-\section{Delete Content\_Unit}
+\section{Delete Content Unit}
 This is a basic CRUD operation: Delete Content\_Unit. \\*
 \CRUDdelete{Content Unit}{content\_unit}
-\section{Schedule Content\_Unit}
+\clearpage
+\section{Schedule Content Unit}
 In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
 
 After content is scheduled, it can be picked up by the Scheduler, triggered via Cron.  Every 30 minutes, Cron will run the Scheduler, which will look in the database for active Campaigns.  Within those active campaigns, each piece of content will be checked to see if the go-live time is now or past.  If it's now or past, the scheduler calls the Publishing and Aggregation Platform with the content needed for a push to the given External Service.
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{cron}{:Cron}
@@ -447,9 +538,11 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 		\end{sequencediagram}
   \caption{Perform a scheduled action}
 \end{figure}
+\clearpage
 \section{View Metrics and Statistics via Explore Panel}
 \section{Lost User Name}
-\begin{figure}
+\MVCSlice{User Account}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -466,7 +559,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost username by email id.}
 \end{figure}
 \section{Lost Password}
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
@@ -485,7 +578,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \end{sequencediagram}
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
-
+\clearpage
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -637,7 +730,7 @@ service. (But the numbering here is arbitrary)
 			
 
 		\subsection{Handlers}
-                        \begin{figure}
+                        \begin{figure}[hbtp]
                           \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
