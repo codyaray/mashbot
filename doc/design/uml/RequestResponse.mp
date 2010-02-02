@@ -10,7 +10,7 @@ endfig;
 
 beginfig(2);
 	Interface.B("Response")
-			("+getContent()","+setContent(in:Content)");
+			("+yoBitchContent()","+setContent(in:Content)");
 
 	drawObject(B);
 endfig;
