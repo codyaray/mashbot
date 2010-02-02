@@ -1,16 +1,16 @@
 
 all: uml
 
-Handlers:
-	mpost Handlers.mp
-
-ObjectModel:
-	mpost object_model.mp
-
-RequestResponse:
+RequestResponse.?: RequestResponse.mp
 	mpost RequestResponse.mp
 
-uml: Handlers ObjectModel RequestResponse
+uml: object_model.? Handlers.? RequestResponse.?
+
+object_model.? : object_model.mp
+	mpost object_model.mp
+
+Handlers.? : Handlers.mp
+	mpost Handlers.mp
 
 clean:
 	rm -f *.1
@@ -22,3 +22,5 @@ clean:
 pdf:
 	mptopdf RequestResponse.mp
 	mptopdf Handlers.mp
+
+.PHONY: all uml clean

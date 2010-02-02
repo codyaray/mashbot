@@ -637,6 +637,25 @@ service. (But the numbering here is arbitrary)
 			
 
 		\subsection{Handlers}
+                        \begin{figure}
+                          \centering
+                          \begin{sequencediagram}
+                            \newthread{previousHandler}{:Previous Handler}
+                            % \newinst{previousHandler}{:Previous Handler}
+                            \newinst{currentHandler}{:Current Handler}
+                            \newinst{nextHandler}{:Next Handler}
+                            \begin{call}{previousHandler}{enact()}{currentHandler}{}
+                            \begin{callself}{currentHandler}{preRequest()}{}
+                            \end{callself}
+                            \begin{call}{currentHandler}{enact()}{nextHandler}{}
+                            \end{call}
+                            \begin{callself}{currentHandler}{postRequest()}{}
+                            \end{callself}
+                            \end{call}
+                          \end{sequencediagram}
+                          \caption{Part of a Handler Chain}
+                        \end{figure}
+
 			\subsubsection{Handler}
 				\includegraphics{uml/Handlers.1}
 			\subsubsection{ChainableHandler}
