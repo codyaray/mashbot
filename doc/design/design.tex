@@ -2,6 +2,7 @@
 \usepackage{afterpage}
 \usepackage{fullpage}
 \usepackage{paralist}
+
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
 \ifx\pdftexversion\undefined
@@ -16,8 +17,35 @@
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
 \usepackage{tikz-er2} 
 
-\usepackage{graphicx}
-\DeclareGraphicsRule{*}{mps}{*}{}
+\newcommand{\MVCSlice}[1]{
+\begin{figure}
+\centering
+\begin{tikzpicture}[shape aspect=.5, node distance=3cm, scale=0.5] 
+%  \tikzset{every node/.style={draw}} 
+  \tikzstyle{database} = [cylinder,shape aspect=.5, shape border rotate=90, minimum width=6cm, minimum height=1.5cm, draw] 
+  \tikzstyle{layer} = [rectangle, minimum width=7cm, minimum height=2cm, draw]
+  \tikzstyle{user} = [rectangle, minimum width=7cm, minimum height=1cm, draw]
+  \tikzstyle{layer_annotation} = [rotate=90, node distance=3.75cm]
+  \tikzstyle{line} = [<->, thick, shorten >=3pt, shorten <=3pt]
+  \tikzstyle{mvc} = [rectangle, minimum width=2cm, minimum height=1cm, draw]
+  \tikzstyle{mvc_left} = [mvc, anchor=east]
+  \tikzstyle{mvc_right} = [mvc, anchor=west]
+  \node [user] (user) {User};
+  \node [layer, below of=user] (presentation_layer) {} node [layer_annotation,above of=presentation_layer] {Presentation Layer};
+  \draw [line] (user) -- (presentation_layer);
+  \node [layer, below of=presentation_layer] (business_layer) {} node [layer_annotation,above of=business_layer] {Business Layer};
+  \node [layer, below of=business_layer] (data_layer) {} node [layer_annotation,above of=data_layer] {Data Layer};
+  \node [database, below of=data_layer] (database) {DB};
+  \draw (presentation_layer) node [mvc_left] (view) {#1 View};
+  \draw (business_layer) node [mvc_right] (controller) {#1 Ctrlr};
+  \draw (data_layer) node [mvc_left] (model) {#1 Model};
+  \draw [line] (view) -- (model);
+  \draw [line] (view) -- (controller);
+  \draw [line] (controller) -- (model);
+  \draw [line] (model) -- (database);
+\end{tikzpicture}
+\end{figure}
+}
 
 % Alter some LaTeX defaults for better treatment of figures:
     % See p.105 of "TeX Unbound" for suggested values.
@@ -320,6 +348,7 @@ Additionally, all cryptographic routines will be provided by external, third-par
 
 For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
 
+\MVCSlice{User Session}
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
@@ -336,6 +365,7 @@ For password-based authentication, the password will be processed through a one-
   \end{sequencediagram}
   \caption{Log in to authenticate the user.}
 \end{figure}
+
 \subsection{Log Out}
 
 During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
@@ -399,6 +429,9 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \chapter{Design Features}
 \section{External Authentication via Openid}
 
+
+
+\MVCSlice{OAuth}
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
@@ -445,6 +478,7 @@ This is a basic CRUD operation: Update User Account. \\*
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
 \clearpage
+\MVCSlice{Campaign}
 \section{Create Campaign}
 This is a basic CRUD operation: Create Campaign. \\*
 \CRUDcreate{Campaign}{campaign}
@@ -461,9 +495,12 @@ This is a basic CRUD operation: Delete Campaign. \\*
 \CRUDdelete{Campaign}{campaign}
 \section{Schedule Campaign}
 This is a basic CRUD operation: Schedule Campaign. \\*
+
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
 \clearpage
 \section{Create Content Unit}
+
+\MVCSlice{Content Unit}
 This is a basic CRUD operation: Create Content. \\*
 \CRUDcreate{Content Unit}{content\_unit}
 \section{View Content Unit}
@@ -504,6 +541,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 \clearpage
 \section{View Metrics and Statistics via Explore Panel}
 \section{Lost User Name}
+\MVCSlice{User Account}
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
