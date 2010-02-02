@@ -3,6 +3,8 @@
 \usepackage{fullpage}
 \usepackage{paralist}
 
+
+
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
 \ifx\pdftexversion\undefined
@@ -428,7 +430,6 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \caption{Send email (Requirements 3.1.1)}
 \end{figure}
 
-\chapter{Design Features}
 \section{External Authentication via Openid}
 
 
@@ -476,54 +477,57 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 
 \subsubsection{Session Handling}
 
-\section{Create User Account}
+\section{User Accounts}
+\subsection{Create User Account}
 This is a basic CRUD operation: Create User Account. \\*
 \CRUDcreate{User Accout}{user}
-\section{Update User Account}
+\subsection{Update User Account}
 This is a basic CRUD operation: Update User Account. \\*
 \CRUDupdate{User Account}{user}{Update a User Account}
-\section{Delete User Account}
+\subsection{Delete User Account}
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
 \clearpage
+\section{Campaigns}
 \MVCSlice{Campaign}
-\section{Create Campaign}
+\subsection{Create Campaign}
 This is a basic CRUD operation: Create Campaign. \\*
 \CRUDcreate{Campaign}{campaign}
-\section{View Campaign}
+\subsection{View Campaign}
 This is a basic CRUD operation: View Campaign. \\*
 \CRUDlist{Campaign}{campaign}
 This is a Read operation, similar to the above, but for one Campaign. \\*
 \CRUDshow{Campaign}{campaign}
-\section{Update Campaign}
+\subsection{Update Campaign}
 This is a basic CRUD operation: Update Campaign. \\*
 \CRUDupdate{Campaign}{campaign}{Update a Campaign}
-\section{Delete Campaign}
+\subsection{Delete Campaign}
 This is a basic CRUD operation: Delete Campaign. \\*
 \CRUDdelete{Campaign}{campaign}
-\section{Schedule Campaign}
+\subsection{Schedule Campaign}
 This is a basic CRUD operation: Schedule Campaign. \\*
 
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
 \clearpage
-\section{Create Content Unit}
+\section{Content Units}
+\subsection{Create Content Unit}
 
 \MVCSlice{Content Unit}
 This is a basic CRUD operation: Create Content. \\*
 \CRUDcreate{Content Unit}{content\_unit}
-\section{View Content Unit}
+\subsection{View Content Unit}
 This is a basic CRUD operation: View Content\_Unit. \\*
 \CRUDlist{Content Unit}{content\_unit}
 This is a Read operation, similar to the above, but for one Content Unit.  \\*
 \CRUDshow{Content Unit}{content\_unit}
-\section{Update Content Unit}
+\subsection{Update Content Unit}
 This is a basic CRUD operation: Update Content\_Unit. \\*
 \CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
-\section{Delete Content Unit}
+\subsection{Delete Content Unit}
 This is a basic CRUD operation: Delete Content\_Unit. \\*
 \CRUDdelete{Content Unit}{content\_unit}
 \clearpage
-\section{Schedule Content Unit}
+\subsection{Schedule Content Unit}
 In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
 
@@ -952,6 +956,10 @@ An entity-relationship diagram depicting the data model is shown below, which us
   \end{itemize}
 \end{itemize}
 \subsection{Disadvantages of Design}
+\begin{itemize}
+  \item Support for new content types will force additional development if generic file uploads are not sufficient to handle publishing the content.
+  \item 
+\end{itemize}
 \subsection{Design Rationale}
 \section{A Requirements Traceability Matrix}
 \subsection{Traceability by Requirement Numbers}
