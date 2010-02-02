@@ -328,7 +328,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \end{itemize}
 
 \section{Business Layer Components}
-\section{Session and Authentication}
+\subsection{Session and Authentication}
 
 Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
 
@@ -344,7 +344,7 @@ The mashbot authentication system will provide three different kinds of security
 
 Additionally, all cryptographic routines will be provided by external, third-party verified modules to ensure that their implementation is correct and secure. The authentication framework itself will be largely provided by a widely-used open source Ruby library known as authlogic.
 
-\subsection{Log In}
+\subsubsection{Log In}
 
 For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
 
@@ -354,7 +354,7 @@ For password-based authentication, the password will be processed through a one-
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{Authenticate()}{model}{}
@@ -366,7 +366,7 @@ For password-based authentication, the password will be processed through a one-
   \caption{Log in to authenticate the user.}
 \end{figure}
 
-\subsection{Log Out}
+\subsubsection{Log Out}
 
 During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
 
@@ -375,7 +375,7 @@ During the logout process, the session is destroyed. Both the session cookies an
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{log\_out}{model}{}
@@ -387,7 +387,7 @@ During the logout process, the session is destroyed. Both the session cookies an
   \caption{End authenticated session by logging out.}
 \end{figure}
 
-\subsection{OAuth}
+\subsubsection{OAuth}
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
@@ -400,10 +400,12 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \section{External Components}
 \subsection{Publishing and Aggregation Targets}
 \begin{itemize}
+\item Flickr
+\item Picasa
 \item Twitter
 \item Tumblr
 \item Wordpress
-\item TODO: etc.
+\item YouTube
 \end{itemize}
 \subsection{Email/SMTP Service}
 
@@ -468,6 +470,12 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
+\subsubsection{Openid}
+
+OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
+\subsubsection{Session Handling}
+
 \section{Create User Account}
 This is a basic CRUD operation: Create User Account. \\*
 \CRUDcreate{User Accout}{user}
@@ -579,6 +587,36 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
 \clearpage
+\section{Data Layer Components}
+\section{External Components}
+\subsection{Publishing and Aggregation Targets}
+\begin{itemize}
+\item Twitter
+\item Tumblr
+\item Wordpress
+\item TODO: etc.
+\end{itemize}
+\subsection{Email/SMTP Service}
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{sequencediagram}
+    \newthread{manager}{:Campaign Manager}
+    \newinst{daemon}{:Delayed Job Daemon}
+    \newinst{mailer}{:Mailer Worker}
+    \newinst{mail}{:SMTP Server}
+    \begin{call}{manager}{send\_later()}{daemon}{}
+    \end{call}
+    \begin{callself}{daemon}{act()}{}
+        \begin{call}{daemon}{perform}{mailer}{}
+          \begin{call}{mailer}{sendmail()}{mail}{}
+          \end{call}
+        \end{call}
+    \end{callself}
+  \end{sequencediagram}
+  \caption{Send email (Requirements 3.1.1)}
+\end{figure}
+
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -716,25 +754,83 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 					\end{enumerate}
 			\end{itemize}
 		\subsection{Operation}
-
+			The operation is the type of action which you wish to perform on our 
+			service. This partly defines what type of information is required in the 
+			request. However, these fields are not inherent and in fact, the 
+			information that is required in any request is defined by any plug-in 
+			which supports a given content type. The operation space is completely 
+			unlimited and the four operations below are planned to be the main 
+			operations supported by the Mashbot project. 
+                        
+                        \subsubsection{Push}
+                                In this operation, the user will provide all the necessary information
+                                for a piece of content to be posted to the services specified. 
+                                Assuming success, they will be returned identifying information for
+                                the content on each service.
+			
 			\subsubsection{Delete}
+				In this operation, the user will provide identifying information for 
+				items which they wish to be deleted from the services identified.
 				
 			\subsubsection{Edit}
+				In this operation, the user will provide identifying information for 
+				already posted material and an edited version of the original content 
+				which the user wishes to be replaced on services for which information 
+				has been provided.
 			
-			\subsubsection{Pull}	
-			
-			\subsubsection{Push}	
+			\subsubsection{Pull}
+			        In this operation, the user will provide identifying information for a
+                                previously posted piece of content which will be retrieved from the
+                                specified services. In the case that the specified content is not
+                                identical between the services, each unique piece of content will be
+                                returned.
+
+		\subsection{Content Types}
+                        The content type determines what type of content we are performing an operation
+                        on. Like operations, they partly define what information is required for a
+                        request. Also like operations, the ones mentioned below are not the only ones
+                        Mashbot will support. Any service plug-in can define a new content type and
+                        determine what fields are required for a successful post. We will also allow for
+                        different ways of specifying the content. For example, a user may upload an image
+                        and use that to post a picture. However, if a service supports it the user can
+                        submit a URL pointing to a photo instead. The four main types of content we expect
+                        to deal with are the following.
+
+			\subsubsection{Blog Post}
+			        A blog post will generally have two components, a title, and a body. Both
+                                of these will be text fields, but the assumption is that users can embed
+                                HTML if they would like more content rich posts.
+
+			\subsubsection{Picture}	
+                                A picture post's required components are expected to change a little
+                                depending on the service to which it is posted. We expect most plug-ins
+                                to require (or at least support) the actual image, a title, description,
+                                and album to which the image should be posted.
+
+			\subsubsection{Status}
+                                A status is expected to be the simplest type of content. It only requires
+                                a single text field, which is the status.
+
+			\subsubsection{Video}
+                                Video should have the same required fields as a picture, exchanging the
+                                image for a video. A service may also require one or more preview image(s).
 
 	\section{Server Design}
+		\subsection{Platform}
+			We plan to build this server on an existing web service framework. This 
+			means that everything up until the point where execution and the incoming 
+			request is passed to the handler chain when a request is made. Most 
+			configuration will be carried in XML.
+		
 		\subsection{Architecture}
-			
+			The internal architecture follows the handler chain pattern. The 
+			HandlerChain class holds a linked list of handlers. As demonstrated below:
 
 		\subsection{Handlers}
                         \begin{figure}[hbtp]
-                          \centering
+													\centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
-                            % \newinst{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
                             \newinst{nextHandler}{:Next Handler}
                             \begin{call}{previousHandler}{enact()}{currentHandler}{}
@@ -749,23 +845,78 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
                           \caption{Part of a Handler Chain}
                         \end{figure}
 
+		\subsection{HandlerChain}
+			This class embodies the link list that is the Handler. It will the pass 
+			the request information to the first Handler and then that handler will 
+			call each subsequent handler in the chain. This class will also handler 
+			initializing the 
+	
+			\includegraphics{uml/HandlerChain.2}
+		\subsection{Handlers}
 			\subsubsection{Handler}
+				This is an interface which describes what methods must be provided in 
+				order for a class to be considered a handler. A Handler is a class which 
+				can take in a request, perform some preprocessing, perform the actual 
+				operations, and then performing post processing before returning have 
+				made any necessary changes to the response.
+				
 				\includegraphics{uml/Handlers.1}
 			\subsubsection{ChainableHandler}
+				A chainable handler is one which can be placed in a sequence of handlers 
+				with the knowledge of who is next in line. This means that it will 
+				perform preprocessing and postprocessing, before and after calling the 
+				next handler in the chain respectively.
+				
+				\includegraphics{uml/Handlers.2}
 			\subsubsection{AuthenticationHandler}
-			\subsubsection{DeserializationHandler}
+				The authentication handler will take the authentication information from 
+				the Request object and after having performed authentication of the user 
+				will insert the unique user identifier into the Context object passed up 
+				the Handler chain.
+
+				\includegraphics{uml/Handlers.3}
+			\subsubsection{SerializationHandler}
+				The deserialization handler extracts the raw data from the Content field 
+				and creates a new Content object from that containing all the data. The 
+				information contained in this is encompassed by object model. See the 
+				section on that for more information. It then places this Content in the 
+				application context on its way in. On the way out, it will take the 
+				Content object from the Context. Then, it will reserialize it and place 
+				it in the Response.
+				\includegraphics{uml/Handlers.4}
+			
 			\subsubsection{RequiredDataVerificationHandler}
+			This handler queries the plug-ins which handle the operation and content 
+			type which has been specified by the request with the fields that are 
+			present to make sure that all requisite data for that request is present.  
+			If all required data for any one service is not present, the request fails 
+			at this step. Otherwise, the request continues through the system.
+				
+			\includegraphics{uml/Handlers.5}
+				
 			\subsubsection{ContentProcessingHandler}
+			This handler loops through and calls the plug-ins which correspond to
+			the operation, the content type, and the services which have been 
+			specified in the request passing them the content blob of the request. The 
+			plug-in will return the blob. All plug-ins must conform to the 
+			ContentProcessor Interface.
+			
+			\includegraphics{uml/Handlers.6}
+
+			\newpage
+
+			\subsubsection{Overall}
+
+			\includegraphics{uml/Handlers.7}
+			
 
 	\section{Plugin Design}
-		\subsection{Content-Type Plugins}
 		\subsection{Service Plugins}
 
 \chapter{Database Design}
 \section{Summary}
 
-An entity-relationship diagram depicting the data model is shown below.\\
-
+An entity-relationship diagram depicting the data model is shown below, which uses the E-R notation described in the book Database System Concepts, by Silberchatz et al. 
 % Should either remove some authn detail, or add some domain (campaign publishing) detail.
 
 \tikzstyle{every relationship} = [fill=red!20] 

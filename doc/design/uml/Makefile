@@ -1,7 +1,10 @@
 
 all: uml
 
-uml: object_model.? Handlers.?
+RequestResponse.?: RequestResponse.mp
+	mpost RequestResponse.mp
+
+uml: object_model.? Handlers.? RequestResponse.?
 
 object_model.? : object_model.mp
 	mpost object_model.mp
@@ -17,6 +20,7 @@ clean:
 	rm -f *.log
 
 pdf:
-	mptopdf *.mp
+	mptopdf RequestResponse.mp
+	mptopdf Handlers.mp
 
 .PHONY: all uml clean
