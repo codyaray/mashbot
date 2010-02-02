@@ -13,12 +13,10 @@ Scenario: Creating a campaign
   And I should see "01/15/2100"
   And I should see "02/14/2100"
 
-@wip
 Scenario: Creating a campaign
   When I go to the create campaign page
   And I fill in "Unfail Campaign" for "Title"
   And I press "Create!"
-  And show me the page
   Then I should see "Unfail Campaign"
 
 Scenario: Validate sane start and end dates: start should be before end.
@@ -34,5 +32,4 @@ Scenario: Make sure you can't have an end date without a start date.
   And I fill in "Fail Campaign" for "Title"
   And I fill in "01/14/2100" for "End date"
   And I press "Create!"
-  And show me the page
   Then I should see "Whoa buddy! You're going to need a start date if you intend to have an end date"

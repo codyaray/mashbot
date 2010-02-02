@@ -13,14 +13,18 @@
     #header
       #administrative-links
         %ul
-          %li
-            (a)User Name
-          %li
-            %a{:href => "settings"}
-              Settings
           %li{:style => "border: none"}
-            %a{:href => "logout"}
-              Sign Out
+            - if !current_user
+              =link_to "Register", new_account_path
+              |
+              =link_to "Login", new_user_session_path
+            - else
+              %strong
+                =current_user.login
+              |
+              =link_to "My Account", account_path
+              |
+              =link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
       .title
         (a)Company Mashbot
       #navigation-links
@@ -29,11 +33,9 @@
             %a{:href => "/dashboard"}
               Dashboard
           %li 
-            %a{:href => "/campaign/new"}
-              Create
+            =link_to "Create", new_campaign_path
           %li
-            %a{:href => "/campaigns/"}
-              Manage
+            =link_to "Manage", campaigns_path
           %li  
             %a{:href => "/schedule"}
               Schedule

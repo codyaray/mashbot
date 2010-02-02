@@ -71,7 +71,8 @@ class CampaignsController < ApplicationController
       end
     end
   end
-
+  
+  
   # DELETE /campaigns/1
   # DELETE /campaigns/1.xml
   def destroy
