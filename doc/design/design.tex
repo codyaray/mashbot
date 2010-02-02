@@ -922,20 +922,31 @@ An entity-relationship diagram depicting the data model is shown below, which us
 \item Decoupled Publishing Platform
   \begin{itemize}
   \item Allows publishing capabilities to be extended without change to the Campaign Manager.
-  \item Provides asychronous publishing so HTTP requests do not time out when pushing a large amount of content.
+  \item Provides asynchronous publishing so HTTP requests do not time out when pushing a large amount of content.
   \item Allows scheduled items to get fired off, even if the Campaign Manager is not fully running.
   \end{itemize}
+\item Extensibility
+  \begin{itemize}
+    \item Easy to add support for new social media services
+    \item Easy to add support for new content types
+    \item Easy to add support for new operation types
+  \end{itemize}
+\item Request pipeline is easily modifiable
+  \begin{itemize}
+    \item Easy to add new authentication types
+    \item Simple to add pre-processing steps
+  \end{itemize}
+\item 
 \end{itemize}
 
 \subsection{Disadvantages of Design}
 \begin{itemize}
   \item Support for new content types will force additional development if generic file uploads are not sufficient to handle publishing the content.
-  \item 
+  \item Generality of our design may create performance bottlenecks in the future
+  \item We will be limited by the capabilities of the web service framework we choose.
+  \item The campaign manager design presupposes a certain amount of familiarity with social media concepts
 \end{itemize}
-\subsection{Design Rationale}
-\section{A Requirements Traceability Matrix}
-\subsection{Traceability by Requirement Numbers}
-\subsection{Traceability by Design Component}
+\section{Requirements Traceability Table}
 
 \end{document}
 
