@@ -21,56 +21,87 @@ beginfig(2);
 endfig;
 
 beginfig(3);
-	Interface.C("Handler")
+	Class.C("AuthenticationHandler")
+			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
 			"+postRequest(in:Request,out:Response,context:RequestContext)");
+	drawObject(C);
 
+endfig;
+
+beginfig(4);
 	Class.D("ChainableHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
 			"+postRequest(in:Request,out:Response,context:RequestContext)");
-	
-	Class.E("AuthenticationHandler")
+	drawObject(D);
+
+endfig;
+
+beginfig(5);
+	Class.E("ChainableHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
 			"+postRequest(in:Request,out:Response,context:RequestContext)");
-	
-	Class.F("DeserializationHandler")
+	drawObject(E);
+
+endfig;
+
+beginfig(6);
+	Class.F("ChainableHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
 			"+postRequest(in:Request,out:Response,context:RequestContext)");
-	
-	Class.G("RequiredDataVerificationHandler")
+	drawObject(F);
+
+endfig;
+
+beginfig(7);
+	Interface.G("Handler")
+			();
+
+	Class.H("ChainableHandler")
 			()
-			("+enact(in:Request,out:Response,context:RequestContext)",
-			"+preRequest(in:Request,out:Response,context:RequestContext)",
-			"+postRequest(in:Request,out:Response,context:RequestContext)");
+			();
 	
-	Class.H("ContentProcessingHandler")
+	Class.I("AuthenticationHandler")
 			()
-			("+enact(in:Request,out:Response,context:RequestContext)",
-			"+preRequest(in:Request,out:Response,context:RequestContext)",
-			"+postRequest(in:Request,out:Response,context:RequestContext)");
+			();
 	
-	Group.HandlerClass(C,D,E,F,G,H);
+	Class.J("DeserializationHandler")
+			()
+			();
+	
+	Class.K("RequiredDataVerificationHandler")
+			()
+			();
+	
+	Class.L("ContentProcessingHandler")
+			()
+			();
+	
+	Group.HandlerClass(G,H,I,J,K,L);
 
-	leftToRight(50)(E,F,G,H);
-	C.s = (0,0);
-	D.n = C.s + (0,-50);
-	F.ne = D.s + (-25,-75);
+	leftToRight(10)(I,J,K,L);
+	G.s = (0,0);
+	H.n = G.s + (0,-40);
+	J.ne = H.s + (-5,-40);
 
-	drawObject(HandlerClass);
 
-	link(realization)(C.s -- D.n);
-	link(inheritance)(D.s -- E.n);
-	link(inheritance)(D.s -- F.n);
-	link(inheritance)(D.s -- G.n);
-	link(inheritance)(D.s -- H.n);
 
+	Package.P("mashbot.Handlers")(HandlerClass);
+	
+	drawObject(P);
+
+	link(realization)(G.s -- H.n);
+	link(inheritance)(H.s -- I.n);
+	link(inheritance)(H.s -- J.n);
+	link(inheritance)(H.s -- K.n);
+	link(inheritance)(H.s -- L.n);
 	
 endfig;
 

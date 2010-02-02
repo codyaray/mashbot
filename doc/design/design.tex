@@ -400,10 +400,12 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \section{External Components}
 \subsection{Publishing and Aggregation Targets}
 \begin{itemize}
+\item Flickr
+\item Picasa
 \item Twitter
 \item Tumblr
 \item Wordpress
-\item TODO: etc.
+\item YouTube
 \end{itemize}
 \subsection{Email/SMTP Service}
 
@@ -716,14 +718,37 @@ service. (But the numbering here is arbitrary)
 					\end{enumerate}
 			\end{itemize}
 		\subsection{Operation}
-
+			The operation is the type of action which you wish to perform on our 
+			service. This partly defines what type of information is required in the 
+			request. However, these fields are not inherent and in fact, the 
+			information that is required in any request is defined by any plug-in 
+			which supports a given content type. The operation space is completely 
+			unlimited and the four operations below are planned to be the main 
+			operations supported by the Mashbot project. 
+			
 			\subsubsection{Delete}
+				In this operation, the user will provide identifying information for 
+				items which they wish to be deleted from the services identified.
 				
 			\subsubsection{Edit}
+				In this operation, the user will provide identifying information for 
+				already posted material and an edited version of the original content 
+				which the user wishes to be replaced on services for which information 
+				has been provided.
 			
-			\subsubsection{Pull}	
+			\subsubsection{Pull}
+					
 			
-			\subsubsection{Push}	
+			\subsubsection{Push}
+
+		\subsection{Content Types}
+			\subsubsection{Blog}
+			
+			\subsubsection{Picture}	
+
+			\subsubsection{Status}
+
+			\subsubsection{Video}	
 
 	\section{Server Design}
 		\subsection{Architecture}
@@ -769,6 +794,8 @@ service. (But the numbering here is arbitrary)
 				the Request object and after having performed authentication of the user 
 				will insert the unique user identifier into the Context object passed up 
 				the Handler chain.
+
+				\includegraphics{uml/Handlers.3}
 			\subsubsection{SerializationHandler}
 				The deserialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
@@ -777,10 +804,32 @@ service. (But the numbering here is arbitrary)
 				application context on its way in. On the way out, it will take the 
 				Content object from the Context. Then, it will reserialize it and place 
 				it in the Response.
+				\includegraphics{uml/Handlers.4}
 			
 			\subsubsection{RequiredDataVerificationHandler}
+			This handler queries the plug-ins which handle the operation and content 
+			type which has been specified by the request with the fields that are 
+			present to make sure that all requisite data for that request is present.  
+			If all required data for any one service is not present, the request fails 
+			at this step. Otherwise, the request continues through the system.
+				
+			\includegraphics{uml/Handlers.5}
 				
 			\subsubsection{ContentProcessingHandler}
+			This handler loops through and calls the plug-ins which correspond to
+			the operation, the content type, and the services which have been 
+			specified in the request passing them the content blob of the request. The 
+			plug-in will return the blob. All plug-ins must conform to the 
+			ContentProcessor Interface.
+			
+			\includegraphics{uml/Handlers.6}
+
+			\newpage
+
+			\subsubsection{Overall}
+
+			\includegraphics{uml/Handlers.7}
+			
 
 	\section{Plugin Design}
 		\subsection{Content-Type Plugins}
