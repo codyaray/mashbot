@@ -354,7 +354,7 @@ For password-based authentication, the password will be processed through a one-
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{Authenticate()}{model}{}
@@ -375,7 +375,7 @@ During the logout process, the session is destroyed. Both the session cookies an
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
-    \newinst{model}{:User Model}
+    \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
     \begin{call}{browser}{HTTP POST}{controller}{}
       \begin{call}{controller}{log\_out}{model}{}
@@ -761,6 +761,12 @@ service. (But the numbering here is arbitrary)
 			which supports a given content type. The operation space is completely 
 			unlimited and the four operations below are planned to be the main 
 			operations supported by the Mashbot project. 
+                        
+                        \subsubsection{Push}
+                                In this operation, the user will provide all the necessary information
+                                for a piece of content to be posted to the services specified. 
+                                Assuming success, they will be returned identifying information for
+                                the content on each service.
 			
 			\subsubsection{Delete}
 				In this operation, the user will provide identifying information for 
@@ -773,18 +779,41 @@ service. (But the numbering here is arbitrary)
 				has been provided.
 			
 			\subsubsection{Pull}
-					
-			
-			\subsubsection{Push}
+			        In this operation, the user will provide identifying information for a
+                                previously posted piece of content which will be retrieved from the
+                                specified services. In the case that the specified content is not
+                                identical between the services, each unique piece of content will be
+                                returned.
 
 		\subsection{Content Types}
-			\subsubsection{Blog}
-			
+                        The content type determines what type of content we are performing an operation
+                        on. Like operations, they partly define what information is required for a
+                        request. Also like operations, the ones mentioned below are not the only ones
+                        Mashbot will support. Any service plug-in can define a new content type and
+                        determine what fields are required for a successful post. We will also allow for
+                        different ways of specifying the content. For example, a user may upload an image
+                        and use that to post a picture. However, if a service supports it the user can
+                        submit a URL pointing to a photo instead. The four main types of content we expect
+                        to deal with are the following.
+
+			\subsubsection{Blog Post}
+			        A blog post will generally have two components, a title, and a body. Both
+                                of these will be text fields, but the assumption is that users can embed
+                                HTML if they would like more content rich posts.
+
 			\subsubsection{Picture}	
+                                A picture post's required components are expected to change a little
+                                depending on the service to which it is posted. We expect most plug-ins
+                                to require (or at least support) the actual image, a title, description,
+                                and album to which the image should be posted.
 
 			\subsubsection{Status}
+                                A status is expected to be the simplest type of content. It only requires
+                                a single text field, which is the status.
 
-			\subsubsection{Video}	
+			\subsubsection{Video}
+                                Video should have the same required fields as a picture, exchanging the
+                                image for a video. A service may also require one or more preview image(s).
 
 	\section{Server Design}
 		\subsection{Platform}
@@ -796,11 +825,12 @@ service. (But the numbering here is arbitrary)
 		\subsection{Architecture}
 			The internal architecture follows the handler chain pattern. The 
 			HandlerChain class holds a linked list of handlers. As demonstrated below:
-												\begin{figure}[hbtp]
-                          \centering
+
+		\subsection{Handlers}
+                        \begin{figure}[hbtp]
+													\centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
-                            % \newinst{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
                             \newinst{nextHandler}{:Next Handler}
                             \begin{call}{previousHandler}{enact()}{currentHandler}{}
@@ -886,8 +916,7 @@ service. (But the numbering here is arbitrary)
 \chapter{Database Design}
 \section{Summary}
 
-An entity-relationship diagram depicting the data model is shown below.\\
-
+An entity-relationship diagram depicting the data model is shown below, which uses the E-R notation described in the book Database System Concepts, by Silberchatz et al. 
 % Should either remove some authn detail, or add some domain (campaign publishing) detail.
 
 \tikzstyle{every relationship} = [fill=red!20] 
