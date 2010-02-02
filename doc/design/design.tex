@@ -610,7 +610,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			Each object has a type and comprises two collections of entities:
 			(1) a set of service associations, and (2) a list of properties in 
 			the form of a collection of objects.  An object can also be 
-			considered ``primitive,'' meaning it has a particular value 
+			considered ``primitive,'' meaning it has an unstructured value 
 			assigned to it.
 
 			Semantically speaking, an object is anything that can be 
@@ -634,7 +634,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			and services may support handling multiple object types.
 		\subsubsection{Service Associations}
 			Each object may be associated with one or more services.
-			Semantically speaking, this reflects the idea that an object, as 
+			Semantically, this reflects the idea that an object, as 
 			manipulated by Mashbot, exists in parallel with an object stored in 
 			some form on each associated service.
 
@@ -655,16 +655,10 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			These operations are defined by plugins in terms of both
 			\emph{behavior} and \emph{requirements}. Requirements may be
 			complex and hierarchical, specifying recursive requirements for 
-			values and sub-objects within a given object. Put another way,
-			a service may require that before an object is associated with 
-			that service, it must contain certain sub-objects, some of which
-			have a certain class of values or certain associations.
-			
+			values and sub-objects within a given object.			
 		\subsubsection{Properties}
 			Properties represent an unordered collection of child objects 
-			belonging to the object in question.
-
-			Child objects are not mandated to be of a unique type or value, and 
+			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and 
 			thus cannot be addressed by type or value. Instead, objects can be 
 			queried for child objects, given criteria about the child objects 
 			themselves.
@@ -686,7 +680,7 @@ service. (But the numbering here is arbitrary)
 		\subsubsection{Primitive value} 
 
 			A primitive value is a value with which the object can be 
-			interchanged with without losing or gaining semantic information.
+			interchanged without losing or gaining semantic information.
 
 			For instance, IDs and names are object types that would frequently 
 			have primitive values. An ID could have a primitive value 
@@ -737,7 +731,7 @@ service. (But the numbering here is arbitrary)
 			request. However, these fields are not inherent and in fact, the 
 			information that is required in any request is defined by any plugin 
 			which supports a given content type. The operation space is completely 
-			unlimited and the four operations below are planned to be the main 
+			unlimited but the four operations below are planned to be the main 
 			operations supported by the Mashbot project. 
                         
                         \subsubsection{Push}
@@ -797,14 +791,13 @@ service. (But the numbering here is arbitrary)
 		\subsection{Platform}
 			We plan to build this server on an existing web service framework. This 
 			means that everything up until the point where execution and the incoming 
-			request is passed to the handler chain when a request is made. Most 
+			request is passed to the handler chain when a request is made will be handled by this existing framework. Most 
 			configuration will be carried in XML.
 		
 		\subsection{Architecture}
 			The internal architecture follows the handler chain pattern. The 
 			HandlerChain class holds a linked list of handlers. As demonstrated below:
 
-		\subsection{Handlers}
                         \begin{figure}[hbtp]
                           \centering
                           \begin{sequencediagram}
@@ -824,10 +817,14 @@ service. (But the numbering here is arbitrary)
                         \end{figure}
 
 		\subsection{HandlerChain}
-			This class embodies the link list that is the Handler. It will the pass 
+			This class embodies the linked list that is
+                        the handler chain. It will the pass 
 			the request information to the first Handler and then that handler will 
-			call each subsequent handler in the chain. This class will also handler 
-			initializing the 
+			call each subsequent handler in the chain. This class will also
+handle initializing the linked list itself as it will take as an argument an
+arraylist of Handlers. It also unless to segregrate the functionality of
+linking all of the Handlers together outside of the Handler classes instead
+of hard coding into the code what the next handler will be for each. 
 	
 			\includegraphics{uml/HandlerChain.2}
 		\subsection{Handlers}
@@ -835,7 +832,7 @@ service. (But the numbering here is arbitrary)
 				This is an interface which describes what methods must be provided in 
 				order for a class to be considered a handler. A Handler is a class which 
 				can take in a request, perform some preprocessing, perform the actual 
-				operations, and then performing post processing before returning have 
+				operations, and then perform post processing before returning have 
 				made any necessary changes to the response.
 				
 				\includegraphics{uml/Handlers.1}
@@ -854,10 +851,10 @@ service. (But the numbering here is arbitrary)
 
 				\includegraphics{uml/Handlers.3}
 			\subsubsection{SerializationHandler}
-				The deserialization handler extracts the raw data from the Content field 
+				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
-				information contained in this is encompassed by object model. See the 
-				section on that for more information. It then places this Content in the 
+				information contained in this is encompassed by the object model. See the 
+				object model section for more information. It then places this Content in the 
 				application context on its way in. On the way out, it will take the 
 				Content object from the Context. Then, it will reserialize it and place 
 				it in the Response.
@@ -929,6 +926,7 @@ An entity-relationship diagram depicting the data model is shown below, which us
   \item Allows scheduled items to get fired off, even if the Campaign Manager is not fully running.
   \end{itemize}
 \end{itemize}
+
 \subsection{Disadvantages of Design}
 \begin{itemize}
   \item Support for new content types will force additional development if generic file uploads are not sufficient to handle publishing the content.
