@@ -73,8 +73,6 @@
 
 
 \newcommand{\CRUDcreate}[2]{
-\begin{figure}[htp] 
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:#1 Controller}
@@ -94,14 +92,8 @@
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Create #1}
-\end{figure}
-
-  
 }
 \newcommand{\CRUDshow}[2]{
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:#1 Controller}
@@ -115,13 +107,8 @@
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Show a #1}
-\end{figure} 
 }
 \newcommand{\CRUDlist}[2]{
-
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:#1 Controller}
@@ -135,12 +122,8 @@
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{List #1s}
-\end{figure}
 }
 \newcommand{\CRUDupdate}[3]{
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:#1 Controller}
@@ -166,12 +149,13 @@
      \end{call}
     \end{call}
   \end{sequencediagram}
+<<<<<<< HEAD:doc/design/design.tex
   \caption{#3}
 \end{figure}
+=======
+>>>>>>> bb6ae2537fbaaff9fc1b6d7765141d4657f1e5c9:doc/design/design.tex
 }
 \newcommand{\CRUDdelete}[2]{
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:#1 Controller}
@@ -189,8 +173,11 @@
       \end{call}
     \end{call}
   \end{sequencediagram}
+<<<<<<< HEAD:doc/design/design.tex
   \caption{Delete #1}
 \end{figure}  
+=======
+>>>>>>> bb6ae2537fbaaff9fc1b6d7765141d4657f1e5c9:doc/design/design.tex
 }
 \newcommand{\CRUD}[2]{
 \CRUDcreate{#1}{#2}
@@ -357,8 +344,6 @@ Additionally, all cryptographic routines will be provided by external, third-par
 For password-based authentication, the password will be processed through a one-way hash function (SHA512 by default) and only the hashed password will be stored in the database. This mechanism avoids the potential of password recovery if the database becomes compromised.
 
 \MVCSlice{User Session}
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
@@ -371,15 +356,16 @@ For password-based authentication, the password will be processed through a one-
       \end{call}
     \end{call}
   \end{sequencediagram}
+<<<<<<< HEAD:doc/design/design.tex
   \caption{Log in to authenticate the user.}
 \end{figure}
+=======
+>>>>>>> bb6ae2537fbaaff9fc1b6d7765141d4657f1e5c9:doc/design/design.tex
 
 \subsubsection{Log Out}
 
 During the logout process, the session is destroyed. Both the session cookies and the corresponding server-side hash fingerprint are erased.
 
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:Controller}
@@ -392,8 +378,11 @@ During the logout process, the session is destroyed. Both the session cookies an
       \end{call}
     \end{call}
   \end{sequencediagram}
+<<<<<<< HEAD:doc/design/design.tex
   \caption{End authenticated session by logging out.}
 \end{figure}
+=======
+>>>>>>> bb6ae2537fbaaff9fc1b6d7765141d4657f1e5c9:doc/design/design.tex
 
 \subsubsection{OAuth}
 
@@ -424,8 +413,6 @@ MySQL is a fast, free relational database management system solution.
 \end{itemize}
 \subsection{Email/SMTP Service}
 Email will be used to notify users of reset lost usernames and passwords.
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{manager}{:Campaign Manager}
     \newinst{daemon}{:Delayed Job Daemon}
@@ -440,14 +427,10 @@ Email will be used to notify users of reset lost usernames and passwords.
         \end{call}
     \end{callself}
   \end{sequencediagram}
-  \caption{Send email (Requirements 3.1.1)}
-\end{figure}
 
 \section{External Authentication via OpenID}
 
 \MVCSlice{OAuth}
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:OAuth Controller}
@@ -461,10 +444,6 @@ Email will be used to notify users of reset lost usernames and passwords.
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Authentication via OAuth with stored token.}
-\end{figure}
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:OAuth Controller}
@@ -480,8 +459,6 @@ Email will be used to notify users of reset lost usernames and passwords.
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Authentication via OAuth without stored token.}
-\end{figure}
 
 \section{User Accounts}
 \subsection{Create User Account}
@@ -535,8 +512,6 @@ In order to change the scheduled time of anything that is schedulable, the same 
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
 
 After content is scheduled, it can be picked up by the Scheduler, triggered via Cron.  Every 30 minutes, Cron will run the Scheduler, which will look in the database for active Campaigns.  Within those active campaigns, each piece of content will be checked to see if the go-live time is now or past.  If it's now or past, the scheduler calls the Publishing and Aggregation Platform with the content needed for a push to the given External Service.
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{cron}{:Cron}
     \newinst{scheduler}{:Scheduler}
@@ -551,13 +526,9 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
       \end{call}
     \end{call}
 \end{sequencediagram}
-  \caption{Perform a scheduled action}
-\end{figure}
 \section{View Metrics and Statistics via Explore Panel}
 \section{Lost User Name}
 \MVCSlice{User Account}
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:User Account Controller}
@@ -570,11 +541,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Retrieving a lost username by email id.}
-\end{figure}
 \section{Lost Password}
-\begin{figure}[htp]
-  \centering
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:User Account Controller}
@@ -590,8 +557,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
       \end{call}
     \end{call}
   \end{sequencediagram}
-  \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
-\end{figure}
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -794,8 +759,6 @@ service. (But the numbering here is arbitrary)
 			The internal architecture follows the handler chain pattern. The 
 			HandlerChain class holds a linked list of handlers. As demonstrated below:
 
-                        \begin{figure}[htp]
-                          \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
@@ -809,9 +772,6 @@ service. (But the numbering here is arbitrary)
                             \end{callself}
                             \end{call}
                           \end{sequencediagram}
-                          \caption{Part of a Handler Chain}
-                        \end{figure}
-
 		\subsection{HandlerChain}
 			This class embodies the linked list that is
                         the handler chain. It will the pass 
@@ -832,7 +792,6 @@ of hard coding into the code what the next handler will be for each.
 				made any necessary changes to the response.
 				
 				\includegraphics{uml/Handlers.1}
-
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
 				with the knowledge of who is next in line. This means that it will 
@@ -853,8 +812,8 @@ of hard coding into the code what the next handler will be for each.
 				information contained in this is encompassed by the object model. See 
 				the object model section for more information. It then places this 
 				Content in the application context on its way in. On the way out, it 
-				will take the Content object from the Context. Then, it will reserialize 
-				it and place it in the Response.
+				will take the Content object from the Context. Then, it will reserialize it and place it in the Response.
+
 				\includegraphics{uml/Handlers.4}
 			
 			\subsubsection{RequiredDataVerificationHandler}
@@ -880,37 +839,32 @@ of hard coding into the code what the next handler will be for each.
 
 			\includegraphics{uml/Handlers.7}
 
-  \section{Sequence Diagram}
-    \begin{figure}
-    \centering
+  \section{Sequence Diagram for Handling a Request}
+    %\begin{figure}
     \begin{sequencediagram}
     \newthread{req}{Receiving}
     \newinst{auth}{Authentication}
     \newinst{serial}{Serialization}
-    \newinst{proc}{Content Processing}
     \newinst{ver}{Data Verification}
+    \newinst{proc}{Content Processing}
     \newinst{svc}{Service Plugin}
 
-    \begin{call}{req}{Authenticate}{auth}{}
-    \end{call}
-
-    \begin{call}{req}{Build Objects}{serial}{}
-    \end{call}
-
-    \begin{call}{req}{Process the Request}{proc}{}
-      \begin{call}{proc}{Verify Data}{ver}{}
-        \begin{call}{ver}{Consult Plugin}{svc}{}
-        \end{call}
-      \end{call}
-
-      \begin{call}{proc}{Run Request}{svc}{}
-        \begin{call}{svc}{Grab Authentication}{auth}{}
+    \begin{call}{req}{authenticate()}{auth}{}
+      \begin{call}{auth}{build()}{serial}{}
+        \begin{call}{serial}{verify()}{ver}{}
+          \begin{call}{ver}{checkRequirements()}{svc}{}
+          \end{call}
+          \begin{call}{ver}{process()}{proc}{}
+            \begin{call}{proc}{serviceRequest()}{svc}{}
+            \end{call}
+          \end{call}
         \end{call}
       \end{call}
     \end{call}
+
 
     \end{sequencediagram}
-    \end{figure}
+    %\caption{Sequence Diagram for Handling a Request} \end{figure}
 
 			
 	\section{Plugin Design}
