@@ -630,6 +630,26 @@ service. (But the numbering here is arbitrary)
 			  Photo}.
 		\subsection{Class Diagram}
 			\includegraphics{uml/object_model.1}
+    \subsection{Sequence Diagram}
+      \subsubsection{Pushing to a Service}
+      \begin{sequencediagram}
+      \newthread{obj}{Object}
+      
+      \newinst[1]{req}{Service Requirements}
+      \newinst{svc}{Service Request}
+
+      \begin{call}{obj}{checkRequirements(this)}{req}{}
+      \end{call}
+
+      \begin{call}{obj}{push(this)}{svc}{response}
+        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
+        \end{call}
+        \begin{call}{svc}{addAssociation(serviceAssociation)}{obj}{}
+        \end{call}
+      \end{call}
+
+      \end{sequencediagram}
+
 
 	
 	\section{API Design}
