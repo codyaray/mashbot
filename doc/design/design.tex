@@ -15,8 +15,8 @@
 \fi
 
 \usepackage{tikz}
-\usetikzlibrary{arrows,shadows} % for pgf-umlsd
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
+\usetikzlibrary{arrows,shadows} % for pgf-umlsd
 \usepackage{tikz-er2} 
 
 \newcommand{\MVCSlice}[1]{
@@ -910,6 +910,39 @@ of hard coding into the code what the next handler will be for each.
 
 			\includegraphics{uml/Handlers.7}
                         \clearpage
+
+  \section{Sequence Diagram}
+    \begin{figure}
+    \centering
+    \begin{sequencediagram}
+    \newthread{req}{Receiving}
+    \newinst{auth}{Authentication}
+    \newinst{serial}{Serialization}
+    \newinst{proc}{Content Processing}
+    \newinst{ver}{Data Verification}
+    \newinst{svc}{Service Plugin}
+
+    \begin{call}{req}{Authenticate}{auth}{}
+    \end{call}
+
+    \begin{call}{req}{Build Objects}{serial}{}
+    \end{call}
+
+    \begin{call}{req}{Process the Request}{proc}{}
+      \begin{call}{proc}{Verify Data}{ver}{}
+        \begin{call}{ver}{Consult Plugin}{svc}{}
+        \end{call}
+      \end{call}
+
+      \begin{call}{proc}{Run Request}{svc}{}
+        \begin{call}{svc}{Grab Authentication}{auth}{}
+        \end{call}
+      \end{call}
+    \end{call}
+
+    \end{sequencediagram}
+    \end{figure}
+
 			
 	\section{Plugin Design}
 		\subsection{Basic Design}
