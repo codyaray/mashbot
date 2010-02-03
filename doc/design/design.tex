@@ -857,7 +857,8 @@ of hard coding into the code what the next handler will be for each.
 				operations, and then perform post processing before returning have 
 				made any necessary changes to the response.
 				
-				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} \end{figure}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} 
+																\end{figure}
                                 \clearpage
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
@@ -865,7 +866,8 @@ of hard coding into the code what the next handler will be for each.
 				perform preprocessing and postprocessing, before and after calling the 
 				next handler in the chain respectively.
 				
-				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} \end{figure}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} 
+																\end{figure}
                                 \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
@@ -873,7 +875,8 @@ of hard coding into the code what the next handler will be for each.
 				will insert the unique user identifier into the Context object passed up 
 				the Handler chain.
 
-				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} \end{figure}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} 
+																\end{figure}
                                 \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
@@ -893,7 +896,8 @@ of hard coding into the code what the next handler will be for each.
 			If all required data for any one service is not present, the request fails 
 			at this step. Otherwise, the request continues through the system.
 				
-			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} \end{figure}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} 
+												\end{figure}
                         \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
@@ -915,33 +919,32 @@ of hard coding into the code what the next handler will be for each.
   \section{Sequence Diagram}
 		\begin{figure}[h!]
     \centering
-    \begin{sequencediagram}
+		\begin{figure}
+		\begin{sequencediagram}
     \newthread{req}{Receiving}
     \newinst{auth}{Authentication}
     \newinst{serial}{Serialization}
+
 		\newinst{ver}{Data Verification}
     \newinst{proc}{Content Processing}
-		\newinst{svc}{Service Plugin}
+    \newinst{svc}{Service Plugin}
 
-    \begin{call}{req}{Authenticate}{auth}{}
+    \begin{call}{req}{authenticate()}{auth}{}
+      \begin{call}{auth}{build()}{serial}{}
+        \begin{call}{serial}{verify()}{ver}{}
+          \begin{call}{ver}{checkRequirements()}{svc}{}
+          \end{call}
+          \begin{call}{ver}{process()}{proc}{}
+            \begin{call}{proc}{serviceRequest()}{svc}{}
+            \end{call}
+          \end{call}
+        \end{call}
+      \end{call}
+    \end{call}
 
-			\begin{call}{auth}{Build Objects}{serial}{}
-
-				\begin{call}{serial}{Verify Data}{ver}{}
-					\begin{call}{ver}{Consult Plugin}{svc}{}
-					\end{call}
-			
-					\begin{call}{ver}{Process the Request}{proc}{}
-						\begin{call}{proc}{Run Request}{svc}{}
-							\begin{call}{svc}{Grab Authentication}{auth}{}
-							\end{call}
-						\end{call}
-					\end{call}
-				\end{call}
-			\end{call}
-		\end{call}
 
     \end{sequencediagram}
+    \caption{Sequence Diagram for Handling a Request}
     \end{figure}
 
 			
