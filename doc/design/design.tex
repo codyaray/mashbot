@@ -846,7 +846,8 @@ arraylist of Handlers. It also unless to segregrate the functionality of
 linking all of the Handlers together outside of the Handler classes instead
 of hard coding into the code what the next handler will be for each. 
 	
-			\includegraphics{uml/HandlerChain.2}
+			
+				\begin{figure}[h!] \centering \includegraphics{uml/HandlerChain.2} \end{figure}
                         \clearpage
 		\subsection{Handlers}
 			\subsubsection{Handler}
@@ -856,7 +857,7 @@ of hard coding into the code what the next handler will be for each.
 				operations, and then perform post processing before returning have 
 				made any necessary changes to the response.
 				
-				\includegraphics{uml/Handlers.1}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} \end{figure}
                                 \clearpage
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
@@ -864,7 +865,7 @@ of hard coding into the code what the next handler will be for each.
 				perform preprocessing and postprocessing, before and after calling the 
 				next handler in the chain respectively.
 				
-				\includegraphics{uml/Handlers.2}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} \end{figure}
                                 \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
@@ -872,7 +873,7 @@ of hard coding into the code what the next handler will be for each.
 				will insert the unique user identifier into the Context object passed up 
 				the Handler chain.
 
-				\includegraphics{uml/Handlers.3}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} \end{figure}
                                 \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
@@ -882,7 +883,7 @@ of hard coding into the code what the next handler will be for each.
 				Content in the application context on its way in. On the way out, it 
 				will take the Content object from the Context. Then, it will reserialize 
 				it and place it in the Response.
-				\includegraphics{uml/Handlers.4}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.4} \end{figure}
                                 \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
@@ -892,7 +893,7 @@ of hard coding into the code what the next handler will be for each.
 			If all required data for any one service is not present, the request fails 
 			at this step. Otherwise, the request continues through the system.
 				
-			\includegraphics{uml/Handlers.5}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} \end{figure}
                         \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
@@ -902,43 +903,43 @@ of hard coding into the code what the next handler will be for each.
 			plugin will return the blob. All plugins must conform to the 
 			ContentProcessor Interface.
 			
-			\includegraphics{uml/Handlers.6}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.6} \end{figure}
 
 			\clearpage
 
 			\subsubsection{Overall}
 
-			\includegraphics{uml/Handlers.7}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.7} \end{figure}
                         \clearpage
 
   \section{Sequence Diagram}
-    \begin{figure}
+		\begin{figure}[h!]
     \centering
     \begin{sequencediagram}
     \newthread{req}{Receiving}
     \newinst{auth}{Authentication}
     \newinst{serial}{Serialization}
+		\newinst{ver}{Data Verification}
     \newinst{proc}{Content Processing}
-    \newinst{ver}{Data Verification}
-    \newinst{svc}{Service Plugin}
+		\newinst{svc}{Service Plugin}
 
     \begin{call}{req}{Authenticate}{auth}{}
-    \end{call}
 
-    \begin{call}{req}{Build Objects}{serial}{}
-    \end{call}
+			\begin{call}{auth}{Build Objects}{serial}{}
 
-    \begin{call}{req}{Process the Request}{proc}{}
-      \begin{call}{proc}{Verify Data}{ver}{}
-        \begin{call}{ver}{Consult Plugin}{svc}{}
-        \end{call}
-      \end{call}
-
-      \begin{call}{proc}{Run Request}{svc}{}
-        \begin{call}{svc}{Grab Authentication}{auth}{}
-        \end{call}
-      \end{call}
-    \end{call}
+				\begin{call}{serial}{Verify Data}{ver}{}
+					\begin{call}{ver}{Consult Plugin}{svc}{}
+					\end{call}
+			
+					\begin{call}{ver}{Process the Request}{proc}{}
+						\begin{call}{proc}{Run Request}{svc}{}
+							\begin{call}{svc}{Grab Authentication}{auth}{}
+							\end{call}
+						\end{call}
+					\end{call}
+				\end{call}
+			\end{call}
+		\end{call}
 
     \end{sequencediagram}
     \end{figure}
