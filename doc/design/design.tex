@@ -401,6 +401,7 @@ MySQL is a fast, free relational database management system solution.
 \end{itemize}
 \subsection{Email/SMTP Service}
 Email will be used to notify users of reset lost usernames and passwords.
+
   \begin{sequencediagram}
     \newthread{manager}{:Campaign Manager}
     \newinst{daemon}{:Delayed Job Daemon}
@@ -431,7 +432,8 @@ Email will be used to notify users of reset lost usernames and passwords.
         \end{call}
       \end{call}
     \end{call}
-  \end{sequencediagram}
+  \end{sequencediagram} \\
+
   \begin{sequencediagram}
     \newthread{browser}{:Browser}
     \newinst{controller}{:OAuth Controller}
