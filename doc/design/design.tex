@@ -549,12 +549,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			identify that object on a service, or distinguish similar fields in 
 			different services.
 
-			Each object has a type and comprises two collections of entities:
-			(1) a set of service associations, and (2) a list of properties in 
-			the form of a collection of objects.  An object can also be 
-			considered ``primitive,'' meaning it has an unstructured value 
-			assigned to it.
-
 			Semantically speaking, an object is anything that can be 
 			manipulated by people and computers in a web context.  Examples of 
 			objects are pictures, blog posts, status updates, IDs, people, et 
@@ -576,14 +570,9 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			and services may support handling multiple object types.
 		\subsubsection{Service Associations}
 			Each object may be associated with one or more services.
-			Semantically, this reflects the idea that an object, as 
+			This reflects the idea that an object, as 
 			manipulated by Mashbot, exists in parallel with an object stored in 
 			some form on each associated service.
-
-			That is to say, an object associated with a particular service is 
-			``live'' on that particular service, and an object not associated 
-			with any service is ``not live,'' and does not exist on that 
-			service.
 
 			Associations tell the Publishing and Aggregation Platform where to 
 			look for an object, that is, which plugins to use to index and pull 
@@ -600,10 +589,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			values and sub-objects within a given object.			
 		\subsubsection{Properties}
 			Properties represent an unordered collection of child objects 
-			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and 
-			thus cannot be addressed by type or value. Instead, objects can be 
-			queried for child objects, given criteria about the child objects 
-			themselves.
+			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and thus cannot be addressed by type or value. Instead, objects can be queried for child objects, given criteria about the child objects themselves.
 
 			For instance, an object may be associated with two different 
 			services, and thus have two different identifiers. That object, 
@@ -612,7 +598,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 service. (But the numbering here is arbitrary)
 
 			This isn't to say that child objects cannot be associated with more 
-			than one service. The demarcation again is semantic: if two 
+			than one service: if two 
 			entities refer to the same thing, they should be the same object.
 			For instance, an object that has a name might have the same name on 
 			two different services, so the object would have a single child 
@@ -638,14 +624,14 @@ service. (But the numbering here is arbitrary)
       \newinst[1]{req}{Service Requirements}
       \newinst{svc}{Service Request}
 
-      \begin{call}{obj}{checkRequirements(this)}{req}{}
+      \begin{call}{obj}{checkObject(this)}{req}{}
       \end{call}
 
-      \begin{call}{obj}{push(this)}{svc}{response}
-        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
-        \end{call}
-        \begin{call}{svc}{addAssociation(serviceAssociation)}{obj}{}
-        \end{call}
+      \begin{call}{obj}{push(this)}{svc}{}
+        \begin{callself}{svc}{addProperties(newProperties)}{}{}
+        \end{callself}
+        \begin{callself}{svc}{addAssoc(serviceAssoc)}{}{}
+        \end{callself}
       \end{call}
 
       \end{sequencediagram}
