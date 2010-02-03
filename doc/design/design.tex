@@ -857,7 +857,6 @@ of hard coding into the code what the next handler will be for each.
 				made any necessary changes to the response.
 				
 				\includegraphics{uml/Handlers.1}
-                                \clearpage
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
 				with the knowledge of who is next in line. This means that it will 
@@ -865,7 +864,6 @@ of hard coding into the code what the next handler will be for each.
 				next handler in the chain respectively.
 				
 				\includegraphics{uml/Handlers.2}
-                                \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
 				the Request object and after having performed authentication of the user 
@@ -873,17 +871,15 @@ of hard coding into the code what the next handler will be for each.
 				the Handler chain.
 
 				\includegraphics{uml/Handlers.3}
-                                \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
 				information contained in this is encompassed by the object model. See 
 				the object model section for more information. It then places this 
 				Content in the application context on its way in. On the way out, it 
-				will take the Content object from the Context. Then, it will reserialize 
-				it and place it in the Response.
+				will take the Content object from the Context. Then, it will reserialize it and place it in the Response.
+
 				\includegraphics{uml/Handlers.4}
-                                \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
 			This handler queries the plugins which handle the operation and content 
@@ -893,7 +889,6 @@ of hard coding into the code what the next handler will be for each.
 			at this step. Otherwise, the request continues through the system.
 				
 			\includegraphics{uml/Handlers.5}
-                        \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
 			This handler loops through and calls the plugins which correspond to
@@ -913,34 +908,30 @@ of hard coding into the code what the next handler will be for each.
 
   \section{Sequence Diagram}
     \begin{figure}
-    \centering
     \begin{sequencediagram}
     \newthread{req}{Receiving}
     \newinst{auth}{Authentication}
     \newinst{serial}{Serialization}
-    \newinst{proc}{Content Processing}
     \newinst{ver}{Data Verification}
+    \newinst{proc}{Content Processing}
     \newinst{svc}{Service Plugin}
 
-    \begin{call}{req}{Authenticate}{auth}{}
-    \end{call}
-
-    \begin{call}{req}{Build Objects}{serial}{}
-    \end{call}
-
-    \begin{call}{req}{Process the Request}{proc}{}
-      \begin{call}{proc}{Verify Data}{ver}{}
-        \begin{call}{ver}{Consult Plugin}{svc}{}
-        \end{call}
-      \end{call}
-
-      \begin{call}{proc}{Run Request}{svc}{}
-        \begin{call}{svc}{Grab Authentication}{auth}{}
+    \begin{call}{req}{authenticate()}{auth}{}
+      \begin{call}{auth}{build()}{serial}{}
+        \begin{call}{serial}{verify()}{ver}{}
+          \begin{call}{ver}{checkRequirements()}{svc}{}
+          \end{call}
+          \begin{call}{ver}{process()}{proc}{}
+            \begin{call}{proc}{serviceRequest()}{svc}{}
+            \end{call}
+          \end{call}
         \end{call}
       \end{call}
     \end{call}
+
 
     \end{sequencediagram}
+    \caption{Sequence Diagram for Handling a Request}
     \end{figure}
 
 			
