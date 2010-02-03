@@ -766,9 +766,8 @@ service. (But the numbering here is arbitrary)
 		\subsection{Architecture}
 			The internal architecture follows the handler chain pattern. The 
 			HandlerChain class holds a linked list of handlers. As demonstrated below:
-
-                          \begin{sequencediagram}
-                            \newthread{previousHandler}{:Previous Handler}
+				\begin{figure}[h!] \centering \begin{sequencediagram}
+														\newthread{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
                             \newinst{nextHandler}{:Next Handler}
                             \begin{call}{previousHandler}{enact()}{currentHandler}{}
@@ -780,6 +779,7 @@ service. (But the numbering here is arbitrary)
                             \end{callself}
                             \end{call}
                           \end{sequencediagram}
+				\end{figure}
 		\subsection{HandlerChain}
 			This class embodies the linked list that is
                         the handler chain. It will the pass 
@@ -792,7 +792,8 @@ of hard coding into the code what the next handler will be for each.
 	
 			
 				\begin{figure}[h!] \centering \includegraphics{uml/HandlerChain.2} \end{figure}
-                        \clearpage
+				\newpage
+				
 		\subsection{Handlers}
 			\subsubsection{Handler}
 				This is an interface which describes what methods must be provided in 
@@ -803,7 +804,7 @@ of hard coding into the code what the next handler will be for each.
 				
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} 
 				\caption{Interface: Handler} \end{figure}
-                                \clearpage
+			
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
 				with the knowledge of who is next in line. This means that it will 
@@ -812,7 +813,7 @@ of hard coding into the code what the next handler will be for each.
 				
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} 
 				\caption{Class: ChainableHandler} \end{figure}
-                                \clearpage
+			
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
 				the Request object and after having performed authentication of the user 
@@ -821,7 +822,7 @@ of hard coding into the code what the next handler will be for each.
 
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} 
 				\caption{Class: AuthenticationHandler} \end{figure}
-                                \clearpage
+			
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
@@ -832,7 +833,6 @@ of hard coding into the code what the next handler will be for each.
 				it and place it in the Response.
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.4} 
 				\caption{Class: SerializationHandler} \end{figure}
-                                \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
 			This handler queries the plugins which handle the operation and content 
@@ -843,7 +843,6 @@ of hard coding into the code what the next handler will be for each.
 				
 			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} 
 			\caption{Class: RequiredDataVerificationHandler} \end{figure}
-                        \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
 			This handler loops through and calls the plugins which correspond to
@@ -1013,7 +1012,6 @@ An entity-relationship diagram depicting the data model is shown below, which us
   \item We will be limited by the capabilities of the web service framework we choose.
   \item The campaign manager design presupposes a certain amount of familiarity with social media concepts
 \end{itemize}
-\section{Requirements Traceability Table}
 
 \end{document}
 
