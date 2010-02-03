@@ -401,6 +401,7 @@ MySQL is a fast, free relational database management system solution.
 \end{itemize}
 \subsection{Email/SMTP Service}
 Email will be used to notify users of reset lost usernames and passwords.
+
   \begin{sequencediagram}
     \newthread{manager}{:Campaign Manager}
     \newinst{daemon}{:Delayed Job Daemon}
@@ -417,6 +418,136 @@ Email will be used to notify users of reset lost usernames and passwords.
   \end{sequencediagram}
 
 \section{External Authentication via OpenID}
+
+\MVCSlice{OAuth}
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:OAuth Controller}
+    \newinst{model}{:Authentication Model}
+    \newinst{data}{:MySQL}
+    \newinst{external}{:External Authentication API}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{Authenticate()}{model}{true}
+        \begin{call}{model}{SELECT}{data}{record}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram} \\
+
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:OAuth Controller}
+    \newinst{model}{:Authentication Model}
+    \newinst{data}{:MySQL}
+    \newinst{external}{:External Authentication API}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{Authenticate()}{model}{true}
+        \begin{call}{model}{SELECT}{data}{record}
+        \end{call}
+        \begin{call}{model}{Authenticate()}{external}{true}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+
+\subsection{User Accounts}
+\subsubsection{Create User Account}
+This is a basic CRUD operation: Create User Account. \\*
+\CRUDcreate{User Account}{user}
+\subsubsection{Update User Account}
+This is a basic CRUD operation: Update User Account. \\*
+\CRUDupdate{User Account}{user}{Update a User Account}
+\subsubsection{Delete User Account}
+This is a basic CRUD operation: Delete User Account. \\*
+\CRUDdelete{User Account}{user}
+\subsection{Campaigns}
+\MVCSlice{Campaign}
+\subsubsection{Create Campaign}
+This is a basic CRUD operation: Create Campaign. \\*
+\CRUDcreate{Campaign}{campaign}
+\subsubsection{View Campaign}
+This is a basic CRUD operation: View Campaign. \\*
+\CRUDlist{Campaign}{campaign}
+This is a Read operation, similar to the above, but for one Campaign. \\*
+\CRUDshow{Campaign}{campaign}
+\subsubsection{Update Campaign}
+This is a basic CRUD operation: Update Campaign. \\*
+\CRUDupdate{Campaign}{campaign}{Update a Campaign}
+\subsubsection{Delete Campaign}
+This is a basic CRUD operation: Delete Campaign. \\*
+\CRUDdelete{Campaign}{campaign}
+\subsubsection{Schedule Campaign}
+This is a basic CRUD operation: Schedule Campaign. \\*
+
+\CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
+\subsection{Content Units}
+\subsubsection{Create Content Unit}
+
+\MVCSlice{Content Unit}
+This is a basic CRUD operation: Create Content. \\*
+\CRUDcreate{Content Unit}{content\_unit}
+\subsubsection{View Content Unit}
+This is a basic CRUD operation: View Content\_Unit. \\*
+\CRUDlist{Content Unit}{content\_unit}
+This is a Read operation, similar to the above, but for one Content Unit.  \\*
+\CRUDshow{Content Unit}{content\_unit}
+\subsubsection{Update Content Unit}
+This is a basic CRUD operation: Update Content\_Unit. \\*
+\CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
+\subsubsection{Delete Content Unit}
+This is a basic CRUD operation: Delete Content\_Unit. \\*
+\CRUDdelete{Content Unit}{content\_unit}
+\subsubsection{Schedule Content Unit}
+In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
+\CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
+
+After content is scheduled, it can be picked up by the Scheduler, triggered via Cron.  Every 30 minutes, Cron will run the Scheduler, which will look in the database for active Campaigns.  Within those active campaigns, each piece of content will be checked to see if the go-live time is now or past.  If it's now or past, the scheduler calls the Publishing and Aggregation Platform with the content needed for a push to the given External Service.
+  \begin{sequencediagram}
+    \newthread{cron}{:Cron}
+    \newinst{scheduler}{:Scheduler}
+    \newinst{worker}{:Worker}
+    \newinst{data}{:Database}
+    \begin{call}{cron}{cron trigger}{scheduler}{exit 0}
+      \begin{callself}{scheduler}{anything\_to\_do?()}{true}
+        \begin{call}{scheduler}{SELECT}{data}{record}
+        \end{call}
+      \end{callself}
+      \begin{call}{scheduler}{perform()}{worker}{true}
+      \end{call}
+    \end{call}
+\end{sequencediagram}
+\subsection{View Metrics and Statistics via Explore Panel}
+\subsection{Lost User Name}
+\MVCSlice{User Account}
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:User Account Controller}
+    \newinst{model}{:User Account Model}
+    \newinst{data}{:MySQL}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find\_by\_email(email)}{model}{User > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+\subsection{Lost Password}
+  \begin{sequencediagram}
+    \newthread{browser}{:Browser}
+    \newinst{controller}{:User Account Controller}
+    \newinst{model}{:User Account Model}
+    \newinst{data}{:MySQL}
+    \newinst{mailer}{:Mailer}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{reset\_password()}{model}{true}
+        \begin{call}{model}{UPDATE}{data}{success}
+        \end{call}
+        \begin{call}{model}{sendmail()}{mailer}{true}
+        \end{call}
+      \end{call}
+    \end{call}
+  \end{sequencediagram}
+\subsection{External Authentication via OpenID}
 
 \MVCSlice{OAuth}
   \begin{sequencediagram}
@@ -448,103 +579,39 @@ Email will be used to notify users of reset lost usernames and passwords.
     \end{call}
   \end{sequencediagram}
 
-\section{User Accounts}
-\subsection{Create User Account}
-This is a basic CRUD operation: Create User Account. \\*
-\CRUDcreate{User Account}{user}
-\subsection{Update User Account}
-This is a basic CRUD operation: Update User Account. \\*
-\CRUDupdate{User Account}{user}{Update a User Account}
-\subsection{Delete User Account}
-This is a basic CRUD operation: Delete User Account. \\*
-\CRUDdelete{User Account}{user}
-\section{Campaigns}
-\MVCSlice{Campaign}
-\subsection{Create Campaign}
-This is a basic CRUD operation: Create Campaign. \\*
-\CRUDcreate{Campaign}{campaign}
-\subsection{View Campaign}
-This is a basic CRUD operation: View Campaign. \\*
-\CRUDlist{Campaign}{campaign}
-This is a Read operation, similar to the above, but for one Campaign. \\*
-\CRUDshow{Campaign}{campaign}
-\subsection{Update Campaign}
-This is a basic CRUD operation: Update Campaign. \\*
-\CRUDupdate{Campaign}{campaign}{Update a Campaign}
-\subsection{Delete Campaign}
-This is a basic CRUD operation: Delete Campaign. \\*
-\CRUDdelete{Campaign}{campaign}
-\subsection{Schedule Campaign}
-This is a basic CRUD operation: Schedule Campaign. \\*
-
-\CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
-\section{Content Units}
-\subsection{Create Content Unit}
-
-\MVCSlice{Content Unit}
-This is a basic CRUD operation: Create Content. \\*
-\CRUDcreate{Content Unit}{content\_unit}
-\subsection{View Content Unit}
-This is a basic CRUD operation: View Content\_Unit. \\*
-\CRUDlist{Content Unit}{content\_unit}
-This is a Read operation, similar to the above, but for one Content Unit.  \\*
-\CRUDshow{Content Unit}{content\_unit}
-\subsection{Update Content Unit}
-This is a basic CRUD operation: Update Content\_Unit. \\*
-\CRUDupdate{Content Unit}{content\_unit}{Update content\_unit}
-\subsection{Delete Content Unit}
-This is a basic CRUD operation: Delete Content\_Unit. \\*
-\CRUDdelete{Content Unit}{content\_unit}
-\subsection{Schedule Content Unit}
-In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
-\CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
-
-After content is scheduled, it can be picked up by the Scheduler, triggered via Cron.  Every 30 minutes, Cron will run the Scheduler, which will look in the database for active Campaigns.  Within those active campaigns, each piece of content will be checked to see if the go-live time is now or past.  If it's now or past, the scheduler calls the Publishing and Aggregation Platform with the content needed for a push to the given External Service.
+\section{Data Layer Components}
+\subsection{ActiveRecord}
+ActiveRecord is a library which maps database tables to objects. It allows the columns of tables to be accessed as attributes of a Ruby object. Additionally, it handles all of the relationships between tables as well as validation for input.
+\subsection{MySQL}
+MySQL is a fast, free relational database management system solution.
+\section{External Components}
+\subsection{Publishing and Aggregation Targets}
+\begin{itemize}
+\item Flickr
+\item Picasa
+\item Twitter
+\item Tumblr
+\item Wordpress
+\item YouTube
+\end{itemize}
+\subsection{Email/SMTP Service}
+Email will be used to notify users of reset lost usernames and passwords.
   \begin{sequencediagram}
-    \newthread{cron}{:Cron}
-    \newinst{scheduler}{:Scheduler}
-    \newinst{worker}{:Worker}
-    \newinst{data}{:Database}
-    \begin{call}{cron}{cron trigger}{scheduler}{exit 0}
-      \begin{callself}{scheduler}{anything\_to\_do?()}{true}
-        \begin{call}{scheduler}{SELECT}{data}{record}
-        \end{call}
-      \end{callself}
-      \begin{call}{scheduler}{perform()}{worker}{true}
-      \end{call}
+    \newthread{manager}{:Campaign Manager}
+    \newinst{daemon}{:Delayed Job Daemon}
+    \newinst{mailer}{:Mailer Worker}
+    \newinst{mail}{:SMTP Server}
+    \begin{call}{manager}{send\_later()}{daemon}{true}
     \end{call}
-\end{sequencediagram}
-\section{View Metrics and Statistics via Explore Panel}
-\section{Lost User Name}
-\MVCSlice{User Account}
-  \begin{sequencediagram}
-    \newthread{browser}{:Browser}
-    \newinst{controller}{:User Account Controller}
-    \newinst{model}{:User Account Model}
-    \newinst{data}{:MySQL}
-    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
-      \begin{call}{controller}{find\_by\_email(email)}{model}{User > Active Record}
-        \begin{call}{model}{SELECT}{data}{record}
+    \begin{callself}{daemon}{act()}{true}
+        \begin{call}{daemon}{perform}{mailer}{true}
+          \begin{call}{mailer}{sendmail()}{mail}{true}
+          \end{call}
         \end{call}
-      \end{call}
-    \end{call}
+    \end{callself}
   \end{sequencediagram}
-\section{Lost Password}
-  \begin{sequencediagram}
-    \newthread{browser}{:Browser}
-    \newinst{controller}{:User Account Controller}
-    \newinst{model}{:User Account Model}
-    \newinst{data}{:MySQL}
-    \newinst{mailer}{:Mailer}
-    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
-      \begin{call}{controller}{reset\_password()}{model}{true}
-        \begin{call}{model}{UPDATE}{data}{success}
-        \end{call}
-        \begin{call}{model}{sendmail()}{mailer}{true}
-        \end{call}
-      \end{call}
-    \end{call}
-  \end{sequencediagram}
+
+
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -983,7 +1050,7 @@ An entity-relationship diagram depicting the data model is shown below, which us
 	\node[rectangle, draw=gray, fit=(oauth_consumer_token), inner sep=1em] {};
 \end{tikzpicture} 
 
-\subsection{Advantages of Design}
+\section{Advantages of Design}
 \begin{itemize}
 \item Decoupled Publishing Platform
   \begin{itemize}
@@ -1005,14 +1072,13 @@ An entity-relationship diagram depicting the data model is shown below, which us
 \item 
 \end{itemize}
 
-\subsection{Disadvantages of Design}
+\section{Disadvantages of Design}
 \begin{itemize}
   \item Support for new content types will force additional development if generic file uploads are not sufficient to handle publishing the content.
   \item Generality of our design may create performance bottlenecks in the future
   \item We will be limited by the capabilities of the web service framework we choose.
   \item The campaign manager design presupposes a certain amount of familiarity with social media concepts
 \end{itemize}
-
 \end{document}
 
 
