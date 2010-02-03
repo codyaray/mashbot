@@ -646,7 +646,7 @@ service. (But the numbering here is arbitrary)
       \begin{sequencediagram}
       \newthread{obj}{Object}
       
-      \newinst{svc}{Service Request}
+      \newinst[1]{svc}{Service Request}
 
       \begin{call}{obj}{pull(this)}{svc}{}
         \begin{call}{svc}{addProperties(newProperties)}{obj}{}
