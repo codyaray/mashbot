@@ -81,22 +81,22 @@
     \newinst{model}{:#1 Model}
     \newinst{data}{:MySQL}
     
-    \begin{call}{browser}{GET '#2s/new'}{controller}{}
-      \begin{call}{controller}{new()}{model}{}
+    \begin{call}{browser}{GET '#2s/new'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{new()}{model}{#1 > Active Record}
       \end{call}
     \end{call}
-    \begin{call}{browser}{POST '#2s/new'}{controller}{}
-      \begin{call}{controller}{save()}{model}{}
-        \begin{callself}{model}{validate()}{}
+    \begin{call}{browser}{POST '#2s/new'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{save()}{model}{true}
+        \begin{callself}{model}{validate()}{true}
         \end{callself}
-        \begin{call}{model}{INSERT}{data}{}
+        \begin{call}{model}{INSERT}{data}{success}
         \end{call}             
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Create #1}
 \end{figure}
-\clearpage
+
   
 }
 \newcommand{\CRUDshow}[2]{
@@ -108,16 +108,15 @@
     \newinst{model}{:#1 Model}
     \newinst{data}{:MySQL}
     
-    \begin{call}{browser}{GET '#2s/:id'}{controller}{}
-      \begin{call}{controller}{find(:id)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{GET '#2s/:id'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find(:id)}{model}{#1 > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Show a #1}
 \end{figure} 
- \clearpage
 }
 \newcommand{\CRUDlist}[2]{
 
@@ -129,16 +128,15 @@
     \newinst{model}{:#1 Model}
     \newinst{data}{:MySQL}
     
-    \begin{call}{browser}{GET '#2s'}{controller}{}
-      \begin{call}{controller}{find(:all)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{GET '#2s'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find(:all)}{model}{#1 > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{List #1s}
 \end{figure}
-\clearpage  
 }
 \newcommand{\CRUDupdate}[3]{
 \begin{figure}[htp]
@@ -149,28 +147,27 @@
     \newinst{model}{:#1 Model}
     \newinst{data}{:MySQL}
     
-    \begin{call}{browser}{GET '#2s/:id'}{controller}{}
-      \begin{call}{controller}{find(:id)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{GET '#2s/:id'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find(:id)}{model}{#1 > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
     \end{call}
-    \begin{call}{browser}{PUT '#2s/:id'}{controller}{}
-     \begin{call}{controller}{find(:id)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{PUT '#2s/:id'}{controller}{HTML/JavaScript}
+     \begin{call}{controller}{find(:id)}{model}{#1 > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
      \end{call}
-     \begin{call}{controller}{update\_attributes(:#2)}{model}{} 
-        \begin{callself}{model}{validate()}{}
+     \begin{call}{controller}{update\_attributes(:#2)}{model}{success} 
+        \begin{callself}{model}{validate()}{true}
         \end{callself}
-        \begin{call}{model}{UPDATE}{data}{}
+        \begin{call}{model}{UPDATE}{data}{success}
         \end{call}        
      \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{#3}
 \end{figure}
-\clearpage
 }
 \newcommand{\CRUDdelete}[2]{
 \begin{figure}[htp]
@@ -181,20 +178,19 @@
     \newinst{model}{:#1 Model}
     \newinst{data}{:MySQL}
     
-    \begin{call}{browser}{DELETE '#2s/:id'}{controller}{}
-      \begin{call}{controller}{find(:id)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{DELETE '#2s/:id'}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find(:id)}{model}{#1 > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
-      \begin{call}{controller}{destroy()}{model}{}
-        \begin{call}{model}{DELETE}{data}{}
+      \begin{call}{controller}{destroy()}{model}{true}
+        \begin{call}{model}{DELETE}{data}{success}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Delete #1}
 \end{figure}  
-\clearpage
 }
 \newcommand{\CRUD}[2]{
 \CRUDcreate{#1}{#2}
@@ -242,13 +238,13 @@ This document serves to expand upon the requirements document into implementatio
 This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
 \section{Definitions, Acronyms,   and Abbreviations}
 \begin{itemize}
-\item MVC | Model View Controller
-\item SASS | Syntactically Awesome Style Sheets
-\item HAML | XHTML Abstraction Markup Language
-\item XHTML | Extensible Hypertext Markup Language
-\item CSS | Cascading Style Sheets
 \item API | Application Programmming Interface
 \item CRUD | Create Read Update Delete
+\item CSS | Cascading Style Sheets
+\item HAML | XHTML Abstraction Markup Language
+\item MVC | Model View Controller
+\item SASS | Syntactically Awesome Style Sheets
+\item XHTML | Extensible Hypertext Markup Language
 \end{itemize}
 \section{Context Diagram}
 \chapter{Architecture}
@@ -303,13 +299,10 @@ Campaigns are accessed via the Create and Manage tabs on the primary navigation 
 \begin{itemize}
 \item Create | This is where users can create new campaigns.\\*
   \includegraphics[width=\textwidth]{../mockups/create.png}
-  \clearpage
 \item List | This is where users can view, update or delete existing campaigns. \\*
   \includegraphics[width=\textwidth]{../mockups/manage.png}
-  \clearpage
 \item Show | This view is what is shown when the user wants to view an existing campaign via the Show view.  This is also where the Content pieces will be listed. \\*
   \includegraphics[width=\textwidth]{../mockups/manage-addcontent.png}
-  \clearpage
 \item Edit | This is virtually the same view as Create, however this will be prepopulated with the existing content of the given Campaign.
 \end{itemize}
 \subsection{Content Views}
@@ -323,15 +316,12 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \begin{itemize}
   \item Primary Scheduling View |  consists of a list of Campaigns available to be scheduled (ie: they do not have existing start/stop dates) as well as already scheduled Campaigns placed properly on the calendar. \\*
   \includegraphics[width=\textwidth]{../mockups/schedule.png}
-  \clearpage
   \item Content Scheduling View | similar to the Primary Scheduling View, however the items available to be scheduled here are the individual content pieces of the Campaign.  This is accessed via selecting the Campaign from the calendar, or via the List Campaign or Show Campaign views. \\*
   \includegraphics[width=\textwidth]{../mockups/schedule-content.png}
-  \clearpage
 \end{itemize}
 \subsection{Explore View}
  Here the user will have several available ``Insight Views.''  These are dependent on which plugins exist in the Publishing and Aggregation Platform, however there will be some provided by the Campaign Manager alone.  These will provide charts that are layerable, such that multiple charts can be seen on the same graph. \\*
   \includegraphics[width=\textwidth]{../mockups/explore-twitter.png}
-  \clearpage
 \begin{itemize}
 \item Plugin Independent
   \begin{itemize}
@@ -342,7 +332,6 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \begin{itemize}
   \item Facebook Fan tracking | A line chart of how many fans the user's fan page has. \\*
     \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
-    \clearpage
   \item Twitter Follower tracking | A line chart of the number of twitter followers the user's Twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
   \end{itemize}
@@ -384,7 +373,6 @@ For password-based authentication, the password will be processed through a one-
   \end{sequencediagram}
   \caption{Log in to authenticate the user.}
 \end{figure}
-\clearpage
 
 \subsubsection{Log Out}
 
@@ -397,16 +385,15 @@ During the logout process, the session is destroyed. Both the session cookies an
     \newinst{controller}{:Controller}
     \newinst{model}{:User Session Model}
     \newinst{data}{:MySQL}
-    \begin{call}{browser}{HTTP POST}{controller}{}
-      \begin{call}{controller}{log\_out}{model}{}
-        \begin{call}{model}{UPDATE}{data}{}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{log\_out}{model}{true}
+        \begin{call}{model}{UPDATE}{data}{success}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{End authenticated session by logging out.}
 \end{figure}
-\clearpage
 
 \subsubsection{OAuth}
 
@@ -444,23 +431,21 @@ Email will be used to notify users of reset lost usernames and passwords.
     \newinst{daemon}{:Delayed Job Daemon}
     \newinst{mailer}{:Mailer Worker}
     \newinst{mail}{:SMTP Server}
-    \begin{call}{manager}{send\_later()}{daemon}{}
+    \begin{call}{manager}{send\_later()}{daemon}{true}
     \end{call}
-    \begin{callself}{daemon}{act()}{}
-        \begin{call}{daemon}{perform}{mailer}{}
-          \begin{call}{mailer}{sendmail()}{mail}{}
+    \begin{callself}{daemon}{act()}{true}
+        \begin{call}{daemon}{perform}{mailer}{true}
+          \begin{call}{mailer}{sendmail()}{mail}{true}
           \end{call}
         \end{call}
     \end{callself}
   \end{sequencediagram}
   \caption{Send email (Requirements 3.1.1)}
 \end{figure}
-\clearpage
 
 \section{External Authentication via OpenID}
 
 \MVCSlice{OAuth}
-\clearpage
 \begin{figure}[htp]
   \centering
   \begin{sequencediagram}
@@ -469,9 +454,9 @@ Email will be used to notify users of reset lost usernames and passwords.
     \newinst{model}{:Authentication Model}
     \newinst{data}{:MySQL}
     \newinst{external}{:External Authentication API}
-    \begin{call}{browser}{HTTP POST}{controller}{}
-      \begin{call}{controller}{Authenticate()}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{Authenticate()}{model}{true}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
     \end{call}
@@ -486,18 +471,17 @@ Email will be used to notify users of reset lost usernames and passwords.
     \newinst{model}{:Authentication Model}
     \newinst{data}{:MySQL}
     \newinst{external}{:External Authentication API}
-    \begin{call}{browser}{HTTP POST}{controller}{}
-      \begin{call}{controller}{Authenticate()}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{Authenticate()}{model}{true}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
-        \begin{call}{model}{Authenticate()}{external}{}
+        \begin{call}{model}{Authenticate()}{external}{true}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
-\clearpage
 
 \section{User Accounts}
 \subsection{Create User Account}
@@ -509,7 +493,6 @@ This is a basic CRUD operation: Update User Account. \\*
 \subsection{Delete User Account}
 This is a basic CRUD operation: Delete User Account. \\*
 \CRUDdelete{User Account}{user}
-\clearpage
 \section{Campaigns}
 \MVCSlice{Campaign}
 \subsection{Create Campaign}
@@ -530,7 +513,6 @@ This is a basic CRUD operation: Delete Campaign. \\*
 This is a basic CRUD operation: Schedule Campaign. \\*
 
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of Schdulable Unit}
-\clearpage
 \section{Content Units}
 \subsection{Create Content Unit}
 
@@ -548,7 +530,6 @@ This is a basic CRUD operation: Update Content\_Unit. \\*
 \subsection{Delete Content Unit}
 This is a basic CRUD operation: Delete Content\_Unit. \\*
 \CRUDdelete{Content Unit}{content\_unit}
-\clearpage
 \subsection{Schedule Content Unit}
 In order to change the scheduled time of anything that is schedulable, the same process as an update is carried out. \\*
 \CRUDupdate{Schedulable Unit}{schedulable\_unit}{Update scheduled time of a Schedulable Unit}
@@ -561,18 +542,17 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
     \newinst{scheduler}{:Scheduler}
     \newinst{worker}{:Worker}
     \newinst{data}{:Database}
-    \begin{call}{cron}{cron trigger}{scheduler}{}
-      \begin{callself}{scheduler}{anything\_to\_do?()}{}
-        \begin{call}{scheduler}{SELECT}{data}{}
+    \begin{call}{cron}{cron trigger}{scheduler}{exit 0}
+      \begin{callself}{scheduler}{anything\_to\_do?()}{true}
+        \begin{call}{scheduler}{SELECT}{data}{record}
         \end{call}
       \end{callself}
-      \begin{call}{scheduler}{perform()}{worker}{}
+      \begin{call}{scheduler}{perform()}{worker}{true}
       \end{call}
     \end{call}
 \end{sequencediagram}
   \caption{Perform a scheduled action}
 \end{figure}
-\clearpage
 \section{View Metrics and Statistics via Explore Panel}
 \section{Lost User Name}
 \MVCSlice{User Account}
@@ -583,16 +563,15 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
     \newinst{controller}{:User Account Controller}
     \newinst{model}{:User Account Model}
     \newinst{data}{:MySQL}
-    \begin{call}{browser}{HTTP POST}{controller}{}
-      \begin{call}{controller}{find\_by\_email(email)}{model}{}
-        \begin{call}{model}{SELECT}{data}{}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{find\_by\_email(email)}{model}{User > Active Record}
+        \begin{call}{model}{SELECT}{data}{record}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Retrieving a lost username by email id.}
 \end{figure}
-\clearpage
 \section{Lost Password}
 \begin{figure}[htp]
   \centering
@@ -602,18 +581,17 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
     \newinst{model}{:User Account Model}
     \newinst{data}{:MySQL}
     \newinst{mailer}{:Mailer}
-    \begin{call}{browser}{HTTP POST}{controller}{}
-      \begin{call}{controller}{reset\_password()}{model}{}
-        \begin{call}{model}{UPDATE}{data}{}
+    \begin{call}{browser}{HTTP POST}{controller}{HTML/JavaScript}
+      \begin{call}{controller}{reset\_password()}{model}{true}
+        \begin{call}{model}{UPDATE}{data}{success}
         \end{call}
-        \begin{call}{model}{sendmail()}{mailer}{}
+        \begin{call}{model}{sendmail()}{mailer}{true}
         \end{call}
       \end{call}
     \end{call}
   \end{sequencediagram}
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
-\clearpage
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -707,7 +685,6 @@ service. (But the numbering here is arbitrary)
 			  Photo}.
 		\subsection{Class Diagram}
 			\includegraphics{uml/object_model.1}
-                        \clearpage
 
 	
 	\section{API Design}
@@ -834,7 +811,6 @@ service. (But the numbering here is arbitrary)
                           \end{sequencediagram}
                           \caption{Part of a Handler Chain}
                         \end{figure}
-                        \clearpage
 
 		\subsection{HandlerChain}
 			This class embodies the linked list that is
@@ -847,7 +823,6 @@ linking all of the Handlers together outside of the Handler classes instead
 of hard coding into the code what the next handler will be for each. 
 	
 			\includegraphics{uml/HandlerChain.2}
-                        \clearpage
 		\subsection{Handlers}
 			\subsubsection{Handler}
 				This is an interface which describes what methods must be provided in 
@@ -857,7 +832,7 @@ of hard coding into the code what the next handler will be for each.
 				made any necessary changes to the response.
 				
 				\includegraphics{uml/Handlers.1}
-                                \clearpage
+
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
 				with the knowledge of who is next in line. This means that it will 
@@ -865,7 +840,6 @@ of hard coding into the code what the next handler will be for each.
 				next handler in the chain respectively.
 				
 				\includegraphics{uml/Handlers.2}
-                                \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
 				the Request object and after having performed authentication of the user 
@@ -873,7 +847,6 @@ of hard coding into the code what the next handler will be for each.
 				the Handler chain.
 
 				\includegraphics{uml/Handlers.3}
-                                \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
@@ -883,7 +856,6 @@ of hard coding into the code what the next handler will be for each.
 				will take the Content object from the Context. Then, it will reserialize 
 				it and place it in the Response.
 				\includegraphics{uml/Handlers.4}
-                                \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
 			This handler queries the plugins which handle the operation and content 
@@ -893,7 +865,6 @@ of hard coding into the code what the next handler will be for each.
 			at this step. Otherwise, the request continues through the system.
 				
 			\includegraphics{uml/Handlers.5}
-                        \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
 			This handler loops through and calls the plugins which correspond to
@@ -904,12 +875,10 @@ of hard coding into the code what the next handler will be for each.
 			
 			\includegraphics{uml/Handlers.6}
 
-			\clearpage
 
 			\subsubsection{Overall}
 
 			\includegraphics{uml/Handlers.7}
-                        \clearpage
 
   \section{Sequence Diagram}
     \begin{figure}
