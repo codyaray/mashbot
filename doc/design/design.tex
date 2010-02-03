@@ -267,10 +267,15 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \end{itemize}
 \subsection{Publishing and Aggregation Platform}
 \begin{itemize}
+	\item Java. The team has a broad base of experience with Java and some team 
+	members have experience developing an enterprise application on the J2EE.  
+	Additionally, the frameworks available are very robust and nice for building 
+	web services on top of.
 	\item Web Service Framework - Spring MVC. We chose this platform because
 it offers a high degree configurable with zero code change. Important
 options like defaults and the order of handlers on receiving a request is
 completely configurable in XML.
+	\item Plugin Framework/Manager - Java Plugin Framework.
 \end{itemize}
 \section{Presentation Layer Components}
 \subsection{Campaign Views}
@@ -552,12 +557,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			identify that object on a service, or distinguish similar fields in 
 			different services.
 
-			Each object has a type and comprises two collections of entities:
-			(1) a set of service associations, and (2) a list of properties in 
-			the form of a collection of objects.  An object can also be 
-			considered ``primitive,'' meaning it has an unstructured value 
-			assigned to it.
-
 			Semantically speaking, an object is anything that can be 
 			manipulated by people and computers in a web context.  Examples of 
 			objects are pictures, blog posts, status updates, IDs, people, et 
@@ -579,14 +578,9 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			and services may support handling multiple object types.
 		\subsubsection{Service Associations}
 			Each object may be associated with one or more services.
-			Semantically, this reflects the idea that an object, as 
+			This reflects the idea that an object, as 
 			manipulated by Mashbot, exists in parallel with an object stored in 
 			some form on each associated service.
-
-			That is to say, an object associated with a particular service is 
-			``live'' on that particular service, and an object not associated 
-			with any service is ``not live,'' and does not exist on that 
-			service.
 
 			Associations tell the Publishing and Aggregation Platform where to 
 			look for an object, that is, which plugins to use to index and pull 
@@ -603,10 +597,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			values and sub-objects within a given object.			
 		\subsubsection{Properties}
 			Properties represent an unordered collection of child objects 
-			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and 
-			thus cannot be addressed by type or value. Instead, objects can be 
-			queried for child objects, given criteria about the child objects 
-			themselves.
+			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and thus cannot be addressed by type or value. Instead, objects can be queried for child objects, given criteria about the child objects themselves.
 
 			For instance, an object may be associated with two different 
 			services, and thus have two different identifiers. That object, 
@@ -615,7 +606,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 service. (But the numbering here is arbitrary)
 
 			This isn't to say that child objects cannot be associated with more 
-			than one service. The demarcation again is semantic: if two 
+			than one service: if two 
 			entities refer to the same thing, they should be the same object.
 			For instance, an object that has a name might have the same name on 
 			two different services, so the object would have a single child 
@@ -633,6 +624,40 @@ service. (But the numbering here is arbitrary)
 			  Photo}.
 		\subsection{Class Diagram}
 			\includegraphics{uml/object_model.1}
+    \subsection{Sequence Diagrams}
+      \emph{(Only showing sequences between object and service.)}
+
+      \subsubsection{Pushing to a Service}
+      \begin{sequencediagram}
+      \newthread{obj}{Object}
+      
+      \newinst[1]{req}{Service Requirements}
+      \newinst{svc}{Service Request}
+
+      \begin{call}{obj}{checkObject(this)}{req}{}
+      \end{call}
+
+      \begin{call}{obj}{push(this)}{svc}{}
+        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
+        \end{call}
+        \begin{call}{svc}{addAssoc(serviceAssoc)}{obj}{}
+        \end{call}
+      \end{call}
+
+      \end{sequencediagram}
+      \subsubsection{Pulling from a Service}
+      \begin{sequencediagram}
+      \newthread{obj}{Object}
+      
+      \newinst[1]{svc}{Service Request}
+
+      \begin{call}{obj}{pull(this)}{svc}{}
+        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
+        \end{call}
+      \end{call}
+
+      \end{sequencediagram}
+
 
 	
 	\section{API Design}
@@ -765,7 +790,9 @@ arraylist of Handlers. It also unless to segregrate the functionality of
 linking all of the Handlers together outside of the Handler classes instead
 of hard coding into the code what the next handler will be for each. 
 	
-			\includegraphics{uml/HandlerChain.2}
+			
+				\begin{figure}[h!] \centering \includegraphics{uml/HandlerChain.2} \end{figure}
+                        \clearpage
 		\subsection{Handlers}
 			\subsubsection{Handler}
 				This is an interface which describes what methods must be provided in 
@@ -774,30 +801,38 @@ of hard coding into the code what the next handler will be for each.
 				operations, and then perform post processing before returning have 
 				made any necessary changes to the response.
 				
-				\includegraphics{uml/Handlers.1}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} 
+				\caption{Interface: Handler} \end{figure}
+                                \clearpage
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
 				with the knowledge of who is next in line. This means that it will 
 				perform preprocessing and postprocessing, before and after calling the 
 				next handler in the chain respectively.
 				
-				\includegraphics{uml/Handlers.2}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} 
+				\caption{Class: ChainableHandler} \end{figure}
+                                \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
 				the Request object and after having performed authentication of the user 
 				will insert the unique user identifier into the Context object passed up 
 				the Handler chain.
 
-				\includegraphics{uml/Handlers.3}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} 
+				\caption{Class: AuthenticationHandler} \end{figure}
+                                \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
 				information contained in this is encompassed by the object model. See 
 				the object model section for more information. It then places this 
 				Content in the application context on its way in. On the way out, it 
-				will take the Content object from the Context. Then, it will reserialize it and place it in the Response.
-
-				\includegraphics{uml/Handlers.4}
+				will take the Content object from the Context. Then, it will reserialize 
+				it and place it in the Response.
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.4} 
+				\caption{Class: SerializationHandler} \end{figure}
+                                \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
 			This handler queries the plugins which handle the operation and content 
@@ -806,7 +841,9 @@ of hard coding into the code what the next handler will be for each.
 			If all required data for any one service is not present, the request fails 
 			at this step. Otherwise, the request continues through the system.
 				
-			\includegraphics{uml/Handlers.5}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} 
+			\caption{Class: RequiredDataVerificationHandler} \end{figure}
+                        \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
 			This handler loops through and calls the plugins which correspond to
@@ -815,31 +852,36 @@ of hard coding into the code what the next handler will be for each.
 			plugin will return the blob. All plugins must conform to the 
 			ContentProcessor Interface.
 			
-			\includegraphics{uml/Handlers.6}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.6} 
+			\caption{Class: ContentProcessingHandler} \end{figure}
 
 
 			\subsubsection{Overall}
 
-			\includegraphics{uml/Handlers.7}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.7} 
+											\caption{Overall} \end{figure}
+                        \clearpage
 
-  \section{Sequence Diagram for Handling a Request}
-    %\begin{figure}
-    \begin{sequencediagram}
-    \newthread{req}{Receiving}
+  \section{Sequence Diagram}
+		\begin{figure}[h!]
+    \centering
+		\begin{sequencediagram}
+		\newthread{req}{Receiving}
     \newinst{auth}{Authentication}
     \newinst{serial}{Serialization}
-    \newinst{ver}{Data Verification}
+
+		\newinst{ver}{Data Verification}
     \newinst{proc}{Content Processing}
     \newinst{svc}{Service Plugin}
 
-    \begin{call}{req}{authenticate()}{auth}{}
-      \begin{call}{auth}{build()}{serial}{}
-        \begin{call}{serial}{verify()}{ver}{}
-          \begin{call}{ver}{checkRequirements()}{svc}{}
-          \end{call}
-          \begin{call}{ver}{process()}{proc}{}
-            \begin{call}{proc}{serviceRequest()}{svc}{}
-            \end{call}
+		\begin{call}{req}{Authenticate}{auth}{}
+			\begin{call}{auth}{Build Objects}{serial}{}
+				\begin{call}{serial}{Verify Data}{ver}{}
+					\begin{call}{ver}{Consult Plugin}{svc}{}
+					\end{call}
+					\begin{call}{ver}{Process the Request}{proc}{}
+						\begin{call}{proc}{Run Request}{svc}{}
+						\end{call}
           \end{call}
         \end{call}
       \end{call}
@@ -851,7 +893,33 @@ of hard coding into the code what the next handler will be for each.
 
 			
 	\section{Plugin Design}
-		\subsection{I suck at life}
+		\subsection{Basic Design}
+			The ContentProcessor expects to find a list of plugins available to it 
+			which will be categorized by service, operation, and content type. It will 
+			choose the plugins to used based on the content type of the incoming 
+			request and then pass the content, operation, and content type to the 
+			plugin. The plugin will then perform the appropriate action and return the 
+			content with the expected data filled in. The lists of available plugins 
+			will be maintained by a plugin manager will be built on top of a plugin 
+			framework.
+
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=6in]{uml/PluginArchitecture.5}
+				\caption{Plugin Architecture}
+			\end{figure}
+				\clearpage
+		\subsection{ServicePlugin Interface}
+			This is the interface that a Service Plugin provide in order to be used by 
+			the Content Processing Handler. It provides two basic functionalities.  
+			First, it must verify if the user provided by a user is adequate. Second, 
+			it must be able to be able to accept information and then perform the 
+			expected action.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics{uml/PluginArchitecture.1}
+				\caption{Interface: ServicePlugin}
+			\end{figure}	
 		\subsection{Service Plugins}
                         \subsubsection{Flickr}
                               The only thing the Flickr API requires for a photo upload is the
@@ -950,4 +1018,4 @@ An entity-relationship diagram depicting the data model is shown below, which us
 \end{document}
 
 
-% LocalWords:  Mashbot
+% LocalWords:  Mashbot OAuth OpenID
