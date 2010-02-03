@@ -234,7 +234,7 @@
 
 \chapter{Introduction}
 \section{Purpose}
-This document serves to expand upon the requirement into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
+This document serves to expand upon the requirements document into implementation details and technology choices.  This document should be referenced when specific features are being implemented.
 \section{Scope}
 This covers the general architecture of Mashbot, as well as the design decisions used to apply that architecture via various appropriate technologies, libraries and frameworks.
 \section{Definitions, Acronyms,   and Abbreviations}
@@ -245,20 +245,25 @@ This covers the general architecture of Mashbot, as well as the design decisions
 \item XHTML | Extensible Hypertext Markup Language
 \item CSS | Cascading Style Sheets
 \item API | Application Programmming Interface
+\item CRUD | Create Read Update Delete
 \end{itemize}
 \section{Context Diagram}
 \chapter{Architecture}
 \section{Overview}
-Generally, Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Presentation and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, extensibility and accessibility.
-\section{Four-Tier Architecture}
+Mashbot will be implemented using a strict Model-View-Controller architecture.  This is augmented by the inclusion of the Publishing and Aggregation Platform, the purpose of which is to abstract the interaction with external service APIs from the application as a whole, thus allowing a pure MVC architecture to be implemented, increasing maintainability, flexibility and extensibility.
+\section{Architecture}
+\begin{itemize}
+\item Campaign Manager
 \begin{itemize}
 \item Data Layer / Model
 \item Presentation Layer / View
 \item Business Layer / Controller
+\end{itemize}
+\item Campaign Workers
 \item Publishing and Aggregation Platform
 \end{itemize}
 \section{Service-Oriented Architecture}
-Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Presentation and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
+Mashbot will be implemented as two distinct yet related services.  The Campaign Manager will handle the interaction between the user and the data the Campaign Manager is concerned with, where the Publishing and Aggregation Platform will handle the interaction between external service APIs and the Campaign Manager.
 \section{Survey of Technologies Used}
 \subsection{Campaign Manager}
 \begin{itemize}
@@ -288,6 +293,7 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \section{Presentation Layer Components}
 \subsection{Campaign Views}
 Campaigns are accessed via the Create and Manage tabs on the primary navigation tabs.  Create is for the Create view, Manage is for List, Show and Edit.
+\newpage
 \begin{itemize}
 \item Create | This is where users can create new campaigns.\\*
   \includegraphics[width=\textwidth]{../mockups/create.png}
@@ -324,7 +330,7 @@ Content pieces are included inside Campaigns.  These views are accessible via th
   \begin{itemize}
   \item Facebook Fan tracking | A line chart of how many fans the user's fan page has. \\*
     \includegraphics[width=\textwidth]{../mockups/explore-facebook.png}
-  \item Twitter Follower tracking | A line chart of the number of twitter followers the user's twitter account has.
+  \item Twitter Follower tracking | A line chart of the number of twitter followers the user's Twitter account has.
   \item Number of times retweeted | A line chart of the number of times a tweet of the user's has been retweeted.
   \end{itemize}
 \end{itemize}
@@ -332,11 +338,9 @@ Content pieces are included inside Campaigns.  These views are accessible via th
 \section{Business Layer Components}
 \subsection{Session and Authentication}
 
-Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
-
 At the user layer, the authentication engine will use a secure password / token based system. In addition to the default username/password option, Mashbot will also support login through OpenID, Facebook Connect, and Twitter/OAuth.
 
-The mashbot authentication system will provide three different kinds of security tokens that tasks may need, rather than providing users with a token for each task (reset passwords, etc.). The tokens are the ``keys'' to do the following:
+The Mashbot authentication system will provide three different kinds of security tokens that tasks may need, rather than providing users with a token for each task (reset passwords, etc.). The tokens are the ``keys'' to do the following:
 \begin{itemize}
 \item Persistence token: Used internally, it is stored in your cookies and sessions to persist the user. This is much more secure than plainly storing the user’s id.
 \item Single access token: Use this for a private feed or API access. For example,\\
@@ -393,9 +397,13 @@ During the logout process, the session is destroyed. Both the session cookies an
 
 At the API layer, Mashbot will use the OAuth standard. OAuth is an open protocol to allow secure API authorization in a simple and standard method from desktop and web applications. OAuth allows users to share their private resources (e.g. photos, videos, contact lists) stored on one site with another site without having to hand out their username and password. OAuth allows users to hand out tokens instead of usernames and passwords to their data hosted by a given service provider. Each token grants access to a specific site (e.g. a video editing site) for specific resources (e.g. just videos from a specific album) and for a defined duration (e.g. the next 2 hours). Thus OAuth allows a user to grant a third party site access to their information stored with another service provider, without sharing their access permissions or the full extent of their data.
 
-\subsection{Openid}
+\subsubsection{OpenID}
 
 OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
+
+\subsubsection{Session Handling}
+
+Mashbot uses a cookie-based session store and avoids storing confidential information in its session. In order to prevent attacks by client-side cookie modification, sessions have a SHA512 fingerprint attached and are hashed with a secret stored on the server. Using a cookie-based session increases performance, avoids the ``server stickiness'' issue associated with horizontal scaling, and increases performance due to an avoided database query on every page load.
 
 \subsection{Session Handling}
 \section{Data Layer Components}
@@ -410,7 +418,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
 \item YouTube
 \end{itemize}
 \subsection{Email/SMTP Service}
-
+Email will be used to notify users of reset lost usernames and passwords.
 \begin{figure}[hbtp]
   \centering
   \begin{sequencediagram}
@@ -430,7 +438,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \caption{Send email (Requirements 3.1.1)}
 \end{figure}
 
-\section{External Authentication via Openid}
+\section{External Authentication via OpenID}
 
 
 
@@ -471,11 +479,7 @@ OpenID is an open, decentralized standard for authenticating users which can be 
   \end{sequencediagram}
   \caption{Authentication via OAuth without stored token.}
 \end{figure}
-\subsubsection{Openid}
 
-OpenID is an open, decentralized standard for authenticating users which can be used for access control, allowing users to log on to different services with the same digital identity where these services trust the authentication body. OpenID can replace the common login process that uses a login-name and a password, by allowing a user to log in once and gain access to the resources of multiple software systems
-
-\subsubsection{Session Handling}
 
 \section{User Accounts}
 \subsection{Create User Account}
@@ -591,36 +595,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
   \caption{Retrieving a lost password. Refer to email figure for mailer actions.}
 \end{figure}
 \clearpage
-\section{Data Layer Components}
-\section{External Components}
-\subsection{Publishing and Aggregation Targets}
-\begin{itemize}
-\item Twitter
-\item Tumblr
-\item Wordpress
-\item TODO: etc.
-\end{itemize}
-\subsection{Email/SMTP Service}
-
-\begin{figure}[hbtp]
-  \centering
-  \begin{sequencediagram}
-    \newthread{manager}{:Campaign Manager}
-    \newinst{daemon}{:Delayed Job Daemon}
-    \newinst{mailer}{:Mailer Worker}
-    \newinst{mail}{:SMTP Server}
-    \begin{call}{manager}{send\_later()}{daemon}{}
-    \end{call}
-    \begin{callself}{daemon}{act()}{}
-        \begin{call}{daemon}{perform}{mailer}{}
-          \begin{call}{mailer}{sendmail()}{mail}{}
-          \end{call}
-        \end{call}
-    \end{callself}
-  \end{sequencediagram}
-  \caption{Send email (Requirements 3.1.1)}
-\end{figure}
-
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
@@ -636,10 +610,10 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			Each object has a type and comprises two collections of entities:
 			(1) a set of service associations, and (2) a list of properties in 
 			the form of a collection of objects.  An object can also be 
-			considered ``primitive,'' meaning it has a particular value 
+			considered ``primitive,'' meaning it has an unstructured value 
 			assigned to it.
 
-			Semantically, speaking, an object is anything that can be 
+			Semantically speaking, an object is anything that can be 
 			manipulated by people and computers in a web context.  Examples of 
 			objects are pictures, blog posts, status updates, IDs, people, et 
 			al.  Not all of these are supported by Mashbot initially, but could 
@@ -660,7 +634,7 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			and services may support handling multiple object types.
 		\subsubsection{Service Associations}
 			Each object may be associated with one or more services.
-			Semantically speaking, this reflects the idea that an object, as 
+			Semantically, this reflects the idea that an object, as 
 			manipulated by Mashbot, exists in parallel with an object stored in 
 			some form on each associated service.
 
@@ -681,16 +655,10 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
 			These operations are defined by plugins in terms of both
 			\emph{behavior} and \emph{requirements}. Requirements may be
 			complex and hierarchical, specifying recursive requirements for 
-			values and sub-objects within a given object. Put another way,
-			a service may require that before an object is associated with 
-			that service, it must contain certain sub-objects, some of which
-			have a certain class of values or certain associations.
-			
+			values and sub-objects within a given object.			
 		\subsubsection{Properties}
 			Properties represent an unordered collection of child objects 
-			belonging to the object in question.
-
-			Child objects are not mandated to be of a unique type or value, and 
+			belonging to the object in question. Child objects are not mandated to be of a unique type or value, and 
 			thus cannot be addressed by type or value. Instead, objects can be 
 			queried for child objects, given criteria about the child objects 
 			themselves.
@@ -712,7 +680,7 @@ service. (But the numbering here is arbitrary)
 		\subsubsection{Primitive value} 
 
 			A primitive value is a value with which the object can be 
-			interchanged with without losing or gaining semantic information.
+			interchanged without losing or gaining semantic information.
 
 			For instance, IDs and names are object types that would frequently 
 			have primitive values. An ID could have a primitive value 
@@ -761,9 +729,9 @@ service. (But the numbering here is arbitrary)
 			The operation is the type of action which you wish to perform on our 
 			service. This partly defines what type of information is required in the 
 			request. However, these fields are not inherent and in fact, the 
-			information that is required in any request is defined by any plug-in 
+			information that is required in any request is defined by any plugin 
 			which supports a given content type. The operation space is completely 
-			unlimited and the four operations below are planned to be the main 
+			unlimited but the four operations below are planned to be the main 
 			operations supported by the Mashbot project. 
                         
                         \subsubsection{Push}
@@ -793,7 +761,7 @@ service. (But the numbering here is arbitrary)
                         The content type determines what type of content we are performing an operation
                         on. Like operations, they partly define what information is required for a
                         request. Also like operations, the ones mentioned below are not the only ones
-                        Mashbot will support. Any service plug-in can define a new content type and
+                        Mashbot will support. Any service plugin can define a new content type and
                         determine what fields are required for a successful post. We will also allow for
                         different ways of specifying the content. For example, a user may upload an image
                         and use that to post a picture. However, if a service supports it the user can
@@ -807,7 +775,7 @@ service. (But the numbering here is arbitrary)
 
 			\subsubsection{Picture}	
                                 A picture post's required components are expected to change a little
-                                depending on the service to which it is posted. We expect most plug-ins
+                                depending on the service to which it is posted. We expect most plugins
                                 to require (or at least support) the actual image, a title, description,
                                 and album to which the image should be posted.
 
@@ -823,16 +791,15 @@ service. (But the numbering here is arbitrary)
 		\subsection{Platform}
 			We plan to build this server on an existing web service framework. This 
 			means that everything up until the point where execution and the incoming 
-			request is passed to the handler chain when a request is made. Most 
+			request is passed to the handler chain when a request is made will be handled by this existing framework. Most 
 			configuration will be carried in XML.
 		
 		\subsection{Architecture}
 			The internal architecture follows the handler chain pattern. The 
 			HandlerChain class holds a linked list of handlers. As demonstrated below:
 
-		\subsection{Handlers}
                         \begin{figure}[hbtp]
-													\centering
+                          \centering
                           \begin{sequencediagram}
                             \newthread{previousHandler}{:Previous Handler}
                             \newinst{currentHandler}{:Current Handler}
@@ -850,10 +817,14 @@ service. (But the numbering here is arbitrary)
                         \end{figure}
 
 		\subsection{HandlerChain}
-			This class embodies the link list that is the Handler. It will the pass 
+			This class embodies the linked list that is
+                        the handler chain. It will the pass 
 			the request information to the first Handler and then that handler will 
-			call each subsequent handler in the chain. This class will also handler 
-			initializing the 
+			call each subsequent handler in the chain. This class will also
+handle initializing the linked list itself as it will take as an argument an
+arraylist of Handlers. It also unless to segregrate the functionality of
+linking all of the Handlers together outside of the Handler classes instead
+of hard coding into the code what the next handler will be for each. 
 	
 			\includegraphics{uml/HandlerChain.2}
 		\subsection{Handlers}
@@ -861,7 +832,7 @@ service. (But the numbering here is arbitrary)
 				This is an interface which describes what methods must be provided in 
 				order for a class to be considered a handler. A Handler is a class which 
 				can take in a request, perform some preprocessing, perform the actual 
-				operations, and then performing post processing before returning have 
+				operations, and then perform post processing before returning have 
 				made any necessary changes to the response.
 				
 				\includegraphics{uml/Handlers.1}
@@ -880,17 +851,17 @@ service. (But the numbering here is arbitrary)
 
 				\includegraphics{uml/Handlers.3}
 			\subsubsection{SerializationHandler}
-				The deserialization handler extracts the raw data from the Content field 
+				The serialization handler extracts the raw data from the Content field 
 				and creates a new Content object from that containing all the data. The 
-				information contained in this is encompassed by object model. See the 
-				section on that for more information. It then places this Content in the 
+				information contained in this is encompassed by the object model. See the 
+				object model section for more information. It then places this Content in the 
 				application context on its way in. On the way out, it will take the 
 				Content object from the Context. Then, it will reserialize it and place 
 				it in the Response.
 				\includegraphics{uml/Handlers.4}
 			
 			\subsubsection{RequiredDataVerificationHandler}
-			This handler queries the plug-ins which handle the operation and content 
+			This handler queries the plugins which handle the operation and content 
 			type which has been specified by the request with the fields that are 
 			present to make sure that all requisite data for that request is present.  
 			If all required data for any one service is not present, the request fails 
@@ -899,10 +870,10 @@ service. (But the numbering here is arbitrary)
 			\includegraphics{uml/Handlers.5}
 				
 			\subsubsection{ContentProcessingHandler}
-			This handler loops through and calls the plug-ins which correspond to
+			This handler loops through and calls the plugins which correspond to
 			the operation, the content type, and the services which have been 
 			specified in the request passing them the content blob of the request. The 
-			plug-in will return the blob. All plug-ins must conform to the 
+			plugin will return the blob. All plugins must conform to the 
 			ContentProcessor Interface.
 			
 			\includegraphics{uml/Handlers.6}
@@ -951,19 +922,31 @@ An entity-relationship diagram depicting the data model is shown below, which us
 \item Decoupled Publishing Platform
   \begin{itemize}
   \item Allows publishing capabilities to be extended without change to the Campaign Manager.
-  \item Provides asychronous publishing so HTTP requests do not time out when pushing a large amount of content.
+  \item Provides asynchronous publishing so HTTP requests do not time out when pushing a large amount of content.
   \item Allows scheduled items to get fired off, even if the Campaign Manager is not fully running.
   \end{itemize}
+\item Extensibility
+  \begin{itemize}
+    \item Easy to add support for new social media services
+    \item Easy to add support for new content types
+    \item Easy to add support for new operation types
+  \end{itemize}
+\item Request pipeline is easily modifiable
+  \begin{itemize}
+    \item Easy to add new authentication types
+    \item Simple to add pre-processing steps
+  \end{itemize}
+\item 
 \end{itemize}
+
 \subsection{Disadvantages of Design}
 \begin{itemize}
   \item Support for new content types will force additional development if generic file uploads are not sufficient to handle publishing the content.
-  \item 
+  \item Generality of our design may create performance bottlenecks in the future
+  \item We will be limited by the capabilities of the web service framework we choose.
+  \item The campaign manager design presupposes a certain amount of familiarity with social media concepts
 \end{itemize}
-\subsection{Design Rationale}
-\section{A Requirements Traceability Matrix}
-\subsection{Traceability by Requirement Numbers}
-\subsection{Traceability by Design Component}
+\section{Requirements Traceability Table}
 
 \end{document}
 
