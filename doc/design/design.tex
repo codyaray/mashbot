@@ -870,7 +870,40 @@ of hard coding into the code what the next handler will be for each.
 	\section{Plugin Design}
 		\subsection{I suck at life}
 		\subsection{Service Plugins}
-
+                        \subsubsection{Flickr}
+                              The only thing the Flickr API requires for a photo upload is the
+                              photo itself. Optional parameters include a title, description,
+                              tags, and access control parameters. The API also allows user to
+                              edit or delete photos and add photos to albums. We plan on
+                              providing at least these functions.
+                        \subsubsection{Picasa}
+                              Picasa provides a similar API to Flickr, except we must provide
+                              an explicit album for a picture to go into (although there is a
+                              default album).
+                        \subsubsection{Twitter}
+                              The only real object we need to deal with in twitter are tweets
+                              (status updates). Twitter allows for the posting of tweets and
+                              deletion of tweets. It also offers the ability to retweet (copy
+                              another user's tweet). We will provide access to all these
+                              actions. Twitter also provides a number of API calls which will
+                              be useful for our tools for analytics
+                        \subsubsection{Tumblr}
+                              Tumblr allows a variety of post types, which include ``regular,''
+                              ``photo,'' ``quote,'' ``link,'' ``conversation,'' ``video,'' and
+                              ``audio.'' Many of these post types contain fields that accept
+                              HTML. We will support all these post types. Tumblr also provides
+                              edit and delete API calls.
+                        \subsubsection{Wordpress and Blogger}
+                              Wordpress provides a variety of web APIs, but we will use the one
+                              which is compatible with Blogger. It allows for posts with only
+                              a title and content fields. The content field accepts HTML. It
+                              also provides the ability to edit and delete posts.
+                        \subsubsection{YouTube}
+                              Youtube videos require a title, description, category and keywords
+                              in addition to the actual video data. YouTube supports both direct
+                              uploads and browser based uploads. Our plan is to only support
+                              browser based uploads. YouTube also supports the modification
+                              and deletion of videos, which we will support.
 \chapter{Database Design}
 \section{Summary}
 
