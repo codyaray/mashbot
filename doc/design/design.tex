@@ -291,10 +291,15 @@ Mashbot will be implemented as two distinct yet related services.  The Campaign 
 \end{itemize}
 \subsection{Publishing and Aggregation Platform}
 \begin{itemize}
+	\item Java. The team has a broad base of experience with Java and some team 
+	members have experience developing an enterprise application on the J2EE.  
+	Additionally, the frameworks available are very robust and nice for building 
+	web services on top of.
 	\item Web Service Framework - Spring MVC. We chose this platform because
 it offers a high degree configurable with zero code change. Important
 options like defaults and the order of handlers on receiving a request is
 completely configurable in XML.
+	\item Plugin Framework/Manager - Java Plugin Framework.
 \end{itemize}
 \section{Presentation Layer Components}
 \subsection{Campaign Views}
@@ -858,7 +863,7 @@ of hard coding into the code what the next handler will be for each.
 				made any necessary changes to the response.
 				
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.1} 
-																\end{figure}
+				\caption{Interface: Handler} \end{figure}
                                 \clearpage
 			\subsubsection{ChainableHandler}
 				A chainable handler is one which can be placed in a sequence of handlers 
@@ -867,7 +872,7 @@ of hard coding into the code what the next handler will be for each.
 				next handler in the chain respectively.
 				
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.2} 
-																\end{figure}
+				\caption{Class: ChainableHandler} \end{figure}
                                 \clearpage
 			\subsubsection{AuthenticationHandler}
 				The authentication handler will take the authentication information from 
@@ -876,7 +881,7 @@ of hard coding into the code what the next handler will be for each.
 				the Handler chain.
 
 				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.3} 
-																\end{figure}
+				\caption{Class: AuthenticationHandler} \end{figure}
                                 \clearpage
 			\subsubsection{SerializationHandler}
 				The serialization handler extracts the raw data from the Content field 
@@ -886,7 +891,8 @@ of hard coding into the code what the next handler will be for each.
 				Content in the application context on its way in. On the way out, it 
 				will take the Content object from the Context. Then, it will reserialize 
 				it and place it in the Response.
-				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.4} \end{figure}
+				\begin{figure}[h!] \centering \includegraphics{uml/Handlers.4} 
+				\caption{Class: SerializationHandler} \end{figure}
                                 \clearpage
 			
 			\subsubsection{RequiredDataVerificationHandler}
@@ -897,7 +903,7 @@ of hard coding into the code what the next handler will be for each.
 			at this step. Otherwise, the request continues through the system.
 				
 			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.5} 
-												\end{figure}
+			\caption{Class: RequiredDataVerificationHandler} \end{figure}
                         \clearpage
 				
 			\subsubsection{ContentProcessingHandler}
@@ -907,19 +913,20 @@ of hard coding into the code what the next handler will be for each.
 			plugin will return the blob. All plugins must conform to the 
 			ContentProcessor Interface.
 			
-			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.6} \end{figure}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.6} 
+			\caption{Class: ContentProcessingHandler} \end{figure}
 
 			\clearpage
 
 			\subsubsection{Overall}
 
-			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.7} \end{figure}
+			\begin{figure}[h!] \centering \includegraphics{uml/Handlers.7} 
+											\caption{Overall} \end{figure}
                         \clearpage
 
   \section{Sequence Diagram}
 		\begin{figure}[h!]
     \centering
-		\begin{figure}
 		\begin{sequencediagram}
     \newthread{req}{Receiving}
     \newinst{auth}{Authentication}
@@ -929,14 +936,14 @@ of hard coding into the code what the next handler will be for each.
     \newinst{proc}{Content Processing}
     \newinst{svc}{Service Plugin}
 
-    \begin{call}{req}{authenticate()}{auth}{}
-      \begin{call}{auth}{build()}{serial}{}
-        \begin{call}{serial}{verify()}{ver}{}
-          \begin{call}{ver}{checkRequirements()}{svc}{}
-          \end{call}
-          \begin{call}{ver}{process()}{proc}{}
-            \begin{call}{proc}{serviceRequest()}{svc}{}
-            \end{call}
+		\begin{call}{req}{Authenticate}{auth}{}
+			\begin{call}{auth}{Build Objects}{serial}{}
+				\begin{call}{serial}{Verify Data}{ver}{}
+					\begin{call}{ver}{Consult Plugin}{svc}{}
+					\end{call}
+					\begin{call}{ver}{Process the Request}{proc}{}
+						\begin{call}{proc}{Run Request}{svc}{}
+						\end{call}
           \end{call}
         \end{call}
       \end{call}
@@ -950,7 +957,32 @@ of hard coding into the code what the next handler will be for each.
 			
 	\section{Plugin Design}
 		\subsection{Basic Design}
+			The ContentProcessor expects to find a list of plugins available to it 
+			which will be categorized by service, operation, and content type. It will 
+			choose the plugins to used based on the content type of the incoming 
+			request and then pass the content, operation, and content type to the 
+			plugin. The plugin will then perform the appropriate action and return the 
+			content with the expected data filled in. The lists of available plugins 
+			will be maintained by a plugin manager will be built on top of a plugin 
+			framework.
+
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=6in]{uml/PluginArchitecture.5}
+				\caption{Plugin Architecture}
+			\end{figure}
+				\clearpage
 		\subsection{ServicePlugin Interface}
+			This is the interface that a Service Plugin provide in order to be used by 
+			the Content Processing Handler. It provides two basic functionalities.  
+			First, it must verify if the user provided by a user is adequate. Second, 
+			it must be able to be able to accept information and then perform the 
+			expected action.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics{uml/PluginArchitecture.1}
+				\caption{Interface: ServicePlugin}
+			\end{figure}	
 		\subsection{Service Plugins}
 
 \chapter{Database Design}
