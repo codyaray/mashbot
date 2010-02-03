@@ -628,10 +628,22 @@ service. (But the numbering here is arbitrary)
       \end{call}
 
       \begin{call}{obj}{push(this)}{svc}{}
-        \begin{callself}{svc}{addProperties(newProperties)}{}{}
-        \end{callself}
-        \begin{callself}{svc}{addAssoc(serviceAssoc)}{}{}
-        \end{callself}
+        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
+        \end{call}
+        \begin{call}{svc}{addAssoc(serviceAssoc)}{obj}{}
+        \end{call}
+      \end{call}
+
+      \end{sequencediagram}
+      \subsubsection{Pulling from a Service}
+      \begin{sequencediagram}
+      \newthread{obj}{Object}
+      
+      \newinst{svc}{Service Request}
+
+      \begin{call}{obj}{pull(this)}{svc}{}
+        \begin{call}{svc}{addProperties(newProperties)}{obj}{}
+        \end{call}
       \end{call}
 
       \end{sequencediagram}
