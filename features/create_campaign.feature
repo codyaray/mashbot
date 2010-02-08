@@ -4,6 +4,7 @@ Feature: Create Campaign
   I want to create campaigns that will be able to hold content for publishing.
   
 Scenario: Creating a campaign
+  Given pojo is logged in
   When I go to the create campaign page
   And I fill in "Amazing Campaign" for "Title"
   And I fill in "01/15/2100" for "Start date"
@@ -14,12 +15,14 @@ Scenario: Creating a campaign
   And I should see "02/14/2100"
 
 Scenario: Creating a campaign
+  Given pojo is logged in
   When I go to the create campaign page
   And I fill in "Unfail Campaign" for "Title"
   And I press "Create!"
   Then I should see "Unfail Campaign"
 
 Scenario: Validate sane start and end dates: start should be before end.
+  Given pojo is logged in
   When I go to the create campaign page
   And I fill in "Fail Campaign" for "Title"
   And I fill in "01/15/2100" for "Start date"
@@ -28,6 +31,7 @@ Scenario: Validate sane start and end dates: start should be before end.
   Then I should see "Hold up! You can't end something before you start it!"
 
 Scenario: Make sure you can't have an end date without a start date.
+  Given pojo is logged in
   When I go to the create campaign page
   And I fill in "Fail Campaign" for "Title"
   And I fill in "01/14/2100" for "End date"

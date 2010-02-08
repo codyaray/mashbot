@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  before_filter :require_user
+  
   # GET /campaigns
   # GET /campaigns.xml
   def index

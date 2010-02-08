@@ -1,7 +1,7 @@
 # app/controllers/application.rb
 class ApplicationController < ActionController::Base  
   include AuthenticationHelper
-
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
