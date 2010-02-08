@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{hanging}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
 \title{Integration Test Plan for Mashbot} 
@@ -8,79 +10,79 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
-\newcommand{\CoreTestCases}[5]{
-Feature: #1 #2
-	#1 a #2 to multiple services
-	As a client
-	I want to be able to get the ids for each individual #2 post to each 
-	service that I specify.
-	
-Scenario: #1ing a #2 to #3
-	Given that I have sent a request
-	And the authentication credentials are valid
-	#5
-	And I have provided authentication credentials for #3
-	And Those credentials are valid for #3
-	And I have indicated an association with the service #3
-	Then there will be a #2 posted on behalf of the user whose credentials 
-	were provided to #3
+\newcommand{\CoreTestCases}[6]{
+\begin{hangparas}{0.25in}{1}
+Feature: #1 #2 \\
+	#1 a #2 to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual #2 post to each  \\
+	service that I specify. \\
 
-Scenario: #1ing a #2 to #3 and #4
-	Given that I have sent a request
-	And the authentication credentials are valid
-	#5
-	And I have provided authentication credentials for #3
-	And Those credentials are valid for #3
-	And I have indicated an association with the service #3
-	And I have provided authentication credentials for #4
-	And Those credentials are valid for #4
-	And I have indicated an association with the service #4
-	Then there will be a #2 posted on behalf of the user whose credentials 
-	were provided to #3 and #4
+Scenario: #1ing a #2 to #3 \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	#5 \\
+	And I have provided authentication credentials for #3 \\
+	And Those credentials are valid for #3 \\
+	And I have indicated an association with the service #3 \\
+	Then there will be a #2 posted on behalf of the user whose credentials  \\
+	were provided to #3 \\
 
-Scenario: #1ing a #2 to #3 and #4 where the required 
-information for one or both is not present.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have not filled in at least the #2 field in the object model
-	And I have provided authentication credentials for #3
-	And Those credentials are valid for #3
-	And I have indicated an association with the service #3
-	And I have provided authentication credentials for #4
-	And Those credentials are valid for #4
-	And I have indicated an association with the service #4
-	Then there will be an error will be return to me indicating that required 
-	information was not present.
+Scenario: #1ing a #2 to #3 and #4 \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	#5 \\
+	And I have provided authentication credentials for #3 \\
+	And Those credentials are valid for #3 \\
+	And I have indicated an association with the service #3 \\
+	And I have provided authentication credentials for #4 \\
+	And Those credentials are valid for #4 \\
+	And I have indicated an association with the service #4 \\
+	Then there will be a #2 posted on behalf of the user whose credentials  \\
+	were provided to #3 and #4 \\
 
-Scenario: #1ing a #2 to #3 and #4 where one or both of sets of 
-authentication credentials are invalid.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	#5
-	And I have provided authentication credentials for #3
-	And Those credentials are valid for #3
-	And I have indicated an association with the service #3
-	And I have provided authentication credentials for #4
-	And Those credentials are not valid for #4
-	And I have indicated an association with the service #4
-	Then there will be an error will be return to me indicating that the 
-	particular authentication information was not valid. 
+Scenario: #1ing a #2 to #3 and #4 where the required  \\
+information for one or both is not present. \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	#6 \\
+	And I have provided authentication credentials for #3 \\
+	And Those credentials are valid for #3 \\
+	And I have indicated an association with the service #3 \\
+	And I have provided authentication credentials for #4 \\
+	And Those credentials are valid for #4 \\
+	And I have indicated an association with the service #4 \\
+	Then there will be an error will be return to me indicating that required  \\
+	information was not present. \\
 
+Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  \\
+authentication credentials are invalid. \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	#5 \\
+	And I have provided authentication credentials for #3 \\
+	And Those credentials are valid for #3 \\
+	And I have indicated an association with the service #3 \\
+	And I have provided authentication credentials for #4 \\
+	And Those credentials are not valid for #4 \\
+	And I have indicated an association with the service #4 \\
+	Then there will be an error will be return to me indicating that the  \\
+	particular authentication information was not valid.  \\
 
-Scenario: #1ing a #2 to #3 and #4 where one or both services 
-reject our request.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	#5
-	And I have provided authentication credentials for #3
-	And Those credentials are valid for #3
-	And I have indicated an association with the service #3
-	And I have provided authentication credentials for #4
-	And Those credentials are valid for #4
-	And I have indicated an association with the service #4
-	Then there will be a #2 posted on behalf of the user whose credentials 
-	were provided to #3 and #4
-
+Scenario: #1ing a #2 to #3 and #4 where one or both services  \\
+reject our request. \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	#5 \\
+	And I have provided authentication credentials for #3 \\
+	And Those credentials are valid for #3 \\
+	And I have indicated an association with the service #3 \\
+	And I have provided authentication credentials for #4 \\
+	And Those credentials are valid for #4 \\
+	And I have indicated an association with the service #4 \\
+	Then there will be a #2 posted on behalf of the user whose credentials  \\
+	were provided to #3 and #4 \\
+\end{hangparas}
 }
 
 \begin{document}
@@ -150,83 +152,24 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Push Status}
 
-Feature: Push Status \\
-	Push a status to multiple services \\
-	As a client \\
-	I want to be able to get the ids for each individual status post to each  
-	service that I specify. \\
-	
-Scenario: Pushing a status to Twitter \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	And I have filled in at least the status field in the object model \\
-	And I have provided authentication credentials for Twitter \\ 
-	And Those credentials are valid for Twitter \\ 
-	And I have indicated an association with the service Twitter \\
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter
-
-Scenario: Pushing a status to Twitter and Facebook
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter and Facebook
-
-Scenario: Pushing a status to Twitter and Facebook where the required 
-information for one or both is not present.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have not filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be an error will be return to me indicating that required 
-	information was not present.
-
-Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
-authentication credentials are invalid.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are not valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be an error will be return to me indicating that the 
-	particular authentication information was not valid. 
-
-
-Scenario: Pushing a status to Twitter and Facebook where one or both services 
-reject our request.
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter and Facebook
+	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
+	the status field in the object model}{And I have not filled in at least the 
+		status field in the object model} 
 
 \subsubsection{Feature: Pull Status}
-\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{Hello buggers}
+	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at least 
+	the status field in the object model}{And I have not filled in at least the 
+		status field in the object model} 
 
 \subsubsection{Feature: Edit Status}
+	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
+	the status field in the object model}{And I have not filled in at least the 
+		status field in the object model} \subsubsection{Feature: Delete Status}
+
 \subsubsection{Feature: Delete Status}
+	\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{And I have filled in at 
+	least the status field in the object model}{And I have not filled in at least 
+		the status field in the object model}
 
 \subsubsection{Feature: Push Blog}
 
@@ -247,6 +190,7 @@ reject our request.
 \subsection{Campaign Manager}
 
 \subsubsection{Feature: Login}
+
 
 Feature: Not logged in header links \\
 In order to be able to log in \\
