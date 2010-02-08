@@ -52,6 +52,16 @@ Feature: Push Status
 	service that I specify.
 	
 Scenario: Pushing a status to Twitter
+	Given that I have sent a request
+	And the authentication credentials are valid
+	And I have filled in at least the status field in the object model
+	And I have provided authentication credentials for Twitter
+	And Those credentials are valid for Twitter
+	And I have indicated an association with the service Twitter
+	Then there will be a status posted on behalf of the user whose credentials 
+	were provided to Twitter
+
+
 
 Scenario: Pushing a status to Twitter and Facebook
 
