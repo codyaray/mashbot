@@ -1,7 +1,16 @@
 \documentclass[12pt]{article}
+\usepackage{fullpage}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
+\title{Integration Test Plan for Mashbot} 
+
+\author{George D'Andrea \and Andrew Gall \and Josiah Kiehl \and
+  Cody Ray \and Vito Salerno}
+\date{\today}
+
 \begin{document}
+\maketitle
+
 \section{Introduction}
 \subsection{Background}
 \subsection{References}
@@ -28,12 +37,14 @@
 
 \section{Test Cases}
 
-Feature: Not logged in header links \\
+\subsection{Feature: Login}
+
+Feature: Login \\
   In order to be able to log in \\
   As a user \\
   I want to be able to see the log in link in the header when I am not logged in. \\
 
-Scenario: Not Logged in Header  \\
+Scenario: Viewing the right header links while not logged in  \\
   Given I am on the home page \\
   Then I should see ``Login'' within ``\#administrative-links'' \\
   And I should see ``Register'' within ``\#administrative-links'' \\
@@ -72,7 +83,7 @@ Scenario: Wrong Password \\
   And I press ``Login'' \\
   Then I should see ``Password is not valid'' \\
 
-Scenario: Wrong Password \\
+Scenario: Wrong Login \\
   Given I am on the home page \\
   And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
   When I follow ``Login'' within ``\#administrative-links'' \\
@@ -81,6 +92,7 @@ Scenario: Wrong Password \\
   And I press ``Login'' \\
   Then I should see ``Login is not valid'' \\
 
+\subsection{Feature: Create Campaign}
 
 Feature: Create Campaign \\
   In order to create a campaign \\
@@ -121,6 +133,8 @@ Scenario: Make sure you can't have an end date without a start date. \\
   And I fill in ``01/14/2100'' for ``End date'' \\
   And I press ``Create!'' \\
   Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
+
+\section{Feature: Schedule Campaign}
 
 Feature: Schedule Campaign \\
   In order to schedule campaigns \\
