@@ -96,6 +96,13 @@ Scenario: Wrong Login \\
   And I press ``Login'' \\
   Then I should see ``Login is not valid'' \\
 
+Scenario: Reset Password \\
+  Given I am on the login page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' \\
+  When I follow "Forgot Password" within ``\#administrative-links'' \\
+  Then I should see ``A link to reset your password has been emailed to you.'' \\
+  And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
+
 \subsection{Feature: Create Campaign}
 
 Feature: Create Campaign \\
@@ -151,5 +158,38 @@ Scenario: Unscheduled Campaign List \\
   When I go to the schedule page \\
   Then I should see ``Twitterblast'' \\
   And I should see ``Social Network Blitz'' \\
+  
+Scenario: Create a new blog post \\
+  Given jsmith is logged in \\
+  When I go to the create text post page \\
+  And I fill in ``My new blog!'' for ``Title''
+  And I fill in ``I'm so awesome.. listen to me!'' for ``Body'' \\
+  And I press ``Create!'' \\
+  Then I should see ``My new blog!'' \\
+  
+Scenario: Create a new photo post \\
+  Given jsmith is logged in \\
+  When I go to the create photo post page \\
+  And I fill in ``ACME in London'' \\
+  And I upload an image file in ``Photo'' \\
+  And I fill in ``travel, london'' for ``Tags'' \\
+  And I press ``Create!'' \\
+  Then I should see ``XYZ Corp in London'' \\
+  
+  Scenario: Create a new video post \\
+    Given jsmith is logged in \\
+    When I go to the create video post page \\
+    And I fill in ``ACME's new Widget'' \\
+    And I upload a video file in ``Video'' \\
+    And I press ``Create!'' \\
+    Then I should see ``ACME's new Widget'' \\
+  
+  Scenario: Create a new status post \\
+    Given jsmith is logged in \\
+    When I go to the create status post page \\
+    And I fill in ``Visiting a new client in Beijing.'' \\
+    And I upload a video file in ``Status' \\
+    And I press ``Create!'' \\
+    Then I should see ``Visiting a new client in Beijing.'' \\
 
 \end{document}
