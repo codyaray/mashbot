@@ -9,7 +9,7 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
-\newcommand{\CoreTestCases}[5]{
+\newcommand{\CoreTestCases}[6]{
 Feature: #1 #2 \\
 \indent	#1 a #2 to multiple services \\
 \indent	As a client \\
@@ -155,12 +155,19 @@ Regressions and failures will be reported to the respective team lead when they 
 		status field in the object model} 
 
 \subsubsection{Feature: Pull Status}
-\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{Hello buggers}
+	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at least 
+	the status field in the object model}{And I have not filled in at least the 
+		status field in the object model} 
 
 \subsubsection{Feature: Edit Status}
-\CoreTestCases{Edit}{Status}{Twitter}{Facebook}{Hello buggers}
+	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
+	the status field in the object model}{And I have not filled in at least the 
+		status field in the object model} \subsubsection{Feature: Delete Status}
+
 \subsubsection{Feature: Delete Status}
-\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{Hello buggers}
+	\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{And I have filled in at 
+	least the status field in the object model}{And I have not filled in at least 
+		the status field in the object model}
 
 \subsubsection{Feature: Push Blog}
 
