@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{fullpage}
 \usepackage{hyperref}
+\usepackage{hanging}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
 \title{Integration Test Plan for Mashbot} 
@@ -10,12 +11,13 @@
 \date{\today}
 
 \newcommand{\CoreTestCases}[6]{
+\begin{hangparas}{0.25in}{1}
 Feature: #1 #2 \\
-\indent	#1 a #2 to multiple services \\
-\indent	As a client \\
-\indent I want to be able to get the ids for each individual #2 post to each  \\
+	#1 a #2 to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual #2 post to each  \\
 	service that I specify. \\
-	 \\
+
 Scenario: #1ing a #2 to #3 \\
 	Given that I have sent a request \\
 	And the authentication credentials are valid \\
@@ -25,7 +27,7 @@ Scenario: #1ing a #2 to #3 \\
 	And I have indicated an association with the service #3 \\
 	Then there will be a #2 posted on behalf of the user whose credentials  \\
 	were provided to #3 \\
- \\
+
 Scenario: #1ing a #2 to #3 and #4 \\
 	Given that I have sent a request \\
 	And the authentication credentials are valid \\
@@ -38,7 +40,7 @@ Scenario: #1ing a #2 to #3 and #4 \\
 	And I have indicated an association with the service #4 \\
 	Then there will be a #2 posted on behalf of the user whose credentials  \\
 	were provided to #3 and #4 \\
- \\
+
 Scenario: #1ing a #2 to #3 and #4 where the required  \\
 information for one or both is not present. \\
 	Given that I have sent a request \\
@@ -52,7 +54,7 @@ information for one or both is not present. \\
 	And I have indicated an association with the service #4 \\
 	Then there will be an error will be return to me indicating that required  \\
 	information was not present. \\
- \\
+
 Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  \\
 authentication credentials are invalid. \\
 	Given that I have sent a request \\
@@ -66,8 +68,7 @@ authentication credentials are invalid. \\
 	And I have indicated an association with the service #4 \\
 	Then there will be an error will be return to me indicating that the  \\
 	particular authentication information was not valid.  \\
- \\
- \\
+
 Scenario: #1ing a #2 to #3 and #4 where one or both services  \\
 reject our request. \\
 	Given that I have sent a request \\
@@ -81,6 +82,7 @@ reject our request. \\
 	And I have indicated an association with the service #4 \\
 	Then there will be a #2 posted on behalf of the user whose credentials  \\
 	were provided to #3 and #4 \\
+\end{hangparas}
 }
 
 \begin{document}
@@ -188,6 +190,7 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsection{Campaign Manager}
 
 \subsubsection{Feature: Login}
+
 
 Feature: Not logged in header links \\
 In order to be able to log in \\
