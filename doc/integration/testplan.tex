@@ -1,7 +1,16 @@
 \documentclass[12pt]{article}
+\usepackage{fullpage}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
+\title{Integration Test Plan for Mashbot} 
+
+\author{George D'Andrea \and Andrew Gall \and Josiah Kiehl \and
+  Cody Ray \and Vito Salerno}
+\date{\today}
+
 \begin{document}
+\maketitle
+
 \section{Introduction}
 \subsection{Background}
 This document provides the high level testing requirements for the Mashbot Campaign Manager and Publishing and Aggregation Platforms.  These tests will be implemented as behavioral tests that will be automatically run every time a feature is added to prevent regression.
@@ -62,6 +71,63 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \section{Test Cases}
 
+\subsection{Core}
+
+\subsubsection{Feature: Push Status}
+
+Feature: Push Status
+	Push a status to multiple services
+	As a client
+	I want to be able to get the ids for each individual status post to each 
+	service that I specify.
+	
+Scenario: Pushing a status to Twitter
+	Given that I have sent a request
+	And the authentication credentials are valid
+	And I have filled in at least the status field in the object model
+	And I have provided authentication credentials for Twitter
+	And Those credentials are valid for Twitter
+	And I have indicated an association with the service Twitter
+	Then there will be a status posted on behalf of the user whose credentials 
+	were provided to Twitter
+
+
+
+Scenario: Pushing a status to Twitter and Facebook
+
+Scenario: Pushing a status to Twitter and Facebook where the required 
+information for one or both is not present.
+
+Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
+authentication credentials are invalid.
+
+Scenario: Pushing a status to Twitter and Facebook where one or both services 
+reject our request.
+
+
+\subsubsection{Feature: Pull Status}
+\subsubsection{Feature: Edit Status}
+\subsubsection{Feature: Delete Status}
+
+\subsubsection{Feature: Push Blog}
+\subsubsection{Feature: Pull Blog}
+\subsubsection{Feature: Edit Blog}
+\subsubsection{Feature: Delete Blog}
+
+\subsubsection{Feature: Push Picture}
+\subsubsection{Feature: Pull Picture}
+\subsubsection{Feature: Edit Picture}
+\subsubsection{Feature: Delete Picture}
+
+\subsubsection{Feature: Push Video}
+\subsubsection{Feature: Pull Video}
+\subsubsection{Feature: Edit Video}
+\subsubsection{Feature: Delete Video}
+
+\subsection{Campaign Manager}
+
+\subsubsection{Feature: Login}
+
 Feature: Not logged in header links \\
 In order to be able to log in \\
 As a user \\
@@ -72,6 +138,18 @@ Given I am on the home page \\
 Then I should see ``Login'' within ``\#administrative-links'' \\
 And I should see ``Register'' within ``\#administrative-links'' \\
 And I should not see ``Logout'' within ``\#administrative-links'' \\
+
+Feature: Login \\
+  In order to be able to log in \\
+  As a user \\
+  I want to be able to see the log in link in the header when I am not logged in. \\
+
+Scenario: Viewing the right header links while not logged in  \\
+  Given I am on the home page \\
+  Then I should see ``Login'' within ``\#administrative-links'' \\
+  And I should see ``Register'' within ``\#administrative-links'' \\
+  And I should not see ``Logout'' within ``\#administrative-links'' \\
+
 
 Scenario: Registering a new account \\
 Given I am on the home page \\
@@ -98,23 +176,24 @@ And I should see ``My Account'' within ``\#administrative-links'' \\
 And I should see ``Bloo Corp'' within ``.title'' \\
 
 Scenario: Wrong Password \\
-Given I am on the home page \\
-And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-When I follow ``Login'' within ``\#administrative-links'' \\
-And I fill in ``pojo'' for ``Login'' \\
-And I fill in ``omgwrongpassword'' for ``Password'' \\
-And I press ``Login'' \\
-Then I should see ``Password is not valid'' \\
+  Given I am on the home page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+  When I follow ``Login'' within ``\#administrative-links'' \\
+  And I fill in ``pojo'' for ``Login'' \\
+  And I fill in ``omgwrongpassword'' for ``Password'' \\
+  And I press ``Login'' \\
+  Then I should see ``Password is not valid'' \\
 
-Scenario: Wrong Password \\
-Given I am on the home page \\
-And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-When I follow ``Login'' within ``\#administrative-links'' \\
-And I fill in ``notpojo'' for ``Login'' \\
-And I fill in ``bumble\_bee1'' for ``Password'' \\
-And I press ``Login'' \\
-Then I should see ``Login is not valid'' \\
+Scenario: Wrong Login \\
+  Given I am on the home page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+  When I follow ``Login'' within ``\#administrative-links'' \\
+  And I fill in ``notpojo'' for ``Login'' \\
+  And I fill in ``bumble\_bee1'' for ``Password'' \\
+  And I press ``Login'' \\
+  Then I should see ``Login is not valid'' \\
 
+\subsubsection{Feature: Create Campaign}
 
 Feature: Create Campaign \\
 In order to create a campaign \\
@@ -155,6 +234,8 @@ And I fill in ``Fail Campaign'' for ``Title'' \\
 And I fill in ``01/14/2100'' for ``End date'' \\
 And I press ``Create!'' \\
 Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
+
+\subsubsection{Feature: Schedule Campaign}
 
 Feature: Schedule Campaign \\
 In order to schedule campaigns \\
