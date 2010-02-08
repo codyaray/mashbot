@@ -91,28 +91,58 @@ reject our request.
 This document provides the high level testing requirements for the Mashbot Campaign Manager and Publishing and Aggregation Platforms.  These tests will be implemented as behavioral tests that will be automatically run every time a feature is added to prevent regression.
 \subsection{References}
 \begin{itemize}
-  \item Design | 
+\item \href{http://mashbot.heroku.com/doc/Design.pdf}{Design.pdf}
+\item \href{http://mashbot.heroku.com/doc/Testplan.pdf}{Testplan.pdf}
+\item \href{http://mashbot.heroku.com/doc/Requirements.pdf}{Requirements.pdf}
 \end{itemize}
 \subsection{Definitions and Acronyms}
 
 \section{Approach and Constraints}
 \subsection{Objectives}
+To assure integrity of the overall structure of the Mashbot Campaign Manager and Publishing and Aggregation Platform.
 \subsection{Structure}
-\subsection{Constraints}
 
+\subsection{Constraints}
+\begin{itemize}
+\item External APIs are not to be relied upon for testing, so these content sources will have to be mocked out for integration testing purposes.
+\end{itemize}
 \section{Assumptions and Exclusions}
 \subsection{Assumptions}
+\begin{itemize}
+\item External APIs are assumed to have 100\% uptime
+\item Each individual tests assume the rest of the service is working properly
+\end{itemize}
 \subsection{Exclusions}
-
+\begin{itemize}
+\item There will be no testing of External API calls, as they are assumed to be working.
+\end{itemize}
 \section{Entry and Exit Criteria}
 \subsection{Entry Criteria}
+\begin{itemize}
+\item All lower level tests pass, including behavioral tests, and unit tests.
+\item The hardware meets the specifications outlined in the Requirements Document.
+\end{itemize}
 \subsection{Exit Criteria}
+\begin{itemize}
+  \item All top priority tests pass | success
+  \item One top priority test fails | failure
+\end{itemize}
 
 \section{Testing Participants}
 \subsection{Roles and Responsibilities}
+\begin{itemize}
+\item Campaign Manager Test Lead: Josiah Kiehl
+\item Publishing and Aggregation Platform Test Lead: Andrew Gall
+\item Testers: Josiah Kiehl, Andrew Gall, Cody Ray, Vito Salerno, Nick D'Andrea
+\end{itemize}
+
 \subsection{Training Requirements}
+Testers should have general familiarity with the Campaign Manager and Publishing and Aggregation Platform. They should also be familiar with either Chrome, Firefox, Safari, or Internet Explorer web browsers.
+
 \subsection{Problem Reporting}
+Issues will be reported via the issue tracker on http://github.com/codyaray/mashbot/issues and will be assigned to the proper development team from there.
 \subsection{Progress Reporting}
+Regressions and failures will be reported to the respective team lead when they are discovered. Successes are assumed and will not be further reported.
 
 \section{Test Cases}
 
@@ -218,6 +248,17 @@ reject our request.
 
 \subsubsection{Feature: Login}
 
+Feature: Not logged in header links \\
+In order to be able to log in \\
+As a user \\
+I want to be able to see the log in link in the header when I am not logged in. \\
+
+Scenario: Not Logged in Header  \\
+Given I am on the home page \\
+Then I should see ``Login'' within ``\#administrative-links'' \\
+And I should see ``Register'' within ``\#administrative-links'' \\
+And I should not see ``Logout'' within ``\#administrative-links'' \\
+
 Feature: Login \\
   In order to be able to log in \\
   As a user \\
@@ -229,29 +270,30 @@ Scenario: Viewing the right header links while not logged in  \\
   And I should see ``Register'' within ``\#administrative-links'' \\
   And I should not see ``Logout'' within ``\#administrative-links'' \\
 
+
 Scenario: Registering a new account \\
-  Given I am on the home page \\
-  And there is no user using the email address ``bloo@example.net'' \\
-  And I follow ``Register'' \\
-  And I fill in ``Bloo'' for ``Login'' \\
-  And I fill in ``bloo@example.net'' for ``Email'' \\
-  And I fill in ``bloospassword'' for ``Password'' \\
-  And I fill in ``bloospassword'' for ``Password confirmation'' \\
-  And I fill in ``Bloo Corp'' for ``Company'' \\
-  And I press ``Register'' \\
-  Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' \\
+Given I am on the home page \\
+And there is no user using the email address ``bloo@example.net'' \\
+And I follow ``Register'' \\
+And I fill in ``Bloo'' for ``Login'' \\
+And I fill in ``bloo@example.net'' for ``Email'' \\
+And I fill in ``bloospassword'' for ``Password'' \\
+And I fill in ``bloospassword'' for ``Password confirmation'' \\
+And I fill in ``Bloo Corp'' for ``Company'' \\
+And I press ``Register'' \\
+Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' \\
 
 Scenario: Logging In \\
-  Given I am on the home page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-  When I follow ``Login'' within ``\#administrative-links'' \\
-  And I fill in ``pojo'' for ``Login'' \\
-  And I fill in ``bumble\_bee1'' for ``Password'' \\
-  And I press ``Login'' \\
-  Then I should see ``pojo'' within ``\#administrative-links'' \\
-  And I should see ``Logout'' within ``\#administrative-links'' \\
-  And I should see ``My Account'' within ``\#administrative-links'' \\
-  And I should see ``Bloo Corp'' within ``.title'' \\
+Given I am on the home page \\
+And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+When I follow ``Login'' within ``\#administrative-links'' \\
+And I fill in ``pojo'' for ``Login'' \\
+And I fill in ``bumble\_bee1'' for ``Password'' \\
+And I press ``Login'' \\
+Then I should see ``pojo'' within ``\#administrative-links'' \\
+And I should see ``Logout'' within ``\#administrative-links'' \\
+And I should see ``My Account'' within ``\#administrative-links'' \\
+And I should see ``Bloo Corp'' within ``.title'' \\
 
 Scenario: Wrong Password \\
   Given I am on the home page \\
@@ -274,57 +316,57 @@ Scenario: Wrong Login \\
 \subsubsection{Feature: Create Campaign}
 
 Feature: Create Campaign \\
-  In order to create a campaign \\
-  As a user \\
-  I want to create campaigns that will be able to hold content for publishing. \\
-  
-Scenario: Creating a campaign \\
-  Given pojo is logged in \\
-  When I go to the create campaign page \\
-  And I fill in ``Amazing Campaign'' for ``Title'' \\
-  And I fill in ``01/15/2100'' for ``Start date'' \\
-  And I fill in ``02/14/2100'' for ``End date''   \\
-  And I press ``Create!'' \\
-  Then I should see ``Amazing Campaign'' \\
-  And I should see ``01/15/2100'' \\
-  And I should see ``02/14/2100'' \\
+In order to create a campaign \\
+As a user \\
+I want to create campaigns that will be able to hold content for publishing. \\
 
 Scenario: Creating a campaign \\
-  Given pojo is logged in \\
-  When I go to the create campaign page \\
-  And I fill in ``Unfail Campaign'' for ``Title'' \\
-  And I press ``Create!'' \\
-  Then I should see ``Unfail Campaign'' \\
+Given pojo is logged in \\
+When I go to the create campaign page \\
+And I fill in ``Amazing Campaign'' for ``Title'' \\
+And I fill in ``01/15/2100'' for ``Start date'' \\
+And I fill in ``02/14/2100'' for ``End date''   \\
+And I press ``Create!'' \\
+Then I should see ``Amazing Campaign'' \\
+And I should see ``01/15/2100'' \\
+And I should see ``02/14/2100'' \\
+
+Scenario: Creating a campaign \\
+Given pojo is logged in \\
+When I go to the create campaign page \\
+And I fill in ``Unfail Campaign'' for ``Title'' \\
+And I press ``Create!'' \\
+Then I should see ``Unfail Campaign'' \\
 
 Scenario: Validate sane start and end dates: start should be before end. \\
-  Given pojo is logged in \\
-  When I go to the create campaign page \\
-  And I fill in ``Fail Campaign'' for ``Title'' \\
-  And I fill in ``01/15/2100'' for ``Start date'' \\
-  And I fill in ``01/14/2100'' for ``End date'' \\
-  And I press ``Create!'' \\
-  Then I should see ``Hold up! You can't end something before you start it!'' \\
+Given pojo is logged in \\
+When I go to the create campaign page \\
+And I fill in ``Fail Campaign'' for ``Title'' \\
+And I fill in ``01/15/2100'' for ``Start date'' \\
+And I fill in ``01/14/2100'' for ``End date'' \\
+And I press ``Create!'' \\
+Then I should see ``Hold up! You can't end something before you start it!'' \\
 
 Scenario: Make sure you can't have an end date without a start date. \\
-  Given pojo is logged in \\
-  When I go to the create campaign page \\
-  And I fill in ``Fail Campaign'' for ``Title'' \\
-  And I fill in ``01/14/2100'' for ``End date'' \\
-  And I press ``Create!'' \\
-  Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
+Given pojo is logged in \\
+When I go to the create campaign page \\
+And I fill in ``Fail Campaign'' for ``Title'' \\
+And I fill in ``01/14/2100'' for ``End date'' \\
+And I press ``Create!'' \\
+Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
 
 \subsubsection{Feature: Schedule Campaign}
 
 Feature: Schedule Campaign \\
-  In order to schedule campaigns \\
-  As a user \\
-  I want to schedule and manage the start and end time of campaigns. \\
+In order to schedule campaigns \\
+As a user \\
+I want to schedule and manage the start and end time of campaigns. \\
 
 Scenario: Unscheduled Campaign List \\
-  Given pojo is logged in \\
-  And I have campaigns titled Twitterblast, Social Network Blitz \\
-  When I go to the schedule page \\
-  Then I should see ``Twitterblast'' \\
-  And I should see ``Social Network Blitz'' \\
+Given pojo is logged in \\
+And I have campaigns titled Twitterblast, Social Network Blitz \\
+When I go to the schedule page \\
+Then I should see ``Twitterblast'' \\
+And I should see ``Social Network Blitz'' \\
 
 \end{document}
