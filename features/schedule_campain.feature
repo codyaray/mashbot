@@ -4,7 +4,8 @@ Feature: Schedule Campaign
   I want to schedule and manage the start and end time of campaigns.
 
 Scenario: Unscheduled Campaign List
-  Given I have campaigns titled Twitterblast, Social Network Blitz
+  Given pojo is logged in
+  And I have campaigns titled Twitterblast, Social Network Blitz
   When I go to the schedule page
   Then I should see "Twitterblast"
   And I should see "Social Network Blitz"

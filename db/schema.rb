@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100115040818) do
+ActiveRecord::Schema.define(:version => 20100208171130) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20100115040818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "openid_identifier"
+    t.string   "company"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

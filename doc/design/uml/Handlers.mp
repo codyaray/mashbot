@@ -31,7 +31,7 @@ beginfig(3);
 endfig;
 
 beginfig(4);
-	Class.D("ChainableHandler")
+	Class.D("SerializationHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
@@ -41,7 +41,7 @@ beginfig(4);
 endfig;
 
 beginfig(5);
-	Class.E("ChainableHandler")
+	Class.E("RequiredDataVerificationHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
@@ -51,7 +51,7 @@ beginfig(5);
 endfig;
 
 beginfig(6);
-	Class.F("ChainableHandler")
+	Class.F("ContentProcessingHandler")
 			()
 			("+enact(in:Request,out:Response,context:RequestContext)",
 			"+preRequest(in:Request,out:Response,context:RequestContext)",
@@ -72,7 +72,7 @@ beginfig(7);
 			()
 			();
 	
-	Class.J("DeserializationHandler")
+	Class.J("SerializationHandler")
 			()
 			();
 	

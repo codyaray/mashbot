@@ -1,0 +1,12 @@
+digraph context {
+        node [shape=box]
+        "Web Browser" -> "Campaign Manager"
+        "Campaign Manager" -> "Publishing and Aggregation Platform"
+        "External Application" -> "Publishing and Aggregation Platform"
+        "Publishing and Aggregation Platform" -> Twitter
+        "Publishing and Aggregation Platform" -> Flickr
+        "Publishing and Aggregation Platform" -> Picasa
+        "Publishing and Aggregation Platform" -> Tumblr
+        "Publishing and Aggregation Platform" -> Wordpress
+        "Publishing and Aggregation Platform" -> YouTube
+}
