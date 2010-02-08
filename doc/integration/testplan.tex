@@ -41,7 +41,13 @@ This document provides the high level testing requirements for the Mashbot Campa
 
 \section{Test Cases}
 
-\subsection{Feature: Login}
+\subsection{Core}
+
+\subsection{
+
+\subsection{Campaign Manager}
+
+\subsubsection{Feature: Login}
 
 Feature: Login \\
   In order to be able to log in \\
@@ -96,7 +102,7 @@ Scenario: Wrong Login \\
   And I press ``Login'' \\
   Then I should see ``Login is not valid'' \\
 
-\subsection{Feature: Create Campaign}
+\subsubsection{Feature: Create Campaign}
 
 Feature: Create Campaign \\
   In order to create a campaign \\
@@ -138,7 +144,7 @@ Scenario: Make sure you can't have an end date without a start date. \\
   And I press ``Create!'' \\
   Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
 
-\section{Feature: Schedule Campaign}
+\subsubsection{Feature: Schedule Campaign}
 
 Feature: Schedule Campaign \\
   In order to schedule campaigns \\
