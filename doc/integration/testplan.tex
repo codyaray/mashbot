@@ -8,78 +8,78 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
-\newcommand{\CoreTestCases}[2]{
-Feature: Push Status
-	Push a status to multiple services
+\newcommand{\CoreTestCases}[5]{
+Feature: #1 #2
+	#1 a #2 to multiple services
 	As a client
-	I want to be able to get the ids for each individual status post to each 
+	I want to be able to get the ids for each individual #2 post to each 
 	service that I specify.
 	
-Scenario: Pushing a status to Twitter
+Scenario: #1ing a #2 to #3
 	Given that I have sent a request
 	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter
+	#5
+	And I have provided authentication credentials for #3
+	And Those credentials are valid for #3
+	And I have indicated an association with the service #3
+	Then there will be a #2 posted on behalf of the user whose credentials 
+	were provided to #3
 
-Scenario: Pushing a status to Twitter and Facebook
+Scenario: #1ing a #2 to #3 and #4
 	Given that I have sent a request
 	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter and Facebook
+	#5
+	And I have provided authentication credentials for #3
+	And Those credentials are valid for #3
+	And I have indicated an association with the service #3
+	And I have provided authentication credentials for #4
+	And Those credentials are valid for #4
+	And I have indicated an association with the service #4
+	Then there will be a #2 posted on behalf of the user whose credentials 
+	were provided to #3 and #4
 
-Scenario: Pushing a status to Twitter and Facebook where the required 
+Scenario: #1ing a #2 to #3 and #4 where the required 
 information for one or both is not present.
 	Given that I have sent a request
 	And the authentication credentials are valid
-	And I have not filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
+	And I have not filled in at least the #2 field in the object model
+	And I have provided authentication credentials for #3
+	And Those credentials are valid for #3
+	And I have indicated an association with the service #3
+	And I have provided authentication credentials for #4
+	And Those credentials are valid for #4
+	And I have indicated an association with the service #4
 	Then there will be an error will be return to me indicating that required 
 	information was not present.
 
-Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
+Scenario: #1ing a #2 to #3 and #4 where one or both of sets of 
 authentication credentials are invalid.
 	Given that I have sent a request
 	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are not valid for Facebook
-	And I have indicated an association with the service Facebook
+	#5
+	And I have provided authentication credentials for #3
+	And Those credentials are valid for #3
+	And I have indicated an association with the service #3
+	And I have provided authentication credentials for #4
+	And Those credentials are not valid for #4
+	And I have indicated an association with the service #4
 	Then there will be an error will be return to me indicating that the 
 	particular authentication information was not valid. 
 
 
-Scenario: Pushing a status to Twitter and Facebook where one or both services 
+Scenario: #1ing a #2 to #3 and #4 where one or both services 
 reject our request.
 	Given that I have sent a request
 	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	And I have provided authentication credentials for Facebook
-	And Those credentials are valid for Facebook
-	And I have indicated an association with the service Facebook
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter and Facebook
+	#5
+	And I have provided authentication credentials for #3
+	And Those credentials are valid for #3
+	And I have indicated an association with the service #3
+	And I have provided authentication credentials for #4
+	And Those credentials are valid for #4
+	And I have indicated an association with the service #4
+	Then there will be a #2 posted on behalf of the user whose credentials 
+	were provided to #3 and #4
 
 }
 
@@ -120,19 +120,19 @@ This document provides the high level testing requirements for the Mashbot Campa
 
 \subsubsection{Feature: Push Status}
 
-Feature: Push Status
-	Push a status to multiple services
-	As a client
-	I want to be able to get the ids for each individual status post to each 
-	service that I specify.
+Feature: Push Status \\
+	Push a status to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual status post to each  
+	service that I specify. \\
 	
-Scenario: Pushing a status to Twitter
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
+Scenario: Pushing a status to Twitter \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the status field in the object model \\
+	And I have provided authentication credentials for Twitter \\ 
+	And Those credentials are valid for Twitter \\ 
+	And I have indicated an association with the service Twitter \\
 	Then there will be a status posted on behalf of the user whose credentials 
 	were provided to Twitter
 
@@ -193,10 +193,13 @@ reject our request.
 	were provided to Twitter and Facebook
 
 \subsubsection{Feature: Pull Status}
+\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{Hello buggers}
+
 \subsubsection{Feature: Edit Status}
 \subsubsection{Feature: Delete Status}
 
 \subsubsection{Feature: Push Blog}
+
 \subsubsection{Feature: Pull Blog}
 \subsubsection{Feature: Edit Blog}
 \subsubsection{Feature: Delete Blog}
