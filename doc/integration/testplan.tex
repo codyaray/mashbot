@@ -44,6 +44,27 @@ This document provides the high level testing requirements for the Mashbot Campa
 \subsection{Core}
 
 \subsubsection{Feature: Push Status}
+
+Feature: Push Status
+	Push a status to multiple services
+	As a client
+	I want to be able to get the ids for each individual status post to each 
+	service that I specify.
+	
+Scenario: Pushing a status to Twitter
+
+Scenario: Pushing a status to Twitter and Facebook
+
+Scenario: Pushing a status to Twitter and Facebook where the required 
+information for one or both is not present.
+
+Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
+authentication credentials are invalid.
+
+Scenario: Pushing a status to Twitter and Facebook where one or both services 
+reject our request.
+
+
 \subsubsection{Feature: Pull Status}
 \subsubsection{Feature: Edit Status}
 \subsubsection{Feature: Delete Status}
