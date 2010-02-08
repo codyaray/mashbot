@@ -75,34 +75,40 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Push Status}
 
-Feature: Push Status
-	Push a status to multiple services
-	As a client
-	I want to be able to get the ids for each individual status post to each 
-	service that I specify.
+Feature: Push Status \\
+	Push a status to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual status post to each  
+	service that I specify. \\
 	
-Scenario: Pushing a status to Twitter
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
+Scenario: Pushing a status to Twitter \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the status field in the object model \\
+	And I have provided authentication credentials for Twitter \\ 
+	And Those credentials are valid for Twitter \\ 
+	And I have indicated an association with the service Twitter \\
 	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter
+	were provided to Twitter \\
 
-
-
-Scenario: Pushing a status to Twitter and Facebook
+Scenario: Pushing a status to Twitter and Facebook \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the status field in the object model \\
+	And I have provided authentication credentials for Twitter and Facebook \\ 
+	And Those credentials are valid for Twitter and Facebook \\ 
+	And I have indicated an association with the service Twitter and Facebook \\
+	Then there will be a status posted on behalf of the user whose credentials 
+	were provided to Twitter and Facebook \\
 
 Scenario: Pushing a status to Twitter and Facebook where the required 
-information for one or both is not present.
+information for one or both is not present. \\
 
 Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
-authentication credentials are invalid.
+authentication credentials are invalid. \\
 
 Scenario: Pushing a status to Twitter and Facebook where one or both services 
-reject our request.
+reject our request. \\
 
 
 \subsubsection{Feature: Pull Status}
@@ -110,11 +116,62 @@ reject our request.
 \subsubsection{Feature: Delete Status}
 
 \subsubsection{Feature: Push Blog}
+Feature: Push Blog \\
+	Push a blog post to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual blog post to each  
+	service that I specify. \\
+	
+Scenario: Pushing a blog post to Tumblr \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the blog post field in the object model \\
+	And I have provided authentication credentials for Tumblr \\ 
+	And Those credentials are valid for Tumblr \\ 
+	And I have indicated an association with the service Tumblr \\
+	Then there will be a blog post posted on behalf of the user whose credentials 
+	were provided to Tumblr \\
+
+Scenario: Pushing a blog post to Tumblr and Wordpress \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the blog post field in the object model \\
+	And I have provided authentication credentials for Tumblr and Wordpress \\ 
+	And Those credentials are valid for Tumblr and Wordpress \\ 
+	And I have indicated an association with the service Tumblr and Wordpress \\
+	Then there will be a blog post posted on behalf of the user whose credentials 
+	were provided to Tumblr and Wordpress \\
+
 \subsubsection{Feature: Pull Blog}
 \subsubsection{Feature: Edit Blog}
 \subsubsection{Feature: Delete Blog}
 
 \subsubsection{Feature: Push Picture}
+Feature: Push Picture \\
+	Push a picture to multiple services \\
+	As a client \\
+	I want to be able to get the ids for each individual picture to each  
+	service that I specify. \\
+	
+Scenario: Pushing a picture to Flickr \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the picture field in the object model \\
+	And I have provided authentication credentials for Flickr \\ 
+	And Those credentials are valid for Flickr \\ 
+	And I have indicated an association with the service Flickr \\
+	Then there will be a picture posted on behalf of the user whose credentials 
+	were provided to Flickr \\
+
+Scenario: Pushing a picture to Flickr and Picasa \\
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	And I have filled in at least the picture field in the object model \\
+	And I have provided authentication credentials for Tumblr and Wordpress \\ 
+	And Those credentials are valid for Flickr and Picasa \\ 
+	And I have indicated an association with the service Flickr and Picasa \\
+	Then there will be a picture posted on behalf of the user whose credentials 
+	were provided to Flickr and Picasa \\
 \subsubsection{Feature: Pull Picture}
 \subsubsection{Feature: Edit Picture}
 \subsubsection{Feature: Delete Picture}
