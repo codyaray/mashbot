@@ -148,7 +148,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \section{Test Cases}
 
-\subsection{Core}
+\subsection{Publishing and Aggregation Platform}
 
 \subsubsection{Feature: Push Status}
 
@@ -164,7 +164,7 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsubsection{Feature: Edit Status}
 	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
 	the status field in the object model}{And I have not filled in at least the 
-		status field in the object model} \subsubsection{Feature: Delete Status}
+		status field in the object model}
 
 \subsubsection{Feature: Delete Status}
 	\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{And I have filled in at 
@@ -191,7 +191,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Login}
 
-
+\begin{hangparas}{0.25in}{1}
 Feature: Not logged in header links \\
 In order to be able to log in \\
 As a user \\
@@ -263,9 +263,11 @@ Scenario: Reset Password \\
   When I follow ``Forgot Password'' within ``\#administrative-links'' \\
   Then I should see ``A link to reset your password has been emailed to you.'' \\
   And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
+\end{hangparas}
 
 \subsection{Feature: Create Campaign}
 
+\begin{hangparas}{0.25in}{1}
 Feature: Create Campaign \\
 In order to create a campaign \\
 As a user \\
@@ -305,9 +307,11 @@ And I fill in ``Fail Campaign'' for ``Title'' \\
 And I fill in ``01/14/2100'' for ``End date'' \\
 And I press ``Create!'' \\
 Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
+\end{hangparas}
 
 \section{Feature: Schedule Campaign}
 
+\begin{hangparas}{0.25in}{1}
 Feature: Schedule Campaign \\
 In order to schedule campaigns \\
 As a user \\
@@ -362,5 +366,6 @@ Scenario: Create a new photo post \\
     And I fill in ``01:23" for ``Time''
     And I press ``Schedule!'' \\
     Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' \\
+\end{hangparas}
 
 \end{document}
