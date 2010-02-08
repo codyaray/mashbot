@@ -86,4 +86,16 @@ class CampaignsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def scheduled
+    campaigns = Campaign.find(:all)
+    @scheduled_campaigns = []
+    campaigns.each do |campaign|
+      if !campaign.start_date.nil?
+        @scheduled_campaigns.push campaign.to_fullcalendar_event.to_json
+      end
+    end
+  end
+
+
 end
