@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
 \begin{document}
 \section{Introduction}
@@ -27,110 +28,110 @@
 
 \section{Test Cases}
 
-Feature: Not logged in header links
-  In order to be able to log in
-  As a user
-  I want to be able to see the log in link in the header when I am not logged in.
+Feature: Not logged in header links \\
+  In order to be able to log in \\
+  As a user \\
+  I want to be able to see the log in link in the header when I am not logged in. \\
 
-Scenario: Not Logged in Header
-  Given I am on the home page
-  Then I should see ``Login'' within ``#administrative-links''
-  And I should see ``Register'' within ``#administrative-links''
-  And I should not see ``Logout'' within ``#administrative-links''
+Scenario: Not Logged in Header  \\
+  Given I am on the home page \\
+  Then I should see ``Login'' within ``\#administrative-links'' \\
+  And I should see ``Register'' within ``\#administrative-links'' \\
+  And I should not see ``Logout'' within ``\#administrative-links'' \\
 
-Scenario: Registering a new account
-  Given I am on the home page
-  And there is no user using the email address ``bloo@example.net''
-  And I follow ``Register''
-  And I fill in ``Bloo'' for ``Login''
-  And I fill in ``bloo@example.net'' for ``Email''
-  And I fill in ``bloospassword'' for ``Password''
-  And I fill in ``bloospassword'' for ``Password confirmation''
-  And I fill in ``Bloo Corp'' for ``Company''
-  And I press ``Register''
-  Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp''
+Scenario: Registering a new account \\
+  Given I am on the home page \\
+  And there is no user using the email address ``bloo@example.net'' \\
+  And I follow ``Register'' \\
+  And I fill in ``Bloo'' for ``Login'' \\
+  And I fill in ``bloo@example.net'' for ``Email'' \\
+  And I fill in ``bloospassword'' for ``Password'' \\
+  And I fill in ``bloospassword'' for ``Password confirmation'' \\
+  And I fill in ``Bloo Corp'' for ``Company'' \\
+  And I press ``Register'' \\
+  Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' \\
 
-Scenario: Logging In
-  Given I am on the home page
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble_bee1'' from the company ``Bloo Corp''
-  When I follow ``Login'' within ``#administrative-links''
-  And I fill in ``pojo'' for ``Login''
-  And I fill in ``bumble_bee1'' for ``Password''
-  And I press ``Login''
-  Then I should see ``pojo'' within ``#administrative-links''
-  And I should see ``Logout'' within ``#administrative-links''
-  And I should see ``My Account'' within ``#administrative-links''
-  And I should see ``Bloo Corp'' within ``.title''
+Scenario: Logging In \\
+  Given I am on the home page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+  When I follow ``Login'' within ``\#administrative-links'' \\
+  And I fill in ``pojo'' for ``Login'' \\
+  And I fill in ``bumble\_bee1'' for ``Password'' \\
+  And I press ``Login'' \\
+  Then I should see ``pojo'' within ``\#administrative-links'' \\
+  And I should see ``Logout'' within ``\#administrative-links'' \\
+  And I should see ``My Account'' within ``\#administrative-links'' \\
+  And I should see ``Bloo Corp'' within ``.title'' \\
 
-Scenario: Wrong Password
-  Given I am on the home page
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble_bee1'' from the company ``Bloo Corp''
-  When I follow ``Login'' within ``#administrative-links''
-  And I fill in ``pojo'' for ``Login''
-  And I fill in ``omgwrongpassword'' for ``Password''
-  And I press ``Login''
-  Then I should see ``Password is not valid''
+Scenario: Wrong Password \\
+  Given I am on the home page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+  When I follow ``Login'' within ``\#administrative-links'' \\
+  And I fill in ``pojo'' for ``Login'' \\
+  And I fill in ``omgwrongpassword'' for ``Password'' \\
+  And I press ``Login'' \\
+  Then I should see ``Password is not valid'' \\
 
-Scenario: Wrong Password
-  Given I am on the home page
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble_bee1'' from the company ``Bloo Corp''
-  When I follow ``Login'' within ``#administrative-links''
-  And I fill in ``notpojo'' for ``Login''
-  And I fill in ``bumble_bee1'' for ``Password''
-  And I press ``Login''
-  Then I should see ``Login is not valid''
+Scenario: Wrong Password \\
+  Given I am on the home page \\
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
+  When I follow ``Login'' within ``\#administrative-links'' \\
+  And I fill in ``notpojo'' for ``Login'' \\
+  And I fill in ``bumble\_bee1'' for ``Password'' \\
+  And I press ``Login'' \\
+  Then I should see ``Login is not valid'' \\
 
 
-Feature: Create Campaign
-  In order to create a campaign
-  As a user
-  I want to create campaigns that will be able to hold content for publishing.
+Feature: Create Campaign \\
+  In order to create a campaign \\
+  As a user \\
+  I want to create campaigns that will be able to hold content for publishing. \\
   
-Scenario: Creating a campaign
-  Given pojo is logged in
-  When I go to the create campaign page
-  And I fill in ``Amazing Campaign'' for ``Title''
-  And I fill in ``01/15/2100'' for ``Start date''
-  And I fill in ``02/14/2100'' for ``End date''  
-  And I press ``Create!''
-  Then I should see ``Amazing Campaign''
-  And I should see ``01/15/2100''
-  And I should see ``02/14/2100''
+Scenario: Creating a campaign \\
+  Given pojo is logged in \\
+  When I go to the create campaign page \\
+  And I fill in ``Amazing Campaign'' for ``Title'' \\
+  And I fill in ``01/15/2100'' for ``Start date'' \\
+  And I fill in ``02/14/2100'' for ``End date''   \\
+  And I press ``Create!'' \\
+  Then I should see ``Amazing Campaign'' \\
+  And I should see ``01/15/2100'' \\
+  And I should see ``02/14/2100'' \\
 
-Scenario: Creating a campaign
-  Given pojo is logged in
-  When I go to the create campaign page
-  And I fill in ``Unfail Campaign'' for ``Title''
-  And I press ``Create!''
-  Then I should see ``Unfail Campaign''
+Scenario: Creating a campaign \\
+  Given pojo is logged in \\
+  When I go to the create campaign page \\
+  And I fill in ``Unfail Campaign'' for ``Title'' \\
+  And I press ``Create!'' \\
+  Then I should see ``Unfail Campaign'' \\
 
-Scenario: Validate sane start and end dates: start should be before end.
-  Given pojo is logged in
-  When I go to the create campaign page
-  And I fill in ``Fail Campaign'' for ``Title''
-  And I fill in ``01/15/2100'' for ``Start date''
-  And I fill in ``01/14/2100'' for ``End date''
-  And I press ``Create!''
-  Then I should see ``Hold up! You can't end something before you start it!''
+Scenario: Validate sane start and end dates: start should be before end. \\
+  Given pojo is logged in \\
+  When I go to the create campaign page \\
+  And I fill in ``Fail Campaign'' for ``Title'' \\
+  And I fill in ``01/15/2100'' for ``Start date'' \\
+  And I fill in ``01/14/2100'' for ``End date'' \\
+  And I press ``Create!'' \\
+  Then I should see ``Hold up! You can't end something before you start it!'' \\
 
-Scenario: Make sure you can't have an end date without a start date.
-  Given pojo is logged in
-  When I go to the create campaign page
-  And I fill in ``Fail Campaign'' for ``Title''
-  And I fill in ``01/14/2100'' for ``End date''
-  And I press ``Create!''
-  Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date''
+Scenario: Make sure you can't have an end date without a start date. \\
+  Given pojo is logged in \\
+  When I go to the create campaign page \\
+  And I fill in ``Fail Campaign'' for ``Title'' \\
+  And I fill in ``01/14/2100'' for ``End date'' \\
+  And I press ``Create!'' \\
+  Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
 
-Feature: Schedule Campaign
-  In order to schedule campaigns
-  As a user
-  I want to schedule and manage the start and end time of campaigns.
+Feature: Schedule Campaign \\
+  In order to schedule campaigns \\
+  As a user \\
+  I want to schedule and manage the start and end time of campaigns. \\
 
-Scenario: Unscheduled Campaign List
-  Given pojo is logged in
-  And I have campaigns titled Twitterblast, Social Network Blitz
-  When I go to the schedule page
-  Then I should see ``Twitterblast''
-  And I should see ``Social Network Blitz''
+Scenario: Unscheduled Campaign List \\
+  Given pojo is logged in \\
+  And I have campaigns titled Twitterblast, Social Network Blitz \\
+  When I go to the schedule page \\
+  Then I should see ``Twitterblast'' \\
+  And I should see ``Social Network Blitz'' \\
 
 \end{document}
