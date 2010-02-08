@@ -41,62 +41,7 @@ This document provides the high level testing requirements for the Mashbot Campa
 
 \section{Test Cases}
 
-\subsection{Core}
-
-\subsubsection{Feature: Push Status}
-
-Feature: Push Status
-	Push a status to multiple services
-	As a client
-	I want to be able to get the ids for each individual status post to each 
-	service that I specify.
-	
-Scenario: Pushing a status to Twitter
-	Given that I have sent a request
-	And the authentication credentials are valid
-	And I have filled in at least the status field in the object model
-	And I have provided authentication credentials for Twitter
-	And Those credentials are valid for Twitter
-	And I have indicated an association with the service Twitter
-	Then there will be a status posted on behalf of the user whose credentials 
-	were provided to Twitter
-
-
-
-Scenario: Pushing a status to Twitter and Facebook
-
-Scenario: Pushing a status to Twitter and Facebook where the required 
-information for one or both is not present.
-
-Scenario: Pushing a status to Twitter and Facebook where one or both of sets of 
-authentication credentials are invalid.
-
-Scenario: Pushing a status to Twitter and Facebook where one or both services 
-reject our request.
-
-
-\subsubsection{Feature: Pull Status}
-\subsubsection{Feature: Edit Status}
-\subsubsection{Feature: Delete Status}
-
-\subsubsection{Feature: Push Blog}
-\subsubsection{Feature: Pull Blog}
-\subsubsection{Feature: Edit Blog}
-\subsubsection{Feature: Delete Blog}
-
-\subsubsection{Feature: Push Picture}
-\subsubsection{Feature: Pull Picture}
-\subsubsection{Feature: Edit Picture}
-\subsubsection{Feature: Delete Picture}
-
-\subsubsection{Feature: Push Video}
-\subsubsection{Feature: Pull Video}
-\subsubsection{Feature: Edit Video}
-\subsubsection{Feature: Delete Video}
-
-\subsection{Campaign Manager}
-
-\subsubsection{Feature: Login}
+\subsection{Feature: Login}
 
 Feature: Login \\
   In order to be able to log in \\
@@ -154,7 +99,7 @@ Scenario: Wrong Login \\
 Scenario: Reset Password \\
   Given I am on the login page \\
   And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' \\
-  When I follow ``Forgot Password'' within ``\#administrative-links'' \\
+  When I follow "Forgot Password" within ``\#administrative-links'' \\
   Then I should see ``A link to reset your password has been emailed to you.'' \\
   And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
 
@@ -200,7 +145,7 @@ Scenario: Make sure you can't have an end date without a start date. \\
   And I press ``Create!'' \\
   Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
 
-\subsubsection{Feature: Schedule Campaign}
+\section{Feature: Schedule Campaign}
 
 Feature: Schedule Campaign \\
   In order to schedule campaigns \\
@@ -246,5 +191,15 @@ Scenario: Create a new photo post \\
     And I upload a video file in ``Status' \\
     And I press ``Create!'' \\
     Then I should see ``Visiting a new client in Beijing.'' \\
+
+  Scenario: Schedule a blog post \\
+    Given jsmith is logged in \\
+    And there is a blog post with the title ``My new blog!'' \\
+    When I go to the schedule page \\
+    And I click ``Schedule'' \\
+    And I fill in ``02/20/10'' for ``Date''
+    And I fill in ``01:23" for ``Time''
+    And I press ``Schedule!'' \\
+    Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' \\
 
 \end{document}
