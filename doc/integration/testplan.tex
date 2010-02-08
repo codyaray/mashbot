@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{fullpage}
+\usepackage{href}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
 \title{Integration Test Plan for Mashbot} 
@@ -9,6 +10,7 @@
 \date{\today}
 
 \newcommand{\CoreTestCases}[5]{
+\begin{verbatim}
 Feature: #1 #2
 	#1 a #2 to multiple services
 	As a client
@@ -81,6 +83,7 @@ reject our request.
 	Then there will be a #2 posted on behalf of the user whose credentials 
 	were provided to #3 and #4
 
+\end{verbatim}
 }
 
 \begin{document}
