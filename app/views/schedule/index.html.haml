@@ -14,7 +14,7 @@
       %a{ :href => "#" }
         Campaigns
     %div
-      - @campaigns.each do |campaign|
+      - @unscheduled_campaigns.each do |campaign|
         %div{:class => "schedule-unit unit-#{campaign.id}"}
           =campaign.title
 

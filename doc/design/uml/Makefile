@@ -1,13 +1,19 @@
 
 all: uml
 
-ObjectModel:
+RequestResponse.?: RequestResponse.mp
+	mpost RequestResponse.mp
+
+uml: object_model.? Handlers.? RequestResponse.? HandlerChain.?
+
+object_model.? : object_model.mp
 	mpost object_model.mp
 
-Handlers:
+Handlers.? : Handlers.mp
 	mpost Handlers.mp
 
-uml: Handlers ObjectModel
+HandlerChain.? : HandlerChain.mp
+	mpost HandlerChain.mp
 
 clean:
 	rm -f *.1
@@ -17,4 +23,7 @@ clean:
 	rm -f *.log
 
 pdf:
-	mptopdf *.mp
+	mptopdf RequestResponse.mp
+	mptopdf Handlers.mp
+
+.PHONY: all uml clean

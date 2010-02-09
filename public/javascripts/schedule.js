@@ -1,5 +1,7 @@
 function init_schedule(){
-  $('#schedule').fullCalendar({});
+  $('#schedule').fullCalendar({
+                                events: '/campaigns/scheduled'
+                              });
   $('#accordion').accordion();
   add_draggable_to_unscheduled_units();
 }
@@ -22,7 +24,9 @@ function add_draggable_to_unscheduled_units(){
 				      // event info is loading
 				      $.getJSON('/campaigns/' + unit_id + '.json', {},
 					       function(json){
-						 $('#schedule').fullCalendar('renderEvent', json, true);
+                                                 var event = new CalEvent();
+                                                 event.init_json(json);
+						 $('#schedule').fullCalendar('renderEvent', event, true);
 					       });
 				    }
 				  }
@@ -42,7 +46,7 @@ function add_draggable_to_unscheduled_units(){
  * @cfg editable : boolean
  * @cfg source : reference to data structure event came from
  */
-function CalEvent(config) {
+function CalEvent() {
   this.id = undefined;
   this.title = undefined;
   this.allDay = true;
@@ -65,7 +69,7 @@ function CalEvent(config) {
     this.editable = json.campaign.editable;
     this.source = json.campaign.source;
   };
-  this.init = function(config) {
+  this.init_config = function(config) {
     this.id = config.id;
     this.title = config.title;
     this.allDay = config.allDay;
@@ -77,6 +81,4 @@ function CalEvent(config) {
     this.editable = config.editable;
     this.source = config.source;
   };
-
-  this.init(config);
 }

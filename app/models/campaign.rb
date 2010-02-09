@@ -1,4 +1,5 @@
 class Campaign < ActiveRecord::Base
+  require 'FullCalendar'
   validate :must_end_after_start, :must_have_start_if_have_end
   validates_presence_of :title
 
@@ -13,14 +14,19 @@ class Campaign < ActiveRecord::Base
       errors.add_to_base("Whoa buddy! You're going to need a start date if you intend to have an end date")
     end
   end
+
+  def to_fullcalendar_event 
+    return FullCalendar::Event.new @id, @title, @start_date, @end_date, nil, true, nil, true, nil
+  end
 end
+
 
 
 # == Schema Information
 #
 # Table name: campaigns
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer         not null, primary key
 #  title      :string(255)
 #  created_at :datetime
 #  updated_at :datetime

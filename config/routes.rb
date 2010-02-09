@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'campaigns/scheduled', :controller => 'campaigns', :action => 'scheduled'
   map.resources :campaigns
 
 

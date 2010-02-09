@@ -7,6 +7,7 @@
 #   column: value
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -29,5 +30,6 @@
 #  created_at          :datetime
 #  updated_at          :datetime
 #  openid_identifier   :string(255)
+#  company             :string(255)
 #
 

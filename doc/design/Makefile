@@ -1,7 +1,17 @@
-all: uml produce
-uml:
-	make -C uml/
 
-produce: uml
+all: produce
+
+uml:
+	make -C uml/ all
+
+all: uml design.pdf
+
+pdf: produce
+	evince design.pdf
+
+produce : design.pdf
+
+design.pdf: design.tex uml 
 	pdflatex design
-	pdflatex design
+
+.PHONY: uml all

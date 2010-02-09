@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -38,5 +39,6 @@ end
 #  created_at          :datetime
 #  updated_at          :datetime
 #  openid_identifier   :string(255)
+#  company             :string(255)
 #
 
