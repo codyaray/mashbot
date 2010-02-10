@@ -95,7 +95,24 @@ reject our request. \\
 }
 
 \begin{document}
+
+\begin{titlepage}
 \maketitle
+\end{titlepage}
+
+\section*{Revision History}
+\begin{tabular}{|p{2in}|l|l|l|}
+  \hline
+  \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
+  \hline \hline
+  George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
+  Salerno & 9 February 2010 & Initial Version & 1.0 \\
+  \hline
+\end{tabular}
+
+\clearpage
+\tableofcontents
+\clearpage
 
 \section{Introduction}
 \subsection{Background}
@@ -168,7 +185,7 @@ integration testing, each test case must:
 \subsection{Exit Criteria}
 \begin{itemize}
   \item All top priority tests pass | success
-  \item One top priority test fails | failure
+  \item At least one top priority test fails | failure
 \end{itemize}
 
 \section{Testing Participants}
