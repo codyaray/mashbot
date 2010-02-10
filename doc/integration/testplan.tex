@@ -2,6 +2,7 @@
 \usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{hanging}
+\usepackage{perltex}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
@@ -19,12 +20,33 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
+\newcommand{\Feature}[4]{
+Feature: #1 \\
+	#2 multiple serivces\\
+	as a #3 \\
+	#4 \\
+}
+
+\perlnewcommand{\listsomething}[1]{
+	$returning = "";
+	foreach(@_[0]){
+		$returning = $returning . $_;
+	}
+	return returning;
+}
+
+\newcommand{\Scenario}[2]{
+Scenario: #1
+	Given that I have sent a request \\
+	And the authentication credentials are valid \\
+	\listsomething{1,2,3}
+}
+
 \newcommand{\CoreTestCases}[8]{
 \begin{hangparas}{0.25in}{1}
-Feature: #1 #2 \\
-	#1 a #2  #7 multiple services \\
-	As a client \\
-	#8
+	\Feature{#1 #2}{#1 a #2 #7}	{client}{#8}
+
+	\Scenario{Hello}{A}
 
 Scenario: #1ing a #2 #7 #3 \\
 	Given that I have sent a request \\
@@ -193,9 +215,7 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsubsection{Feature: Push Status}
 	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at 
 	least the status field in the object model}{And I have not filled in at 
-	  least the status field in the object model}{to}{I want to be able to get 
-		the ids for each individual status posted to each service that I 
-		  specify.}
+	  least the status field in the object model}{to}{I want to be able to get the ids for each individual status posted to each service that I specify.}
 
 \subsubsection{Feature: Pull Status}
 	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{}{}{from}{I want to be able 
