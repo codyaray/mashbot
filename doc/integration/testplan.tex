@@ -19,25 +19,24 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
-\newcommand{\CoreTestCases}[6]{
+\newcommand{\CoreTestCases}[8]{
 \begin{hangparas}{0.25in}{1}
 Feature: #1 #2 \\
-	#1 a #2 to multiple services \\
+	#1 a #2  #7 multiple services \\
 	As a client \\
-	I want to be able to get the ids for each individual #2 post to each  \\
-	service that I specify. \\
+	#8
 
-Scenario: #1ing a #2 to #3 \\
+Scenario: #1ing a #2 #7 #3 \\
 	Given that I have sent a request \\
 	And the authentication credentials are valid \\
 	#5 \\
 	And I have provided authentication credentials for #3 \\
 	And Those credentials are valid for #3 \\
 	And I have indicated an association with the service #3 \\
-	Then there will be a #2 posted on behalf of the user whose credentials  \\
-	were provided to #3 \\
+	Then there will be a #2 posted on behalf of the user whose credentials were 
+	provided to #3 \\
 
-Scenario: #1ing a #2 to #3 and #4 \\
+Scenario: #1ing a #2 #7 #3 and #4 \\
 	Given that I have sent a request \\
 	And the authentication credentials are valid \\
 	#5 \\
@@ -47,8 +46,8 @@ Scenario: #1ing a #2 to #3 and #4 \\
 	And I have provided authentication credentials for #4 \\
 	And Those credentials are valid for #4 \\
 	And I have indicated an association with the service #4 \\
-	Then there will be a #2 posted on behalf of the user whose credentials  \\
-	were provided to #3 and #4 \\
+	Then there will be a #2 #1ed #7 services on behalf of the user whose 
+	credentials were provided to #3 and #4 \\
 
 Scenario: #1ing a #2 to #3 and #4 where the required  \\
 information for one or both is not present. \\
@@ -61,7 +60,7 @@ information for one or both is not present. \\
 	And I have provided authentication credentials for #4 \\
 	And Those credentials are valid for #4 \\
 	And I have indicated an association with the service #4 \\
-	Then there will be an error will be return to me indicating that required  \\
+	Then there will be an error will be return to me indicating that required 
 	information was not present. \\
 
 Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  \\
@@ -75,7 +74,7 @@ authentication credentials are invalid. \\
 	And I have provided authentication credentials for #4 \\
 	And Those credentials are not valid for #4 \\
 	And I have indicated an association with the service #4 \\
-	Then there will be an error will be return to me indicating that the  \\
+	Then there will be an error will be return to me indicating that the
 	particular authentication information was not valid.  \\
 
 Scenario: #1ing a #2 to #3 and #4 where one or both services  \\
@@ -89,8 +88,8 @@ reject our request. \\
 	And I have provided authentication credentials for #4 \\
 	And Those credentials are valid for #4 \\
 	And I have indicated an association with the service #4 \\
-	Then there will be a #2 posted on behalf of the user whose credentials  \\
-	were provided to #3 and #4 \\
+	Then there will be an error returned to the user indicating which request
+	succeeded and which requests failed. \\
 \end{hangparas}
 }
 
@@ -209,41 +208,111 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsection{Publishing and Aggregation Platform}
 
 \subsubsection{Feature: Push Status}
-
-	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
-	the status field in the object model}{And I have not filled in at least the 
-		status field in the object model} 
+	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at 
+	least the status field in the object model}{And I have not filled in at 
+	  least the status field in the object model}{to}{I want to be able to get 
+		the ids for each individual status posted to each service that I 
+		  specify.}
 
 \subsubsection{Feature: Pull Status}
-	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at least 
-	the status field in the object model}{And I have not filled in at least the 
-		status field in the object model} 
+	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{}{}{from}{I want to be able 
+	  to get a status from each service that I specify.}
 
 \subsubsection{Feature: Edit Status}
-	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{And I have filled in at least 
-	the status field in the object model}{And I have not filled in at least the 
-		status field in the object model}
+	\CoreTestCases{Edit}{Status}{Twitter}{Facebook}{And I have filled in at 
+	 least the relevant ids for each service \\ And I have filled in the status 
+	   field in the object model}{And I have not filled in at least the status 
+		 field in the object model or all relevant ids for each specified 
+		   service are not present}{to}{I want to be able to get the ids for 
+			 each edited status post for each service that I specify.}
 
 \subsubsection{Feature: Delete Status}
-	\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{And I have filled in at 
-	least the status field in the object model}{And I have not filled in at least 
-		the status field in the object model}
+	\CoreTestCases{Delete}{Status}{Twitter}{Facebook}{And I have filled in the 
+	  status  ids for services which you would like to delete statuses 
+		from.}{And I have not filled in status ids for all services which I 
+		  would like to delete statuses from.}{from}{I want to be able to get 
+			the ids for each deleted status post for each service that I 
+			  specify.}
 
 \subsubsection{Feature: Push Blog}
+	\CoreTestCases{Push}{Blog}{Blogger}{Tumblr}{And I have filled in at least 
+	the text and title fields in the object model}{And I have not filled in at 
+	  least the text and title fields in the object model}{to}{I want to be able 
+		to get the ids for each individual blog posted to each service that I 
+		  specify.}
 
 \subsubsection{Feature: Pull Blog}
+	\CoreTestCases{Pull}{Blog}{Blogger}{Tumblr}{}{}{from}{I want to be able to 
+	  get a blog entry from each service that I specify.}
+
 \subsubsection{Feature: Edit Blog}
+	\CoreTestCases{Edit}{Blog}{Blogger}{Tumblr}{And I have filled in at least 
+	 the relevant ids for each service \\ And I have filled in the text and 
+	   title fields in the object model}{And I have not filled in at least the 
+		 text and title fields in the object model or all relevant ids for each 
+		   specified service are not present}{to}{I want to be able to get the 
+			 ids for each edited blog post for each service that I specify.}
+
 \subsubsection{Feature: Delete Blog}
+	\CoreTestCases{Delete}{Blog}{Blogger}{Tumblr}{And I have filled in the 
+	  blog  ids for services which you would like to delete bloges 
+		from.}{And I have not filled in blog ids for all services which I 
+		  would like to delete bloges from.}{from}{I want to be able to get 
+			the ids for each deleted blog post for each service that I 
+			  specify.}
 
 \subsubsection{Feature: Push Picture}
+	\CoreTestCases{Push}{Picture}{Picasa}{Facebook}{And I have filled in at 
+	least the picture, title, and album fields in the object model}{And I have 
+	  not filled in at least the picture, title, and album fields in the object model}{to}{I want to 
+		be able to get the ids for each individual status posted to each service 
+		  that I specify.}
+
 \subsubsection{Feature: Pull Picture}
+	\CoreTestCases{Pull}{Picture}{Picasa}{Facebook}{}{}{from}{I want to be able 
+	  to get a status from each service that I specify.}
+
 \subsubsection{Feature: Edit Picture}
+	\CoreTestCases{Edit}{Picture}{Picasa}{Facebook}{And I have filled in at 
+	 least the relevant ids for each service \\ And I have filled in the 
+	   picture, title, and album fields in the object model}{And I have not filled in at least the 
+		 picture, title, and album fields in the object model or all relevant ids for each specified 
+		   service are not present}{to}{I want to be able to get the ids for 
+			 each edited status post for each service that I specify.}
+
 \subsubsection{Feature: Delete Picture}
+	\CoreTestCases{Delete}{Picture}{Picasa}{Facebook}{And I have filled in the 
+	  picture  ids for services which you would like to delete pictures 
+		from.}{And I have not filled in picture ids for all services which I 
+		  would like to delete pictures from.}{from}{I want to be able to get 
+			the ids for each deleted picture post for each service that I 
+			  specify.}
 
 \subsubsection{Feature: Push Video}
+	\CoreTestCases{Push}{Video}{Twitter}{Facebook}{And I have filled in at 
+	least the picture field in the object model}{And I have not filled in at 
+	  least the picture field in the object model}{to}{I want to be able to get 
+		the ids for each individual picture posted to each service that I 
+		  specify.}
+
 \subsubsection{Feature: Pull Video}
+	\CoreTestCases{Pull}{Video}{Twitter}{Facebook}{}{}{from}{I want to be able 
+	  to get a picture from each service that I specify.}
+
 \subsubsection{Feature: Edit Video}
+	\CoreTestCases{Edit}{Video}{Twitter}{Facebook}{And I have filled in at 
+	 least the relevant ids for each service \\ And I have filled in the picture 
+	   field in the object model}{And I have not filled in at least the picture 
+		 field in the object model or all relevant ids for each specified 
+		   service are not present}{to}{I want to be able to get the ids for 
+			 each edited picture post for each service that I specify.}
+
 \subsubsection{Feature: Delete Video}
+	\CoreTestCases{Delete}{Video}{Twitter}{Facebook}{And I have filled in the 
+	  video  ids for services which you would like to delete videos from.}{And I 
+		have not filled in video ids for all services which I would like to 
+		  delete videos from.}{from}{I want to be able to get the ids for each 
+			deleted video post for each service that I specify.}
 
 \subsection{Campaign Manager}
 
@@ -323,7 +392,7 @@ Scenario: Reset Password \\
   And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
 \end{hangparas}
 
-\subsection{Feature: Create Campaign}
+\subsubsection{Feature: Create Campaign}
 
 \begin{hangparas}{0.25in}{1}
 Feature: Create Campaign \\
@@ -367,7 +436,7 @@ And I press ``Create!'' \\
 Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
 \end{hangparas}
 
-\section{Feature: Schedule Campaign}
+\subsubsection{Feature: Schedule Campaign}
 
 \begin{hangparas}{0.25in}{1}
 Feature: Schedule Campaign \\
