@@ -21,97 +21,136 @@
 \date{\today}
 
 \newcommand{\Feature}[4]{
-Feature: #1 \\
-	#2 multiple serivces\\
+Feature: #1 \\ 
+	#2 multiple serivces \\
 	as a #3 \\
 	#4 \\
 }
 
-\perlnewcommand{\listsomething}[1]{
+\perlnewcommand{\requiredFields}[2]{
+	 
 	$returning = "";
-	foreach(@_[0]){
-		$returning = $returning . $_;
+	@fields = split ',', $_[0];
+	if($_[1] eq 'not'){
+		$article = ' not ';
+	} else {
+		$article = ' ';
 	}
-	return returning;
+	foreach $field (@fields) {
+		$returning = $returning . 'And I have'.$article.'filled in the 
+			  '.$field.' in the object model. \\\\';
+	} 
+	
+	return $returning;
 }
 
-\newcommand{\Scenario}[2]{
-Scenario: #1
+\perlnewcommand{\services}[2]{
+	$returning = "";
+
+	@serviceNames = split ',',$_[0];
+	@serviceArticles = split ',',$_[1];
+
+	
+	foreach $article (@serviceArticles) {
+		if($article eq 'not'){
+			$serviceArticles[$index] = ' not ';
+		} else {
+			$serviceArticles[$index] = ' ';
+		}
+	}
+
+	foreach $service (@serviceNames) {
+		$returning = $returning . 'And I have provided authentication ';
+		$returning = $returning . 'credentials for '.$service.'\\\\';
+		$returning = $returning . 'And those credentials are ';
+		$returning = $returning .  $serviceArticles[0].' valid \\\\';
+		$returning = $returning . 'And I have indicated an association with the service '.$service.'\\\\';
+	}
+
+	return $returning;
+}
+
+\newcommand{\Scenario}[6]{
+Scenario: #1 \\
 	Given that I have sent a request \\
 	And the authentication credentials are valid \\
-	\listsomething{1,2,3}
+	\requiredFields{#2}{#3}
+	\services{#4}{#5}
+	#6	
 }
 
 \newcommand{\CoreTestCases}[8]{
 \begin{hangparas}{0.25in}{1}
-	\Feature{#1 #2}{#1 a #2 #7}	{client}{#8}
 
-	\Scenario{Hello}{A}
+	\Feature{#1 #2}{#1 a #2 #6}{client}{#8}
 
-Scenario: #1ing a #2 #7 #3 \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
+	\Scenario{#1ing a #2 #7 #3}{Twitter}{ }{Twitter}{ }
+	\Scenario{#1ing a #2 #7 #3}{Twitter,Facebook}{ }{Twitter}{ } 
+
+Scenario: #1ing a #2 #7 #3 
+	Given that I have sent a request 
+	And the authentication credentials are valid 
+	#5 
+	And I have provided authentication credentials for #3 
+	And Those credentials are valid for #3 
+	And I have indicated an association with the service #3 
 	Then there will be a #2 posted on behalf of the user whose credentials were 
-	provided to #3 \\
+	provided to #3 
 
-Scenario: #1ing a #2 #7 #3 and #4 \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
+Scenario: #1ing a #2 #7 #3 and #4 
+	Given that I have sent a request 
+	And the authentication credentials are valid 
+	#5 
+	And I have provided authentication credentials for #3 
+	And Those credentials are valid for #3 
+	And I have indicated an association with the service #3 
+	And I have provided authentication credentials for #4 
+	And Those credentials are valid for #4 
+	And I have indicated an association with the service #4 
 	Then there will be a #2 #1ed #7 services on behalf of the user whose 
-	credentials were provided to #3 and #4 \\
+	credentials were provided to #3 and #4 
 
-Scenario: #1ing a #2 to #3 and #4 where the required  \\
-information for one or both is not present. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#6 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
+Scenario: #1ing a #2 to #3 and #4 where the required  
+information for one or both is not present. 
+	Given that I have sent a request 
+	And the authentication credentials are valid 
+	#6 
+	And I have provided authentication credentials for #3 
+	And Those credentials are valid for #3 
+	And I have indicated an association with the service #3 
+	And I have provided authentication credentials for #4 
+	And Those credentials are valid for #4 
+	And I have indicated an association with the service #4 
 	Then there will be an error will be return to me indicating that required 
-	information was not present. \\
+	information was not present. 
 
-Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  \\
-authentication credentials are invalid. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are not valid for #4 \\
-	And I have indicated an association with the service #4 \\
+Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  
+authentication credentials are invalid. 
+	Given that I have sent a request 
+	And the authentication credentials are valid 
+	#5 
+	And I have provided authentication credentials for #3 
+	And Those credentials are valid for #3 
+	And I have indicated an association with the service #3 
+	And I have provided authentication credentials for #4 
+	And Those credentials are not valid for #4 
+	And I have indicated an association with the service #4 
 	Then there will be an error will be return to me indicating that the
-	particular authentication information was not valid.  \\
+	particular authentication information was not valid.  
 
-Scenario: #1ing a #2 to #3 and #4 where one or both services  \\
-reject our request. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
+Scenario: #1ing a #2 to #3 and #4 where one or both services  
+reject our request. 
+	Given that I have sent a request 
+	And the authentication credentials are valid 
+	#5 
+	And I have provided authentication credentials for #3 
+	And Those credentials are valid for #3 
+	And I have indicated an association with the service #3 
+	And I have provided authentication credentials for #4 
+	And Those credentials are valid for #4 
+	And I have indicated an association with the service #4 
 	Then there will be an error returned to the user indicating which request
-	succeeded and which requests failed. \\
+	succeeded and which requests failed. 
 \end{hangparas}
 }
 
@@ -213,17 +252,16 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsection{Publishing and Aggregation Platform}
 
 \subsubsection{Feature: Push Status}
-	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at 
-	least the status field in the object model}{And I have not filled in at 
-	  least the status field in the object model}{to}{I want to be able to get the ids for each individual status posted to each service that I specify.}
+	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at least the status field in the object model}{And I have not filled in at least the status field in the object model}{to}{Hello} 
 
+	
 \subsubsection{Feature: Pull Status}
 	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{}{}{from}{I want to be able 
 	  to get a status from each service that I specify.}
 
 \subsubsection{Feature: Edit Status}
 	\CoreTestCases{Edit}{Status}{Twitter}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the status 
+	 least the relevant ids for each service  And I have filled in the status 
 	   field in the object model}{And I have not filled in at least the status 
 		 field in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -250,7 +288,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Blog}
 	\CoreTestCases{Edit}{Blog}{Blogger}{Tumblr}{And I have filled in at least 
-	 the relevant ids for each service \\ And I have filled in the text and 
+	 the relevant ids for each service  And I have filled in the text and 
 	   title fields in the object model}{And I have not filled in at least the 
 		 text and title fields in the object model or all relevant ids for each 
 		   specified service are not present}{to}{I want to be able to get the 
@@ -277,7 +315,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Picture}
 	\CoreTestCases{Edit}{Picture}{Picasa}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the 
+	 least the relevant ids for each service  And I have filled in the 
 	   picture, title, and album fields in the object model}{And I have not filled in at least the 
 		 picture, title, and album fields in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -304,7 +342,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Video}
 	\CoreTestCases{Edit}{Video}{Twitter}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the picture 
+	 least the relevant ids for each service  And I have filled in the picture 
 	   field in the object model}{And I have not filled in at least the picture 
 		 field in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -322,180 +360,180 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsubsection{Feature: Login}
 
 \begin{hangparas}{0.25in}{1}
-Feature: Not logged in header links \\
-In order to be able to log in \\
-As a user \\
-I want to be able to see the log in link in the header when I am not logged in. \\
+Feature: Not logged in header links 
+In order to be able to log in 
+As a user 
+I want to be able to see the log in link in the header when I am not logged in. 
 
-Scenario: Not Logged in Header  \\
-Given I am on the home page \\
-Then I should see ``Login'' within ``\#administrative-links'' \\
-And I should see ``Register'' within ``\#administrative-links'' \\
-And I should not see ``Logout'' within ``\#administrative-links'' \\
+Scenario: Not Logged in Header  
+Given I am on the home page 
+Then I should see ``Login'' within ``\#administrative-links'' 
+And I should see ``Register'' within ``\#administrative-links'' 
+And I should not see ``Logout'' within ``\#administrative-links'' 
 
-Feature: Login \\
-  In order to be able to log in \\
-  As a user \\
-  I want to be able to see the log in link in the header when I am not logged in. \\
+Feature: Login 
+  In order to be able to log in 
+  As a user 
+  I want to be able to see the log in link in the header when I am not logged in. 
 
-Scenario: Viewing the right header links while not logged in  \\
-  Given I am on the home page \\
-  Then I should see ``Login'' within ``\#administrative-links'' \\
-  And I should see ``Register'' within ``\#administrative-links'' \\
-  And I should not see ``Logout'' within ``\#administrative-links'' \\
+Scenario: Viewing the right header links while not logged in  
+  Given I am on the home page 
+  Then I should see ``Login'' within ``\#administrative-links'' 
+  And I should see ``Register'' within ``\#administrative-links'' 
+  And I should not see ``Logout'' within ``\#administrative-links'' 
 
 
-Scenario: Registering a new account \\
-Given I am on the home page \\
-And there is no user using the email address ``bloo@example.net'' \\
-And I follow ``Register'' \\
-And I fill in ``Bloo'' for ``Login'' \\
-And I fill in ``bloo@example.net'' for ``Email'' \\
-And I fill in ``bloospassword'' for ``Password'' \\
-And I fill in ``bloospassword'' for ``Password confirmation'' \\
-And I fill in ``Bloo Corp'' for ``Company'' \\
-And I press ``Register'' \\
-Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' \\
+Scenario: Registering a new account 
+Given I am on the home page 
+And there is no user using the email address ``bloo@example.net'' 
+And I follow ``Register'' 
+And I fill in ``Bloo'' for ``Login'' 
+And I fill in ``bloo@example.net'' for ``Email'' 
+And I fill in ``bloospassword'' for ``Password'' 
+And I fill in ``bloospassword'' for ``Password confirmation'' 
+And I fill in ``Bloo Corp'' for ``Company'' 
+And I press ``Register'' 
+Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' 
 
-Scenario: Logging In \\
-Given I am on the home page \\
-And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-When I follow ``Login'' within ``\#administrative-links'' \\
-And I fill in ``pojo'' for ``Login'' \\
-And I fill in ``bumble\_bee1'' for ``Password'' \\
-And I press ``Login'' \\
-Then I should see ``pojo'' within ``\#administrative-links'' \\
-And I should see ``Logout'' within ``\#administrative-links'' \\
-And I should see ``My Account'' within ``\#administrative-links'' \\
-And I should see ``Bloo Corp'' within ``.title'' \\
+Scenario: Logging In 
+Given I am on the home page 
+And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+When I follow ``Login'' within ``\#administrative-links'' 
+And I fill in ``pojo'' for ``Login'' 
+And I fill in ``bumble\_bee1'' for ``Password'' 
+And I press ``Login'' 
+Then I should see ``pojo'' within ``\#administrative-links'' 
+And I should see ``Logout'' within ``\#administrative-links'' 
+And I should see ``My Account'' within ``\#administrative-links'' 
+And I should see ``Bloo Corp'' within ``.title'' 
 
-Scenario: Wrong Password \\
-  Given I am on the home page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-  When I follow ``Login'' within ``\#administrative-links'' \\
-  And I fill in ``pojo'' for ``Login'' \\
-  And I fill in ``omgwrongpassword'' for ``Password'' \\
-  And I press ``Login'' \\
-  Then I should see ``Password is not valid'' \\
+Scenario: Wrong Password 
+  Given I am on the home page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+  When I follow ``Login'' within ``\#administrative-links'' 
+  And I fill in ``pojo'' for ``Login'' 
+  And I fill in ``omgwrongpassword'' for ``Password'' 
+  And I press ``Login'' 
+  Then I should see ``Password is not valid'' 
 
-Scenario: Wrong Login \\
-  Given I am on the home page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-  When I follow ``Login'' within ``\#administrative-links'' \\
-  And I fill in ``notpojo'' for ``Login'' \\
-  And I fill in ``bumble\_bee1'' for ``Password'' \\
-  And I press ``Login'' \\
-  Then I should see ``Login is not valid'' \\
+Scenario: Wrong Login 
+  Given I am on the home page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+  When I follow ``Login'' within ``\#administrative-links'' 
+  And I fill in ``notpojo'' for ``Login'' 
+  And I fill in ``bumble\_bee1'' for ``Password'' 
+  And I press ``Login'' 
+  Then I should see ``Login is not valid'' 
 
-Scenario: Reset Password \\
-  Given I am on the login page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' \\
-  When I follow ``Forgot Password'' within ``\#administrative-links'' \\
-  Then I should see ``A link to reset your password has been emailed to you.'' \\
-  And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
+Scenario: Reset Password 
+  Given I am on the login page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' 
+  When I follow ``Forgot Password'' within ``\#administrative-links'' 
+  Then I should see ``A link to reset your password has been emailed to you.'' 
+  And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. 
 \end{hangparas}
 
 \subsubsection{Feature: Create Campaign}
 
 \begin{hangparas}{0.25in}{1}
-Feature: Create Campaign \\
-In order to create a campaign \\
-As a user \\
-I want to create campaigns that will be able to hold content for publishing. \\
+Feature: Create Campaign 
+In order to create a campaign 
+As a user 
+I want to create campaigns that will be able to hold content for publishing. 
 
-Scenario: Creating a campaign \\
-Given pojo is logged in \\
-When I go to the create campaign page \\
-And I fill in ``Amazing Campaign'' for ``Title'' \\
-And I fill in ``01/15/2100'' for ``Start date'' \\
-And I fill in ``02/14/2100'' for ``End date''   \\
-And I press ``Create!'' \\
-Then I should see ``Amazing Campaign'' \\
-And I should see ``01/15/2100'' \\
-And I should see ``02/14/2100'' \\
+Scenario: Creating a campaign 
+Given pojo is logged in 
+When I go to the create campaign page 
+And I fill in ``Amazing Campaign'' for ``Title'' 
+And I fill in ``01/15/2100'' for ``Start date'' 
+And I fill in ``02/14/2100'' for ``End date''   
+And I press ``Create!'' 
+Then I should see ``Amazing Campaign'' 
+And I should see ``01/15/2100'' 
+And I should see ``02/14/2100'' 
 
-Scenario: Creating a campaign \\
-Given pojo is logged in \\
-When I go to the create campaign page \\
-And I fill in ``Unfail Campaign'' for ``Title'' \\
-And I press ``Create!'' \\
-Then I should see ``Unfail Campaign'' \\
+Scenario: Creating a campaign 
+Given pojo is logged in 
+When I go to the create campaign page 
+And I fill in ``Unfail Campaign'' for ``Title'' 
+And I press ``Create!'' 
+Then I should see ``Unfail Campaign'' 
 
-Scenario: Validate sane start and end dates: start should be before end. \\
-Given pojo is logged in \\
-When I go to the create campaign page \\
-And I fill in ``Fail Campaign'' for ``Title'' \\
-And I fill in ``01/15/2100'' for ``Start date'' \\
-And I fill in ``01/14/2100'' for ``End date'' \\
-And I press ``Create!'' \\
-Then I should see ``Hold up! You can't end something before you start it!'' \\
+Scenario: Validate sane start and end dates: start should be before end. 
+Given pojo is logged in 
+When I go to the create campaign page 
+And I fill in ``Fail Campaign'' for ``Title'' 
+And I fill in ``01/15/2100'' for ``Start date'' 
+And I fill in ``01/14/2100'' for ``End date'' 
+And I press ``Create!'' 
+Then I should see ``Hold up! You can't end something before you start it!'' 
 
-Scenario: Make sure you can't have an end date without a start date. \\
-Given pojo is logged in \\
-When I go to the create campaign page \\
-And I fill in ``Fail Campaign'' for ``Title'' \\
-And I fill in ``01/14/2100'' for ``End date'' \\
-And I press ``Create!'' \\
-Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' \\
+Scenario: Make sure you can't have an end date without a start date. 
+Given pojo is logged in 
+When I go to the create campaign page 
+And I fill in ``Fail Campaign'' for ``Title'' 
+And I fill in ``01/14/2100'' for ``End date'' 
+And I press ``Create!'' 
+Then I should see ``Whoa buddy! You're going to need a start date if you intend to have an end date'' 
 \end{hangparas}
 
 \subsubsection{Feature: Schedule Campaign}
 
 \begin{hangparas}{0.25in}{1}
-Feature: Schedule Campaign \\
-In order to schedule campaigns \\
-As a user \\
-I want to schedule and manage the start and end time of campaigns. \\
+Feature: Schedule Campaign 
+In order to schedule campaigns 
+As a user 
+I want to schedule and manage the start and end time of campaigns. 
 
-Scenario: Unscheduled Campaign List \\
-  Given pojo is logged in \\
-  And I have campaigns titled Twitterblast, Social Network Blitz \\
-  When I go to the schedule page \\
-  Then I should see ``Twitterblast'' \\
-  And I should see ``Social Network Blitz'' \\
+Scenario: Unscheduled Campaign List 
+  Given pojo is logged in 
+  And I have campaigns titled Twitterblast, Social Network Blitz 
+  When I go to the schedule page 
+  Then I should see ``Twitterblast'' 
+  And I should see ``Social Network Blitz'' 
   
-Scenario: Create a new blog post \\
-  Given jsmith is logged in \\
-  When I go to the create text post page \\
+Scenario: Create a new blog post 
+  Given jsmith is logged in 
+  When I go to the create text post page 
   And I fill in ``My new blog!'' for ``Title''
-  And I fill in ``I'm so awesome.. listen to me!'' for ``Body'' \\
-  And I press ``Create!'' \\
-  Then I should see ``My new blog!'' \\
+  And I fill in ``I'm so awesome.. listen to me!'' for ``Body'' 
+  And I press ``Create!'' 
+  Then I should see ``My new blog!'' 
   
-Scenario: Create a new photo post \\
-  Given jsmith is logged in \\
-  When I go to the create photo post page \\
-  And I fill in ``ACME in London'' \\
-  And I upload an image file in ``Photo'' \\
-  And I fill in ``travel, london'' for ``Tags'' \\
-  And I press ``Create!'' \\
-  Then I should see ``XYZ Corp in London'' \\
+Scenario: Create a new photo post 
+  Given jsmith is logged in 
+  When I go to the create photo post page 
+  And I fill in ``ACME in London'' 
+  And I upload an image file in ``Photo'' 
+  And I fill in ``travel, london'' for ``Tags'' 
+  And I press ``Create!'' 
+  Then I should see ``XYZ Corp in London'' 
   
-  Scenario: Create a new video post \\
-    Given jsmith is logged in \\
-    When I go to the create video post page \\
-    And I fill in ``ACME's new Widget'' \\
-    And I upload a video file in ``Video'' \\
-    And I press ``Create!'' \\
-    Then I should see ``ACME's new Widget'' \\
+  Scenario: Create a new video post 
+    Given jsmith is logged in 
+    When I go to the create video post page 
+    And I fill in ``ACME's new Widget'' 
+    And I upload a video file in ``Video'' 
+    And I press ``Create!'' 
+    Then I should see ``ACME's new Widget'' 
   
-  Scenario: Create a new status post \\
-    Given jsmith is logged in \\
-    When I go to the create status post page \\
-    And I fill in ``Visiting a new client in Beijing.'' \\
-    And I upload a video file in ``Status'' \\
-    And I press ``Create!'' \\
-    Then I should see ``Visiting a new client in Beijing.'' \\
+  Scenario: Create a new status post 
+    Given jsmith is logged in 
+    When I go to the create status post page 
+    And I fill in ``Visiting a new client in Beijing.'' 
+    And I upload a video file in ``Status'' 
+    And I press ``Create!'' 
+    Then I should see ``Visiting a new client in Beijing.'' 
 
-  Scenario: Schedule a blog post \\
-    Given jsmith is logged in \\
-    And there is a blog post with the title ``My new blog!'' \\
-    When I go to the schedule page \\
-    And I click ``Schedule'' \\
+  Scenario: Schedule a blog post 
+    Given jsmith is logged in 
+    And there is a blog post with the title ``My new blog!'' 
+    When I go to the schedule page 
+    And I click ``Schedule'' 
     And I fill in ``02/20/10'' for ``Date''
     And I fill in ``01:23" for ``Time''
-    And I press ``Schedule!'' \\
-    Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' \\
+    And I press ``Schedule!'' 
+    Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' 
 \end{hangparas}
 
 \end{document}
