@@ -3,6 +3,15 @@
 \usepackage{hyperref}
 \usepackage{hanging}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+% The following is needed in order to make the code compatible
+% with both latex/dvips and pdflatex.
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
 
 \title{Integration Test Plan for Mashbot} 
 
@@ -102,6 +111,38 @@ This document provides the high level testing requirements for the Mashbot Campa
 \subsection{Objectives}
 To assure integrity of the overall structure of the Mashbot Campaign Manager and Publishing and Aggregation Platform.
 \subsection{Structure}
+
+The Integration Test Plan shall contain test cases that verify
+interoperability of design architecture components specified in
+section 2.2 ”Architecture” of the Mashbot Design Document. The
+following figure depicts this high-level system architecture.
+
+\begin{centering}
+\includegraphics{uml/teststructure.1}
+\end{centering}
+
+The test cases shall provide automatically testable scenarios that
+focus on a single type of interaction between two design components.
+
+Each scenario shall consist of a precondition, an action and a
+postcondition for the scenario. The precondition shall describe the
+state of the software before the tested action occurs. This may
+require the test case implementation to artificially construct data
+structures on both sides of the interface. The action defines how the
+integration test will be triggered by running a method from one of the
+two components. The postcondition is the desired state of the software
+after the tested action. This is what should be tested in the test
+case implementation to determine success or failure.  To automate
+integration testing, each test case must:
+
+\begin{itemize}
+\item be self contained with appropriate setup and tear-down
+  mechanisms
+\item be runnable from a script or test suite
+\item not require any user interaction while running
+\item provide a single pass or fail result.
+\end{itemize}
+
 
 \subsection{Constraints}
 \begin{itemize}
