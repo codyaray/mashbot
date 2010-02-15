@@ -17,6 +17,9 @@
   \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
   \hline \hline
   George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
+  Salerno & 16 February 2010 & Revised from Reviews & 1.1 \\
+  \hline
+  George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
   Salerno & 24 November 2009 & Initial Version & 1.0 \\
   \hline
 \end{tabular}
@@ -107,7 +110,7 @@ sustainable over time.
  
 The first application of this core platform will be the campaign
 manager referenced above.  While the exact feature set is to be
-determined during the design process, expected features include a
+determined during the SCRUM design process, expected features include a
 portal to existing services where messages can be "pushed", or
 broadcast, through existing service channels. This portal will also
 allow for the collection of responses from customers, fans, critics,
@@ -335,6 +338,11 @@ the basic capabilities of social media.
   \item[0450] The system gives users the ability to reset their password. \textbf{Priority 2}
   \item[0460] Individual passwords can be reset. \textbf{Priority 2}
   \item[0470] The system only allows users to change their own
+  \item[0471] The authentication system uses persistent, single-access,
+    and perishable tokens for the authentication of various tasks. 
+  \item[0472] When logging into the system, a session is created and stored
+    on the server.
+  \item[0473] When logging out of the system, the user's session is destroyed.
   passwords. \textbf{Priority 2}
 
   \end{description}
@@ -351,6 +359,44 @@ the basic capabilities of social media.
 \item[0510] Schedule \textbf{Priority 1}
 \item[0520] User/Group Permissions \textbf{Priority 2}
 \end{description}
+
+\item[0521] \textbf{Campaign Creation} - New user accounts can be
+created. \textbf{Priority 1}
+
+\begin{description}
+\item[0522] The system may contain any number of campaigns. \textbf{Priority 1}
+\item[0523] Certain pieces of information are required to create new
+  campaigns. \textbf{Priority 1}
+\item The following information is required for any new campaign
+
+  \begin{description}
+  \item[0524] Authentication Username, API Key, or equivalent \textbf{Priority 1}
+  \item[0525] Authentication Password, API Secret, or equivalent, if available \textbf{Priority 1}
+  \end{description}
+
+\end{description}
+
+\item[0526]\textbf{Campaign Modification} The system allows users to
+  modify their campaigns once created. \textbf{Priority 1} 
+
+  \begin{description}
+
+\item[0340]The system requires that a user have logged in before
+  modifications can be made. \textbf{Priority 1}
+\item The following campaign information is modifiable by Contributors,
+  Approvers, and Publishers:
+
+  \begin{description}
+  \item[0350]Name \textbf{Priority 1}
+  \item[0360]Description \textbf{Priority 1}
+  \end{description}
+
+\item Additionally, the following information can be modified by Approvers
+  and Publishers:
+  \begin{description}
+  \item[0370]Start Date \textbf{Priority 1}
+  \item[0371]End Date \textbf{Priority 1}
+  \end{description}
 
 \item[0530] A schedule is a mapping of times to publishing actions. It may
   contain any actions a publisher can perform, and these actions are
@@ -497,14 +543,11 @@ retrieved from the database and used to request content from services.
 \begin{enumerate}
 \item A user should be able to register a new account
 \item A user should be able to log in
+\item A user's email should be verified when registering a new
+  account.
 \item A member should be able to log out
 \item A member should have a profile
 \item A member should be able to modify their profile
-\item A user's email should be verified when registering a new
-  account.
-\item An admin should be able to modify accounts
-\item An admin should be able to suspend accounts
-\item An admin should be able to delete accounts
 \item A member should be able to monitor trending topics regarding
   their campaign
 \item A member should be able to monitor facebook groups related to
@@ -513,20 +556,11 @@ retrieved from the database and used to request content from services.
   their campaigns
 \item A member should be able to see responses to blog posts related
   to the campaign.
-\item An admin should be able to perform user account actions in bulk
-\item An admin should be able to see all campaigns
-\item An admin should be able to delete any campaign
-\item An admin should be able to edit all campaigns
-\item Mashbot campaigns! campaigns should allow multiple users to
-  collaborate on a campaign
-\item Mashbot campaigns! should support multiple users
-\item A member should be able to store authentication for supported
+\item A member should be able to securely store authentication for supported
   services
 \item A member should be able to add additional services to an
   existing campaign
 \item A member should be able to delete individual campaign elements
-\item Members should have hierarchical permissions
-\item A campaign should have workflow approval process
 \item A member should be able to "unpublish" a campaign
 \item A member should be able to delete a campaign
 \item A member should be able to schedule events in bulk
@@ -542,6 +576,18 @@ retrieved from the database and used to request content from services.
 \item A member should be able to create a new campaign
 \item A member should get notified when activity occurs in a campaign
   they're working on
+\item Members should have hierarchical permissions
+\item An admin should be able to modify accounts
+\item An admin should be able to suspend accounts
+\item An admin should be able to delete accounts
+\item An admin should be able to perform user account actions in bulk
+\item An admin should be able to see all campaigns
+\item An admin should be able to delete any campaign
+\item An admin should be able to edit all campaigns
+\item A campaign should allow multiple users to
+  collaborate on a campaign
+\item A campaign should support multiple users
+\item A campaign should have workflow approval process
 \end{enumerate}
 
 \end{document}
