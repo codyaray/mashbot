@@ -242,7 +242,7 @@ submit to the Administrative Lead.
 	verifications are successful. \newline or \newline The tester is not 
 	registered in the system if any field verification is not successful. \\ 
 	\hline
-	Requirements Demonstrated & 240-320
+	Requirements & 240-320
 \end{testcase}
 
 \subsubsection{User Account Modification} % CR
@@ -251,7 +251,7 @@ submit to the Administrative Lead.
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
   Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
   Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
-	Requirements Demonstrated & 330-370
+	Requirements & 330-370
 	
 \end{testcase}
 
@@ -261,7 +261,7 @@ submit to the Administrative Lead.
   Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
   Actions              & The tester enters his username and password in the appropriate fields and submits for verification. \\ \hline
   Postconditions & The tester is logged in to the system if the verification is successful. \newline or \newline The tester is not logged in to the system if the verification is not successful. \\ \hline
-	Requirements Demonstrated & 650-660 \\ \hline
+	Requirements & 650-660 \\ \hline
 \end{testcase}
 
 
@@ -272,7 +272,7 @@ submit to the Administrative Lead.
   Actions              & The tester clicks the logout button. \\ \hline
 	Postconditions & The tester is logged out of the system and their session is 
 	destroyed. \\ \hline
-	Requirements Demonstrated & 675 \\ \hline
+	Requirements & 675 \\ \hline
 	
 \end{testcase}
 
@@ -282,7 +282,7 @@ submit to the Administrative Lead.
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
   Actions              & The tester does not take any action for a predefined amount of time. \\ \hline
   Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
-	Requirements Demonstrated & 680 \\ \hline
+	Requirements & 680 \\ \hline
 \end{testcase}
 
 \subsubsection{Campaign Creation} % JK
@@ -292,7 +292,7 @@ submit to the Administrative Lead.
   Action         & User fills out all fields presented on the ``Create'' view. \\ \hline
   Action         & User clicks submit button. \\ \hline
   Postconditions & New campaign is created. \\ \hline
-	Requirements Demonstrated & 675 \\ \hline
+	Requirements & 480-520 \\ \hline
 \end{testcase}
 \subsubsection{Campaign Modification} % JK
 \begin{testcase}
@@ -305,6 +305,7 @@ submit to the Administrative Lead.
   Action        & User presses ``Save'' button.  \\ \hline  
   Postcondition & Campaign is updated with changed fields. \\ \hline
   Postcondition & User is taken to view list of all campaigns \\ \hline
+	Requirements & 526-580 \\ \hline
 \end{testcase}
 \subsubsection{Add Campaign Content} % JK
 \begin{testcase}
@@ -319,10 +320,11 @@ submit to the Administrative Lead.
   Action        & User completes content. \\ \hline
   Postcondition & Content is added to the campaign. \\ \hline
   Postcondition & User is taken to the ``Add Content'' view. \\ \hline
+	Requirements & 585 \\ \hline
 \end{testcase}
 \subsubsection{Modify Campaign Content} % JK
 \begin{testcase}
-  Precondition  & User is logged into the Mashbot web application. \\ \hline
+	Precondition  & User is logged into the Mashbot web application. \\ \hline
   Precondition  & User is viewing a campaign. \\ \hline
   Action        & User clicks on a piece of content to edit. \\ \hline
   Reaction      & User is given the ``Edit Content'' view. \\ \hline
@@ -330,6 +332,7 @@ submit to the Administrative Lead.
   Action        & User clicks the save button. \\ \hline
   Postcondition & User is directed back to the Campaign view. \\ \hline
   Postcondition & Content is saved. \\ \hline
+	Requirements & 587 \\ \hline
 \end{testcase}
 \subsubsection{Content Scheduler} % JK
 \subsubsubsection{Schedule Content}
@@ -339,8 +342,9 @@ submit to the Administrative Lead.
   Precondition  & User is on the ``Schedule'' view. \\ \hline
   Action        & User clicks and drags a piece of content from the Content Bucket to the calendar. \\ \hline
   Postcondition & Content is scheduled for the date the date at which the user dropped the content. \\ \hline
-  Postcondition & A view is given to add the time for the date for which the content is scheduled. \\ \hline
-	Requirements Demonstrated &  \\ \hline
+	Postcondition & A view is given to add the time for the date for which the 
+	content is scheduled. \\ \hline
+	Requirements &  530-581 \\ \hline
 \end{testcase}
 \subsubsubsection{Unschedule Content}
 
@@ -350,6 +354,7 @@ submit to the Administrative Lead.
   Precondition  & At least one piece of content is already scheduled. \\ \hline
   Action        & User clicks and drags scheduled content from view to Content Bucket. \\ \hline
   Postcondition & Content is removed from the calendar and is unscheduled. \\ \hline
+	Requirements &  584 \\ \hline
 \end{testcase}
 \subsubsubsection{Edit Scheduled Time}
 
@@ -358,7 +363,9 @@ submit to the Administrative Lead.
   Precondition  & User is on the ``Schedule'' view. \\ \hline
   Action        & User clicks a piece of content on the Calendar. \\ \hline
   Postcondition & User is given the ``Edit Scheduled Time'' view. \\ \hline
+	Requirements &  583 \\ \hline
 \end{testcase}
+
 \subsubsubsection{Edit Scheduled Date}
 
 \begin{testcase}
@@ -367,12 +374,14 @@ submit to the Administrative Lead.
   Precondition  & At least one piece of content is already scheduled. \\ \hline
   Action        & User drags content from one date to another. \\ \hline
   Postcondition & Content's date is changed to date on which the content is dropped. \\ \hline
+	Requirements &  583 \\ \hline
 \end{testcase}
 \subsubsection{Content Publisher} % JK
 \begin{testcase}
   Precondition  & Content is scheduled to be published. \\ \hline
   Action        & Scheduled time of publishing occurs. \\ \hline
   Postcondition & Content is published to the service it was scheduled to be published to, and at the time it was scheduled for. \\ \hline
+	Requirements &  530 \\ \hline
 \end{testcase}
 \subsubsection{Adding External Service Account} % JK
 \begin{testcase}
@@ -382,6 +391,7 @@ submit to the Administrative Lead.
   Action        & User fills in account credentials in provided fields. \newline or \newline User affirms authentication on authentication page. \\ \hline
   Postcondition & User is approved to use the account. \\ \hline
   Postcondition & Authentication credentials are stored for future use. \\ \hline
+	Requirements &  590-610 \\ \hline
 \end{testcase}
 \end{document}
 
