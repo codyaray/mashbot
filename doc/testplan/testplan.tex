@@ -228,6 +228,8 @@ submit to the Administrative Lead.
 	  \item Preconditions - Conditions needed to initiate the test case
 	  \item Actions - The actions expected from a tester
 	  \item Post conditions - The expected outcome of the test case
+		\item Requirements Demonstrated - The requirements listed here are 
+		demonstrated by a successful completion of this test.
 	\end{itemize}
 
 \subsection{Test Cases}
@@ -236,7 +238,11 @@ submit to the Administrative Lead.
 \begin{testcase}
   Preconditions  & The user visits the Mashbot registration page in a web browser. \\ \hline
   Actions              & The tester enters a username, password, and other relevant information in the appropriate fields and submits for registration. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
+	Postconditions & The tester is registered in the system if all field 
+	verifications are successful. \newline or \newline The tester is not 
+	registered in the system if any field verification is not successful. \\ 
+	\hline
+	Requirements Demonstrated & 240-320
 \end{testcase}
 
 \subsubsection{User Account Modification} % CR
@@ -245,6 +251,8 @@ submit to the Administrative Lead.
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
   Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
   Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
+	Requirements Demonstrated & 330-370
+	
 \end{testcase}
 
 \subsubsection{Logging In} % CR
@@ -253,14 +261,19 @@ submit to the Administrative Lead.
   Preconditions  & The user has visited the Mashbot web page in a web browser. \\ \hline
   Actions              & The tester enters his username and password in the appropriate fields and submits for verification. \\ \hline
   Postconditions & The tester is logged in to the system if the verification is successful. \newline or \newline The tester is not logged in to the system if the verification is not successful. \\ \hline
+	Requirements Demonstrated & 650-660 \\ \hline
 \end{testcase}
+
 
 \subsubsection{Logging Out} % CR
 
 \begin{testcase}
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
   Actions              & The tester clicks the logout button. \\ \hline
-  Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
+	Postconditions & The tester is logged out of the system and their session is 
+	destroyed. \\ \hline
+	Requirements Demonstrated & 675 \\ \hline
+	
 \end{testcase}
 
 \subsubsection{Login Timeout} % CR
@@ -269,6 +282,7 @@ submit to the Administrative Lead.
   Preconditions  & The tester is logged into the Mashbot web application. \\ \hline
   Actions              & The tester does not take any action for a predefined amount of time. \\ \hline
   Postconditions & The tester is logged out of the system and their session is destroyed. \\ \hline
+	Requirements Demonstrated & 680 \\ \hline
 \end{testcase}
 
 \subsubsection{Campaign Creation} % JK
@@ -278,6 +292,7 @@ submit to the Administrative Lead.
   Action         & User fills out all fields presented on the ``Create'' view. \\ \hline
   Action         & User clicks submit button. \\ \hline
   Postconditions & New campaign is created. \\ \hline
+	Requirements Demonstrated & 675 \\ \hline
 \end{testcase}
 \subsubsection{Campaign Modification} % JK
 \begin{testcase}
@@ -325,6 +340,7 @@ submit to the Administrative Lead.
   Action        & User clicks and drags a piece of content from the Content Bucket to the calendar. \\ \hline
   Postcondition & Content is scheduled for the date the date at which the user dropped the content. \\ \hline
   Postcondition & A view is given to add the time for the date for which the content is scheduled. \\ \hline
+	Requirements Demonstrated &  \\ \hline
 \end{testcase}
 \subsubsubsection{Unschedule Content}
 
