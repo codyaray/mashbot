@@ -273,6 +273,7 @@ Regressions and failures will be reported to the respective team lead when they 
 	  to get a status from each service that I specify.}
 
 \subsubsection{Feature: Edit Picture}
+
 	\CoreTestCases{Edit}{Picture}{Picasa}{Facebook}{And I have filled in at 
 	 least the relevant ids for each service \\ And I have filled in the 
 	   picture, title, and album fields in the object model}{And I have not filled in at least the 
@@ -401,6 +402,7 @@ As a user \\
 I want to create campaigns that will be able to hold content for publishing. \\
 
 Scenario: Creating a campaign \\
+\includegraphics[width=\textwidth]{../mockups/create.png}
 Given pojo is logged in \\
 When I go to the create campaign page \\
 And I fill in ``Amazing Campaign'' for ``Title'' \\
@@ -445,6 +447,7 @@ As a user \\
 I want to schedule and manage the start and end time of campaigns. \\
 
 Scenario: Unscheduled Campaign List \\
+\includegraphics[width=\textwidth]{../mockups/schedule.png}
   Given pojo is logged in \\
   And I have campaigns titled Twitterblast, Social Network Blitz \\
   When I go to the schedule page \\
@@ -452,6 +455,7 @@ Scenario: Unscheduled Campaign List \\
   And I should see ``Social Network Blitz'' \\
   
 Scenario: Create a new blog post \\
+\includegraphics[width=\textwidth]{../mockups/manage-create-blog-post.png}
   Given jsmith is logged in \\
   When I go to the create text post page \\
   And I fill in ``My new blog!'' for ``Title''
@@ -460,6 +464,7 @@ Scenario: Create a new blog post \\
   Then I should see ``My new blog!'' \\
   
 Scenario: Create a new photo post \\
+\includegraphics[width=\textwidth]{../mockups/manage-create-image.png}
   Given jsmith is logged in \\
   When I go to the create photo post page \\
   And I fill in ``ACME in London'' \\
@@ -469,6 +474,7 @@ Scenario: Create a new photo post \\
   Then I should see ``XYZ Corp in London'' \\
   
   Scenario: Create a new video post \\
+\includegraphics[width=\textwidth]{../mockups/manage-create-video.png}
     Given jsmith is logged in \\
     When I go to the create video post page \\
     And I fill in ``ACME's new Widget'' \\
@@ -477,6 +483,7 @@ Scenario: Create a new photo post \\
     Then I should see ``ACME's new Widget'' \\
   
   Scenario: Create a new status post \\
+\includegraphics[width=\textwidth]{../mockups/manage-create-status-update.png}
     Given jsmith is logged in \\
     When I go to the create status post page \\
     And I fill in ``Visiting a new client in Beijing.'' \\
@@ -485,6 +492,7 @@ Scenario: Create a new photo post \\
     Then I should see ``Visiting a new client in Beijing.'' \\
 
   Scenario: Schedule a blog post \\
+\includegraphics[width=\textwidth]{../mockups/schedule-content.png}
     Given jsmith is logged in \\
     And there is a blog post with the title ``My new blog!'' \\
     When I go to the schedule page \\

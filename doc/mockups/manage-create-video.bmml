@@ -1,0 +1,60 @@
+<mockup version="1.0" skin="sketch" measuredW="1169" measuredH="1039" mockupW="1024" mockupH="1000">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="135" y="29" w="1024" h="1000" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>Mashbot%21%0Ahttp%3A//mashbot.net</text>
+      </controlProperties>
+    </control>
+    <control controlID="97" controlTypeID="com.balsamiq.mockups::Image" x="240" y="275" w="287" h="278" measuredW="77" measuredH="79" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::TabBar" x="216" y="181" w="337" h="28" measuredW="407" measuredH="100" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Dashboard%2C%20Create%2C%20Manage%2C%20Schedule%2C%20Explore</text>
+        <selectedIndex>2</selectedIndex>
+        <hrefs>dashboard%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%2Ccreate%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%26bm%3Bcreate.bmml%2Cmanage%26bm%3Bmanage.bmml%26bm%3Bmanage.bmml%26bm%3Bmanage.bmml%2Cschedule%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%26bm%3Bschedule.bmml%2Cexplore-twitter%26bm%3Bexplore-twitter.bmml%26bm%3Bexplore-twitter.bmml%26bm%3Bexplore-twitter.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22101%2C152%2C176%2C181%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22176%2C152%2C229%2C181%22%20href%3D%22create.bmml%22%20alt%3D%22create%22%20id%3D%222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22229%2C152%2C289%2C181%22%20href%3D%22manage.bmml%22%20alt%3D%22manage%22%20id%3D%222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22289%2C152%2C356%2C181%22%20href%3D%22schedule.bmml%22%20alt%3D%22schedule%22%20id%3D%222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22356%2C152%2C414%2C181%22%20href%3D%22explore-twitter.bmml%22%20alt%3D%22explore-twitter%22%20id%3D%222_4%22/%3E%0A</map>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="143" y="204" w="1016" h="-1" measuredW="100" measuredH="5" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="101" controlTypeID="com.balsamiq.mockups::MediaControls" x="328" y="477" w="-1" h="-1" measuredW="110" measuredH="36" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Title" x="230" y="112" w="-1" h="-1" measuredW="465" measuredH="62" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Thecompany%27s%20Mashbot%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="98" controlTypeID="com.balsamiq.mockups::Button" x="443" y="568" w="-1" h="-1" measuredW="68" measuredH="28" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Browse</text>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Label" x="259" y="571" w="-1" h="-1" measuredW="183" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20a%20video%20file%20to%20upload</text>
+      </controlProperties>
+    </control>
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::ProgressBar" x="253" y="522" w="261" h="20" measuredW="100" measuredH="20" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <scrollBarValue>20</scrollBarValue>
+        <indeterminate>false</indeterminate>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::SubTitle" x="233" y="219" w="-1" h="-1" measuredW="218" measuredH="40" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Videiffic%20Campaign</text>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::LinkBar" x="893" y="106" w="-1" h="-1" measuredW="169" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%2C%20Settings%2C%20Sign%20Out</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Label" x="828" y="109" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Josiah%20Kiehl</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
