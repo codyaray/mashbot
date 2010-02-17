@@ -21,79 +21,13 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
-\newcommand{\Feature}[4]{
-Feature: #1 \\ 
-	#2 multiple serivces \\
-	as a #3 \\
-	#4 \\
-}
 
-\perlnewcommand{\requiredFields}[2]{
-	 
-	$returning = "";
-	@fields = split ',', $_[0];
-	if($_[1] eq 'not'){
-		$article = ' not ';
-	} else {
-		$article = ' ';
-	}
-	foreach $field (@fields) {
-		$returning = $returning . 'And I have'.$article.'filled in the 
-			  '.$field.' in the object model. \\\\';
-	} 
-	
-	return $returning;
-}
-
-\perlnewcommand{\services}[3]{
-	$returning = "";
-
-	@serviceNames = split ',',$_[0];
-	@serviceArticles = split ',',$_[1];
-	$numServices = int($_[2]);
-
-	
-	foreach $article (@serviceArticles) {
-		if($article eq 'not'){
-			$serviceArticles[$index] = ' not ';
-		} else {
-			$serviceArticles[$index] = ' ';
-		}
-	}
-
-	foreach $service (@serviceNames) {
-	  	if($index == $numServices){
-			return $returning;
-		}
-		$returning = $returning . 'And I have provided authentication ';
-		$returning = $returning . 'credentials for '.$service.'\\\\';
-		$returning = $returning . 'And those credentials are ';
-		if(( scalar(@serviceArticles) == 1 && scalar(@serviceNames) == 1) || not scalar(@serviceArticles) == 1 ){
-			$returning = $returning .  $serviceArticles[0];
-		}
-		$returning = $returning .' valid \\\\';
-		$returning = $returning . 'And I have indicated an association with the service '.$service.'\\\\';
-	}
-
-	return $returning;
-}
-
-\newcommand{\Scenario}[6]{
-Scenario: #1 \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	\requiredFields{#2}{#3}
-	\services{#4}{#5}
-	#6	
-}
-
-\newcommand{\CoreTestCases}[6]{
+\newcommand{\CoreTestCases}[8]{
 \begin{hangparas}{0.25in}{1}
-
-	\Feature{#1 #2}{#1 a #2 #6}{client}{#6}
-
-	\Scenario{#1ing a #2 #6 #3}{#4}{}{#3}{}
-	\Scenario{#1ing a #2 #6 #3}{#4}{}{#3}{} 
+Feature: #1 #2 \\
+	#1 a #2  #7 multiple services \\
+	As a client \\
+	#8
 
 \end{hangparas}
 
@@ -214,9 +148,11 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsection{Publishing and Aggregation Platform}
 
 \subsubsection{Feature: Push Status}
-	\CoreTestCases{Push}{Status}{Twitter,Facebook}{status}{to}{I want to be able to fly to the moon} 
-
-\begin{comment}	
+	\CoreTestCases{Push}{Status}{Twitter}{Facebook}{And I have filled in at 
+	least the status field in the object model}{And I have not filled in at 
+	  least the status field in the object model}{to}{I want to be able to get 
+		the ids for each individual status posted to each service that I 
+		  specify.}
 
 \subsubsection{Feature: Pull Status}
 	\CoreTestCases{Pull}{Status}{Twitter}{Facebook}{}{}{from}{I want to be able 
