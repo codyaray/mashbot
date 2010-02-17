@@ -252,7 +252,7 @@ submit to the Administrative Lead.
 \begin{testcase}
   Preconditions  & The user visits their profile / settings page in a web browser. \\ \hline
   Actions              & The tester enters updated information in any field, except for username, and submits for update. \\ \hline
-  Postconditions & The tester is registered in the system if all field verifications are successful. \newline or \newline The tester is not registered in the system if any field verification is not successful. \\ \hline
+  Postconditions & The modified information is stored in the system if all field verifications are successful. \\ \hline
 	Requirements & 330-370
 	
 \end{testcase}
@@ -293,7 +293,7 @@ submit to the Administrative Lead.
   Action         & User selects ``Create'' tab.  \\ \hline
   Action         & User fills out all fields presented on the ``Create'' view. \\ \hline
   Action         & User clicks submit button. \\ \hline
-  Postconditions & New campaign is created. \\ \hline
+  Postconditions & New campaign is created and now resides in the system. \\ \hline
 	Requirements & 480-520 \\ \hline
 \end{testcase}
 \subsubsection{Campaign Modification} % JK
@@ -333,7 +333,7 @@ submit to the Administrative Lead.
   Action        & User completes changes. \\ \hline
   Action        & User clicks the save button. \\ \hline
   Postcondition & User is directed back to the Campaign view. \\ \hline
-  Postcondition & Content is saved. \\ \hline
+  Postcondition & Content is saved with modifications. \\ \hline
 	Requirements & 587 \\ \hline
 \end{testcase}
 \subsubsection{Content Scheduler} % JK
@@ -346,6 +346,7 @@ submit to the Administrative Lead.
   Postcondition & Content is scheduled for the date the date at which the user dropped the content. \\ \hline
 	Postcondition & A view is given to add the time for the date for which the 
 	content is scheduled. \\ \hline
+	Postcondition & The content is posted to the web services specified within a reasonable margin of time after the changes are made. \\ \hline
 	Requirements &  530-581 \\ \hline
 \end{testcase}
 \subsubsubsection{Unschedule Content}
@@ -356,6 +357,7 @@ submit to the Administrative Lead.
   Precondition  & At least one piece of content is already scheduled. \\ \hline
   Action        & User clicks and drags scheduled content from view to Content Bucket. \\ \hline
   Postcondition & Content is removed from the calendar and is unscheduled. \\ \hline
+  Postcondition & Content is not delivered at the time it was originally scheduled and is never delivered. \\ \hline
 	Requirements &  584 \\ \hline
 \end{testcase}
 \subsubsubsection{Edit Scheduled Time}
@@ -364,7 +366,9 @@ submit to the Administrative Lead.
   Precondition  & User is logged in to the Mashbot web application. \\ \hline
   Precondition  & User is on the ``Schedule'' view. \\ \hline
   Action        & User clicks a piece of content on the Calendar. \\ \hline
-  Postcondition & User is given the ``Edit Scheduled Time'' view. \\ \hline
+  Postcondition & User is given the ``Edit Scheduled Time'' view and is allowed to enter a new time. \\ \hline
+  Postcondition & The content is delivered to the appropriate services at the new time. \\ \hline
+  Postcondition & The content is not delivered at the previously scheduled time. \\ \hline
 	Requirements &  583 \\ \hline
 \end{testcase}
 
@@ -376,6 +380,8 @@ submit to the Administrative Lead.
   Precondition  & At least one piece of content is already scheduled. \\ \hline
   Action        & User drags content from one date to another. \\ \hline
   Postcondition & Content's date is changed to date on which the content is dropped. \\ \hline
+  Postcondition & The content is delivered to the appropriate services on the new date. \\ \hline
+  Postcondition & The content is not delivered on the previously scheduled date. \\ \hline
 	Requirements &  583 \\ \hline
 \end{testcase}
 \subsubsection{Content Publisher} % JK

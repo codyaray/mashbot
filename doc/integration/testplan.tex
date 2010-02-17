@@ -2,6 +2,8 @@
 \usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{hanging}
+\usepackage{perltex}
+\usepackage{verbatim}
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
@@ -19,6 +21,7 @@
   Cody Ray \and Vito Salerno}
 \date{\today}
 
+
 \newcommand{\CoreTestCases}[8]{
 \begin{hangparas}{0.25in}{1}
 Feature: #1 #2 \\
@@ -26,71 +29,8 @@ Feature: #1 #2 \\
 	As a client \\
 	#8
 
-Scenario: #1ing a #2 #7 #3 \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	Then there will be a #2 posted on behalf of the user whose credentials were 
-	provided to #3 \\
-
-Scenario: #1ing a #2 #7 #3 and #4 \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
-	Then there will be a #2 #1ed #7 services on behalf of the user whose 
-	credentials were provided to #3 and #4 \\
-
-Scenario: #1ing a #2 to #3 and #4 where the required  \\
-information for one or both is not present. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#6 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
-	Then there will be an error will be return to me indicating that required 
-	information was not present. \\
-
-Scenario: #1ing a #2 to #3 and #4 where one or both of sets of  \\
-authentication credentials are invalid. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are not valid for #4 \\
-	And I have indicated an association with the service #4 \\
-	Then there will be an error will be return to me indicating that the
-	particular authentication information was not valid.  \\
-
-Scenario: #1ing a #2 to #3 and #4 where one or both services  \\
-reject our request. \\
-	Given that I have sent a request \\
-	And the authentication credentials are valid \\
-	#5 \\
-	And I have provided authentication credentials for #3 \\
-	And Those credentials are valid for #3 \\
-	And I have indicated an association with the service #3 \\
-	And I have provided authentication credentials for #4 \\
-	And Those credentials are valid for #4 \\
-	And I have indicated an association with the service #4 \\
-	Then there will be an error returned to the user indicating which request
-	succeeded and which requests failed. \\
 \end{hangparas}
+
 }
 
 \begin{document}
@@ -220,7 +160,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Status}
 	\CoreTestCases{Edit}{Status}{Twitter}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the status 
+	 least the relevant ids for each service  And I have filled in the status 
 	   field in the object model}{And I have not filled in at least the status 
 		 field in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -247,7 +187,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Blog}
 	\CoreTestCases{Edit}{Blog}{Blogger}{Tumblr}{And I have filled in at least 
-	 the relevant ids for each service \\ And I have filled in the text and 
+	 the relevant ids for each service  And I have filled in the text and 
 	   title fields in the object model}{And I have not filled in at least the 
 		 text and title fields in the object model or all relevant ids for each 
 		   specified service are not present}{to}{I want to be able to get the 
@@ -275,7 +215,7 @@ Regressions and failures will be reported to the respective team lead when they 
 \subsubsection{Feature: Edit Picture}
 
 	\CoreTestCases{Edit}{Picture}{Picasa}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the 
+	 least the relevant ids for each service  And I have filled in the 
 	   picture, title, and album fields in the object model}{And I have not filled in at least the 
 		 picture, title, and album fields in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -302,7 +242,7 @@ Regressions and failures will be reported to the respective team lead when they 
 
 \subsubsection{Feature: Edit Video}
 	\CoreTestCases{Edit}{Video}{Twitter}{Facebook}{And I have filled in at 
-	 least the relevant ids for each service \\ And I have filled in the picture 
+	 least the relevant ids for each service  And I have filled in the picture 
 	   field in the object model}{And I have not filled in at least the picture 
 		 field in the object model or all relevant ids for each specified 
 		   service are not present}{to}{I want to be able to get the ids for 
@@ -314,83 +254,84 @@ Regressions and failures will be reported to the respective team lead when they 
 		have not filled in video ids for all services which I would like to 
 		  delete videos from.}{from}{I want to be able to get the ids for each 
 			deleted video post for each service that I specify.}
+\end{comment}
 
 \subsection{Campaign Manager}
 
 \subsubsection{Feature: Login}
 
 \begin{hangparas}{0.25in}{1}
-Feature: Not logged in header links \\
-In order to be able to log in \\
-As a user \\
-I want to be able to see the log in link in the header when I am not logged in. \\
+Feature: Not logged in header links 
+In order to be able to log in 
+As a user 
+I want to be able to see the log in link in the header when I am not logged in. 
 
-Scenario: Not Logged in Header  \\
-Given I am on the home page \\
-Then I should see ``Login'' within ``\#administrative-links'' \\
-And I should see ``Register'' within ``\#administrative-links'' \\
-And I should not see ``Logout'' within ``\#administrative-links'' \\
+Scenario: Not Logged in Header  
+Given I am on the home page 
+Then I should see ``Login'' within ``\#administrative-links'' 
+And I should see ``Register'' within ``\#administrative-links'' 
+And I should not see ``Logout'' within ``\#administrative-links'' 
 
-Feature: Login \\
-  In order to be able to log in \\
-  As a user \\
-  I want to be able to see the log in link in the header when I am not logged in. \\
+Feature: Login 
+  In order to be able to log in 
+  As a user 
+  I want to be able to see the log in link in the header when I am not logged in. 
 
-Scenario: Viewing the right header links while not logged in  \\
-  Given I am on the home page \\
-  Then I should see ``Login'' within ``\#administrative-links'' \\
-  And I should see ``Register'' within ``\#administrative-links'' \\
-  And I should not see ``Logout'' within ``\#administrative-links'' \\
+Scenario: Viewing the right header links while not logged in  
+  Given I am on the home page 
+  Then I should see ``Login'' within ``\#administrative-links'' 
+  And I should see ``Register'' within ``\#administrative-links'' 
+  And I should not see ``Logout'' within ``\#administrative-links'' 
 
 
-Scenario: Registering a new account \\
-Given I am on the home page \\
-And there is no user using the email address ``bloo@example.net'' \\
-And I follow ``Register'' \\
-And I fill in ``Bloo'' for ``Login'' \\
-And I fill in ``bloo@example.net'' for ``Email'' \\
-And I fill in ``bloospassword'' for ``Password'' \\
-And I fill in ``bloospassword'' for ``Password confirmation'' \\
-And I fill in ``Bloo Corp'' for ``Company'' \\
-And I press ``Register'' \\
-Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' \\
+Scenario: Registering a new account 
+Given I am on the home page 
+And there is no user using the email address ``bloo@example.net'' 
+And I follow ``Register'' 
+And I fill in ``Bloo'' for ``Login'' 
+And I fill in ``bloo@example.net'' for ``Email'' 
+And I fill in ``bloospassword'' for ``Password'' 
+And I fill in ``bloospassword'' for ``Password confirmation'' 
+And I fill in ``Bloo Corp'' for ``Company'' 
+And I press ``Register'' 
+Then there should be a user with the email ``bloo@example.net'' and the username ``bloo'' from the company ``Bloo Corp'' 
 
-Scenario: Logging In \\
-Given I am on the home page \\
-And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-When I follow ``Login'' within ``\#administrative-links'' \\
-And I fill in ``pojo'' for ``Login'' \\
-And I fill in ``bumble\_bee1'' for ``Password'' \\
-And I press ``Login'' \\
-Then I should see ``pojo'' within ``\#administrative-links'' \\
-And I should see ``Logout'' within ``\#administrative-links'' \\
-And I should see ``My Account'' within ``\#administrative-links'' \\
-And I should see ``Bloo Corp'' within ``.title'' \\
+Scenario: Logging In 
+Given I am on the home page 
+And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+When I follow ``Login'' within ``\#administrative-links'' 
+And I fill in ``pojo'' for ``Login'' 
+And I fill in ``bumble\_bee1'' for ``Password'' 
+And I press ``Login'' 
+Then I should see ``pojo'' within ``\#administrative-links'' 
+And I should see ``Logout'' within ``\#administrative-links'' 
+And I should see ``My Account'' within ``\#administrative-links'' 
+And I should see ``Bloo Corp'' within ``.title'' 
 
-Scenario: Wrong Password \\
-  Given I am on the home page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-  When I follow ``Login'' within ``\#administrative-links'' \\
-  And I fill in ``pojo'' for ``Login'' \\
-  And I fill in ``omgwrongpassword'' for ``Password'' \\
-  And I press ``Login'' \\
-  Then I should see ``Password is not valid'' \\
+Scenario: Wrong Password 
+  Given I am on the home page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+  When I follow ``Login'' within ``\#administrative-links'' 
+  And I fill in ``pojo'' for ``Login'' 
+  And I fill in ``omgwrongpassword'' for ``Password'' 
+  And I press ``Login'' 
+  Then I should see ``Password is not valid'' 
 
-Scenario: Wrong Login \\
-  Given I am on the home page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' \\
-  When I follow ``Login'' within ``\#administrative-links'' \\
-  And I fill in ``notpojo'' for ``Login'' \\
-  And I fill in ``bumble\_bee1'' for ``Password'' \\
-  And I press ``Login'' \\
-  Then I should see ``Login is not valid'' \\
+Scenario: Wrong Login 
+  Given I am on the home page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1'' from the company ``Bloo Corp'' 
+  When I follow ``Login'' within ``\#administrative-links'' 
+  And I fill in ``notpojo'' for ``Login'' 
+  And I fill in ``bumble\_bee1'' for ``Password'' 
+  And I press ``Login'' 
+  Then I should see ``Login is not valid'' 
 
-Scenario: Reset Password \\
-  Given I am on the login page \\
-  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' \\
-  When I follow ``Forgot Password'' within ``\#administrative-links'' \\
-  Then I should see ``A link to reset your password has been emailed to you.'' \\
-  And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. \\
+Scenario: Reset Password 
+  Given I am on the login page 
+  And there is a user named ``pojo'' with the email ``example@pojo.com'', with the password ``bumble\_bee1" from the company ``Bloo Corp'' 
+  When I follow ``Forgot Password'' within ``\#administrative-links'' 
+  Then I should see ``A link to reset your password has been emailed to you.'' 
+  And an email should be sent to ``example@pojo.com.'' with a link to a page to change your password. 
 \end{hangparas}
 
 \subsubsection{Feature: Create Campaign}
@@ -459,9 +400,9 @@ Scenario: Create a new blog post \\
   Given jsmith is logged in \\
   When I go to the create text post page \\
   And I fill in ``My new blog!'' for ``Title''
-  And I fill in ``I'm so awesome.. listen to me!'' for ``Body'' \\
-  And I press ``Create!'' \\
-  Then I should see ``My new blog!'' \\
+  And I fill in ``I'm so awesome.. listen to me!'' for ``Body'' 
+  And I press ``Create!'' 
+  Then I should see ``My new blog!'' 
   
 Scenario: Create a new photo post \\
 \includegraphics[width=\textwidth]{../mockups/manage-create-image.png}
@@ -498,9 +439,9 @@ Scenario: Create a new photo post \\
     When I go to the schedule page \\
     And I click ``Schedule'' \\
     And I fill in ``02/20/10'' for ``Date''
-    And I fill in ``01:23" for ``Time''
-    And I press ``Schedule!'' \\
-    Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' \\
+    And I fill in ``01:23'' for ``Time''
+    And I press ``Schedule!'' 
+    Then the blog post with the title ``My new blog!'' is saved with a ``Publish Time'' of ``1266628980'' 
 \end{hangparas}
 
 \end{document}
