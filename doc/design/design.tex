@@ -200,6 +200,9 @@
   \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version} \\
   \hline \hline
   George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
+  Salerno & 16 February 2010 & Revised from Reviews & 1.1 \\
+  \hline
+  George D'Andrea, Andrew Gall, Josiah Kiehl, Cody Ray, Vito
   Salerno & 17 January 2010 & Initial Version & 1.0 \\
   \hline
 \end{tabular}
@@ -516,7 +519,6 @@ After content is scheduled, it can be picked up by the Scheduler, triggered via 
       \end{call}
     \end{call}
 \end{sequencediagram}
-\subsection{View Metrics and Statistics via Explore Panel}
 \subsection{Lost User Name}
 \MVCSlice{User Account}
   \begin{sequencediagram}
@@ -615,9 +617,9 @@ Email will be used to notify users of reset lost usernames and passwords.
 \chapter{Publishing and Aggregation Platform}
 	\section{Object Model}
 		\subsection{Overview}
-			Objects exist in Mashbot for the purposes of identification and 
-			manipulation. Objects are not stored in the Publishing and 
-			Aggregation Platform, but are merely passed through its pipeline.
+			Objects exist in Mashbot for the purposes of identification and
+      manipulation. Objects are not stored in the Publishing and Aggregation
+      Platform, but are merely passed through its pipeline. 
 
 			Objects contain information general to that object itself and also 
 			information specific to one or more services, so as to
@@ -670,7 +672,7 @@ Email will be used to notify users of reset lost usernames and passwords.
 			services, and thus have two different identifiers. That object, 
 			therefore, will have one child object ID associated with the first 
 			service, and a second child object ID associated with the second 
-service. (But the numbering here is arbitrary)
+      service. (But the numbering here is arbitrary)
 
 			This isn't to say that child objects cannot be associated with more 
 			than one service: if two 
@@ -691,7 +693,7 @@ service. (But the numbering here is arbitrary)
 			  Photo}.
 		\subsection{Class Diagram}
 			\includegraphics{uml/object_model.1}
-    \subsection{Sequence Diagrams}
+	\subsection{Sequence Diagrams}
       \emph{(Only showing sequences between object and service.)}
 
       \subsubsection{Pushing to a Service}
@@ -724,7 +726,6 @@ service. (But the numbering here is arbitrary)
       \end{call}
 
       \end{sequencediagram}
-
 
 	
 	\section{API Design}
@@ -1069,7 +1070,6 @@ An entity-relationship diagram depicting the data model is shown below, which us
     \item Easy to add new authentication types
     \item Simple to add pre-processing steps
   \end{itemize}
-\item 
 \end{itemize}
 
 \section{Disadvantages of Design}
@@ -1080,6 +1080,5 @@ An entity-relationship diagram depicting the data model is shown below, which us
   \item The campaign manager design presupposes a certain amount of familiarity with social media concepts
 \end{itemize}
 \end{document}
-
 
 % LocalWords:  Mashbot OAuth OpenID
