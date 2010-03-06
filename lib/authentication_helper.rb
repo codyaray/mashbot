@@ -26,6 +26,20 @@ module AuthenticationHelper
       return false
     end
   end
+
+  # for restful_authentication compatibility (required for oauth-plugin)
+
+  def logged_in?
+    current_user
+  end
+
+  def login_required
+    require_user
+  end
+
+  def authorize?
+    true
+  end
   
   private
     def store_location
