@@ -30,14 +30,15 @@ class OauthToken < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: oauth_tokens
 #
-#  id                    :integer         not null, primary key
-#  user_id               :integer
+#  id                    :integer(4)      not null, primary key
+#  user_id               :integer(4)
 #  type                  :string(20)
-#  client_application_id :integer
+#  client_application_id :integer(4)
 #  token                 :string(20)
 #  secret                :string(40)
 #  callback_url          :string(255)
