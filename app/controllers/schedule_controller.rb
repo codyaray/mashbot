@@ -3,9 +3,10 @@ class ScheduleController < ApplicationController
   def index
     @campaigns = Campaign.find(:all)
     @unscheduled_campaigns = []
+    logger.info @campaigns.inspect
     @campaigns.each do |campaign|
-      if campaign.start_date.nil?
-        @unscheduled_campaigns.push 
+      if campaign.start_date.nil? or campaign.start_date == ''
+        @unscheduled_campaigns.push campaign
       end
     end
   end

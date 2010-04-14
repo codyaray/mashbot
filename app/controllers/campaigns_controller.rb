@@ -92,9 +92,10 @@ class CampaignsController < ApplicationController
     @scheduled_campaigns = []
     campaigns.each do |campaign|
       if !campaign.start_date.nil?
-        @scheduled_campaigns.push campaign.to_fullcalendar_event.to_json
+        @scheduled_campaigns.push campaign.to_fullcalendar_event
       end
     end
+    render :json => @scheduled_campaigns.to_json
   end
 
 
