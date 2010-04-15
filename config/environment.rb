@@ -15,17 +15,13 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
+
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
   config.gem "ruby-openid", :lib => "openid"
   config.gem "factory_girl", :source => "http://gemcutter.org"
   config.gem "oauth"
   config.gem "oauth-plugin"
-  ## Note! This is just commented out for freaking Heroku.  Uncomment these then run your rake task, then, before pushing to heroku, recomment these. Blahhh. --Josiah
   config.gem "rspec", :lib => "spec"
   config.gem "rspec-rails", :lib => "spec/rails"
   config.gem "cucumber"

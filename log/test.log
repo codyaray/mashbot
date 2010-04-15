@@ -108,3 +108,1606 @@ Completed in 3ms (DB: 1) | 302 Found [http://test.host/campaigns/2053932785?]
   [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
   [4;35;1mSQL (3.8ms)[0m   [0mBEGIN[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:17:28) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1002
+Completed in 14ms (DB: 3) | 302 Found [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:17:28) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1004
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:17:28) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:17:28) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:17:28) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:17:28) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:17:28) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1016
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1018
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (12.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 12) | 200 OK [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `client_applications`[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:17:28) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOauthToken Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `oauth_tokens`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthorizedController#both (for 0.0.0.0 at 2010-04-14 13:17:28) [GET]
+  Parameters: {"action"=>"both", "controller"=>"oauthorized"}
+  [4;36;1mOauthNonce Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `oauth_nonces`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'gjAIuPjmMyB8GnEPYpYER0sSxZfDIw6FWIdJ46xMmA' AND `oauth_nonces`.timestamp = 1271265448) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:28', 1271265448, '2010-04-14 17:17:28', 'gjAIuPjmMyB8GnEPYpYER0sSxZfDIw6FWIdJ46xMmA')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (35.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#both (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"both", "controller"=>"oauthorized"}
+ERROROAuth::Signature::UnknownSignatureMethod
+Rendering template within layouts/application
+Rendering oauthorized/both
+Completed in 11ms (View: 1, DB: 39) | 200 OK [http://test.host/oauthorized/both]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'OJDNStbF1BMhMFIql6oCftBFyZP1hDvcbfOOCOeXQrY' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'OJDNStbF1BMhMFIql6oCftBFyZP1hDvcbfOOCOeXQrY')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (34.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+  [4;35;1mSQL (1.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.5ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'sMZKYfRHPkfyXVbhz58trZoo2Jc24MN870xEYGv1bqM' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (9.5ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'sMZKYfRHPkfyXVbhz58trZoo2Jc24MN870xEYGv1bqM')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Filter chain halted as [:oauth_required] rendered_or_redirected.
+Completed in 20ms (View: 0, DB: 46) | 401 Unauthorized [http://test.host/oauthorized/token_only]
+  [4;35;1mSQL (32.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+ERROROAuth::Signature::UnknownSignatureMethod
+Filter chain halted as [:oauth_required] rendered_or_redirected.
+Completed in 9ms (View: 0, DB: 32) | 401 Unauthorized [http://test.host/oauthorized/token_only]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#interactive (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"interactive", "controller"=>"oauthorized"}
+Redirected to http://test.host/user_session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 88ms (DB: 0) | 302 Found [http://test.host/oauthorized/interactive]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#interactive (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"interactive", "controller"=>"oauthorized"}
+Rendering template within layouts/application
+Rendering oauthorized/interactive
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/oauthorized/interactive]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'vL3Of3CIDp8pJeRpleIPTkeTJ2G5oCgBv60dLb8T2cw' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'vL3Of3CIDp8pJeRpleIPTkeTJ2G5oCgBv60dLb8T2cw')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (29.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.7ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'phVjAciylB4SoBezvpVfq4XVaBxFMHCKIoI1cVMidg' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.7ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'phVjAciylB4SoBezvpVfq4XVaBxFMHCKIoI1cVMidg')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 12ms (View: 0, DB: 31) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (36.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'NpT4WvVm1BSDHswyoldZJcLJbhIVklcIYWUbJa0GwA8' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'NpT4WvVm1BSDHswyoldZJcLJbhIVklcIYWUbJa0GwA8')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 11ms (View: 0, DB: 37) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (34.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'hEaxv4n9v31Ccbq9XXuavEIysXWcTT2bvPqmsE4jtqY' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.1ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'hEaxv4n9v31Ccbq9XXuavEIysXWcTT2bvPqmsE4jtqY')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 8ms (View: 0, DB: 35) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (31.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRequestToken Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `oauth_tokens`[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 33) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"oauth_callback"=>"http://application/alternative", "authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/alternative?oauth_token=request_token
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_callback=http%3A%2F%2Fapplication%2Falternative&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://alternative/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"oauth_callback"=>"http://application/alternative", "authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_callback=http%3A%2F%2Fapplication%2Falternative&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_success
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_success
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [POST]
+  Parameters: {"authorize"=>"0", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_failure
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=0&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_failure
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'iBvJ3OKTSMitVbv4fZuaXqNf71cbe0myUD9FANsANk' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'iBvJ3OKTSMitVbv4fZuaXqNf71cbe0myUD9FANsANk')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (41.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:29) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'mEQHgfYSbSi6tTapkaOa271M1SH40zWOOr4lE3vlrw' AND `oauth_nonces`.timestamp = 1271265449) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:29', 1271265449, '2010-04-14 17:17:29', 'mEQHgfYSbSi6tTapkaOa271M1SH40zWOOr4lE3vlrw')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 42) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (31.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'qV2wjviazo9BdVVYIaJSRwBbex3Ktk6KRClgRDEPE' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'qV2wjviazo9BdVVYIaJSRwBbex3Ktk6KRClgRDEPE')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 1, DB: 33) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (65.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'PosRhoXJZ63gE3IHta2vzvYtW0DUbrGBf7sr0bvmDs' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'PosRhoXJZ63gE3IHta2vzvYtW0DUbrGBf7sr0bvmDs')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 139ms (View: 0, DB: 67) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (73.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'veOIJlVVREQXIq4I02B580ScqBd7yQ8PViVVSnJeNM' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'veOIJlVVREQXIq4I02B580ScqBd7yQ8PViVVSnJeNM')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 74) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (67.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'vpVs2Gm5J1pqTQWdw9YViFvZMmgqq8Z0jT0TutdTHE' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'vpVs2Gm5J1pqTQWdw9YViFvZMmgqq8Z0jT0TutdTHE')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 68) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (40.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'AThouJ8jifRbF2ecdNzncXd8cSbsFedcEN2lGi6HwSU' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.4ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'AThouJ8jifRbF2ecdNzncXd8cSbsFedcEN2lGi6HwSU')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 0, DB: 43) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (33.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (33.4ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'i1DPBLfBUVZ3ij78euiVG8dwAe1VELLY16zCxEPHs' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'i1DPBLfBUVZ3ij78euiVG8dwAe1VELLY16zCxEPHs')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 42ms (View: 0, DB: 68) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (53.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'T8MbAe1SoXcFlKLq89HcKFRppKpvUM4nzwik9wufsOk' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'T8MbAe1SoXcFlKLq89HcKFRppKpvUM4nzwik9wufsOk')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 54) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (51.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:17:30) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'jrlKvlgaEHy4D0yk9cTf06R0AXbBL6kzKjXLiI9T5o' AND `oauth_nonces`.timestamp = 1271265450) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:30', 1271265450, '2010-04-14 17:17:30', 'jrlKvlgaEHy4D0yk9cTf06R0AXbBL6kzKjXLiI9T5o')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 0, DB: 53) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (32.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (2.7ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'DkXFFfSSwl1htmoxhozH') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.3ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:30', 'DkXFFfSSwl1htmoxhozH', NULL, NULL, '2010-04-14 17:17:30', NULL, 'RequestToken', 'e0ooBO8t4mzKwNblSOCN7evuuRzyROnT9UFoHdu3', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (35.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'UKWDx45tHBWjVqvqCETf') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'UKWDx45tHBWjVqvqCETf', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'UDolKbgBiVm7uTJVDd4DdhpeyYCRYD417xsVlmtB', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (52.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'XsterHjZsM5prQEhNFYR') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'XsterHjZsM5prQEhNFYR', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'C5YrxiUmPWx8vn8vpRcr9lhDnFmXDCDJsTUdmxHA', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (39.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'KJtaExdxraIqU7JDc3jm') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'KJtaExdxraIqU7JDc3jm', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'qIxFSCgtj8RcXkzkXGYsLFLf5WLR0crbSclc38Lj', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (37.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'uyZcbvJIri8JoaovWxc1') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'uyZcbvJIri8JoaovWxc1', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'JpeZmlKyWOXz37g6h8HVfRlLe876ckuYDiZitGOu', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (36.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.2ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '964nBPGlhMkH7VFzX812') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', '964nBPGlhMkH7VFzX812', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', '1GNbujkQy45wi7ik10vuYjQMPyiXYe4R77qgkpAP', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (41.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.2ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.6ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'ct1SsscRnIoTG1n8hcFu') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.3ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'ct1SsscRnIoTG1n8hcFu', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'ITgRcvEho3uNY7EKw1JbE97f3uHFTs8MJUoKXtRy', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (31.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'ZPRSGjym0hJcElan9uKq') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.4ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'ZPRSGjym0hJcElan9uKq', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'IxaIJMYHYS2A4a7k0g35Id5hDH34l3BRxpi0vFqc', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (32.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'Uxxe0RUk78dUNyxhPGUz') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.4ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'Uxxe0RUk78dUNyxhPGUz', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'STzZhlnBYWKULNWSit0nDDSjdXPOZfuoC9GF0vJ8', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (31.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.6ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'xUsQLaMBVejNahowATFw') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.4ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'xUsQLaMBVejNahowATFw', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'mXn1PSsogyqzFCevZ1Zpc8TuD49QkUOTERmXSsnk', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (25.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.2ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.6ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'etZhlUKCe6z4sS52cERj') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.4ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'etZhlUKCe6z4sS52cERj', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'bB0hBWwTSRD1yBa5Pt3XCmQM3q2mPgIHe2X5LgdU', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (34.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'yo7yiCRlq9sGQPYzwkvN') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'yo7yiCRlq9sGQPYzwkvN', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', '1ZX0gdyfEFCTcWJE4PnhWGv6iTsM9mU07rChXyx8', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (26.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'EMGdutfYrMMDSVPN2P4D') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'EMGdutfYrMMDSVPN2P4D', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'XkpUgAtkFJ5oiMDsYCmhpbMXjFKPLBJnr6yqTaE9', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (27.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'SHQnLyNbBcmeAtdDiC4r') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'SHQnLyNbBcmeAtdDiC4r', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'rKf938ymblftS0gGFbIdojb0YuTqqFt6nrNsAMHI', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (26.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'TbmHKDlHoIIkOZqxswoz') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'TbmHKDlHoIIkOZqxswoz', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'zEfSXsCI2k9Cchhnt2EFFqs9NA4n7PYTOVpmINvE', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (37.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.2ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'NsOtsSQZK1CXVPgXkxqg') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'NsOtsSQZK1CXVPgXkxqg', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'VddUARD3htaQTRuZOVBqGCiqgQtizK7mtFx7vap6', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (32.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'j87R9uid60MVrEFLhc04') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'j87R9uid60MVrEFLhc04', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'Dup65ibLFhoSHaW6gIsNNVH5qdzEm3f6n8Xn3jT7', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (35.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'kt0cjcJB6LmhciCgn2DQ') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'kt0cjcJB6LmhciCgn2DQ', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'U6JycXKNfaejSdsbDu5ZOZ2z4Vlwm6kB44lldhoD', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (34.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '0CVAN49gG9rjCZBljV3c') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', '0CVAN49gG9rjCZBljV3c', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', '98bw75ZM8lLvlmMF9usrOr7hx1AzhMPZhfOdxe8o', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (25.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'OlpJbPzenJbBaKhuwDig') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.5ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'OlpJbPzenJbBaKhuwDig', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', '10EeHPo4zPlwV8WUy7INddSP47WZ5PCENmmxILCT', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (33.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'tg3IKaKR0pPsCkuZPzTQ') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:31', 'tg3IKaKR0pPsCkuZPzTQ', NULL, NULL, '2010-04-14 17:17:31', NULL, 'RequestToken', 'TicR4NSjxgITZGozDgeLU5O3Q9716oQlbpARMHID', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.6ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'aNybEiTSz6HR2ozEZYEK') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'aNybEiTSz6HR2ozEZYEK', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'mSXScKh9A9WOIOpwNcy101Pp4h2AGMDmEUSObSQg', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (27.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'd3GE0nqR7VtXb2exuNVA') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'd3GE0nqR7VtXb2exuNVA', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'eAGlPijVpiYRZz5ESA7j5xuHYJYJeBeFm641NgYp', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (26.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '2gxWbvQ691DgTu9eIkEg') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', '2gxWbvQ691DgTu9eIkEg', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', '1kn3ZumNyL7SU7wWSyddrWdenubqErRnOEHCVyq3', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (37.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (1.7ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'Fdv0WH2v3xMQPKT7jH4A') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'Fdv0WH2v3xMQPKT7jH4A', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'ws2xpcMkUQQyWNZEWhAfJlCkXIuvaQKBNqWy7D8A', NULL, 1)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (34.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'zEeCy0iooVTCzmx9jNVD') LIMIT 1[0m
+  [4;36;1mRequestToken Create (7.1ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'zEeCy0iooVTCzmx9jNVD', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'NgXUkyhFE8sb1VqzDuz0mB48LWHQXTL2gNyJ8aZK', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '6VnP3MYgq5zxc0I9diab') LIMIT 1[0m
+  [4;35;1mRequestToken Create (37.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', '6VnP3MYgq5zxc0I9diab', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', '3LuJwVMhmbYIVwP8ULM6Y0MPTXh9felyq4brA6J8', NULL, 1)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (163.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'JaLjql5VmIHS5LdirOkT') LIMIT 1[0m
+  [4;36;1mRequestToken Create (74.9ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'JaLjql5VmIHS5LdirOkT', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', '43Zz2PJcE2H3eIC9ukPNWHIYVdbVMFeIjXEtqrtT', NULL, 1)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.2ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (8.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'HTLCSEjEsGhK6LGMtKnb') LIMIT 1[0m
+  [4;35;1mRequestToken Create (10.4ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'HTLCSEjEsGhK6LGMtKnb', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'K9msVKLfW0sTuyRwFQlG8zIkix9vq9b7kdLXQxfZ', NULL, 1)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (75.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (9.6ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'dSXsX94rRdLz9wwEYEdm') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'dSXsX94rRdLz9wwEYEdm', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', '25MUk5VcXOR98RIwbcHHZLWI3wrpicJl7MSY0xtM', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (72.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '5KFa0Od1j02AW0YJn65g') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', '5KFa0Od1j02AW0YJn65g', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'awFlDB1IbcPu4YFbsi6199TNdBTIbVQg5PTxEt7N', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '5KFa0Od1j02AW0YJn65g' AND `oauth_tokens`.id <> 33) LIMIT 1[0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.2ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'WQMUYfedXmI54lqQn7L6') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'WQMUYfedXmI54lqQn7L6', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'AB5OaFshJ9ogcImk581kZoKZF4vHBaQAh8udsJwW', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (46.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'YOzoMYWk50uWWxpi0PAN') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.6ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', 'YOzoMYWk50uWWxpi0PAN', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'El5RG2NXBdJ2jAroQDEIvUFmRnBXYSjLfYh953MF', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (47.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (3.3ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY '2YRbrB08fMC48vLMsj8F') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.3ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:32', '2YRbrB08fMC48vLMsj8F', NULL, NULL, '2010-04-14 17:17:32', NULL, 'RequestToken', 'ltAh8JGIZSJj3YFPSCyIdoFHU0ETW5MJBocCwIUk', NULL, 1)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (39.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.1ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.2ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'NykMp4cAyMT3qKqsgX0e') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:33', 'NykMp4cAyMT3qKqsgX0e', NULL, NULL, '2010-04-14 17:17:33', NULL, 'RequestToken', 'zP2Nd97t5wAurNTaYRXdXnUVuFs8msR9RYNqOjcQ', NULL, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (37.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.2ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'W90RlZCD9nny1ZT5wFRy') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:33', 'W90RlZCD9nny1ZT5wFRy', NULL, NULL, '2010-04-14 17:17:33', NULL, 'RequestToken', 'CQIyRE30bwmdnzCQQ8KjLmcXh44n9v6WxkE1krr0', NULL, 1)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (38.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClientApplication Load (0.2ms)[0m   [0mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'iujoWJ7CVtbVk711VGBQ') LIMIT 1[0m
+  [4;36;1mRequestToken Create (0.4ms)[0m   [0;1mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:33', 'iujoWJ7CVtbVk711VGBQ', NULL, NULL, '2010-04-14 17:17:33', NULL, 'RequestToken', 'Hit4BRcPPsl9T0k6u2QqSSNxyhagwAFnieJjBvht', NULL, 1)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (70.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Load (0.1ms)[0m   [0;1mSELECT * FROM `client_applications` WHERE (`client_applications`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT `oauth_tokens`.id FROM `oauth_tokens` WHERE (`oauth_tokens`.`token` = BINARY 'hpRw9Fbg50Ad7uQWnKYn') LIMIT 1[0m
+  [4;35;1mRequestToken Create (0.2ms)[0m   [0mINSERT INTO `oauth_tokens` (`verifier`, `created_at`, `token`, `callback_url`, `authorized_at`, `updated_at`, `user_id`, `type`, `secret`, `invalidated_at`, `client_application_id`) VALUES(NULL, '2010-04-14 17:17:33', 'hpRw9Fbg50Ad7uQWnKYn', NULL, NULL, '2010-04-14 17:17:33', NULL, 'RequestToken', 'vePveMzrGfd2sAEE8617oRTXySWQOK90BHfzrI', NULL, 1)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (37.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCampaign Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `campaigns`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'v8DNvhgq4DM8PEhtrEANcJGR0bVhOKTNkTztym8X3Ls' AND `oauth_nonces`.timestamp = 1271265453) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:33', 1271265453, '2010-04-14 17:17:33', 'v8DNvhgq4DM8PEhtrEANcJGR0bVhOKTNkTztym8X3Ls')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'v8DNvhgq4DM8PEhtrEANcJGR0bVhOKTNkTztym8X3Ls' AND `oauth_nonces`.timestamp = 1271265453 AND `oauth_nonces`.id <> 18) LIMIT 1[0m
+  [4;35;1mSQL (43.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'rjgEZSUaXUTzMusY7n1mwn7lNqgxeerpmjnL1xRtyY' AND `oauth_nonces`.timestamp = 1271265453) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:33', 1271265453, '2010-04-14 17:17:33', 'rjgEZSUaXUTzMusY7n1mwn7lNqgxeerpmjnL1xRtyY')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (37.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'kGml3p34F7Tvsvqq71NsIJ10JMzs9OC65Pb5lNI' AND `oauth_nonces`.timestamp = 1271265453) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:33', 1271265453, '2010-04-14 17:17:33', 'kGml3p34F7Tvsvqq71NsIJ10JMzs9OC65Pb5lNI')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (39.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'TTO6MsBh1cBRj7z0XvNEriG8rRK7cv2wRZpxh5AA' AND `oauth_nonces`.timestamp = 1271265453) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:17:33', 1271265453, '2010-04-14 17:17:33', 'TTO6MsBh1cBRj7z0XvNEriG8rRK7cv2wRZpxh5AA')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'TTO6MsBh1cBRj7z0XvNEriG8rRK7cv2wRZpxh5AA' AND `oauth_nonces`.timestamp = 1271265453) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (34.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.3ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #1 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #2 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #3 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #4 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #5 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #6 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.2ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #7 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #8 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #9 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:17:33', 'The super #10 campaign', '2010-04-14 17:17:33', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (45.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:21:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1002
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:21:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1004
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (11.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:21:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 11) | 200 OK [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#update (for 0.0.0.0 at 2010-04-14 13:21:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/1?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (5.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:21:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 6) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:21:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#destroy (for 0.0.0.0 at 2010-04-14 13:21:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:21:20) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1016
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:21:20) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Redirected to http://test.host/oauth_clients/1018
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:21:20) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#create (for 0.0.0.0 at 2010-04-14 13:21:20) [POST]
+  Parameters: {"action"=>"create", "client_application"=>{"name"=>"my site"}, "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients?client_application%5Bname%5D=my+site]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#edit (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#new (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#show (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:21:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthClientsController#index (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"oauth_clients"}
+Rendering template within layouts/application
+Rendering oauth_clients/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth_clients]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mClientApplication Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `client_applications`[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (16.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 17) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#revoke (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"token"=>"TOKEN STRING", "action"=>"revoke", "controller"=>"oauth"}
+Redirected to http://test.host/oauth_clients
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/revoke?token=TOKEN+STRING]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOauthToken Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `oauth_tokens`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthorizedController#both (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"both", "controller"=>"oauthorized"}
+  [4;36;1mOauthNonce Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `oauth_nonces`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'StNVEuUde8WrEGFkIDlEjZI3QfHy7OyaJEyeYn1Q' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'StNVEuUde8WrEGFkIDlEjZI3QfHy7OyaJEyeYn1Q')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (51.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#both (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"both", "controller"=>"oauthorized"}
+ERROROAuth::Signature::UnknownSignatureMethod
+Rendering template within layouts/application
+Rendering oauthorized/both
+Completed in 4ms (View: 1, DB: 54) | 200 OK [http://test.host/oauthorized/both]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'jFHs8DoV7CewvUXnSNLRzKDbinyEPPb4tBjGDAEdeTc' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.3ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'jFHs8DoV7CewvUXnSNLRzKDbinyEPPb4tBjGDAEdeTc')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (30.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'zKvmfI6SRMgbZ6lOilEPdki8g7EXWPoSOOLrvkNhtU' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.1ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'zKvmfI6SRMgbZ6lOilEPdki8g7EXWPoSOOLrvkNhtU')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Filter chain halted as [:oauth_required] rendered_or_redirected.
+Completed in 9ms (View: 0, DB: 33) | 401 Unauthorized [http://test.host/oauthorized/token_only]
+  [4;35;1mSQL (30.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#token_only (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"token_only", "controller"=>"oauthorized"}
+ERROROAuth::Signature::UnknownSignatureMethod
+Filter chain halted as [:oauth_required] rendered_or_redirected.
+Completed in 3ms (View: 1, DB: 31) | 401 Unauthorized [http://test.host/oauthorized/token_only]
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#interactive (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"interactive", "controller"=>"oauthorized"}
+Redirected to http://test.host/user_session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/oauthorized/interactive]
+  [4;35;1mSQL (0.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthorizedController#interactive (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"interactive", "controller"=>"oauthorized"}
+Rendering template within layouts/application
+Rendering oauthorized/interactive
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/oauthorized/interactive]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'mPKoyu7ME54bfKR3lzkBrvL3ke2U7KMFwxhUWnLcPiU' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.1ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'mPKoyu7ME54bfKR3lzkBrvL3ke2U7KMFwxhUWnLcPiU')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (36.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (12.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'ZAUcDfC39EzzqwxeRm3OUB7dcOyTv37qWf04SuV4g' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'ZAUcDfC39EzzqwxeRm3OUB7dcOyTv37qWf04SuV4g')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 22ms (View: 0, DB: 50) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (23.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'WhgrbemACvz94B8zkem25FzRl6IHbV8U5LWBF3lXh8' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.2ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'WhgrbemACvz94B8zkem25FzRl6IHbV8U5LWBF3lXh8')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 24) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (26.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing OauthController#access_token (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"access_token", "controller"=>"oauth"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'NTsrTrYq4zzljlLk61wKKWeWT5MCMWOM21o5VGyag' AND `oauth_nonces`.timestamp = 1271265681) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.1ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:21', 1271265681, '2010-04-14 17:21:21', 'NTsrTrYq4zzljlLk61wKKWeWT5MCMWOM21o5VGyag')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 28) | 200 OK [http://test.host/oauth/access_token]
+  [4;35;1mSQL (26.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRequestToken Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `oauth_tokens`[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 28) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:21) [POST]
+  Parameters: {"oauth_callback"=>"http://application/alternative", "authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/alternative?oauth_token=request_token
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_callback=http%3A%2F%2Fapplication%2Falternative&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://alternative/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [POST]
+  Parameters: {"oauth_callback"=>"http://application/alternative", "authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Redirected to http://application/callback?oauth_token=request_token&oauth_verifier=verifyme
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/oauth/authorize?authorize=1&oauth_callback=http%3A%2F%2Fapplication%2Falternative&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_success
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [POST]
+  Parameters: {"authorize"=>"1", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_success
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=1&oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [POST]
+  Parameters: {"authorize"=>"0", "action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_failure
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?authorize=0&oauth_token=request_token]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#authorize (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"authorize", "oauth_token"=>"request_token", "controller"=>"oauth"}
+Rendering template within layouts/application
+Rendering oauth/authorize_failure
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/oauth/authorize?oauth_token=request_token]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'ef8dktsEpILEd2pBFb9pXfV0hf0LObDR8ENwP6WCOQ' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'ef8dktsEpILEd2pBFb9pXfV0hf0LObDR8ENwP6WCOQ')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 0, DB: 1) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (30.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY '2StY52CG2X4obrt3s24XWLnTDyxlinBg50BQhhM1hA' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', '2StY52CG2X4obrt3s24XWLnTDyxlinBg50BQhhM1hA')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 31) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (31.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.5ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'pD0gHQJDqoqArxxf4wWUSfcxcI6bI4eWbZZmlVOcY' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'pD0gHQJDqoqArxxf4wWUSfcxcI6bI4eWbZZmlVOcY')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 32) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (27.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'kLtxNeo2B4f0aKVzAuZAt6aZJ7wETKAa5lkoctvydQ' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'kLtxNeo2B4f0aKVzAuZAt6aZJ7wETKAa5lkoctvydQ')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 28) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (28.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY '7F0PxtwGcRs5zG8KQfCmKLv2zFReVFtztMgbSj4AJQ' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', '7F0PxtwGcRs5zG8KQfCmKLv2zFReVFtztMgbSj4AJQ')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 29) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (34.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'IbRR9CMxrPhUodGlQIt0t0eLnw9W9Vh2yslAiwxEY' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'IbRR9CMxrPhUodGlQIt0t0eLnw9W9Vh2yslAiwxEY')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 35) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (35.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'veW2dpcpNEwODg3oLrn4SFVNCaWFG5NnFpbrpQGVkTk' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'veW2dpcpNEwODg3oLrn4SFVNCaWFG5NnFpbrpQGVkTk')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 8ms (View: 0, DB: 36) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (31.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY '3126gqY0fc1EnORJajgHBJuIMkQpJM1axXiOpcx4fQ' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', '3126gqY0fc1EnORJajgHBJuIMkQpJM1axXiOpcx4fQ')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 8ms (View: 0, DB: 32) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (30.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'uM2A12SnX3N0pZoeATsB086lR6Y3DdfYclk98u1w2U' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'uM2A12SnX3N0pZoeATsB086lR6Y3DdfYclk98u1w2U')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 8ms (View: 0, DB: 31) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (32.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing OauthController#request_token (for 0.0.0.0 at 2010-04-14 13:21:22) [GET]
+  Parameters: {"action"=>"request_token", "controller"=>"oauth"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'isfmIGJ2drSuVdvQoM9xfsjFKby5zZ167c767RsTcc' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.1ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'isfmIGJ2drSuVdvQoM9xfsjFKby5zZ167c767RsTcc')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 8ms (View: 0, DB: 33) | 200 OK [http://test.host/oauth/request_token]
+  [4;36;1mSQL (46.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCampaign Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `campaigns`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'TMZ4Hj6UXRVm41QcM8mzCQLGwAjQgFybgMvrvQSZM' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (0.1ms)[0m   [0mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'TMZ4Hj6UXRVm41QcM8mzCQLGwAjQgFybgMvrvQSZM')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'TMZ4Hj6UXRVm41QcM8mzCQLGwAjQgFybgMvrvQSZM' AND `oauth_nonces`.timestamp = 1271265682 AND `oauth_nonces`.id <> 18) LIMIT 1[0m
+  [4;36;1mSQL (60.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY '81rXG6Hl7rSeHFLkFYaElTHro3XZw9M6roDJ0HOA0' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.4ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', '81rXG6Hl7rSeHFLkFYaElTHro3XZw9M6roDJ0HOA0')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (32.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'QBMsEYd886q71l6HqszVg4JrMadmRvcosS894yg1Y' AND `oauth_nonces`.timestamp = 1271265682) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.2ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:22', 1271265682, '2010-04-14 17:21:22', 'QBMsEYd886q71l6HqszVg4JrMadmRvcosS894yg1Y')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (27.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.6ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'fYctLgB0s1rklEjgpKkY3ZTUW84V1AXUzPs5yeMT4' AND `oauth_nonces`.timestamp = 1271265683) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (0.6ms)[0m   [0;1mINSERT INTO `oauth_nonces` (`created_at`, `timestamp`, `updated_at`, `nonce`) VALUES('2010-04-14 17:21:23', 1271265683, '2010-04-14 17:21:23', 'fYctLgB0s1rklEjgpKkY3ZTUW84V1AXUzPs5yeMT4')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT `oauth_nonces`.id FROM `oauth_nonces` WHERE (`oauth_nonces`.`nonce` = BINARY 'fYctLgB0s1rklEjgpKkY3ZTUW84V1AXUzPs5yeMT4' AND `oauth_nonces`.timestamp = 1271265683) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (36.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.6ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #1 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #2 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #3 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #4 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #5 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #6 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #7 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #8 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCampaign Create (0.1ms)[0m   [0;1mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #9 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCampaign Create (0.1ms)[0m   [0mINSERT INTO `campaigns` (`start_date`, `created_at`, `title`, `updated_at`, `end_date`) VALUES('3:15am 05/05/2050', '2010-04-14 17:21:23', 'The super #10 campaign', '2010-04-14 17:21:23', '5:51pm 05/06/2050')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (36.8ms)[0m   [0mROLLBACK[0m

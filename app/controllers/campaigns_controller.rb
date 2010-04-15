@@ -91,8 +91,8 @@ class CampaignsController < ApplicationController
     campaigns = Campaign.find(:all)
     @scheduled_campaigns = []
     campaigns.each do |campaign|
-      if !campaign.start_date.nil?
-        @scheduled_campaigns.push campaign.to_fullcalendar_event
+      if true #!campaign.start_date.nil? and !campaign.start_date == ''
+        @scheduled_campaigns.push campaign.to_fullcalendar_event.to_hash
       end
     end
     render :json => @scheduled_campaigns.to_json

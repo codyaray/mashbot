@@ -16,7 +16,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def to_fullcalendar_event 
-    return FullCalendar::Event.new @id, @title, @start_date, @end_date, nil, true, nil, true, nil
+    return FullCalendar::Event.new self
   end
 end
 
