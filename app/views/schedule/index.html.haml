@@ -1,8 +1,11 @@
 - content_for :stylesheets do
+  =stylesheet_link_tag "facebox/facebox"
   =stylesheet_link_tag "schedule"
   =stylesheet_link_tag "fullcalendar"
+  =stylesheet_link_tag "jquery-ui"
 
 - content_for :javascripts do
+  =javascript_include_tag "facebox/facebox"
   =javascript_include_tag "schedule"
   =javascript_include_tag "fullcalendar.min"
   =javascript_include_tag "jquery-ui.custom.min"

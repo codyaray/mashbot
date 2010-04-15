@@ -6,8 +6,10 @@
       =yield :title
     =javascript_include_tag "application"
     =javascript_include_tag "jquery.min"
+    =javascript_include_tag "jquery-ui.custom.min"
     =yield :javascripts
     =stylesheet_link_tag "application"
+    =stylesheet_link_tag "jquery-ui.custom"
     =yield :stylesheets
   %body
     #header
