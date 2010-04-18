@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :oauth_consumers,:member=>{:callback=>:get}
+
   map.resources :oauth_clients
 
   map.test_request '/oauth/test_request', :controller => 'oauth', :action => 'test_request'
