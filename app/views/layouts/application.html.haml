@@ -48,6 +48,8 @@
             %a{:href => "/explore"}
               Explore
     #content
+      #flash
+        =h flash[:notice]
       =yield
     #footer
       

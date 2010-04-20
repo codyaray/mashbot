@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base  
   include AuthenticationHelper
   layout proc{ |c| c.request.xhr? ? false : "application" }  
-  @xhr = request.xhr?
+
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 

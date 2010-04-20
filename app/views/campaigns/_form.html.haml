@@ -12,8 +12,13 @@
     = f.label :end_date
     %br
     = f.text_field :end_date
-  %p
-    = f.submit submit_text
+  - if request.xhr?
+    %p
+      %a#campaign_submit{:onclick => "submit_campaign('#{submit_text}', #{@campaign.id}); return false;"}
+        = submit_text
+  - else
+    %p
+      = f.submit submit_text
 :javascript
   $(document).ready(function(){
   $.each($('input'), function(){
