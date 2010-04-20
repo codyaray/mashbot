@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306140308) do
+ActiveRecord::Schema.define(:version => 20100418043202) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20100306140308) do
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                      :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20100306140308) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                 :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20100306140308) do
     t.datetime "updated_on"
     t.datetime "created_on"
   end
+
+  create_table "consumer_tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type",       :limit => 30
+    t.string   "token",      :limit => 1024
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consumer_tokens", ["token"], :name => "index_consumer_tokens_on_token", :unique => true
 
   create_table "oauth_nonces", :force => true do |t|
     t.string   "nonce"
