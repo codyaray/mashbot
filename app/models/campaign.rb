@@ -3,6 +3,8 @@ class Campaign < ActiveRecord::Base
   validate :must_end_after_start, :must_have_start_if_have_end
   validates_presence_of :title
 
+  has_many :statuses
+
   def must_end_after_start
     if !end_date.nil? and !start_date.nil? and end_date != '' and start_date != '' and end_date < start_date
       errors.add_to_base("Hold up! You can't end something before you start it!")
@@ -24,11 +26,12 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: campaigns
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  title      :string(255)
 #  created_at :datetime
 #  updated_at :datetime

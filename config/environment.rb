@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem "ruby-openid", :lib => "openid"
   config.gem "factory_girl", :source => "http://gemcutter.org"
   config.gem "oauth"
+  config.gem "portablecontacts"
   config.gem "oauth-plugin"
   config.gem "rspec", :lib => "spec"
   config.gem "rspec-rails", :lib => "spec/rails"

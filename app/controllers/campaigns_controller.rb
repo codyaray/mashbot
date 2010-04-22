@@ -104,8 +104,11 @@ class CampaignsController < ApplicationController
         @scheduled_campaigns.push campaign.to_fullcalendar_event.to_hash
       end
     end
-    render :json => @scheduled_campaigns.to_json
+    render :json => @scheduled_campaigns
   end
-
+  
+  def content
+    @campaign = Campaign.find(params[:id])
+  end
 
 end

@@ -11,11 +11,12 @@ describe Campaign, "#to_fullcalendar_event" do
 end
 
 
+
 # == Schema Information
 #
 # Table name: campaigns
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  title      :string(255)
 #  created_at :datetime
 #  updated_at :datetime

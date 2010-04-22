@@ -1,0 +1,26 @@
+<h1>Listing statuses</h1>
+
+<table>
+  <tr>
+    <th>Campaign</th>
+    <th>Message</th>
+    <th>Creator</th>
+    <th>Go live</th>
+  </tr>
+
+<% @statuses.each do |status| %>
+  <tr>
+    <td><%=h status.campaign_id %></td>
+    <td><%=h status.message %></td>
+    <td><%=h status.creator_id %></td>
+    <td><%=h status.go_live %></td>
+    <td><%= link_to 'Show', status %></td>
+    <td><%= link_to 'Edit', edit_status_path(status) %></td>
+    <td><%= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New status', new_status_path %>
