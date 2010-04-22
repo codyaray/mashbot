@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
 
+  config.gem "twitter_oauth", :source => "http://gemcutter.org"
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
   config.gem "ruby-openid", :lib => "openid"
