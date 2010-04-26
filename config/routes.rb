@@ -19,7 +19,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resources :campaigns, :has_many => :statuses
-  map.resources :statuses
   map.connect '/campaigns/:id/content', :controller => 'campaigns', :action => 'content'
 
   map.register 'register', :controller => 'users', :action => "new"

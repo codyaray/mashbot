@@ -9,10 +9,11 @@ Scenario: Creating a status update
   And there is a standard campaign
   And I am on the last created "Campaign" page
   When I follow "Create content"
-  And I follow "Create new status"  
-  And show me the page
-  And I fill in "This is my awesome status for the twitterverse" for "status_message"
-  And I press "Submit"
+  And I follow "Create new status"
+  And I fill in the following:
+    | status_message | This is my awesome status for the twitterverse |
+    |                |                                                |
+  And I press "Create"
   Then there should be a "Status" with the following:
     | campaign_id | last                                           |
     | message     | This is my awesome status for the twitterverse |

@@ -1,26 +1,6 @@
 %h1
   Editing status
-- form_for(@status) do |f|
-  = f.error_messages
-  %p
-    = f.label :campaign_id
-    %br
-    = f.text_field :campaign_id
-  %p
-    = f.label :message
-    %br
-    = f.text_field :message
-  %p
-    = f.label :creator_id
-    %br
-    = f.text_field :creator_id
-  %p
-    = f.label :go_live
-    %br
-    = f.datetime_select :go_live
-  %p
-    = f.submit 'Update'
-
+  = render :partial => 'form.html.haml', :locals => { :submit_text => 'Update!' }
 = link_to 'Show', @status
 |
 = link_to 'Back', statuses_path

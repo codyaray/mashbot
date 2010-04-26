@@ -11,21 +11,20 @@
     %th
       Go live
   - @statuses.each do |status|
-  %tr
-    %td
-      = h status.campaign_id
-    %td
-      = h status.message
-    %td
-      = h status.creator_id
-    %td
-      = h status.go_live
-    %td
-      = link_to 'Show', status
-    %td
-      = link_to 'Edit', edit_status_path(status)
-    %td
-      = link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete
-  - end
+    %tr
+      %td
+        = h status.campaign_id
+      %td
+        = h status.message
+      %td
+        = h status.creator_id
+      %td
+        = h status.go_live
+      %td
+        = link_to 'Show', campaign_status_path(@campaign, status)
+      %td
+        = link_to 'Edit', edit_campaign_status_path(@campaign, status)
+      %td
+        = link_to 'Destroy', destroy_campaign_status_path(@campaign, @status), :confirm => 'Are you sure?', :method => :delete
 %br
 = link_to 'New status', new_status_path

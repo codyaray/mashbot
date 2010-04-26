@@ -2,22 +2,5 @@
   New status
 - form_for(@status) do |f|
   = f.error_messages
-  %p
-    = f.label :campaign_id
-    %br
-    = f.text_field :campaign_id
-  %p
-    = f.label :message
-    %br
-    = f.text_field :message
-  %p
-    = f.label :creator_id
-    %br
-    = f.text_field :creator_id
-  %p
-    = f.label :go_live
-    %br
-    = f.datetime_select :go_live
-  %p
-    = f.submit 'Create'
-= link_to 'Back', statuses_path
+  = render :partial => 'form.html.haml', :locals => { :submit_text => 'Create!' }
+= link_to 'Back', campaign_statuses_path
