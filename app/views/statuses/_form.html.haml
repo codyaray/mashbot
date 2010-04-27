@@ -13,8 +13,13 @@
   %p
     = f.label :go_live
     %br
-    %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
-    %input{:type => "text", :name => "go_live_time", :id => "go_live_time", :value => "#{@status.go_live.strftime('%I:%M')}" }
+    - if !@status.go_live.nil?
+      %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
+      %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
+:value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
+    - else
+      %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
+      %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
   %p
     = f.submit submit_text
 :javascript

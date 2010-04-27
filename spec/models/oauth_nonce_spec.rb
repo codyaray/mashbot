@@ -26,13 +26,14 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: oauth_nonces
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer         not null, primary key
 #  nonce      :string(255)
-#  timestamp  :integer(4)
+#  timestamp  :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   config.gem "cucumber"
   config.gem "cucumber-rails", :lib => "spec/rails"
   config.gem "capybara"
+  config.gem "twitter"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

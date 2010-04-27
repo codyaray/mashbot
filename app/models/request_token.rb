@@ -41,14 +41,15 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: oauth_tokens
 #
-#  id                    :integer(4)      not null, primary key
-#  user_id               :integer(4)
+#  id                    :integer         not null, primary key
+#  user_id               :integer
 #  type                  :string(20)
-#  client_application_id :integer(4)
+#  client_application_id :integer
 #  token                 :string(20)
 #  secret                :string(40)
 #  callback_url          :string(255)

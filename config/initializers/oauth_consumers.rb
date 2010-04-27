@@ -14,6 +14,10 @@
 #     :scope=>"" # see http://code.google.com/apis/gdata/faq.html#AuthScopes
 #   },
 OAUTH_CREDENTIALS={ 
+  :twitter=>{
+    :key=>"wOrsK4bFG0VJNplruzVoNg",
+    :secret=>"E3akoP3oG8iQj1XHP9bArQSwlCKfyedPNaFX4U8vd4"
+  },
   :google=>{ 
     :key=>"anonymous", 
     :secret=>"anonymous", 

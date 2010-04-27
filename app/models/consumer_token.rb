@@ -4,12 +4,13 @@ class ConsumerToken < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: consumer_tokens
 #
-#  id         :integer(4)      not null, primary key
-#  user_id    :integer(4)
+#  id         :integer         not null, primary key
+#  user_id    :integer
 #  type       :string(30)
 #  token      :string(1024)
 #  secret     :string(255)

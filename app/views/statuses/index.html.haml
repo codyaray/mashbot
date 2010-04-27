@@ -21,10 +21,10 @@
       %td
         = h status.go_live
       %td
-        = link_to 'Show', campaign_status_path(@campaign, status)
+        = link_to 'Show', campaign_status_path(status)
       %td
-        = link_to 'Edit', edit_campaign_status_path(@campaign, status)
+        = link_to 'Edit', edit_campaign_status_path(status)
       %td
-        = link_to 'Destroy', destroy_campaign_status_path(@campaign, @status), :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Destroy', destroy_campaign_status_path(status), :confirm => 'Are you sure?', :method => :delete
 %br
-= link_to 'New status', new_status_path
+= link_to 'New status', new_campaign_status_path
