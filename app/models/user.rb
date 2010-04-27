@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   has_many :client_applications
+  has_one :google, :class_name=>"GoogleToken", :dependent=>:destroy
+  has_one :twitter, :class_name=>"TwitterToken", :dependent=>:destroy
   has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
-
+  has_many :statuses
+  
   acts_as_authentic do |c|
     c.openid_required_fields = [:nickname, :email]
   end
@@ -17,6 +20,10 @@ class User < ActiveRecord::Base
       self.email = registration["email"] if email.blank?
     end
 end
+
+
+
+
 
 
 

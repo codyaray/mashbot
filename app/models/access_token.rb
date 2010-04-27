@@ -14,6 +14,10 @@ class AccessToken < OauthToken
     self.authorized_at = Time.now
   end
 end
+
+
+
+
 # == Schema Information
 #
 # Table name: oauth_tokens

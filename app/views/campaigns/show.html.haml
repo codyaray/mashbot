@@ -11,6 +11,9 @@
   %b
     End date:
   = h @campaign.end_date
+
+= link_to 'Create content', campaign_path(@campaign) + '/content'
+|
 = link_to 'Edit', edit_campaign_path(@campaign)
 |
 = link_to 'Back', campaigns_path

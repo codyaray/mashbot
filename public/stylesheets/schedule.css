@@ -17,5 +17,9 @@
   cursor: pointer; }
 
 .ui-accordion-content {
-  bacground: #eef;
+  background: #eef;
   padding: 5px 10px; }
+
+#ui-datepicker-div {
+  z-index: 1000;
+}

@@ -9,6 +9,10 @@ end
 
 
 
+
+
+
+
 # == Schema Information
 #
 # Table name: campaigns

@@ -1,0 +1,13 @@
+%h1
+  Twitter
+%p
+  Existing account credentials stored:
+%ul
+  - @existing.each do |e|
+    %li
+      - if e.details[:screen_name]
+        = link_to e.details[:screen_name], "http://twitter.com/#{e.details[:screen_name]}"
+%br
+%p
+  = link_to 'Authenticate', @token_request_url
+    

@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306140308) do
+ActiveRecord::Schema.define(:version => 20100422154446) do
+
+  create_table "authentication_credentials", :force => true do |t|
+    t.string   "service",    :null => false
+    t.string   "details",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -64,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20100306140308) do
     t.datetime "created_on"
   end
 
+  create_table "consumer_tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type",       :limit => 30
+    t.string   "token",      :limit => 1024
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consumer_tokens", ["token"], :name => "index_consumer_tokens_on_token", :unique => true
+
   create_table "oauth_nonces", :force => true do |t|
     t.string   "nonce"
     t.integer  "timestamp"
@@ -102,6 +120,15 @@ ActiveRecord::Schema.define(:version => 20100306140308) do
     t.integer "timestamp",  :null => false
     t.string  "server_url"
     t.string  "salt",       :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "campaign_id"
+    t.string   "message"
+    t.integer  "creator_id"
+    t.datetime "go_live"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

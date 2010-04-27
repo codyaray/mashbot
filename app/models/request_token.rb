@@ -38,6 +38,10 @@ class RequestToken < OauthToken
   end
 
 end
+
+
+
+
 # == Schema Information
 #
 # Table name: oauth_tokens

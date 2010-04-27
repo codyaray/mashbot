@@ -3,6 +3,8 @@ class Campaign < ActiveRecord::Base
   validate :must_end_after_start, :must_have_start_if_have_end
   validates_presence_of :title
 
+  has_many :statuses
+
   def must_end_after_start
     if !end_date.nil? and !start_date.nil? and end_date != '' and start_date != '' and end_date < start_date
       errors.add_to_base("Hold up! You can't end something before you start it!")
@@ -16,9 +18,13 @@ class Campaign < ActiveRecord::Base
   end
 
   def to_fullcalendar_event 
-    return FullCalendar::Event.new @id, @title, @start_date, @end_date, nil, true, nil, true, nil
+    return FullCalendar::Event.new self
   end
 end
+
+
+
+
 
 
 

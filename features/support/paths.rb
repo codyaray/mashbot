@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the schedule page/
       '/schedule/'
 
+    when /the last created "([^\"]*)" page/
+      "/#{$1.downcase.pluralize}/#{$1.classify.constantize.last.id}"
+
     when /the create campaign page/
       '/campaign/new'
 

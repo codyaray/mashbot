@@ -30,6 +30,10 @@ class OauthToken < ActiveRecord::Base
   end
 end
 
+
+
+
+
 # == Schema Information
 #
 # Table name: oauth_tokens

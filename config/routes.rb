@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :oauth_consumers,:member=>{:callback=>:get}
+
   map.resources :oauth_clients
 
   map.test_request '/oauth/test_request', :controller => 'oauth', :action => 'test_request'
@@ -16,7 +18,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => :users
   map.resources :users
 
-  map.resource :campaign
+  map.resources :campaigns, :has_many => :statuses
+  map.connect '/campaigns/:id/content', :controller => 'campaigns', :action => 'content'
 
   map.register 'register', :controller => 'users', :action => "new"
   map.login 'login', :controller => 'user_sessions', :action => "new"

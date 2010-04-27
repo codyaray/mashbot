@@ -1,0 +1,19 @@
+%p
+  %b
+    Campaign:
+  = link_to @status.campaign.title, campaign_path(@status.campaign)
+%p
+  %b
+    Message:
+  = h @status.message
+%p
+  %b
+    Creator:
+  = link_to @status.creator.login, user_path(@status.creator)
+%p
+  %b
+    Go live:
+  = h @status.go_live
+= link_to 'Edit', edit_status_path(@status)
+|
+= link_to 'Back', statuses_path

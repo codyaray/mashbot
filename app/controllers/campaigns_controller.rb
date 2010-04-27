@@ -64,10 +64,19 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.update_attributes(params[:campaign])
-        flash[:notice] = 'Campaign was successfully updated.'
+        message = 'Campaign was successfully updated.'
+        flash[:notice] = message
+        if request.xhr?
+          render :json => {:success => true, :message => message }
+          return
+        end
         format.html { redirect_to(@campaign) }
         format.xml  { head :ok }
       else
+        if request.xhr?
+          render :json => {:success => false, :message => 'Sorry, something went wrong. :('}
+          return
+        end
         format.html { render :action => "edit" }
         format.xml  { render :xml => @campaign.errors, :status => :unprocessable_entity }
       end
@@ -91,12 +100,15 @@ class CampaignsController < ApplicationController
     campaigns = Campaign.find(:all)
     @scheduled_campaigns = []
     campaigns.each do |campaign|
-      if !campaign.start_date.nil?
-        @scheduled_campaigns.push campaign.to_fullcalendar_event
+      if true #!campaign.start_date.nil? and !campaign.start_date == ''
+        @scheduled_campaigns.push campaign.to_fullcalendar_event.to_hash
       end
     end
-    render :json => @scheduled_campaigns.to_json
+    render :json => @scheduled_campaigns
   end
-
+  
+  def content
+    @campaign = Campaign.find(params[:id])
+  end
 
 end
