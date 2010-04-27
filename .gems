@@ -3,3 +3,12 @@ authlogic-oid
 ruby-openid
 oauth
 authlogic-oauth
+twitter_oauth
+factory_girl
+portablecontacts
+oauth-plugin
+rspec-rails
+cucumber
+cucumber-rails
+capybara
+twitter
