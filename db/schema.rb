@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100422154446) do
+ActiveRecord::Schema.define(:version => 20100505170625) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20100422154446) do
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path",                      :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20100422154446) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path",                 :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -79,8 +79,6 @@ ActiveRecord::Schema.define(:version => 20100422154446) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "consumer_tokens", ["token"], :name => "index_consumer_tokens_on_token", :unique => true
 
   create_table "oauth_nonces", :force => true do |t|
     t.string   "nonce"
@@ -120,6 +118,15 @@ ActiveRecord::Schema.define(:version => 20100422154446) do
     t.integer "timestamp",  :null => false
     t.string  "server_url"
     t.string  "salt",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "caption"
+    t.string   "tags"
+    t.string   "permissions"
+    t.string   "optional_fields"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "statuses", :force => true do |t|

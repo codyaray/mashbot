@@ -14,6 +14,7 @@ Scenario: Creating a campaign
   And I should see "01/15/2100"
   And I should see "02/14/2100"
 
+@wip
 Scenario: Creating a campaign
   Given pojo is logged in
   When I go to the create campaign page
