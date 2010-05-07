@@ -4,6 +4,7 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :title
 
   has_many :statuses
+  has_many :photos
 
   def must_end_after_start
     if !end_date.nil? and !start_date.nil? and end_date != '' and start_date != '' and end_date < start_date

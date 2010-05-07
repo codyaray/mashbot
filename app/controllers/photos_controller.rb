@@ -1,8 +1,12 @@
 class PhotosController < ApplicationController
+
+  include PhotosHelper
+
   # GET /photos
   # GET /photos.xml
   def index
     @photos = Photo.all
+    @campaign = Campaign.find params[:campaign_id]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +18,7 @@ class PhotosController < ApplicationController
   # GET /photos/1.xml
   def show
     @photo = Photo.find(params[:id])
+    @campaign = Campaign.find params[:campaign_id]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +30,7 @@ class PhotosController < ApplicationController
   # GET /photos/new.xml
   def new
     @photo = Photo.new
+    @campaign = Campaign.find params[:campaign_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +41,14 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    @campaign = Campaign.find params[:campaign_id]
   end
 
   # POST /photos
   # POST /photos.xml
   def create
     @photo = Photo.new(params[:photo])
+    @campaign = Campaign.find params[:campaign_id]
 
     respond_to do |format|
       if @photo.save
@@ -58,6 +66,7 @@ class PhotosController < ApplicationController
   # PUT /photos/1.xml
   def update
     @photo = Photo.find(params[:id])
+    @campaign = Campaign.find params[:campaign_id]
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
@@ -74,6 +83,7 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.xml
   def destroy
+    @campaign = Campaign.find params[:campaign_id]
     @photo = Photo.find(params[:id])
     @photo.destroy
 
