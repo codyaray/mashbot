@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :service_accounts
+
 
   map.resources :oauth_consumers,:member=>{:callback=>:get}
 

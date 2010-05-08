@@ -21,12 +21,12 @@ OAUTH_CREDENTIALS={
   :google=>{ 
     :key=>"anonymous", 
     :secret=>"anonymous", 
-    :scope=>"https://www.google.com/calendar/feeds/", 
-    :site => "http://www.google.com", 
+    :scope=>"http://www.blogger.com/feeds/", 
+    :site => "http://www.google.com",
     :request_token_path => "/accounts/OAuthGetRequestToken", 
     :access_token_path => "/accounts/OAuthGetAccessToken", 
     :authorize_path=> "/accounts/OAuthAuthorizeToken"  
-  } 
+  }
 }
 #   :agree2=>{
 #     :key=>"",

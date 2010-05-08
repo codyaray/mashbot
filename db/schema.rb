@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100505184115) do
+ActiveRecord::Schema.define(:version => 20100508182106) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20100505184115) do
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                      :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20100505184115) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                 :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -131,6 +131,14 @@ ActiveRecord::Schema.define(:version => 20100505184115) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "service_accounts", :force => true do |t|
+    t.string   "service"
+    t.string   "login"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "statuses", :force => true do |t|

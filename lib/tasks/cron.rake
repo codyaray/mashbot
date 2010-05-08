@@ -82,7 +82,7 @@ def buildAuthInfo token, secret
   value["method"] = "oauth"
   entry = {}
   entry["key"] = "twitter"
-  entry["value"] = value
+  entry["value"] = [value]
   credentials["entry"] = entry
   authinfo["credentials"] = credentials
   root["authinfo"] = authinfo
@@ -99,7 +99,7 @@ end
 def buildStatusMObject status
   entry,context,mObject,root = {},{},{},{}
   entry["key"] = "status"
-  entry["value"] = status
+  entry["value"] = [status]
   context["entry"] = entry
   mObject["context"] = context
   root["mObject"] = mObject

@@ -1,0 +1,24 @@
+<h1>Listing service_accounts</h1>
+
+<table>
+  <tr>
+    <th>Service</th>
+    <th>Login</th>
+    <th>Password</th>
+  </tr>
+
+<% @service_accounts.each do |service_account| %>
+  <tr>
+    <td><%=h service_account.service %></td>
+    <td><%=h service_account.login %></td>
+    <td><%=h service_account.password %></td>
+    <td><%= link_to 'Show', service_account %></td>
+    <td><%= link_to 'Edit', edit_service_account_path(service_account) %></td>
+    <td><%= link_to 'Destroy', service_account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New service_account', new_service_account_path %>
