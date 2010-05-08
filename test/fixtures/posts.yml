@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  body: MyText
+  go_live: 2010-05-08 14:12:31
+  creator_id: 1
+  campaign_id: 1
+  sent: false
+  tags: MyString
+  private: false
+
+two:
+  title: MyString
+  body: MyText
+  go_live: 2010-05-08 14:12:31
+  creator_id: 1
+  campaign_id: 1
+  sent: false
+  tags: MyString
+  private: false
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  body        :text
+#  go_live     :datetime
+#  creator_id  :integer(4)
+#  campaign_id :integer(4)
+#  sent        :boolean(1)
+#  tags        :string(255)
+#  private     :boolean(1)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

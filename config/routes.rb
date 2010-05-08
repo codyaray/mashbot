@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-
   map.resources :oauth_consumers,:member=>{:callback=>:get}
 
   map.resources :oauth_clients
@@ -10,8 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   map.authorize '/oauth/authorize', :controller => 'oauth', :action => 'authorize'
   map.oauth '/oauth', :controller => 'oauth', :action => 'index'
   map.connect 'campaigns/scheduled', :controller => 'campaigns', :action => 'scheduled'
-  map.resources :campaigns
-
 
   map.resource :user_session
   map.root :controller => "dashboard"
@@ -21,6 +18,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :campaigns, :has_many => :statuses
   map.resources :campaigns, :has_many => :photos
+  map.resources :campaigns, :has_many => :posts
+
   map.connect '/campaigns/:id/content', :controller => 'campaigns', :action => 'content'
 
   map.register 'register', :controller => 'users', :action => "new"

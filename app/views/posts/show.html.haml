@@ -1,0 +1,35 @@
+%p
+  %b
+    Title:
+  = h @post.title
+%p
+  %b
+    Body:
+  = h @post.body
+%p
+  %b
+    Go live:
+  = h @post.go_live
+%p
+  %b
+    Creator:
+  = h @post.creator_id
+%p
+  %b
+    Campaign:
+  = h @post.campaign_id
+%p
+  %b
+    Sent:
+  = h @post.sent
+%p
+  %b
+    Tags:
+  = h @post.tags
+%p
+  %b
+    Private:
+  = h @post.private
+= link_to 'Edit', edit_post_path(@post)
+|
+= link_to 'Back', posts_path

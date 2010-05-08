@@ -1,0 +1,37 @@
+- form_for(@post, :url => submit_url) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :body
+    %br
+    = f.text_area :body
+  %p
+    = f.label :go_live
+    %br
+    = f.datetime_select :go_live
+  %p
+    = f.label :creator_id
+    %br
+    = f.text_field :creator_id
+  %p
+    = f.label :campaign_id
+    %br
+    = f.text_field :campaign_id
+  %p
+    = f.label :sent
+    %br
+    = f.check_box :sent
+  %p
+    = f.label :tags
+    %br
+    = f.text_field :tags
+  %p
+    = f.label :private
+    %br
+    = f.check_box :private
+  %p
+    = f.submit submit_text
+  

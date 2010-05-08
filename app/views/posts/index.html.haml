@@ -1,0 +1,47 @@
+%h1
+  Listing posts
+%table
+  %tr
+    %th
+      Title
+    %th
+      Body
+    %th
+      Go live
+    %th
+      Creator
+    %th
+      Campaign
+    %th
+      Sent
+    %th
+      Tags
+    %th
+      Private
+  - @posts.each do |post|
+    %tr
+      %td
+        = h post.title
+      %td
+        = h post.body
+      %td
+        = h post.go_live
+      %td
+        = h post.creator_id
+      %td
+        = h post.campaign_id
+      %td
+        = h post.sent
+      %td
+        = h post.tags
+      %td
+        = h post.private
+      %td
+        = link_to 'Show', campaign_post_path(post)
+      %td
+        = link_to 'Edit', edit_campaign_post_path(post)
+      %td
+        = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New post', new_campaign_post_path

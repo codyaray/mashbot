@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508174232) do
+ActiveRecord::Schema.define(:version => 20100508181231) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
@@ -135,6 +135,19 @@ ActiveRecord::Schema.define(:version => 20100508174232) do
     t.boolean  "sent"
     t.integer  "creator_id"
     t.integer  "campaign_id"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "go_live"
+    t.integer  "creator_id"
+    t.integer  "campaign_id"
+    t.boolean  "sent"
+    t.string   "tags"
+    t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "statuses", :force => true do |t|
