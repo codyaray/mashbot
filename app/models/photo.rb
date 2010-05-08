@@ -1,9 +1,15 @@
 class Photo < ActiveRecord::Base
+  belongs_to :campaign
+  belongs_to :creator, :class_name => 'User'
+
   has_attached_file :image,
   :styles => { :large => "700x>",
     :medium => "300x300>",
     :thumb => "100x100>" }
 end
+
+
+
 
 
 # == Schema Information
@@ -21,5 +27,9 @@ end
 #  image_content_type :string(255)
 #  image_file_size    :integer(4)
 #  image_updated_at   :datetime
+#  go_live            :datetime
+#  sent               :boolean(1)
+#  creator_id         :integer(4)
+#  campaign_id        :integer(4)
 #
 

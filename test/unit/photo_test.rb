@@ -8,6 +8,9 @@ class PhotoTest < ActiveSupport::TestCase
 end
 
 
+
+
+
 # == Schema Information
 #
 # Table name: photos
@@ -23,5 +26,9 @@ end
 #  image_content_type :string(255)
 #  image_file_size    :integer(4)
 #  image_updated_at   :datetime
+#  go_live            :datetime
+#  sent               :boolean(1)
+#  creator_id         :integer(4)
+#  campaign_id        :integer(4)
 #
 

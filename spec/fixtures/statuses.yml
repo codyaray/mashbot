@@ -14,6 +14,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: statuses
@@ -25,5 +26,6 @@ two:
 #  go_live     :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
+#  sent        :boolean(1)
 #
 

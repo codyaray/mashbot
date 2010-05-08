@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100505184115) do
+ActiveRecord::Schema.define(:version => 20100508174232) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
@@ -131,6 +131,10 @@ ActiveRecord::Schema.define(:version => 20100505184115) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "go_live"
+    t.boolean  "sent"
+    t.integer  "creator_id"
+    t.integer  "campaign_id"
   end
 
   create_table "statuses", :force => true do |t|
@@ -140,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20100505184115) do
     t.datetime "go_live"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sent"
   end
 
   create_table "users", :force => true do |t|

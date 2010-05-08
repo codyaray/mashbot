@@ -68,6 +68,10 @@ class StatusesController < ApplicationController
   def update
     @status = Status.find(params[:id])
     @campaign = Campaign.find(params[:campaign_id])
+    @status.creator = current_user
+    @status.campaign = @campaign
+    @status.go_live = "#{params[:go_live_date]} #{params[:go_live_time]}"
+
     respond_to do |format|
       if @status.update_attributes(params[:status])
         flash[:notice] = 'Status was successfully updated.'

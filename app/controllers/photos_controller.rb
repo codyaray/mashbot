@@ -49,6 +49,9 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
     @campaign = Campaign.find params[:campaign_id]
+    @photo.creator = current_user
+    @photo.campaign = @campaign
+    @photo.go_live = "#{params[:go_live_date]} #{params[:go_live_time]}"
 
     respond_to do |format|
       if @photo.save
@@ -67,6 +70,9 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     @campaign = Campaign.find params[:campaign_id]
+    @photo.creator = current_user
+    @photo.campaign = @campaign
+    @photo.go_live = "#{params[:go_live_date]} #{params[:go_live_time]}"
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
