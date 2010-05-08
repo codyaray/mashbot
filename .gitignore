@@ -1,3 +1,6 @@
+public/system
+db/test_structure.sql
+
 *.log
 *.dvi
 *.toc
