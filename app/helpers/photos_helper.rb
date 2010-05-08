@@ -16,13 +16,14 @@ module PhotosHelper
   end
 
   def campaign_photo_url photo
-    "photos/#{photo.id}"
+    campaign_photos_path + "/#{photo.id}"
   end
 
   def new_campaign_photo_path
     "#{campaign_photos_path}/new"
   end
 
+  alias :photos_url :campaign_photos_path
   alias :photo_url :campaign_photo_url
   alias :photos_path :campaign_photos_path 
   alias :photo_path :campaign_photo_path

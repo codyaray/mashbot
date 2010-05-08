@@ -1,0 +1,21 @@
+%p
+  = image_tag @photo.image.url
+%p
+  %b
+    Caption:
+  = h @photo.caption
+%p
+  %b
+    Tags:
+  = h @photo.tags
+%p
+  %b
+    Permissions:
+  = h @photo.permissions
+%p
+  %b
+    Optional fields:
+  = h @photo.optional_fields
+= link_to 'Edit', edit_photo_path(@photo)
+|
+= link_to 'Back', photos_path
