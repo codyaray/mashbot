@@ -1,4 +1,14 @@
-- form_for(@post, :url => submit_url) do |f|
+- content_for(:javascripts) do
+  = javascript_include_tag 'km.timepicker'
+  = javascript_include_tag 'jquery-ui-1.7.2.core.slider'
+  = javascript_include_tag 'markitup/jquery.markitup.pack'
+  = javascript_include_tag 'markitup/sets/markdown/set'
+-content_for(:stylesheets) do
+  = stylesheet_link_tag 'markitup/skins/markitup/style'
+  = stylesheet_link_tag 'markitup/sets/markdown/style'
+  = stylesheet_link_tag 'km.timepicker'
+
+- form_for([@campaign, @post]) do |f|
   = f.error_messages
   %p
     = f.label :title
@@ -11,19 +21,13 @@
   %p
     = f.label :go_live
     %br
-    = f.datetime_select :go_live
-  %p
-    = f.label :creator_id
-    %br
-    = f.text_field :creator_id
-  %p
-    = f.label :campaign_id
-    %br
-    = f.text_field :campaign_id
-  %p
-    = f.label :sent
-    %br
-    = f.check_box :sent
+    - if !@post.go_live.nil?
+      %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@post.go_live.strftime('%m/%d/%Y')}" }
+      %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
+:value => "#{@post.go_live.strftime('%I:%M%p')}" }
+    - else
+      %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
+      %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
   %p
     = f.label :tags
     %br
@@ -34,4 +38,15 @@
     = f.check_box :private
   %p
     = f.submit submit_text
-  
+:javascript
+  $(document).ready(function(){
+  $.each($('input'), function(){
+  if(/date/.test($(this).attr('id'))){
+  $(this).datepicker();
+  }
+  if(/time/.test($(this).attr('id'))){
+  $(this).kmTimepicker();
+  }
+  });
+  $('textarea').markItUp(mySettings);
+  });

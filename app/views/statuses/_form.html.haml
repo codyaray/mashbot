@@ -16,7 +16,7 @@
     - if !@status.go_live.nil?
       %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
       %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
-:value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
+:value => "#{@status.go_live.strftime('%I:%M%p')}" }
     - else
       %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
       %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }

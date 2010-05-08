@@ -27,9 +27,9 @@
       %td
         = h post.go_live
       %td
-        = h post.creator_id
+        = h post.creator.login if not post.creator.nil?
       %td
-        = h post.campaign_id
+        = h post.campaign.title if not post.campaign.nil?
       %td
         = h post.sent
       %td
@@ -37,11 +37,11 @@
       %td
         = h post.private
       %td
-        = link_to 'Show', campaign_post_path(post)
+        = link_to 'Show', campaign_post_path(@campaign, post)
       %td
-        = link_to 'Edit', edit_campaign_post_path(post)
+        = link_to 'Edit', edit_campaign_post_path(@campaign, post)
       %td
-        = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Destroy', campaign_post_path(@campaign, post), :confirm => 'Are you sure?', :method => :delete
 
 %br
 = link_to 'New post', new_campaign_post_path
