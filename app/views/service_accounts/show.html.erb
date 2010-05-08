@@ -1,0 +1,17 @@
+<p>
+  <b>Service:</b>
+  <%=h @service_account.service %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @service_account.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h "********" %>
+</p>
+
+<%= link_to 'Edit', edit_service_account_path(@service_account) %> |
+<%= link_to 'Back', service_accounts_path %>
