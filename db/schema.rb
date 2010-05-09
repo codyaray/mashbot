@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508182106) do
+ActiveRecord::Schema.define(:version => 20100508215729) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(:version => 20100508182106) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "go_live"
-    t.boolean  "sent"
+    t.boolean  "sent",               :default => false
     t.integer  "creator_id"
     t.integer  "campaign_id"
   end
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20100508182106) do
     t.datetime "go_live"
     t.integer  "creator_id"
     t.integer  "campaign_id"
-    t.boolean  "sent"
+    t.boolean  "sent",        :default => false
     t.string   "tags"
     t.boolean  "private"
     t.datetime "created_at"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20100508182106) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "statuses", :force => true do |t|
@@ -165,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20100508182106) do
     t.datetime "go_live"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "sent"
+    t.boolean  "sent",        :default => false
   end
 
   create_table "users", :force => true do |t|

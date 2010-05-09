@@ -1,12 +1,21 @@
 class User < ActiveRecord::Base
   has_many :client_applications
-  has_one :google, :class_name=>"GoogleToken", :dependent=>:destroy
+  has_one :blogger, :class_name=>"GoogleToken", :dependent=>:destroy
   has_one :twitter, :class_name=>"TwitterToken", :dependent=>:destroy
   has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
   has_many :statuses
+  has_many :service_accounts
   
   acts_as_authentic do |c|
     c.openid_required_fields = [:nickname, :email]
+  end
+  
+  def tumblr
+    return ServiceAccount.find(:first, :conditions => ['service = ? and user_id = ?', 'tumblr', self.id])
+  end
+  
+  def flickr
+    return ServiceAccount.find(:first, :conditions => ['service = ? and user_id = ?', 'flickr', self.id])
   end
   
   def deliver_password_reset_instructions!

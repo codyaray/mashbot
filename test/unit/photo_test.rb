@@ -11,6 +11,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: photos
@@ -27,8 +29,8 @@ end
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #  go_live            :datetime
-#  sent               :boolean(1)
-#  creator_id         :integer(4)
-#  campaign_id        :integer(4)
+#  sent               :boolean         default(FALSE)
+#  creator_id         :integer
+#  campaign_id        :integer
 #
 

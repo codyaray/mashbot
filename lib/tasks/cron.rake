@@ -2,23 +2,51 @@ require 'net/http'
 
 task :cron => :environment do
   # check database for things with time to go_live <= Time.now
-  statuses = Status.find(:all, :conditions => ['go_live <= ?', Time.now], :order => 'go_live DESC')
+  statuses = Status.find(:all, :conditions => ['go_live <= ? and sent = ?', Time.now, false], :order => 'go_live DESC')
+  posts = Post.find(:all, :conditions => ['go_live <= ? and sent = ?', Time.now, false], :order => 'go_live DESC')
+  photos = Photo.find(:all, :conditions => ['go_live <= ? and sent = ?', Time.now, false], :order => 'go_live DESC')
 
   # send authentication info for all necessary accounts
 
   users = {}
-  for status in statuses
-    user = User.find_by_id(status.creator_id)
+  for item in [statuses, photos, posts].flatten!
+    user = item.creator
     users = users.merge({user => []}) if not users.include?(user)
-    users[user] << status
+    users[user] << item
   end
-
+  
   # group auth by user
   for user in users.keys
-    authinfo = buildAuthInfo(user.twitter.client.client.access_token.token,user.twitter.client.client.access_token.secret)
-    uuid = pushAuthInfo(authinfo)
+    if user.twitter
+      token = user.twitter.client.client.access_token.token
+      secret = user.twitter.client.client.access_token.secret
+      twitterEntry = buildAuthInfoEntry(:twitter, :oauth, token, secret)
+    end
 
-    print status
+    if user.blogger
+      token = user.blogger.client.client.access_token.token
+      secret = user.blogger.client.client.access_token.secret
+      bloggerEntry = buildAuthInfoEntry(:blogger, :oauth, token, secret)
+    end
+
+    if user.tumblr
+      email = user.tumblr.login
+      password = user.tumblr.password
+      tumblrEntry = buildAuthInfoEntry(:tumblr, :userpass, email, password)
+    end
+    
+    if user.flickr
+      email = user.flickr.login
+      password = user.flickr.password
+      flickrEntry = buildAuthInfoEntry(:flickr, :userpass, email, password)
+    end
+    
+    entries = [twitterEntry, bloggerEntry, tumblrEntry, flickrEntry].compact!
+    if entries.length > 0
+      authinfo = buildAuthInfo entries
+      #uuid = pushAuthInfo(authinfo)
+      print authinfo
+    end
 
     # loop over all things scheduled for now, send each item to the PAAP, and mark as sent
     for status in users[user]
@@ -27,6 +55,24 @@ task :cron => :environment do
       # status.mark_as_sent
     end
   end
+end
+
+def pushAuthInfo authinfo
+  http = Net::HTTP.new('ws35.cs.drexel.edu', 8080)
+  path = '/mashbot/rest/auth'
+
+  # POST request -> push status
+  data = authinfo
+  headers = {
+    'Content-Type' => 'application/json',
+    'Authorization' => "Basic #{Base64.b64encode("default:default")}"
+  }
+
+  # receive UUID as (json) string
+
+  resp, data = http.post(path, data, headers)
+  
+  return data # UUID token
 end
 
 def pushMObject type, mobject, uuid
@@ -49,52 +95,59 @@ def pushMObject type, mobject, uuid
   puts data
 end
 
-def pushAuthInfo authinfo
-  http = Net::HTTP.new('ws35.cs.drexel.edu', 8080)
-  path = '/mashbot/rest/auth'
-
-  # POST request -> push status
-  data = authinfo
-  headers = {
-    'Content-Type' => 'application/json',
-    'Authorization' => "Basic #{Base64.b64encode("default:default")}"
-  }
-
-  # receive UUID as (json) string
-
-  resp, data = http.post(path, data, headers)
-  
-  return data # UUID token
-end
-
-#{"authinfo":{
-#  "credentials":{
-#    "entry" :{
-#      "key":"twitter",
-#      "value":{
-#         "key":"username",
-#         "secret":"yomama"
-# }}}}}}}
-def buildAuthInfo token, secret
-  entry,context,value,credentials,authinfo,root = {},{},{},{},{},{}
-  value["key"] = token
+# {"authInfo": [
+#   {
+#     "service": "twitter",
+#     "credentials": [{
+#       "method": "oauth",
+#       "key": "9583182-gq9004z74qQThHKCAsaZ9BiNo8mf7Vht1lx8eXiIUo",
+#       "secret": "cgv2XDMH4FJeSxwo6HtfAZf33a6eOqdJoBxnYB2D8"
+#     }]
+#   },
+#   {
+#     "service": "tumblr",
+#     "credentials": [{
+#       "method": "userpass",
+#       "key": "test@mashbot.net",
+#       "secret": "m45hb07"
+#     }]
+#   }
+# ]}
+def buildAuthInfoEntry service, method, key, secret
+  value,entry = {},{}
+  value["key"] = key
   value["secret"] = secret
-  value["method"] = "oauth"
-  entry = {}
-  entry["key"] = "twitter"
-  entry["value"] = [value]
-  credentials["entry"] = entry
-  authinfo["credentials"] = credentials
-  root["authinfo"] = authinfo
-  return root.to_json
+  value["method"] = method
+  entry["service"] = service
+  entry["credentials"] = [value]
+  return entry
 end
 
-#querystring?token=UUID
+def buildAuthInfo entries
+  authinfo = {}
+  authinfo["authinfo"] = entries
+  return authinfo.to_json
+end
+
 #{"mObject":{
 #  "context":{
 #    "entry" :{
 #      "key":"status",
 #      "value":"mytext"
+#}}}}
+
+#{"mObject":{
+#  "context":{
+#    "entry" :{
+#      "key":"photo",
+#      "value": photo.image.url
+#}}}}
+
+#{"mObject":{
+#  "context":{
+#    "entry" :{
+#      "key":"post",
+#      "value": post.body
 #}}}}
 def buildStatusMObject status
   entry,context,mObject,root = {},{},{},{}

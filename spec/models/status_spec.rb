@@ -18,6 +18,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: statuses
@@ -29,6 +31,6 @@ end
 #  go_live     :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
-#  sent        :boolean(1)
+#  sent        :boolean         default(FALSE)
 #
 

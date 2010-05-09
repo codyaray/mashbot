@@ -41,6 +41,7 @@ class ServiceAccountsController < ApplicationController
   # POST /service_accounts.xml
   def create
     @service_account = ServiceAccount.new(params[:service_account])
+    @service_account.user = current_user
 
     respond_to do |format|
       if @service_account.save
