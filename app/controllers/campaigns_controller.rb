@@ -38,6 +38,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1/edit
   def edit
     @campaign = Campaign.find(params[:id])
+    @campaign.start_date = Date.parse(@campaign.start_date).strftime('%m/%d/%Y') if @campaign.start_date
+    @campaign.end_date = Date.parse(@campaign.end_date).strftime('%m/%d/%Y') if @campaign.end_date
   end
 
   # POST /campaigns

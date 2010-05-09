@@ -1,9 +1,9 @@
 .formfield {
   background: #eef;
   height: 50px;
-  width: 300px;
+  width: 400px;
   text-align: center;
-  font-size: 1.5em; }
+  font-size: 1.4em; }
 
 .formlabel {
   position: relative;
@@ -11,7 +11,7 @@
   left: .3em; }
 
 .formfieldwrapper {
-  width: 300px; }
+  width: 400px; }
 
 .formcheckboxlabel {
   color: #999; }
@@ -26,4 +26,5 @@
 
 .form {
   margin: 0 auto;
-  width: 300px; }
+  width: 400px;
+  padding: 10px; }

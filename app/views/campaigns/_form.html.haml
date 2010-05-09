@@ -19,8 +19,11 @@
       = f.text_field :end_date, :class => 'formfield'
     - if request.xhr?
       %p
-        %button{:onclick => "submit_campaign(); return false;", :class => 'submit'}
+        %button{:onclick => "submit_campaign(); return false;", :class => 'formfield submit'}
           = submit_text
+      %p
+        %a{:href => campaign_path(@campaign)}
+          View campaign details
     - else
       %p
         = f.submit submit_text, :class => 'submit formfield'

@@ -1,13 +1,27 @@
+!textcolor = #00003
+!borderdark = #00003
+!borderlight = #ccf
+!bgcolor = #eeeef
+!bgcolordark = #9999c
+
+
 *
   padding: 0px
   margin: 0px
   font-family: sans-serif
+  color = !textcolor
+
+#schedule
+  
+  .fc-event-title
+    color: #fff
 
 body
-  background: #eef
+  background = !bgcolor
 
 #header
-  border-bottom: 1px solid #000
+  border-bottom: 1px solid 
+    color = !borderlight
   padding: 10px
   padding-bottom: 5px
 
@@ -20,9 +34,14 @@ body
 
   li
     display: inline
-    border: 1px solid #000
+    border: 1px solid 
+      color = !borderlight
+      bottom: 0
     padding: 5px
-    background: #ccf
+    margin-right: 4px
+    background: #fff
+    position: relative
+    top: 1px
 
 #administrative-links
   float: right
@@ -30,11 +49,13 @@ body
   li
     display: inline
     padding: 3px
-    border-right: 1px solid #000
+    border-right: 1px solid 
+      color = !borderdark
 
 
 #content
-  border-bottom: 1px solid #000
+  border-bottom: 1px solid
+    color = !borderdark
   background: #fff
   padding: 10px
 
@@ -45,7 +66,7 @@ a
   
 a:hover
   text-decoration: underline
-  color: #003
+  color = !textcolor
 
 .quicklinks
   font-weight: bold
@@ -57,4 +78,32 @@ a:hover
   font-weight: bold
   position: relative
   top: -1em
-  color: #003
+  color = !textcolor
+
+table
+  border-collapse: collapse
+.listtable
+  width: 800px
+  margin: 0 auto
+  
+  td
+    padding: 10px
+    border-bottom: 1px solid
+      color = !borderdark
+  tr.alternate
+    padding: 0px
+    background = !bgcolor
+
+h1.pagetitle
+  background: #eef
+  border-bottom: solid 1px
+    color = !borderdark
+  border-right: solid 1px
+    color = !borderdark
+  border-top: solid 1px
+    color = !borderlight
+  border-left: solid 1px
+    color = !borderlight
+  margin-bottom: 60px
+  text-align: center
+  padding: 10px

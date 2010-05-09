@@ -21,11 +21,19 @@
   %p
     = f.label :permissions
     %br
-    = f.text_field :permissions
+    = render :partial => 'form_checkboxes', :locals => {:hash => Photo::PERMISSION_KEYS}
   %p
     = f.label :optional_fields
     %br
-    = f.text_field :optional_fields
+    Safety Level
+    = select_tag('optional_fields[safety_level]', options_from_hash(Photo::SAFETY_LEVEL))
+    %br
+    Content Type
+    = select_tag('optional_fields[content_type]', options_from_hash(Photo::CONTENT_TYPE))
+    %br
+    Searchable?
+    = select_tag('optional_fields[hidden]', options_from_hash(Photo::HIDDEN))
+    
   %p
     = f.label :go_live
     %br

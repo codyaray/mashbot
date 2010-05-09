@@ -1,0 +1,5 @@
+- form_keyval.each_pair do |key, val|
+  %input{:type => 'checkbox', :id => "permissions_#{key}", :name => "permissions[#{key}]", :value => "1"}
+  %input{:type => 'hidden', :name => "permissions[#{key}]", :value => "0" }
+  = h val
+  %br 

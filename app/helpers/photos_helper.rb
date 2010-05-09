@@ -1,4 +1,12 @@
 module PhotosHelper
+  def options_from_hash hash
+    options = ""
+    hash.each_pair do |key, val|
+      options += "<option value='#{key}'>#{val}</option>"
+    end
+    options
+  end
+
   def campaign_photos_path
     "/campaigns/#{@campaign.id}/photos"
   end

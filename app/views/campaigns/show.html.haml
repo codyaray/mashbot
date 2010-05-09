@@ -1,19 +1,70 @@
-
-%p
-  %b
-    Title:
+- content_for :stylesheets do
+  = stylesheet_link_tag 'campaign'
+- content_for :javascripts do
+  = javascript_include_tag 'campaign'
+%h1.pagetitle
   = h @campaign.title
-%p
-  %b
-    Start date:
+.dates
   = h @campaign.start_date
-%p
-  %b
-    End date:
+  \--
   = h @campaign.end_date
+#contentgroup
+  %h3
+    Status Messages
+  .content
+    %table.contenttable
+      %tr
+        %th
+          Message
+        %th
+          Creator
+        %th
+          Live Date
+        %th
+          
+      = render :partial => 'status', :collection => @campaign.statuses
+    .quicklinks
+      = link_to '+ New Status Message', new_campaign_status_path(@campaign)
+  %h3
+    Blog Posts
+  .content
+    %table.contenttable
+      %tr.top
+        %th
+          Title
+        %th
+          Creator
+        %th
+          Tags
+        %th
+          Private?
+        %th
+          Live Date
+        %th
+          Published?
+      = render :partial => 'post', :collection => @campaign.posts
+    .quicklinks
+      = link_to '+ New Blog Post', new_campaign_post_path(@campaign)
+  %h3
+    Photos
+  .content
+    %table.contenttable
+      %tr
+        %th
+          Photo
+        %th
+          Creator
+        %th
+          Tags
+        %th
+          Privacy Level
+        %th
+          Optional Fields
+        %th
+      = render :partial => 'photo', :collection => @campaign.photos
+    
 
-= link_to 'Create content', campaign_path(@campaign) + '/content'
-|
-= link_to 'Edit', edit_campaign_path(@campaign)
-|
-= link_to 'Back', campaigns_path
+.quicklinks
+  = link_to 'Edit', edit_campaign_path(@campaign)
+  |
+  = link_to 'Back', campaigns_path

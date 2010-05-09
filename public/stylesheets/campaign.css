@@ -1,0 +1,20 @@
+.dates {
+  color: #336;
+  text-align: center; }
+
+h1.pagetitle {
+  margin-bottom: 20px; }
+
+.contenttable {
+  width: 90%;
+  margin: 0 auto; }
+  .contenttable th {
+    border-bottom: #003 1px dashed; }
+  .contenttable td {
+    text-align: center; }
+
+.innertable {
+  width: 250px;
+  margin: 0 auto; }
+  .innertable td {
+    text-align: left; }

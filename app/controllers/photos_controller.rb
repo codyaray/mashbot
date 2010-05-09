@@ -52,7 +52,8 @@ class PhotosController < ApplicationController
     @photo.creator = current_user
     @photo.campaign = @campaign
     @photo.go_live = "#{params[:go_live_date]} #{params[:go_live_time]}"
-
+    @photo.optional_fields = params[:optional_fields]
+    @photo.permissions = params[:permissions]
     respond_to do |format|
       if @photo.save
         flash[:notice] = 'Photo was successfully created.'

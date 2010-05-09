@@ -5,6 +5,7 @@ class Campaign < ActiveRecord::Base
 
   has_many :statuses
   has_many :photos
+  has_many :posts
 
   def must_end_after_start
     if (!end_date.nil? and !start_date.nil?) and

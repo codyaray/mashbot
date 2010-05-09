@@ -1,0 +1,7 @@
+%table
+  - key_value.each_pair do |key, value|
+    %tr
+      %td
+        = key_constant[key]
+      %td
+        = value_constant[value]

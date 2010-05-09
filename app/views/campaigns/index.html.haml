@@ -1,26 +1,25 @@
 %h1
-  Listing campaigns
-%table
+  Manage Campaigns
+%table.listtable
   %tr
     %th
-      Title
     %th
-      Start date
+      Start
     %th
-      End date
+      End
+  - alternate = true
   - @campaigns.each do |campaign|
-    %tr
+    - alternate = !alternate
+    %tr{:class => (alternate) ? 'alternate' : 'regular'}
       %td
-        = h campaign.title
+        = link_to campaign.title, campaign
       %td
         = h campaign.start_date
       %td
         = h campaign.end_date
       %td
-        = link_to 'Show', campaign
-      %td
         = link_to 'Edit', edit_campaign_path(campaign)
       %td
-        = link_to 'Destroy', campaign, :confirm => 'Are you sure?', :method => :delete
-%br
-= link_to 'New campaign', new_campaign_path
+        = link_to 'Delete', campaign, :confirm => 'Are you sure?', :method => :delete
+.quicklinks
+  = link_to '+ New campaign', new_campaign_path
