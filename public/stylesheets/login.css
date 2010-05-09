@@ -1,25 +1,7 @@
-.formfield {
-  background: #eef;
-  height: 50px;
-  width: 300px;
-  text-align: center;
-  font-size: 2em; }
-
-.formlabel {
-  position: relative;
-  top: 1.3em;
-  left: .3em; }
-
-.formfieldwrapper {
-  width: 300px; }
-
-.formcheckboxlabel {
-  color: #999; }
-
 .rememberme {
   float: right; }
 
-#loginform {
+#form {
   margin: 0 auto;
   width: 300px; }
 
@@ -29,20 +11,9 @@
 .togglelogin {
   text-align: right; }
 
-.submit {
-  background: #336;
-  color: #fff; }
-
 .loginwrapper {
   height: 200px; }
-
-li {
-  display: inline; }
 
 .openidwrapper {
   position: relative;
   top: 2em; }
-
-.fieldnote {
-  text-align: right;
-  color: #999; }

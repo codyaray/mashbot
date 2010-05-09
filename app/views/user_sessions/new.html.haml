@@ -1,11 +1,12 @@
 - content_for(:stylesheets) do
   = stylesheet_link_tag 'login'
+  = stylesheet_link_tag 'form'
 - content_for(:javascripts) do
   = javascript_include_tag 'login'
 
 %h1
   Login
-#loginform
+.form
   - form_for @user_session, :url => user_session_path do |f|
     #formerrors
       = f.error_messages
