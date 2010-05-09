@@ -11,16 +11,6 @@
   =javascript_include_tag "jquery-ui.custom.min"
   =javascript_tag "$(document).ready(function(){init_schedule();});"
 
-#bucket
-  #accordion
-    %h3.title
-      %a{ :href => "#" }
-        Campaigns
-    %div
-      - @unscheduled_campaigns.each do |campaign|
-        %div{:class => "schedule-unit unit-#{campaign.id}"}
-          =campaign.title
-
 #schedule
 
 

@@ -5,7 +5,8 @@
 %p
   %b
     Body:
-  = h @post.body
+  %blockquote{:style => "padding: 20px"}
+    = @post.rendered_body
 %p
   %b
     Go live:

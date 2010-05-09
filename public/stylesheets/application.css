@@ -35,8 +35,22 @@ body {
   padding: 10px; }
 
 a {
-  color: #336;
+  font-weight: bold;
+  color: #447;
   text-decoration: none; }
 
 a:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #003; }
+
+.quicklinks {
+  font-weight: bold;
+  color: #99c;
+  text-align: center; }
+
+#flash {
+  float: right;
+  font-weight: bold;
+  position: relative;
+  top: -1em;
+  color: #003; }

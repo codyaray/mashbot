@@ -7,14 +7,16 @@ class Campaign < ActiveRecord::Base
   has_many :photos
 
   def must_end_after_start
-    if !end_date.nil? and !start_date.nil? and end_date != '' and start_date != '' and end_date < start_date
+    if (!end_date.nil? and !start_date.nil?) and
+      (end_date != '' and start_date != '') and
+      Time.parse(end_date) < Time.parse(start_date)
       errors.add_to_base("Hold up! You can't end something before you start it!")
     end
   end
   
   def must_have_start_if_have_end
-    if !end_date.nil? and !start_date.nil? and end_date != '' and start_date == ''
-      errors.add_to_base("Whoa buddy! You're going to need a start date if you intend to have an end date")
+    if (!end_date.nil? and end_date != '') and (start_date == '' or !start_date.nil?)
+      # errors.add_to_base("#{start_date} - #{end_date} | You're going to need a start date if you intend to have an end date")
     end
   end
 

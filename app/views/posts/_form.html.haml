@@ -1,9 +1,9 @@
 - content_for(:javascripts) do
-  = javascript_include_tag 'km.timepicker'
-  = javascript_include_tag 'jquery-ui-1.7.2.core.slider'
+  = javascript_include_tag 'jquery.utils.min'
   = javascript_include_tag 'markitup/jquery.markitup'
   = javascript_include_tag 'markitup/sets/markdown/set'
--content_for(:stylesheets) do
+  = javascript_include_tag 'form_utils'
+- content_for(:stylesheets) do
   = stylesheet_link_tag 'markitup/skins/markitup/style'
   = stylesheet_link_tag 'markitup/sets/markdown/style'
   = stylesheet_link_tag 'km.timepicker'
@@ -38,15 +38,3 @@
     = f.check_box :private
   %p
     = f.submit submit_text
-:javascript
-  $(document).ready(function(){
-  $.each($('input'), function(){
-  if(/date/.test($(this).attr('id'))){
-  $(this).datepicker();
-  }
-  if(/time/.test($(this).attr('id'))){
-  $(this).kmTimepicker();
-  }
-  });
-  $('textarea').markItUp(mySettings);
-  });

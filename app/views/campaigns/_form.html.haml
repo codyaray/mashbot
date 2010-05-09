@@ -14,7 +14,7 @@
     = f.text_field :end_date
   - if request.xhr?
     %p
-      %a#campaign_submit{:onclick => "submit_campaign('#{submit_text}', #{@campaign.id}); return false;"}
+      %button{:onclick => "submit_campaign(); return false;"}
         = submit_text
   - else
     %p

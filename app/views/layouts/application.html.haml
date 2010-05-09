@@ -6,7 +6,7 @@
       =yield :title
     =javascript_include_tag "application"
     =javascript_include_tag "jquery.min"
-    =javascript_include_tag "jquery-ui.custom.min"
+    =javascript_include_tag "jquery-ui.min"
     =yield :javascripts
     =stylesheet_link_tag "application"
     =stylesheet_link_tag "jquery-ui.custom"
@@ -47,9 +47,9 @@
           %li  
             %a{:href => "/explore"}
               Explore
-    #content
       #flash
         =h flash[:notice]
+    #content
       =yield
     #footer
       
