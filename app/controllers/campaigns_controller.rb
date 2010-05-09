@@ -61,7 +61,6 @@ class CampaignsController < ApplicationController
   # PUT /campaigns/1.xml
   def update
     @campaign = Campaign.find(params[:id])
-
     respond_to do |format|
       if @campaign.update_attributes(params[:campaign])
         message = 'Campaign was successfully updated.'
@@ -74,7 +73,7 @@ class CampaignsController < ApplicationController
         format.xml  { head :ok }
       else
         if request.xhr?
-          render :json => {:success => false, :message => 'Sorry, something went wrong. :('}
+          render :json => {:success => false, :message => @campaign.errors.full_messages.join(' ')}
           return
         end
         format.html { render :action => "edit" }

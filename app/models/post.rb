@@ -1,6 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :campaign
   belongs_to :creator, :class_name => 'User'
+  
+  def rendered_body
+    renderer = RDiscount.new(self.body)
+    renderer.to_html
+  end
 end
 
 

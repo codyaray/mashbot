@@ -5,7 +5,7 @@
   padding-top: 45px; }
 
 #schedule {
-  display: table-cell;
+  margin: 0 auto;
   width: 600px;
   vertical-align: top; }
 
@@ -17,9 +17,5 @@
   cursor: pointer; }
 
 .ui-accordion-content {
-  background: #eef;
+  bacground: #eef;
   padding: 5px 10px; }
-
-#ui-datepicker-div {
-  z-index: 1000;
-}

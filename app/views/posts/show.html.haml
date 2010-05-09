@@ -5,7 +5,8 @@
 %p
   %b
     Body:
-  = h @post.body
+  %blockquote{:style => "padding: 20px"}
+    = @post.rendered_body
 %p
   %b
     Go live:
@@ -30,6 +31,6 @@
   %b
     Private:
   = h @post.private
-= link_to 'Edit', edit_post_path(@post)
+= link_to 'Edit', edit_campaign_post_path(@campaign, @post)
 |
-= link_to 'Back', posts_path
+= link_to 'Back', campaign_posts_path(@campaign)

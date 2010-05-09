@@ -1,8 +1,8 @@
 - content_for(:javascripts) do
-  = javascript_include_tag 'km.timepicker'
-  = javascript_include_tag 'jquery-ui-1.7.2.core.slider'
--content_for(:stylesheets) do
-  = stylesheet_link_tag 'km.timepicker'
+  = javascript_include_tag 'timepickr/dist/ui.timepickr'
+  = javascript_include_tag 'form_utils'
+- content_for(:stylesheets) do
+  = stylesheet_link_tag 'timepickr/src/dist/ui.timepickr'
 
 - form_for(@status) do |f|
   = f.error_messages
@@ -16,20 +16,9 @@
     - if !@status.go_live.nil?
       %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
       %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
-:value => "#{@status.go_live.strftime('%m/%d/%Y')}" }
+:value => "#{@status.go_live.strftime('%I:%M%p')}" }
     - else
       %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
       %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
   %p
     = f.submit submit_text
-:javascript
-  $(document).ready(function(){
-  $.each($('input'), function(){
-  if(/date/.test($(this).attr('id'))){
-  $(this).datepicker();
-  }
-  if(/time/.test($(this).attr('id'))){
-  $(this).kmTimepicker();
-  }
-  });
-  });
