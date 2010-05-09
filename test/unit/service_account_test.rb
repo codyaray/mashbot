@@ -7,6 +7,7 @@ class ServiceAccountTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: service_accounts
@@ -17,5 +18,6 @@ end
 #  password   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 
