@@ -24,7 +24,7 @@
           
       = render :partial => 'status', :collection => @campaign.statuses
     .quicklinks
-      = link_to '+ New Status Message', new_campaign_status_path(@campaign)
+      = link_to '+ Write New Status Message', new_campaign_status_path(@campaign)
   %h3
     Blog Posts
   .content
@@ -44,7 +44,7 @@
           Published?
       = render :partial => 'post', :collection => @campaign.posts
     .quicklinks
-      = link_to '+ New Blog Post', new_campaign_post_path(@campaign)
+      = link_to '+ Write New Blog Post', new_campaign_post_path(@campaign)
   %h3
     Photos
   .content
@@ -62,6 +62,8 @@
           Optional Fields
         %th
       = render :partial => 'photo', :collection => @campaign.photos
+    .quicklinks
+      = link_to '+ Upload New Photo', new_campaign_photo_path
     
 
 .quicklinks
