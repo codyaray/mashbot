@@ -15,11 +15,12 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: authentication_credentials
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  service    :string(255)     not null
 #  details    :string(255)     not null
 #  created_at :datetime

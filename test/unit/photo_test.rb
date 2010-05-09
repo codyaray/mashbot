@@ -13,11 +13,12 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: photos
 #
-#  id                 :integer         not null, primary key
+#  id                 :integer(4)      not null, primary key
 #  caption            :string(255)
 #  tags               :string(255)
 #  permissions        :string(255)
@@ -26,11 +27,11 @@ end
 #  updated_at         :datetime
 #  image_file_name    :string(255)
 #  image_content_type :string(255)
-#  image_file_size    :integer
+#  image_file_size    :integer(4)
 #  image_updated_at   :datetime
 #  go_live            :datetime
-#  sent               :boolean         default(FALSE)
-#  creator_id         :integer
-#  campaign_id        :integer
+#  sent               :boolean(1)      default(FALSE)
+#  creator_id         :integer(4)
+#  campaign_id        :integer(4)
 #
 

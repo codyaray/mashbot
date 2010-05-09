@@ -7,12 +7,13 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: consumer_tokens
 #
-#  id         :integer         not null, primary key
-#  user_id    :integer
+#  id         :integer(4)      not null, primary key
+#  user_id    :integer(4)
 #  type       :string(30)
 #  token      :string(1024)
 #  secret     :string(255)
