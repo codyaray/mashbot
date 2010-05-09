@@ -4,7 +4,7 @@
   %td
     = h post.creator.login if not post.creator.nil?
   %td
-    = h post.go_live.strftime('%m/%d/%Y %I:%M%p')
+    = h post.go_live.strftime('%m/%d/%Y %I:%M%p') if post.go_live
   %td
     = h post.sent
   %td
