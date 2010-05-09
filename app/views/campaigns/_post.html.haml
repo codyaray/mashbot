@@ -4,14 +4,10 @@
   %td
     = h post.creator.login if not post.creator.nil?
   %td
-    = h post.tags
-  %td
-    = h post.private
-  %td
     = h post.go_live.strftime('%m/%d/%Y %I:%M%p')
   %td
     = h post.sent
   %td
     = link_to 'Edit', edit_campaign_post_path(@campaign, post)
-  %td
+    |
     = link_to 'Destroy', campaign_post_path(@campaign, post), :confirm => 'Are you sure?', :method => :delete

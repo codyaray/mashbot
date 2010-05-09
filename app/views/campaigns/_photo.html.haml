@@ -6,36 +6,10 @@
   %td
     = h photo.creator.login
   %td
-    = h photo.tags
-  %td
-    - if photo.permissions['is_public'] == 1
-      Public
-    - elsif photo.permissions['is_friend'] == 1
-      Friends
-    - elsif photo.permissions['is_family'] == 1
-      Family
-    - else
-      N/A
-  %td
-    %table.innertable
-      %tr
-        %td
-          Safety Level
-        %td
-          = Photo::SAFETY_LEVEL[photo.optional_fields['safety_level']]
-      %tr
-        %td
-          Content Type
-        %td
-          = Photo::CONTENT_TYPE[photo.optional_fields['content_type']]
-      %tr
-        %td
-          Search Visibility
-        %td
-          = Photo::HIDDEN[photo.optional_fields['hidden']]
-  %td
     = h photo.go_live.strftime('%m/%d/%Y %I:%M%p') if photo.go_live
+  %td
+    = h photo.sent
   %td
     = link_to 'Edit', edit_photo_path(photo)
     |
-    = link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete
+    = link_to 'Delete', photo, :confirm => 'Are you sure?', :method => :delete

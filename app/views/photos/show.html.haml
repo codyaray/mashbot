@@ -1,21 +1,51 @@
-%p
-  = image_tag @photo.image.url
-%p
-  %b
-    Caption:
-  = h @photo.caption
-%p
-  %b
-    Tags:
-  = h @photo.tags
-%p
-  %b
-    Permissions:
-  = h @photo.permissions
-%p
-  %b
-    Optional fields:
-  = h @photo.optional_fields
-= link_to 'Edit', edit_photo_path(@photo)
-|
-= link_to 'Back', photos_path
+- content_for :javascripts do
+  = javascript_include_tag "facebox/facebox"
+  = javascript_include_tag "photo"
+- content_for :stylesheets do
+  = stylesheet_link_tag 'photo'
+  = stylesheet_link_tag 'facebox/facebox'
+
+#photowrap
+  = link_to image_tag(@photo.image.url(:show)), "javascript: $.facebox('#{image_tag(@photo.image.url)}')" 
+  .caption.info
+    %b
+      Caption:
+    = h @photo.caption
+  .tags.info
+    %b
+      Tags:
+    = @photo.tags.split(/\s/).join(", ")
+  .permissions.info
+    %b
+      Privacy Level:
+    - if @photo.permissions['is_public'] == 1
+      Public
+    - elsif @photo.permissions['is_friend'] == 1
+      Friends
+    - elsif @photo.permissions['is_family'] == 1
+      Family
+    - else
+      None Set
+  .optional.info
+    %b
+      Optional Information:
+    %table.innertable
+      %tr
+        %td
+          Safety Level
+        %td
+          = Photo::SAFETY_LEVEL[@photo.optional_fields['safety_level']]
+      %tr
+        %td
+          Content Type
+        %td
+          = Photo::CONTENT_TYPE[@photo.optional_fields['content_type']]
+      %tr
+        %td
+          Search Visibility
+        %td
+          = Photo::HIDDEN[@photo.optional_fields['hidden']]
+.quicklinks        
+  = link_to 'Edit', edit_photo_path(@photo)
+  |
+  = link_to 'Back', campaign_path(@campaign)

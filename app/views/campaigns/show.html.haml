@@ -35,13 +35,10 @@
         %th
           Creator
         %th
-          Tags
-        %th
-          Private?
-        %th
           Live Date
         %th
           Published?
+        %th
       = render :partial => 'post', :collection => @campaign.posts
     .quicklinks
       = link_to '+ Write New Blog Post', new_campaign_post_path(@campaign)
@@ -55,11 +52,9 @@
         %th
           Creator
         %th
-          Tags
+          Live Date
         %th
-          Privacy Level
-        %th
-          Optional Fields
+          Published?
         %th
       = render :partial => 'photo', :collection => @campaign.photos
     .quicklinks

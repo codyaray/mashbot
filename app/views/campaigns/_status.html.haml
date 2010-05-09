@@ -6,8 +6,6 @@
   %td
     = h status.go_live.strftime('%m/%d/%Y %I:%M%p') if status.go_live
   %td
-    = link_to 'Show', campaign_status_path(status)
-    |
     = link_to 'Edit', edit_campaign_status_path(status)
     |
-    = link_to 'Destroy', destroy_campaign_status_path(status), :confirm => 'Are you sure?', :method => :delete
+    = link_to 'Delete', destroy_campaign_status_path(status), :confirm => 'Are you sure?', :method => :delete

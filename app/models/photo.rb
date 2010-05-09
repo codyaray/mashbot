@@ -11,7 +11,9 @@ class Photo < ActiveRecord::Base
   CONTENT_TYPE = {'1' => 'Photo', '2' => 'Screenshot', '3' => 'Other'}
   HIDDEN = {'1' => 'Globally Searchable', '2' => 'Hidden'}
   has_attached_file :image,
+
   :styles => { :large => "700x>",
+    :show => "400x>",
     :medium => "300x300>",
     :thumb => "100x100>" }
 end

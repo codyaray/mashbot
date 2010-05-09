@@ -1,0 +1,15 @@
+#photowrap {
+  background: #eef;
+  width: 400px;
+  margin: 0 auto; }
+
+.info {
+  width: 100%;
+  padding: 10px;
+  margin: 0; }
+
+.innertable {
+  width: 250px;
+  margin: 0 auto; }
+  .innertable td {
+    text-align: left; }

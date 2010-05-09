@@ -3,4 +3,4 @@
 - form_for(@status) do |f|
   = f.error_messages
   = render :partial => 'form.html.haml', :locals => { :submit_text => 'Create!' }
-= link_to 'Back', campaign_statuses_path
+= link_to 'Back', campaign_path(@campaign)
