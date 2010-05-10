@@ -1,6 +1,7 @@
 %h1
   Editing status
-  = render :partial => 'form.html.haml', :locals => { :submit_text => 'Update!' }
-= link_to 'Show', @status
-|
-= link_to 'Back', campaign_path(@campaign)
+= render :partial => 'form.html.haml', :locals => { :submit_text => 'Update!' }
+.quicklinks
+  = link_to 'Show', @status
+  |
+  = link_to 'Back', campaign_path(@campaign)

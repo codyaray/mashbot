@@ -1,6 +1,6 @@
 %tr
   %td
-    = link_to status.message[0,70] + ((status.message.size >= 70) ? "..." : ""), campaign_status_path(status)
+    = link_to status.message[0,50] + ((status.message.size >= 50) ? "..." : ""), campaign_status_path(status)
   %td
     = h status.creator.login
   %td

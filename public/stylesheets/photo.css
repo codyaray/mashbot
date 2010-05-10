@@ -1,6 +1,6 @@
 #photowrap {
   background: #eef;
-  width: 400px;
+  width: 403px;
   margin: 0 auto; }
 
 .info {
@@ -13,3 +13,17 @@
   margin: 0 auto; }
   .innertable td {
     text-align: left; }
+
+.checkboxes {
+  text-align: center; }
+
+td {
+  padding: 10px; }
+
+select {
+  width: 100%;
+  background: #eef;
+  font-weight: bold; }
+
+.permissionsboxes input {
+  background: #eef; }

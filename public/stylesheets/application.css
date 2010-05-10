@@ -63,9 +63,10 @@ a:hover {
 #flash {
   float: right;
   font-weight: bold;
+  color: #00114a;
   position: relative;
-  top: -1em;
-  color: #00114a; }
+  top: -3px;
+  background: #ffc !important; }
 
 table {
   border-collapse: collapse; }

@@ -1,9 +1,14 @@
-= f.label :go_live
-%br
+.formlabel.go_live_label
+  = f.label :go_live_date
 - if !object.go_live.nil?
-  %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{object.go_live.strftime('%m/%d/%Y')}" }
-  %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
+  %input{:class => 'formfield go_live', :type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{object.go_live.strftime('%m/%d/%Y')}" }
+    
+  .formlabel.go_live_label2
+    = f.label :go_live_time
+  %input{:class => 'formfield go_live go_live2', :type => "text", :name => "go_live_time", :id => "go_live_time",         
 :value => "#{object.go_live.strftime('%I:%M%p')}" }
 - else
-  %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
-  %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
+  %input{:class => 'formfield go_live', :type => "text", :name => "go_live_date", :id => "go_live_date" }
+  .formlabel.go_live_label2
+    = f.label :go_live_time
+  %input{:class => 'formfield go_live go_live2', :type => "text", :name => "go_live_time", :id => "go_live_time" }

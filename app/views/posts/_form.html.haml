@@ -18,16 +18,7 @@
       = f.text_field :title, :class => 'formfield'
     .bodyedit
       = f.text_area :body
-    .go_livewrap
-      .formlabel
-        = f.label :go_live
-      - if !@post.go_live.nil?
-        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@post.go_live.strftime('%m/%d/%Y')}" }
-        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_time", :id => "go_live_time",         
-:value => "#{@post.go_live.strftime('%I:%M%p')}" }
-      - else
-        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_date", :id => "go_live_date" }
-        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_time", :id => "go_live_time" }
+    = render :partial => 'shared/go_live', :locals => {:object => @post, :f => f}
     .formlabel
       = f.label :tags
     = f.text_field :tags, :class => 'formfield tags'

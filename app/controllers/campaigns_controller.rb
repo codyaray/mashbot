@@ -5,7 +5,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns.xml
   def index
     @campaigns = Campaign.all
-
+    @campaigns.sort {|a, b| a.start_date <=> b.start_date}
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @campaigns }
