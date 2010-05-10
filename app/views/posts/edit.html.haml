@@ -1,6 +1,7 @@
 %h1
   Editing post
 = render :partial => 'form', :locals => {:submit_text => "Update!", :submit_url => campaign_post_path(@campaign, @post)}
-= link_to 'Show', campaign_post_path(@campaign, @post)
-|
-= link_to 'Back', campaign_posts_path(@campaign)
+.quicklinks
+  = link_to 'Show', campaign_post_path(@campaign, @post)
+  |
+  = link_to 'Back', campaign_path(@campaign)

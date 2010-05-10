@@ -1,40 +1,37 @@
 - content_for(:javascripts) do
-  = javascript_include_tag 'jquery.utils.min'
   = javascript_include_tag 'markitup/jquery.markitup'
   = javascript_include_tag 'markitup/sets/markdown/set'
   = javascript_include_tag 'form_utils'
+  = javascript_include_tag 'post'
 - content_for(:stylesheets) do
   = stylesheet_link_tag 'markitup/skins/markitup/style'
   = stylesheet_link_tag 'markitup/sets/markdown/style'
-  = stylesheet_link_tag 'km.timepicker'
-
-- form_for([@campaign, @post]) do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
-  %p
-    = f.label :body
-    %br
-    = f.text_area :body
-  %p
-    = f.label :go_live
-    %br
-    - if !@post.go_live.nil?
-      %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@post.go_live.strftime('%m/%d/%Y')}" }
-      %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
+  = stylesheet_link_tag 'post'
+  = stylesheet_link_tag 'form'
+  = stylesheet_link_tag 'showpost'
+.postwrap
+  - form_for([@campaign, @post]) do |f|
+    = f.error_messages
+    .formlabel
+      = f.label :title
+    .formfieldwrapper
+      = f.text_field :title, :class => 'formfield'
+    .bodyedit
+      = f.text_area :body
+    .go_livewrap
+      .formlabel
+        = f.label :go_live
+      - if !@post.go_live.nil?
+        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@post.go_live.strftime('%m/%d/%Y')}" }
+        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_time", :id => "go_live_time",         
 :value => "#{@post.go_live.strftime('%I:%M%p')}" }
-    - else
-      %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
-      %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
-  %p
-    = f.label :tags
-    %br
-    = f.text_field :tags
-  %p
-    = f.label :private
-    %br
+      - else
+        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_date", :id => "go_live_date" }
+        %input{:class => 'go_live formfield', :type => "text", :name => "go_live_time", :id => "go_live_time" }
+    .formlabel
+      = f.label :tags
+    = f.text_field :tags, :class => 'formfield tags'
     = f.check_box :private
-  %p
-    = f.submit submit_text
+    = f.label :private, "Private?"
+    %p
+      = f.submit submit_text, :class => 'submit'
