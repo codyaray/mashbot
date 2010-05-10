@@ -12,3 +12,4 @@ cucumber
 cucumber-rails
 capybara
 twitter
+paperclip
