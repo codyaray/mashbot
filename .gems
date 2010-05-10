@@ -13,3 +13,4 @@ cucumber-rails
 capybara
 twitter
 paperclip
+gherkin
