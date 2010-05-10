@@ -8,9 +8,9 @@ factory_girl
 portablecontacts
 oauth-plugin
 rspec-rails
+gherkin
 cucumber
 cucumber-rails
 capybara
 twitter
 paperclip
-gherkin
