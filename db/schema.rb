@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20100510221555) do
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path",                      :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20100510221555) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path",                 :default => ""
+    t.text     "full_path"
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"

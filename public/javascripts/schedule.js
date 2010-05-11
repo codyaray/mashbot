@@ -69,7 +69,7 @@ function submit_campaign(posted){
 }
 
 function format_datetime(date){
-  return date.getFullYear() + '-' + pad((date.getMonth()+1), 2) + '-' + pad(date.getDate(), 2) + ' ' + pad(date.getHours(), 2) + ':' + pad(date.getMinutes(),2) + ':' + pad(date.getSeconds(), 2);
+  return (pad((date.getMonth()+1), 2) + '/' + pad(date.getDate(), 2) + "/" +  date.getFullYear());
 }
 
 function pad(number, length) {

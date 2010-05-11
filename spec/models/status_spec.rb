@@ -22,17 +22,18 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: statuses
 #
-#  id          :integer         not null, primary key
-#  campaign_id :integer
+#  id          :integer(4)      not null, primary key
+#  campaign_id :integer(4)
 #  message     :string(255)
-#  creator_id  :integer
+#  creator_id  :integer(4)
 #  go_live     :datetime
 #  created_at  :datetime
 #  updated_at  :datetime
-#  sent        :boolean         default(FALSE)
+#  sent        :boolean(1)      default(FALSE)
 #
 
