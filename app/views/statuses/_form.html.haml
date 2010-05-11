@@ -1,11 +1,9 @@
 - content_for(:javascripts) do
-  = javascript_include_tag 'timepickr/dist/ui.timepickr'
   = javascript_include_tag 'form_utils'
   = javascript_include_tag 'status'
 - content_for(:stylesheets) do
   = stylesheet_link_tag 'status'
   = stylesheet_link_tag 'form'
-  = stylesheet_link_tag 'timepickr/src/dist/ui.timepickr'
 
 .statuswrap
   - form_for(@status) do |f|

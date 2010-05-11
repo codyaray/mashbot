@@ -26,20 +26,3 @@
   text-align: right;
   color: #999; }
 
-.form {
-  margin: 0 auto;
-  width: 400px;
-  padding: 10px; }
-
-.go_live {
-  width: 49%;
-  float: left; }
-
-.go_live2 {
-  position: relative;
-  top: -19px;
-  z-index: 1; }
-
-.go_live_label2 {
-  z-index: 2;
-  top: 1px; }
