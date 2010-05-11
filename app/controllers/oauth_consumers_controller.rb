@@ -13,7 +13,7 @@ class OauthConsumersController < ApplicationController
   # params[:id] holds the service name so you could use this to redirect to various parts
   # of your application depending on what service you're connecting to.
   def go_back
-    redirect_to root_url
+    redirect_to oauth_consumers_url
   end
   
 end

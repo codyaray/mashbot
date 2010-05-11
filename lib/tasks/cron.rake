@@ -9,7 +9,7 @@ task :cron => :environment do
   # send authentication info for all necessary accounts
 
   users = {}
-  for item in [statuses, photos, posts].flatten!
+  for item in [statuses, photos, posts].flatten.compact
     user = item.creator
     users = users.merge({user => []}) if not users.include?(user)
     users[user] << item
@@ -23,11 +23,12 @@ task :cron => :environment do
       twitterEntry = buildAuthInfoEntry(:twitter, :oauth, token, secret)
     end
 
-    # if user.blogger
-    #   token = user.blogger.client.client.access_token.token
-    #   secret = user.blogger.client.client.access_token.secret
-    #   bloggerEntry = buildAuthInfoEntry(:blogger, :oauth, token, secret)
-    # end
+    if user.google
+      token = user.google.token
+      secret = user.google.secret
+      picasaEntry = buildAuthInfoEntry(:picasa, :oauth, token, secret)
+      bloggerEntry = buildAuthInfoEntry(:blogger, :oauth, token, secret)
+    end
 
     if user.tumblr
       email = user.tumblr.login
@@ -41,7 +42,7 @@ task :cron => :environment do
       flickrEntry = buildAuthInfoEntry(:flickr, :proprietary, username, token)
     end
     
-    entries = [twitterEntry, tumblrEntry, flickrEntry].compact
+    entries = [twitterEntry, picasaEntry, bloggerEntry, tumblrEntry, flickrEntry].compact
     if entries.length > 0
       authinfo = buildAuthInfo entries
       uuid = pushAuthInfo(authinfo)
@@ -161,7 +162,7 @@ end
 #{"mObject":{
 #  "context":{
 #    "entry":{
-#      "key":"postTitle",
+#      "key":"title",
 #      "value": post.title
 #    } "entry":{
 #      "key":"body",
@@ -173,7 +174,7 @@ end
 #}}}}
 def buildPostMObject title, body, tags=nil
   entry1,entry2,context,mObject,root = {},{},{},{},{},{}
-  entry1["key"] = "postTitle"
+  entry1["key"] = "title"
   entry1["value"] = title
   entry2["key"] = "body"
   entry2["value"] = body

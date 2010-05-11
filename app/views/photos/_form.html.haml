@@ -6,89 +6,46 @@
   = stylesheet_link_tag 'photo'
   = stylesheet_link_tag 'km.timepicker'
 
-- form_for(@photo, :url => photo_path(@photo), :html => { :multipart => true }) do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
-  %p
-    = f.label :image
-    %br
-    = f.file_field :image
-  %p
-    = f.label :caption
-    %br
-    = f.text_field :caption
-  %p
-    = f.label :tags
-    %br
-    = f.text_field :tags
-  %p
-    = f.label :permissions
-    %br
-    = render :partial => 'form_checkboxes', :locals => {:hash => Photo::PERMISSION_KEYS}
-  %p
-    = f.label :optional_fields
-    %br
-    Safety Level
-    = select_tag('optional_fields[safety_level]', options_from_hash(Photo::SAFETY_LEVEL))
-    %br
-    Content Type
-    = select_tag('optional_fields[content_type]', options_from_hash(Photo::CONTENT_TYPE))
-    %br
-    Searchable?
-    = select_tag('optional_fields[hidden]', options_from_hash(Photo::HIDDEN))
-    
-  %p
-    = f.label :go_live
-    %br
-    - if !@photo.go_live.nil?
-      %input{:type => "text", :name => "go_live_date", :id => "go_live_date", :value => "#{@photo.go_live.strftime('%m/%d/%Y')}" }
-      %input{:type => "text", :name => "go_live_time", :id => "go_live_time",         
-:value => "#{@photo.go_live.strftime('%I:%M%p')}" }
-    - else
-      %input{:type => "text", :name => "go_live_date", :id => "go_live_date" }
-      %input{:type => "text", :name => "go_live_time", :id => "go_live_time" }
-  %p
-    = f.submit submit_text
-
-/ #photowrap
-/   - form_for(@photo, :url => photo_path(@photo), :html => { :multipart => true }) do |f|
-/     = f.error_messages
-/     .imageupload.formfieldwrapper
-/       = f.file_field :image, :class => 'formfield'
-/     .formlabel
-/       = f.label :caption
-/     .formfieldwrapper
-/       = f.text_field :caption, :class => 'formfield'
-/     .formlabel
-/       = f.label :tags
-/     .formfieldwrapper
-/       = f.text_field :tags, :class => 'formfield'
-/     .permissionslabel
-/       = f.label :permissions
-/     .permissionsboxes
-/       = render :partial => 'form_checkboxes', :locals => {:hash => Photo::PERMISSION_KEYS}
-/     .optionallabel
-/       = f.label :optional_fields
-/     %table.optionalfields
-/       %tr
-/         %td
-/           Safety Level
-/         %td
-/           = select_tag('optional_fields[safety_level]', options_from_hash(Photo::SAFETY_LEVEL))
-/       %tr
-/         %td
-/           Content Type
-/         %td
-/           = select_tag('optional_fields[content_type]', options_from_hash(Photo::CONTENT_TYPE))
-/       %tr
-/         %td
-/           Searchable?
-/         %td
-/           = select_tag('optional_fields[hidden]', options_from_hash(Photo::HIDDEN))
-/       
-/     = render :partial => 'shared/go_live', :locals => {:object => @photo, :f => f}
-/     %p
-/       = f.submit submit_text, :class => 'submit'
+#photowrap
+  - form_for(@photo, :url => photo_path(@photo), :html => { :multipart => true }) do |f|
+    = f.error_messages
+    .imageupload.formfieldwrapper
+      = f.file_field :image, :class => 'formfield'
+    .formlabel
+      = f.label :title
+    .formfieldwrapper
+      = f.text_field :title, :class => 'formfield'
+    .formlabel
+      = f.label :caption
+    .formfieldwrapper
+      = f.text_field :caption, :class => 'formfield'
+    .formlabel
+      = f.label :tags
+    .formfieldwrapper
+      = f.text_field :tags, :class => 'formfield'
+    .permissionslabel
+      = f.label :permissions
+    .permissionsboxes
+      = render :partial => 'form_checkboxes', :locals => {:hash => Photo::PERMISSION_KEYS}
+    .optionallabel
+      = f.label :optional_fields
+    %table.optionalfields
+      %tr
+        %td
+          Safety Level
+        %td
+          = select_tag('optional_fields[safety_level]', options_from_hash(Photo::SAFETY_LEVEL))
+      %tr
+        %td
+          Content Type
+        %td
+          = select_tag('optional_fields[content_type]', options_from_hash(Photo::CONTENT_TYPE))
+      %tr
+        %td
+          Searchable?
+        %td
+          = select_tag('optional_fields[hidden]', options_from_hash(Photo::HIDDEN))
+      
+    = render :partial => 'shared/go_live', :locals => {:object => @photo, :f => f}
+    %p
+      = f.submit submit_text, :class => 'submit'
