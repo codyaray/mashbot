@@ -39,7 +39,7 @@ class AuthenticationCredentialsController < ApplicationController
         flash[:notice] = "Something went wrong saving the credentials for Flickr. Try again? #{e.message}"
       else
         flash[:notice] = "Awesome, we have credentials for Flickr stored away"
-        @entries = AuthenticationCredential.all :conditions => {:service => 'Flickr' and :user_id => current_user.id} # So we have the most recently stored one.
+        @entries = AuthenticationCredential.all :conditions => {(:service => 'Flickr' and :user_id => current_user.id)} # So we have the most recently stored one.
       end
     end
   end
