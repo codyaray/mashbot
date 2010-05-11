@@ -7,6 +7,10 @@
 
 #photowrap
   = link_to image_tag(@photo.image.url(:show)), "javascript: $.facebox('#{image_tag(@photo.image.url)}')" 
+  .title.info
+    %b
+      Title:
+    = h @photo.title
   .caption.info
     %b
       Caption:

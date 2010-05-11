@@ -7,6 +7,10 @@
 - form_for(@photo, :url => photo_path(@photo), :html => { :multipart => true }) do |f|
   = f.error_messages
   %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
     = f.label :image
     %br
     = f.file_field :image

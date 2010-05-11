@@ -19,8 +19,8 @@ OAUTH_CREDENTIALS={
     :secret=>"E3akoP3oG8iQj1XHP9bArQSwlCKfyedPNaFX4U8vd4"
   },
   :google=>{ 
-    :key=>"anonymous", 
-    :secret=>"anonymous", 
+    :key=>"www.mashbot.net", 
+    :secret=>"gQm5ijNqtZ6qwuWpRbENKdso",
     :scope=>"http://www.blogger.com/feeds/", 
     :site => "http://www.google.com",
     :request_token_path => "/accounts/OAuthGetRequestToken", 

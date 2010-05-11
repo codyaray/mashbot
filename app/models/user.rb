@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
   has_many :statuses
   has_many :service_accounts
+  has_many :authentication_credentials
   
   acts_as_authentic do |c|
     c.openid_required_fields = [:nickname, :email]
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
   end
   
   def flickr
-    return ServiceAccount.find(:first, :conditions => ['service = ? and user_id = ?', 'flickr', self.id])
+    return AuthenticationCredential.find(:first, :conditions => ['service = ? and user_id = ?', 'Flickr', self.id])
   end
   
   def deliver_password_reset_instructions!
@@ -42,11 +43,12 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id                  :integer(4)      not null, primary key
+#  id                  :integer         not null, primary key
 #  login               :string(255)
 #  email               :string(255)     not null
 #  crypted_password    :string(255)
@@ -54,8 +56,8 @@ end
 #  persistence_token   :string(255)     not null
 #  single_access_token :string(255)     not null
 #  perishable_token    :string(255)     not null
-#  login_count         :integer(4)      default(0), not null
-#  failed_login_count  :integer(4)      default(0), not null
+#  login_count         :integer         default(0), not null
+#  failed_login_count  :integer         default(0), not null
 #  last_request_at     :datetime
 #  current_login_at    :datetime
 #  last_login_at       :datetime

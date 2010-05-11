@@ -23,11 +23,11 @@ task :cron => :environment do
       twitterEntry = buildAuthInfoEntry(:twitter, :oauth, token, secret)
     end
 
-    if user.blogger
-      token = user.blogger.client.client.access_token.token
-      secret = user.blogger.client.client.access_token.secret
-      bloggerEntry = buildAuthInfoEntry(:blogger, :oauth, token, secret)
-    end
+    # if user.blogger
+    #   token = user.blogger.client.client.access_token.token
+    #   secret = user.blogger.client.client.access_token.secret
+    #   bloggerEntry = buildAuthInfoEntry(:blogger, :oauth, token, secret)
+    # end
 
     if user.tumblr
       email = user.tumblr.login
@@ -36,29 +36,40 @@ task :cron => :environment do
     end
     
     if user.flickr
-      email = user.flickr.login
-      password = user.flickr.password
-      flickrEntry = buildAuthInfoEntry(:flickr, :userpass, email, password)
+      username = user.login
+      token = user.flickr.details[:token]
+      flickrEntry = buildAuthInfoEntry(:flickr, :proprietary, username, token)
     end
     
-    entries = [twitterEntry, bloggerEntry, tumblrEntry, flickrEntry].compact!
+    entries = [twitterEntry, tumblrEntry, flickrEntry].compact
     if entries.length > 0
       authinfo = buildAuthInfo entries
-      #uuid = pushAuthInfo(authinfo)
-      print authinfo
+      uuid = pushAuthInfo(authinfo)
+      # print authinfo
     end
 
     # loop over all things scheduled for now, send each item to the PAAP, and mark as sent
-    for status in users[user]
-      mobject = buildStatusMObject(status.message)
-      pushMObject('status',mobject,uuid)
-      # status.mark_as_sent
+    for item in users[user]
+      if item.is_a? Status
+        type = 'status'
+        mobject = buildStatusMObject(item.message)
+      elsif item.is_a? Post
+        type = 'post'
+        mobject = buildPostMObject(item.title, item.body, item.tags)
+      elsif item.is_a? Photo
+        type = 'photo'
+        mobject = buildPhotoMObject('http://144.118.156.2:3000' + item.image.url, item.title, item.caption, item.tags)
+      end
+
+      pushMObject(type,mobject,uuid)
+      item.sent = true
+      # item.save!
     end
   end
 end
 
 def pushAuthInfo authinfo
-  http = Net::HTTP.new('ws35.cs.drexel.edu', 8080)
+  http = Net::HTTP.new('144.118.146.124', 8080)
   path = '/mashbot/rest/auth'
 
   # POST request -> push status
@@ -67,6 +78,7 @@ def pushAuthInfo authinfo
     'Content-Type' => 'application/json',
     'Authorization' => "Basic #{Base64.b64encode("default:default")}"
   }
+  puts data
 
   # receive UUID as (json) string
 
@@ -76,7 +88,7 @@ def pushAuthInfo authinfo
 end
 
 def pushMObject type, mobject, uuid
-  http = Net::HTTP.new('ws35.cs.drexel.edu', 8080)
+  http = Net::HTTP.new('144.118.146.124', 8080)
   path = '/mashbot/rest/' + type + '?token=' + uuid
 
   # POST request -> push mobject
@@ -85,6 +97,7 @@ def pushMObject type, mobject, uuid
     'Content-Type' => 'application/json',
     'Authorization' => "Basic #{Base64.b64encode("default:default")}"
   }
+  puts data
 
   resp, data = http.post(path, data, headers)
 
@@ -95,24 +108,24 @@ def pushMObject type, mobject, uuid
   puts data
 end
 
-# {"authInfo": [
-#   {
+# {"userauth":
+#   {"credentials": [{
 #     "service": "twitter",
 #     "credentials": [{
 #       "method": "oauth",
 #       "key": "9583182-gq9004z74qQThHKCAsaZ9BiNo8mf7Vht1lx8eXiIUo",
-#       "secret": "cgv2XDMH4FJeSxwo6HtfAZf33a6eOqdJoBxnYB2D8"
+#       "secret": "cgv2XDMH4FJeSxwo6HtfAZf33a6eOqdJoBxnYB2D8" 
 #     }]
 #   },
 #   {
 #     "service": "tumblr",
 #     "credentials": [{
-#       "method": "userpass",
 #       "key": "test@mashbot.net",
-#       "secret": "m45hb07"
+#       "secret": "m45hb07",
+#       "method": "userpass" 
 #     }]
-#   }
-# ]}
+#   }]
+# }}
 def buildAuthInfoEntry service, method, key, secret
   value,entry = {},{}
   value["key"] = key
@@ -124,9 +137,10 @@ def buildAuthInfoEntry service, method, key, secret
 end
 
 def buildAuthInfo entries
-  authinfo = {}
-  authinfo["authinfo"] = entries
-  return authinfo.to_json
+  userauth,credentials = {},{}
+  credentials["credentials"] = entries
+  userauth["userauth"] = credentials
+  return userauth.to_json
 end
 
 #{"mObject":{
@@ -135,26 +149,71 @@ end
 #      "key":"status",
 #      "value":"mytext"
 #}}}}
-
-#{"mObject":{
-#  "context":{
-#    "entry" :{
-#      "key":"photo",
-#      "value": photo.image.url
-#}}}}
-
-#{"mObject":{
-#  "context":{
-#    "entry" :{
-#      "key":"post",
-#      "value": post.body
-#}}}}
 def buildStatusMObject status
   entry,context,mObject,root = {},{},{},{}
   entry["key"] = "status"
-  entry["value"] = [status]
-  context["entry"] = entry
-  mObject["context"] = context
+  entry["value"] = status
+  mObject["context"] = [entry]
   root["mObject"] = mObject
   return root.to_json
+end
+
+#{"mObject":{
+#  "context":{
+#    "entry":{
+#      "key":"postTitle",
+#      "value": post.title
+#    } "entry":{
+#      "key":"body",
+#      "value": post.body
+#    } "entry": {
+#      "key": "tags"
+#      "value": post.tags
+#    }
+#}}}}
+def buildPostMObject title, body, tags=nil
+  entry1,entry2,context,mObject,root = {},{},{},{},{},{}
+  entry1["key"] = "postTitle"
+  entry1["value"] = title
+  entry2["key"] = "body"
+  entry2["value"] = body
+  if tags
+    entry3 = {}
+    entry3["key"] = "tags"
+    entry3["value"] = tags
+  end
+  mObject["context"] = [entry1, entry2, entry3].compact
+  root["mObject"] = mObject
+  root.to_json
+end
+
+#{"mObject":{
+#  "context":{
+#      "key":"photo",
+#      "value": photo.image.url
+#}}}
+def buildPhotoMObject url, title, caption=nil, tags=nil, album=nil
+  entry1, entry2, context, mObject, root = {},{},{},{},{}
+  entry1["key"] = "url"
+  entry1["value"] = url
+  entry2["key"] = "title"
+  entry2["value"] = title
+  if caption
+    entry3 = {}
+    entry3["key"] = "caption"
+    entry3["value"] = caption
+  end
+  if tags
+    entry4 = {}
+    entry4["key"] = "tags"
+    entry4["value"] = tags.split( /, */ )
+  end
+  if album
+    entry5 = {}
+    entry5["key"] = "album"
+    entry5["value"] = album
+  end
+  mObject["context"] = [entry1, entry2, entry3, entry4, entry5].compact
+  root["mObject"] = mObject
+  root.to_json
 end
