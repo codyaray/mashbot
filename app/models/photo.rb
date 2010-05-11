@@ -1,6 +1,10 @@
 class Photo < ActiveRecord::Base
   belongs_to :campaign
   belongs_to :creator, :class_name => 'User'
+
+  # Require a title else the core will fail with
+  # InvalidEntryException: Bad Request `Photo title cannot be empty`
+  validates_presence_of :title
   
   serialize :optional_fields, Hash
   serialize :permissions, Hash

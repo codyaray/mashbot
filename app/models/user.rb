@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :client_applications
-  has_one :blogger, :class_name=>"GoogleToken", :dependent=>:destroy
+  has_one :google, :class_name=>"GoogleToken", :dependent=>:destroy
   has_one :twitter, :class_name=>"TwitterToken", :dependent=>:destroy
   has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
   has_many :statuses
