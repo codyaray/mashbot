@@ -11,6 +11,8 @@
     %b
       Title:
     = h @photo.title
+  = link_to image_tag(@photo.image.url(:show)), ((@photo.image.url.match /.gif/) ? "javascript: $.facebox(function(){$.facebox('#{image_tag(@photo.image.url(:largest))}');})" : @photo.image.url(:largest)), :rel => ((@photo.image.url.match /.gif/) ? 'nothing' : 'facebox')
+  -#  The above is a workaround for how Facebox calls images directly.  Basically: it fails hard when it tries to retreive a gif.
   .caption.info
     %b
       Caption:

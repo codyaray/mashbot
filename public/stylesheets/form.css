@@ -1,5 +1,5 @@
 .formfield {
-  background: #eef;
+  background: #D7EBF9;
   height: 50px;
   width: 400px;
   text-align: center;
@@ -18,7 +18,9 @@
 
 .submit {
   background: #336;
-  color: #fff; }
+  color: #fff;
+  font-size: 30px;
+  width: 100%; }
 
 .fieldnote {
   text-align: right;
@@ -28,3 +30,16 @@
   margin: 0 auto;
   width: 400px;
   padding: 10px; }
+
+.go_live {
+  width: 49%;
+  float: left; }
+
+.go_live2 {
+  position: relative;
+  top: -19px;
+  z-index: 1; }
+
+.go_live_label2 {
+  z-index: 2;
+  top: 1px; }

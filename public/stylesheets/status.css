@@ -41,3 +41,8 @@
   margin-top: 10px;
   width: 620px;
   font-size: 2em; }
+
+.author {
+  float: right;
+  text-align: right;
+  width: 100px; }

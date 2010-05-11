@@ -10,12 +10,11 @@
 .statuswrap
   - form_for(@status) do |f|
     = f.error_messages
-    %p
+    .formlabel
       = f.label :message
-      %br
-      = f.text_area :message, :class => 'status', :onkeyup => 'calculate_characters()'
-      #characters.normal
-        140
+    = f.text_area :message, :class => 'status', :onkeyup => 'calculate_characters()'
+    #characters.normal
+      140
     %p
       = render :partial => 'shared/go_live', :locals => {:object => @status, :f => f}
     %p

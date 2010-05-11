@@ -49,6 +49,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.creator = current_user
     @post.campaign = @campaign
+    @post.go_live = params[:go_live_date] + " " + params[:go_live_time]
 
     respond_to do |format|
       if @post.save
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
+    @post.go_live = params[:go_live_date] + " " + params[:go_live_time]
 
     respond_to do |format|
       if @post.update_attributes(params[:post])

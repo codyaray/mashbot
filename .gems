@@ -1,3 +1,5 @@
+treetop
+term-ansicolor
 authlogic
 authlogic-oid
 ruby-openid
@@ -8,7 +10,9 @@ factory_girl
 portablecontacts
 oauth-plugin
 rspec-rails
+gherkin
 cucumber
 cucumber-rails
 capybara
 twitter
+paperclip

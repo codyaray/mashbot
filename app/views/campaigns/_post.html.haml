@@ -4,10 +4,10 @@
   %td
     = h post.creator.login if not post.creator.nil?
   %td
-    = h post.go_live.strftime('%m/%d/%Y %I:%M%p')
+    = h post.go_live.strftime('%m/%d/%Y %I:%M%p') if post.go_live
   %td
     = h post.sent
   %td
     = link_to 'Edit', edit_campaign_post_path(@campaign, post)
     |
-    = link_to 'Destroy', campaign_post_path(@campaign, post), :confirm => 'Are you sure?', :method => :delete
+    = link_to 'Delete', campaign_post_path(@campaign, post), :confirm => 'Are you sure?', :method => :delete

@@ -1,8 +1,11 @@
 - content_for :stylesheets do
   = stylesheet_link_tag 'campaign'
 - content_for :javascripts do
+  - if request.referer
+    -  index = get_index
+  = javascript_tag "var index = #{index}"
   = javascript_include_tag 'campaign'
-%h1.pagetitle
+%h1
   = h @campaign.title
 .dates
   = h @campaign.start_date
@@ -20,6 +23,8 @@
           Creator
         %th
           Live Date
+        %th
+          Published?
         %th
           
       = render :partial => 'status', :collection => @campaign.statuses

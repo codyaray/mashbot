@@ -1,4 +1,5 @@
 %h1
   New post
 = render :partial => 'form', :locals => {:submit_text => "Create!", :submit_url => campaign_posts_path}
-= link_to 'Back', campaign_posts_path
+.quicklinks
+  = link_to 'Back', campaign_path(@campaign)

@@ -1,36 +1,24 @@
-%p
-  %b
-    Title:
-  = h @post.title
-%p
-  %b
-    Body:
-  %blockquote{:style => "padding: 20px"}
+- content_for :stylesheets do
+  = stylesheet_link_tag 'post'
+
+.postwrap
+  .title
+    %h1
+      = h @post.title + ((@post.private) ? " (Private)" : "")
+    .author
+      by      
+      = h @post.creator.login
+  .body
     = @post.rendered_body
-%p
-  %b
-    Go live:
-  = h @post.go_live
-%p
-  %b
-    Creator:
-  = h @post.creator_id
-%p
-  %b
-    Campaign:
-  = h @post.campaign_id
-%p
-  %b
-    Sent:
-  = h @post.sent
-%p
-  %b
-    Tags:
-  = h @post.tags
-%p
-  %b
-    Private:
-  = h @post.private
-= link_to 'Edit', edit_campaign_post_path(@campaign, @post)
-|
-= link_to 'Back', campaign_posts_path(@campaign)
+  .go_live
+    %b
+      Go live:
+    = h @post.go_live.strftime('%m/%d/%Y %I:%M%p') if @post.go_live
+  .tags
+    %b
+      Tags:
+    = h @post.tags
+.quicklinks
+  = link_to 'Edit', edit_campaign_post_path(@campaign, @post)
+  |
+  = link_to 'Back', campaign_path(@campaign)

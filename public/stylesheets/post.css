@@ -1,0 +1,21 @@
+.postwrap {
+  width: 400px;
+  margin: 0 auto; }
+
+.author {
+  float: right;
+  color: #669;
+  padding: 10px; }
+
+.body {
+  margin: 10px 0;
+  padding: 20px 10px;
+  background: #eef; }
+  .body p {
+    margin: 10px 0px; }
+
+.go_live {
+  margin-bottom: 10px; }
+
+.tags {
+  margin-bottom: 10px; }
