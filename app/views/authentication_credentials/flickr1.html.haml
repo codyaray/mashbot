@@ -1,0 +1,14 @@
+%h1 Flickr
+
+-if @entries.empty?
+  %p
+    You are currently not connected to Flickr.
+    %br
+
+    =link_to 'Authenticate', @token_request_url
+-else
+  %p You are connected as:
+  %ul
+    -@entries.each do |e|
+      %li
+        =link_to e.details[:username], "http://flickr.com/#{e.details[:username]}"

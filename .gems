@@ -16,3 +16,5 @@ cucumber-rails
 capybara
 twitter
 paperclip
+flickraw
+term-ansicolor

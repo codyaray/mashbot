@@ -12,6 +12,10 @@
     .imageupload.formfieldwrapper
       = f.file_field :image, :class => 'formfield'
     .formlabel
+      = f.label :title
+    .formfieldwrapper
+      = f.text_field :title, :class => 'formfield'
+    .formlabel
       = f.label :caption
     .formfieldwrapper
       = f.text_field :caption, :class => 'formfield'

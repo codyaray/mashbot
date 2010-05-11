@@ -1,5 +1,47 @@
 class AuthenticationCredentialsController < ApplicationController
+
   def index
+  end
+  
+  def flickr1
+    @token_request_url = FlickRaw.auth_url :perms => 'write'
+
+    @entries = AuthenticationCredential.all(:conditions => {:service => 'Flickr'})
+
+    exists = false
+    if params[:frob]
+      begin
+        auth = flickr.auth.getToken :frob => params[:frob]
+        login = flickr.test.login
+        @username = login.username
+        @tokens = [auth.token]
+        
+        @entries.each do |e|
+          matching_record = nil
+          if e.details[:username] == login.username
+            exists = true
+            matching_record = e
+          end
+        end
+        
+        details = {
+          :username => login.username,
+          :token => auth.token
+        }
+
+        if not exists
+          AuthenticationCredential.create :service => 'Flickr', :user_id => current_user.id, :details => details
+        else
+          matching_record.details = details
+          matching_record.save!
+        end
+      rescue Exception => e
+        flash[:notice] = "Something went wrong saving the credentials for Flickr. Try again? #{e.message}"
+      else
+        flash[:notice] = "Awesome, we have credentials for Flickr stored away"
+        @entries = AuthenticationCredential.all :conditions => (:service == 'Flickr' and :user_id == current_user.id) # So we have the most recently stored one.
+      end
+    end
   end
 
   def twitter

@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508215729) do
+ActiveRecord::Schema.define(:version => 20100510221555) do
 
   create_table "authentication_credentials", :force => true do |t|
     t.string   "service",    :null => false
     t.string   "details",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "campaigns", :force => true do |t|
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20100508215729) do
     t.integer  "comatose_page_id"
     t.integer  "version"
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                      :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20100508215729) do
 
   create_table "comatose_pages", :force => true do |t|
     t.integer  "parent_id"
-    t.text     "full_path"
+    t.text     "full_path",                 :default => ""
     t.string   "title"
     t.string   "slug"
     t.string   "keywords"
@@ -135,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20100508215729) do
     t.boolean  "sent",               :default => false
     t.integer  "creator_id"
     t.integer  "campaign_id"
+    t.string   "title"
   end
 
   create_table "posts", :force => true do |t|

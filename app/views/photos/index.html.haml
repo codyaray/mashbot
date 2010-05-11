@@ -3,6 +3,8 @@
 %table
   %tr
     %th
+      Title
+    %th
       Caption
     %th
       Tags
@@ -12,6 +14,8 @@
       Optional fields
   - @photos.each do |photo|
     %tr
+      %td
+        = h photo.title
       %td
         = h photo.caption
       %td
