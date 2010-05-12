@@ -1,3 +1,7 @@
+$(document).ready(function(){
+                    calculate_characters();
+                  });
+
 function calculate_characters() {
   var length = 140-$('#status_message').val().length;
   var charr = $('#characters');

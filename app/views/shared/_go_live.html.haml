@@ -1,3 +1,12 @@
+- content_for :javascripts do
+  = javascript_include_tag 'jquery-timepickr/dist/jquery.timepickr'
+  = javascript_include_tag 'jquery-timepickr/dist/ui.timepickr'
+  = javascript_include_tag 'pickers'
+
+- content_for :stylesheets do
+  = stylesheet_link_tag 'jquery-timepickr/dist/jquery.timepickr'
+  = stylesheet_link_tag 'ui.timepickr.css'
+
 .formlabel.go_live_label
   = f.label :go_live_date
 - if !object.go_live.nil?
@@ -9,6 +18,7 @@
 :value => "#{object.go_live.strftime('%I:%M%p')}" }
 - else
   %input{:class => 'formfield go_live', :type => "text", :name => "go_live_date", :id => "go_live_date" }
-  .formlabel.go_live_label2
+  .formlabel.go_live_label2.timehandle
     = f.label :go_live_time
   %input{:class => 'formfield go_live go_live2', :type => "text", :name => "go_live_time", :id => "go_live_time" }
+    -
