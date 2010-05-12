@@ -30,7 +30,7 @@ class AuthenticationCredentialsController < ApplicationController
         }
 
         if not exists
-          AuthenticationCredential.create :service => 'flickr', :user_id => current_user.id, :details => details
+          AuthenticationCredential.create(:service => 'flickr', :user_id => current_user.id, :details => details)
         else
           matching_record.details = details
           matching_record.save!
