@@ -1,0 +1,48 @@
+%h1
+  Services
+
+%br
+-if @service_accounts.empty? and @consumer_tokens.empty? and @entries.empty?
+  %p
+    You are currently not connected to any external services.
+-else
+  %p You are connected to the following services:
+  %ul
+    -@consumer_tokens.each do |token|
+      %li
+        =link_to token.class.service_name.to_s.humanize, oauth_consumer_path(token.class.service_name)
+    -@entries.each do |e|
+      %li
+        =link_to "Flickr", "http://flickr.com/#{e.details[:username]}"
+    - @service_accounts.each do |service_account|
+      %li
+        = link_to service_account.service.humanize, service_account
+
+-if not @services.empty? or @entries.empty? or @service_accounts.empty?
+  %h3 You can connect to the following services:
+  %ul
+    -unless @services.empty?
+      -@services.each do |service|
+        %li
+          =link_to service.to_s.humanize,oauth_consumer_path(service)
+
+    -if @entries.empty?
+      %li
+        =link_to 'Flickr', @token_request_url
+
+%br
+= link_to 'New userpass service account', new_service_account_path
+
+%h1
+  Files For Review:
+%p
+  %a{ :href => "doc/Requirements.pdf" }
+    Software Requirements Specification
+  %br
+  %a{ :href => "doc/Testplan.pdf" }
+    Acceptance Test Plan
+  %a{ :href => "doc/Design.pdf" }
+    Design Document
+  %br
+  %a{ :href => "doc/Integration.pdf" }
+    Integration Test Plan
