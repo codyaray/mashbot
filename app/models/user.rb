@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
   
   def flickr
-    return AuthenticationCredential.find(:first, :conditions => ['service = ? and user_id = ?', 'Flickr', self.id])
+    return AuthenticationCredential.find(:first, :conditions => ['service = ? and user_id = ?', 'flickr', self.id])
   end
   
   def deliver_password_reset_instructions!
