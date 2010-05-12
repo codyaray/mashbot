@@ -29,10 +29,11 @@
     -if @entries.empty?
       %li
         =link_to 'Flickr', @token_request_url
+    -if @service_accounts.empty?
+      %li
+        = link_to 'Tumblr', new_service_account_path
 
 %br
-= link_to 'New userpass service account', new_service_account_path
-
 %h1
   Files For Review:
 %p
