@@ -26,6 +26,16 @@ OAUTH_CREDENTIALS={
     :request_token_path => "/accounts/OAuthGetRequestToken", 
     :access_token_path => "/accounts/OAuthGetAccessToken", 
     :authorize_path=> "/accounts/OAuthAuthorizeToken"  
+  },
+  :facebook=>{
+    :key=>"3d07fa3a51a6771dc2b5aab732ad0987",
+    :secret=>"928ab894330d2599d8cb8d2d286023bd",
+    :options=>{
+      :site=>"http://graph.facebook.com",
+      :authorize_path=>"/oauth/authorize",
+      :request_token_path=>"/oauth/request_token",
+      :access_token_path=>"/oauth/access_token"
+    }
   }
 }
 #   :agree2=>{

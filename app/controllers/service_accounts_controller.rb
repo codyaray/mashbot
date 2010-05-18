@@ -1,4 +1,6 @@
 class ServiceAccountsController < ApplicationController
+  before_filter :require_user
+  
   # GET /service_accounts
   # GET /service_accounts.xml
   def index
