@@ -1,0 +1,31 @@
+- content_for :stylesheets do
+  = stylesheet_link_tag 'form'
+
+- if @user.openid_identifier.blank?
+  .formlabel
+    = form.label :company
+  .formfieldwrapper
+    = form.text_field :company, :class => "formfield"
+  .formlabel
+    = form.label :login
+  .formfieldwrapper
+    = form.text_field :login, :class => "formfield"
+  .formlabel
+    = form.label :email
+  .formfieldwrapper
+    = form.text_field :email, :class => "formfield"
+  .formlabel
+    = form.label :password, form.object.new_record? ? nil : "Change password"
+  .formfieldwrapper
+    = form.password_field :password, :class => "formfield"
+  .formlabel
+    = form.label :password_confirmation
+  .formfieldwrapper
+    = form.password_field :password_confirmation, :class => "formfield"
+%h2
+  Or use OpenID
+.formlabel
+  = form.label :openid_identifier, "OpenID URL"
+.formfieldwrapper
+  = form.text_field :openid_identifier, :class => "formfield"
+
