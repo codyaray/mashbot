@@ -1,5 +1,13 @@
 require 'net/http'
 
+LOCAL = 'http://mashbot.heroku.com:3000'
+SERVER = 'ws33.cs.drexel.edu'
+DEBUG=true
+
+# Post.all.each{ |x| x.sent = false; x.save! }
+# Status.all.each{ |x| x.sent = false; x.save! }
+# Photo.all.each{ |x| x.sent = false; x.save! }
+
 task :cron => :environment do
   # check database for things with time to go_live <= Time.now
   statuses = Status.find(:all, :conditions => ['go_live <= ? and sent = ?', Time.now, false], :order => 'go_live DESC')
@@ -46,7 +54,6 @@ task :cron => :environment do
     if entries.length > 0
       authinfo = buildAuthInfo entries
       uuid = pushAuthInfo(authinfo)
-      # print authinfo
     end
 
     # loop over all things scheduled for now, send each item to the PAAP, and mark as sent
@@ -59,18 +66,18 @@ task :cron => :environment do
         mobject = buildPostMObject(item.title, item.body, item.tags)
       elsif item.is_a? Photo
         type = 'photo'
-        mobject = buildPhotoMObject('http://144.118.156.2:3000' + item.image.url, item.title, item.caption, item.tags)
+        mobject = buildPhotoMObject(LOCAL + item.image.url, item.title, item.caption, item.tags)
       end
 
       pushMObject(type,mobject,uuid)
       item.sent = true
-      # item.save!
+      item.save! unless DEBUG
     end
   end
 end
 
 def pushAuthInfo authinfo
-  http = Net::HTTP.new('144.118.146.124', 8080)
+  http = Net::HTTP.new(SERVER, 8080)
   path = '/mashbot/rest/auth'
 
   # POST request -> push status
@@ -79,7 +86,7 @@ def pushAuthInfo authinfo
     'Content-Type' => 'application/json',
     'Authorization' => "Basic #{Base64.b64encode("default:default")}"
   }
-  puts data
+  puts data if DEBUG
 
   # receive UUID as (json) string
 
@@ -89,7 +96,7 @@ def pushAuthInfo authinfo
 end
 
 def pushMObject type, mobject, uuid
-  http = Net::HTTP.new('144.118.146.124', 8080)
+  http = Net::HTTP.new(SERVER, 8080)
   path = '/mashbot/rest/' + type + '?token=' + uuid
 
   # POST request -> push mobject
@@ -98,7 +105,7 @@ def pushMObject type, mobject, uuid
     'Content-Type' => 'application/json',
     'Authorization' => "Basic #{Base64.b64encode("default:default")}"
   }
-  puts data
+  puts data if DEBUG
 
   resp, data = http.post(path, data, headers)
 
